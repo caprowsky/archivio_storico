@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.carriera_studente.field_data_laurea
     - field.field.node.carriera_studente.field_data_licenza
     - field.field.node.carriera_studente.field_facolta
+    - field.field.node.carriera_studente.field_id
     - field.field.node.carriera_studente.field_revisore
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_licenz
@@ -36,6 +37,7 @@ hidden:
   field_data_laurea: true
   field_data_licenza: true
   field_facolta: true
+  field_id: true
   field_revisore: true
   field_segnatura_arch_tesi_laurea: true
   field_segnatura_arch_tesi_licenz: true
