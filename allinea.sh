@@ -4,7 +4,7 @@
 docker-compose down;
 docker-compose up -d;
 
-sleep 60
+sleep 20
 
 drush updb -y;
 drush cim -y;

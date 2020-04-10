@@ -27,9 +27,9 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
         '40360c0b9b437e69bcbb7f1349ce029e' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/functions/parse_cookie_header.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'a16312f9300fed4a097923eacb0ba814' => __DIR__ . '/..' . '/igorw/get-in/src/get_in.php',
         '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -130,6 +130,7 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
         array (
             'Drush\\Internal\\' => 15,
             'Drush\\' => 6,
+            'Drupal\\ui_patterns\\' => 19,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -385,6 +386,10 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\ui_patterns\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/ui_patterns/src',
         ),
         'Drupal\\Driver\\' => 
         array (
