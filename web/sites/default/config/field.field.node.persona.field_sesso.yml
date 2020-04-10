@@ -1,0 +1,21 @@
+uuid: 57a22777-247f-4ff4-bcf6-d7bb4d60177a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sesso
+    - node.type.persona
+  module:
+    - options
+id: node.persona.field_sesso
+field_name: field_sesso
+entity_type: node
+bundle: persona
+label: Sesso
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

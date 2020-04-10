@@ -1,0 +1,11 @@
+uuid: 8f1c3117-bae3-4a4d-b027-8a9dd2cd1134
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.facolta
+id: taxonomy_term.facolta
+target_entity_type_id: taxonomy_term
+target_bundle: facolta
+default_langcode: site_default
+language_alterable: false

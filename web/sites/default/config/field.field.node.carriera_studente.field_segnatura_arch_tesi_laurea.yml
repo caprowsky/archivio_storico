@@ -1,0 +1,19 @@
+uuid: 06410541-0e92-436f-ae06-f5a671b41370
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_segnatura_arch_tesi_laurea
+    - node.type.carriera_studente
+id: node.carriera_studente.field_segnatura_arch_tesi_laurea
+field_name: field_segnatura_arch_tesi_laurea
+entity_type: node
+bundle: carriera_studente
+label: 'Segnatura archivistica tesi laurea'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

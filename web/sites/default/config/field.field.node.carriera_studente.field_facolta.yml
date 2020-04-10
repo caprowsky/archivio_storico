@@ -1,0 +1,29 @@
+uuid: 10875304-13f8-43db-81a8-12606d07467b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facolta
+    - node.type.carriera_studente
+    - taxonomy.vocabulary.facolta
+id: node.carriera_studente.field_facolta
+field_name: field_facolta
+entity_type: node
+bundle: carriera_studente
+label: Facoltà
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      facolta: facolta
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

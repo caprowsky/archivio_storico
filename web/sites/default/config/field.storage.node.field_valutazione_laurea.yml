@@ -1,0 +1,19 @@
+uuid: 48c0798c-2e38-45a0-bbac-b8cd734bf0db
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_valutazione_laurea
+field_name: field_valutazione_laurea
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

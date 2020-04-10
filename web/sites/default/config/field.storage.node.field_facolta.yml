@@ -1,0 +1,20 @@
+uuid: c1c35116-bbe4-4467-9f25-904f7bb683be
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_facolta
+field_name: field_facolta
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
