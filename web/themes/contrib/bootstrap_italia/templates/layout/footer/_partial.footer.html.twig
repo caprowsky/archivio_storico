@@ -1,0 +1,16 @@
+{% block footer %}
+  <footer class="it-footer mt-5">
+    <div class="it-footer-main">
+      <div class="container">
+        {% include '@bootstrap_italia/layout/footer/_partial.footer-brand.html.twig' %}
+        {% include '@bootstrap_italia/layout/footer/_partial.footer-menu.html.twig' %}
+        {% include '@bootstrap_italia/layout/footer/_partial.footer-blocks.html.twig' %}
+      </div>
+    </div>
+    <div class="it-footer-small-prints clearfix">
+      <div class="container">
+        {% include '@bootstrap_italia/layout/footer/_partial.footer-small-prints.html.twig' %}
+      </div>
+    </div>
+  </footer>
+{% endblock %}

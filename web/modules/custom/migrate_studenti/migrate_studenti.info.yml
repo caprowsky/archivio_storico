@@ -1,0 +1,9 @@
+name: CSV Archivio Studenti Universià di Cagliari
+type: module
+package: Migration
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - migrate_source_csv:migrate_source_csv
+  - drupal:node
+  - drupal:datetime

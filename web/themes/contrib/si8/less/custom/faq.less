@@ -1,0 +1,102 @@
+.faq-page {
+
+  .views-field-changed {
+    margin: 20px 0;
+  }
+
+  #edit-key {
+    font-family: @font-footer !important;
+  }
+
+  #edit-submit-domande-frequenti {
+    font-family: "FontAwesome", sans-serif;
+  }
+
+  font-size: 2rem;
+
+  input.form-text {
+    border: 1px solid @gray-light;
+    border-radius: 0;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: @screen-xs-max) {
+
+    .form-item-key {
+      float: left;
+    }
+  }
+
+  button {
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 0;
+    margin-right: 0;
+    height: 34px;
+    margin-left: -8px;
+    font-size: 2rem;
+
+    &:hover {
+      color: #fff;
+      background-color: #333;
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  .view-filters {
+    margin-bottom: 30px;
+  }
+
+  .block-facets {
+    ul {
+      padding-left: 0;
+      .make-row();
+
+      li {
+        list-style-type: none;
+        .make-md-column(6);
+
+        a {
+          display: block;
+          border-bottom: 1px solid @gray-lighter;
+          padding: 10px;
+
+          &.is-active, &:hover {
+            background-color: @brand-primary;
+            color: #fff;
+          }
+        }
+
+      }
+    }
+  }
+
+  .ui-accordion-icons {
+    border: none;
+    background-color: @gray-lighter;
+    background-image: none;
+    color: #333;
+    margin-top: 30px;
+  }
+
+  .ui-icon {
+    color: #fff;
+  }
+
+  .ui-accordion-content {
+    border: none !important;
+    font-size: 1.5rem;
+  }
+
+
+}
+
+article.faq.full {
+  .tipologia {
+    margin-bottom: 20px;
+  }
+}

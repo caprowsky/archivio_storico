@@ -1,0 +1,41 @@
+id: studenti
+migration_tags:
+  - CSV
+label: 'CSV file migration'
+source:
+  plugin: csv
+  path: /var/www/html/web/modules/custom/migrando/files/studenti2.csv
+  ids: [numero]
+process:
+  type:
+    plugin: default_value
+    default_value: studenti
+  title:
+    plugin: encode
+    source: nome
+  field_nome: nome
+#  field_cognome: cognome
+  field_anno_immatricolazione: anno_immatricolazione
+  field_autore: autore
+  field_revisore: revisore
+  field_carriera: carriera
+  field_corso: corso
+  field_data_di_licenza: data_licenza
+  field_data_di_nascita:
+    plugin: format_date
+    from_format: d-m-Y
+    to_format: Y-m-d
+    source: data_nascita
+  field_data_laurea: data_laurea
+  field_facolta: facolta
+  field_provenienza: provenienza
+  field_segnatura_archivistica_lau: segnatura_archivistica_tesi_laurea
+  field_segnatura_archivistica_tes: segnatura_archivistica_tesi_licenza
+  field_titolo_tesi_licenza: titolo_tesi_licenza
+  field_titolo_tesi_laurea: titolo_tesi_laurea
+  field_votazione_laurea: votazione_laurea
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required: {  }
+  optional: {  }

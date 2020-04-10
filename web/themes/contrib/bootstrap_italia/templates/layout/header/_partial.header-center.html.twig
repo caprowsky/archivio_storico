@@ -1,0 +1,16 @@
+<div class="it-header-center-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="it-header-center-content-wrapper">
+          {% if page.brand %}
+            <div class="it-brand-wrapper">
+              {{ page.brand }}
+            </div>
+          {% endif %}
+          {% include '@bootstrap_italia/layout/header/_partial.header-center-right-zone.html.twig' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

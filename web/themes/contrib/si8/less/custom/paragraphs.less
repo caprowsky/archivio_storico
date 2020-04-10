@@ -1,0 +1,163 @@
+.paragraph--type--link-sezione {
+
+  margin: 30px 0;
+  color: @brand-secondary;
+  font-size: 3rem;
+
+  .make-row();
+
+  & > .field {
+    .make-xs-column(6);
+  }
+
+  .field--type-link {
+    text-align: right;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.paragraph--type--notizie-in-evidenza {
+
+  .field--name-field-collegamenti {
+
+    .make-row();
+
+    & > .field--item {
+      .make-md-column(4);
+      margin-bottom: 50px;
+    }
+
+    article {
+      background-color: #ddd;
+
+      .sfondo {
+        padding: 0 20px 20px 20px;
+      }
+
+      .field--name-field-argomenti {
+        color: @brand-primary;
+      }
+
+      a {
+        color: #333;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.paragraph--type--agevolazioni-in-evidenza {
+
+  .field--name-field-collegamenti {
+
+    .make-row();
+
+    & > .field--item {
+      .make-md-column(4);
+      margin-bottom: 50px;
+    }
+
+    article {
+      background-color: #ddd;
+      padding: 20px;
+    }
+  }
+}
+
+.paragraph--type--box-contenuti-custom {
+
+  background-color: @gray-lighter;
+
+  .field--name-field-box-secondo-livello {
+
+    padding: 20px;
+
+    .make-row();
+
+    & > .field--item {
+      .make-md-column(4);
+
+      .field--name-field-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+}
+
+.paragraph--type--slider-notizie {
+  margin-bottom: 100px;
+
+  .field-name--field-immagine {
+    margin-right: 30px;
+  }
+
+  .field--name-field-argomenti {
+    color: @brand-primary;
+  }
+
+  h2 a {
+    color: #333;
+  }
+
+}
+
+.paragraph--type--video-in-evidenza {
+
+  .field--name-field-collegamenti {
+
+    .make-row();
+
+    & > .field--item {
+      .make-md-column(4);
+      margin-bottom: 50px;
+    }
+
+    article {
+      background-color: #ddd;
+
+      .sfondo {
+        padding: 20px 20px 20px 20px;
+        background-color: #ddd;
+
+        h2 {
+          margin-top:0;
+        }
+
+        a {
+          color: #333;
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}
+
+.paragraph--type--contenuto-custom-con-immagine {
+
+  margin-bottom: 60px;
+
+  .field--name-field-titolo {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+}
+.paragraph--type--messaggio {
+
+  background-color: #aa0000;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding: 20px;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}

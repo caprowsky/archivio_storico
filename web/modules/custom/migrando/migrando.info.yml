@@ -1,0 +1,9 @@
+name: Migrando
+description: Import "Studenti" item from csv
+package: Università di Cagliari
+type: module
+core: 8.x
+dependencies:
+  - migrate
+  - migrate_tools
+  - migrate_plus

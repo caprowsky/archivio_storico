@@ -1,0 +1,245 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\Core\Url;
+
+function si8_preprocess_html(&$vars) {
+
+  $route_object = \Drupal::routeMatch()->getRouteObject();
+  if ($route_object->getPath() == '/news') {
+    $site_config = \Drupal::config('system.site');
+    $vars['head_title']['title'] = t('News') . ' | ' . $site_config->get('name');
+  }
+
+  if ($route_object->getPath()  == '/news/{arg_0}/{arg_1}') {
+    $site_config = \Drupal::config('system.site');
+    $args = \Drupal::routeMatch()->getParameters();
+    $tid = $args->get('arg_0');
+    $term = $descrizione = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($tid);
+
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $taxonomy_term_trans = \Drupal::service('entity.repository')
+      ->getTranslationFromContext($term, $langcode);
+
+    $vars['head_title']['title'] = t('News') . ' - ' . $taxonomy_term_trans->label() . ' | ' . $site_config->get('name');
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function si8_preprocess_page(&$vars) {
+  $vars['base_path'] = base_path();
+
+  $vars['accedi_desktop'] = [
+    '#type' => 'link',
+    '#url' => Url::fromRoute('entity.node.canonical', array('node' => '4407')),
+    '#title' => t('Go to services'),
+  ];
+
+  $vars['accedi_mobile'] = [
+    '#type' => 'link',
+    '#url' => Url::fromRoute('entity.node.canonical', array('node' => '4407')),
+    '#title' => t('Services'),
+  ];
+
+  $language = \Drupal::languageManager()->getCurrentLanguage();
+  $vars['valuta_link'] = \Drupal::state()->get('si8_utils.valuta_link_' . $language->getId());
+
+  $site_config = \Drupal::config('system.site');
+  $vars['site_slogan'] = $site_config->get('slogan');
+
+}
+
+
+function si8_preprocess_page_title(&$vars) {
+
+  // Load the node entity from current route
+  $route = \Drupal::routeMatch()->getRouteObject()->getPath();
+
+  if ($route == '/news/{arg_0}/{arg_1}') {
+    $args = \Drupal::routeMatch()->getParameters();
+    $tid = $args->get('arg_0');
+    $term = $descrizione = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($tid);
+
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $taxonomy_term_trans = \Drupal::service('entity.repository')
+      ->getTranslationFromContext($term, $langcode);
+
+    $vars['title'] = t('News') . ' - ' . $taxonomy_term_trans->label();
+  }
+
+}
+
+function si8_preprocess_links__language_block(&$variables) {
+  foreach ($variables['links'] as $key => $value) {
+    $language = $value['link']['#options']['language'];
+    $variables['links'][$key]['link']['#title'] = $language->id();
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function si8_preprocess_node(&$vars) {
+  $node = $vars['node'];
+  $view_mode = $vars['view_mode'];
+  /* @var \Drupal\node\Entity\Node $node */
+
+  switch ($view_mode) {
+    case 'risultato_ricerca':
+      $vars['tipo_contenuto'] = $node->type->entity->label();
+      $vars['data_creazione'] = \Drupal::service('date.formatter')
+        ->format($node->getCreatedTime(), 'short_date');
+      $vars['data_modifica'] = \Drupal::service('date.formatter')
+        ->format($node->getChangedTime(), 'short_date');
+      break;
+  }
+
+  if ($node->bundle() == 'bando') {
+    if ($view_mode == 'full') {
+      $vars['pdf'] = [
+        '#type' => 'link',
+        '#url' => Url::fromUri('internal:/agevolazioni/pdf/' . $node->id(), ['set_active_class' => TRUE]),
+        '#title' => t('Download as PDF'),
+      ];
+    }
+
+    if ($view_mode == 'risultato_ricerca' || $view_mode == 'elenco' || $view_mode == 'full') {
+      $sportello = $node->field_a_sportello->getValue();
+      $vars['sportello'] = FALSE;
+      if (isset($sportello[0]) && $sportello[0]['value'] != 0) {
+        $vars['sportello'] = TRUE;
+      }
+    }
+  }
+
+  if ($node->bundle() == 'page') {
+    if ($view_mode == 'full') {
+      $tids = ['406', '407', '408'];
+      $vars['in_evidenza'] = FALSE;
+      foreach ($node->get('field_tags')->referencedEntities() as $tag) {
+        if (in_array($tag->id(), $tids)) {
+          $vars['in_evidenza'] = TRUE;
+        }
+      }
+
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function si8_preprocess_views_view(&$vars) {
+
+  $view = $vars['view'];
+
+  if ($vars['view_array']['#name'] == 'trova_procedimento' && $vars['view_array']['#display_id'] == 'procedimenti') {
+    $facet = \Drupal::request()->query->get('f');
+    $key = \Drupal::request()->query->get('key');
+    $vars['display_content'] = FALSE;
+    if (!empty($facet) || !empty($key)) {
+      $vars['display_content'] = TRUE;
+    }
+  }
+
+
+}
+
+function si8_theme_suggestions_field_alter(array &$suggestions, array $vars) {
+  $suggestions[] = 'field__' . $vars['element']['#entity_type'] . '__' . $vars['element']['#field_name'] . '__' . $vars['element']['#bundle'] . '__' . $vars['element']['#view_mode'];
+  $suggestions[] = 'field__' . $vars['element']['#entity_type'] . '__' . $vars['element']['#bundle'] . '__' . $vars['element']['#view_mode'];
+
+}
+
+function si8_preprocess_field(&$vars) {
+  $object = $vars['element']['#object'];
+  $element = $vars['element'];
+
+  if ($element['#field_name'] == 'field_data_scadenza_agevolazione') {
+    $view_modes = ['elenco', 'risultato_ricerca', 'full', 'pdf'];
+    if (in_array($element['#view_mode'], $view_modes)) {
+      $sportello = $object->field_a_sportello->getValue();
+      if (isset($sportello[0]) && $sportello[0]['value'] != 0){
+        $vars['sportello'] = TRUE;
+      }
+    }
+  }
+}
+
+function si8_preprocess_image(&$vars) {
+  if (empty($vars['attributes']['alt'])) {
+    $vars['attributes']['alt'] = ' ';
+  }
+}
+
+function si8_preprocess_breadcrumb(&$vars){
+  $route_object = \Drupal::routeMatch()->getRouteObject();
+  if ($route_object->getPath() == '/news/{arg_0}/{arg_1}') {
+
+    // breadcrumb title custom per vista argomenti news
+    foreach ($vars['breadcrumb'] as $key => $bread) {
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $tid = \Drupal::routeMatch()->getParameter('arg_0');
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($tid);
+      $taxonomy_term_trans = \Drupal::service('entity.repository')
+        ->getTranslationFromContext($term, $langcode);
+
+
+      if (!isset($bread['url'])) {
+        $vars['breadcrumb'][$key]['text'] = $taxonomy_term_trans->label();
+      }
+    }
+  }
+
+  if ($route_object->getPath() == '/news') {
+    $vars['breadcrumb'][1]['text'] = t('News');
+  }
+
+  if ($route_object->getPath() == '/agevolazioni') {
+    $vars['breadcrumb'][1]['text'] = t('Support for businesses');
+  }
+  
+  if ($route_object->getPath() == '/agevolazioni/archivio') {
+    $vars['breadcrumb'][2]['text'] = t('Support for businesses, archive');
+  }
+  
+  
+  
+}
+
+function si8_preprocess_menu__main_block_page(&$vars) {
+
+  $current_langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+  foreach ($vars['items'] as $menu_key => $item) {
+
+    foreach ($item['below'] as $menu_key_below => $below) {
+      $menu_link_id = $below['original_link']->getMetaData();
+      $get_menu_object = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('id' => $menu_link_id));
+      $menu_object = reset($get_menu_object);
+      if (!$menu_object->hasTranslation($current_langcode)) {
+        unset($vars['items'][$menu_key]['below'][$menu_key_below]);
+      }
+    }
+
+    $menu_link_id = $item['original_link']->getMetaData();
+    $get_menu_object = \Drupal::entityTypeManager()->getStorage('menu_link_content')->loadByProperties(array('id' => $menu_link_id));
+    $menu_object = reset($get_menu_object);
+    if (!$menu_object->hasTranslation($current_langcode)) {
+      unset($vars['items'][$menu_key]);
+    }
+
+  }
+
+}

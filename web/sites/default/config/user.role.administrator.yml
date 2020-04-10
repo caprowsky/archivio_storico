@@ -1,0 +1,11 @@
+uuid: 3341c485-8a0d-4131-a749-9221eb2f9fc2
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Om6FEO7vZZMkPIbVvfxtdkWerQ2PvQM4sWUd6Q3ZnfI
+id: administrator
+label: Amministratore
+weight: 2
+is_admin: true
+permissions: {  }

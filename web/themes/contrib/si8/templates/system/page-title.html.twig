@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_page_title()
+ */
+#}
+{% if title %}
+  <div class="row">
+    <div class="col-md-9">
+      <h1{{ title_attributes.addClass('page-header') }}>{{ title }}</h1>
+
+      <div id="secondary-menu-btn" class="visible-xs visible-sm">
+        {{ 'Browse'|t }}
+      </div>
+    </div>
+    <div class="col-md-3">
+
+      {% if not is_front %}
+      {{ drupal_block('addtoanybuttons') }}
+      {% endif %}
+    </div>
+  </div>
+
+{% endif %}

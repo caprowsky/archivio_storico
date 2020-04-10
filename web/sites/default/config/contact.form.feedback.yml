@@ -1,0 +1,14 @@
+uuid: 10a0a423-253e-4dba-9844-c47d92fc0e28
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - alessandrocapra@gmail.com
+reply: ''
+weight: 0
+message: 'Il messaggio è stato inviato.'
+redirect: ''

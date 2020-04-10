@@ -1,0 +1,85 @@
+.risultati-ricerca {
+  font-size: 2rem;
+
+  .bundle {
+    font-weight: bold;
+  }
+
+  h2 a {
+    font-size: 2.5rem;
+  }
+
+  .views-row {
+    border-bottom: 1px solid @gray-lighter;
+    padding-bottom: 30px;
+  }
+
+  .view-empty {
+    margin-top: 30px;
+  }
+}
+
+
+/* Glossario */
+.path-glossario {
+
+  #block-facetglossario {
+
+    li.is-active {
+      background-color: #333;
+    }
+
+    a {
+      background-color: @brand-primary;
+
+      &.is-active {
+        background-color: #333;
+      }
+    }
+  }
+
+   .elenco-glossario {
+     font-size: 1.5rem;
+
+     input.form-text {
+       border: 1px solid @gray-light;
+       border-radius: 0;
+       font-size: 1.5rem;
+     }
+
+     button {
+       color: #fff;
+       background-color: #333;
+       border: none;
+       border-radius: 0;
+       margin-right: 0;
+       height: 34px;
+       margin-left: -4px;
+       font-size: 2rem;
+     }
+
+     label {
+       display: none;
+     }
+
+     .view-content {
+       .make-row();
+       margin-top: 30px;
+     }
+
+     .views-row {
+       .make-md-column(6);
+       margin-bottom: 20px;
+
+       a {
+         font-size: 2rem;
+         font-weight: bold;
+       }
+
+     }
+
+   }
+
+
+
+}
