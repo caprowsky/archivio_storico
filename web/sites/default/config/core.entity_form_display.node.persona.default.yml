@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_primo_cognome
     - field.field.node.persona.field_primo_nome
+    - field.field.node.persona.field_revisore
     - field.field.node.persona.field_secondo_cognome
     - field.field.node.persona.field_secondo_nome
     - field.field.node.persona.field_sesso
@@ -64,6 +65,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_revisore:
+    weight: 134
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
     weight: 124

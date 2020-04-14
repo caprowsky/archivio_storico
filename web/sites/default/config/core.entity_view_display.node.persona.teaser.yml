@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_primo_cognome
     - field.field.node.persona.field_primo_nome
+    - field.field.node.persona.field_revisore
     - field.field.node.persona.field_secondo_cognome
     - field.field.node.persona.field_secondo_nome
     - field.field.node.persona.field_sesso
@@ -32,6 +33,7 @@ hidden:
   field_luogo_nascita: true
   field_primo_cognome: true
   field_primo_nome: true
+  field_revisore: true
   field_secondo_cognome: true
   field_secondo_nome: true
   field_sesso: true

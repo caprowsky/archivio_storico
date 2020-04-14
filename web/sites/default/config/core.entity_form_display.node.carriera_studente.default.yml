@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.carriera_studente.field_facolta
     - field.field.node.carriera_studente.field_id
     - field.field.node.carriera_studente.field_luogo_nascita
+    - field.field.node.carriera_studente.field_persona
     - field.field.node.carriera_studente.field_primo_cognome
     - field.field.node.carriera_studente.field_primo_nome
     - field.field.node.carriera_studente.field_revisore
@@ -112,6 +113,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_persona:
+    weight: 34
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_primo_cognome:
     weight: 27
