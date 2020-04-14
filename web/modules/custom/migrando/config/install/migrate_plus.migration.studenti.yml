@@ -73,9 +73,12 @@ process:
     plugin: encode
     source: nome
 
-  field_carriera: # @TODO lungo
+  'field_carriera/value':
     plugin: encode
     source: nome # @TODO: immettere il campo nel csv
+  'field_carriera/format':
+    plugin: default_value
+    default_value: basic_html
 
   field_corso: # @TODO: campo multiplo
     plugin: explode
