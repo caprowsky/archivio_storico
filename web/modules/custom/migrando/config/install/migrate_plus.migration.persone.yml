@@ -1,4 +1,4 @@
-id: studenti
+id: persone
 migration_tags:
   - CSV
 label: 'CSV file migration'
@@ -18,7 +18,7 @@ process:
     plugin: default_value
     default_value: 5 # le persone/studenti le tratta Valeria, giusto?
 
-  title: # @TODO: da valutare se il titolo del nodo coincide con la persona. Forse meglio di no per evitare ambiguità
+  title:
     plugin: concat
       source:
         - primo_cognome # @TODO: immettere il campo nel csv
@@ -27,8 +27,6 @@ process:
         - primo nome # @TODO: immettere il campo nel csv
         - primo nome # @TODO: immettere il campo nel csv
       delimiter: " " # Delimito ogni elemento del titolo con uno spazio
-
-  ## Campi in comune con la persona
 
   field_id: concatena # @TODO: immettere il campo nel csv
 
@@ -58,73 +56,17 @@ process:
     plugin: encode
     source: nome # @TODO: immettere il campo nel csv
 
+  # Mappa tra valore sull'excel: "M" => "m"
   field_sesso:
-    plugin: static_map  # Mappa tra valore sull'excel: "M" => "m"
+    plugin: static_map
       source: # @TODO: immettere il campo nel csv
       map:
         M: m
         F: f
 
-  ## Campi specifici della carriera studente
-  field_anno_immatricolazione:
-    plugin: encode
-    source: nome
-
-  field_carriera:
-    plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
-
-  field_corso:
-    plugin: explode
-    source: nome # @TODO: immettere il campo nel csv
-    delimiter: ,
-    process:
-      target_id:
-        plugin: migration_lookup
-        migration: facolta # @TODO: verificare nome import facoltà
-        no_stub: true
-        source: tid # @TODO: cosa mappare qui?
-
-  field_data_laurea:
-    plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
-
-  field_data_licenza:
-    plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
-
-  field_facolta:
-    plugin: explode
-    source: nome # @TODO: immettere il campo nel csv
-    delimiter: ,
-    process:
-      target_id:
-        plugin: migration_lookup
-        migration: facolta # @TODO: verificare nome import facoltà
-        no_stub: true
-        source: tid # @TODO: cosa mappare qui?
-
-  field_revisore:
-    plugin: default_value
-    default_vaulue: 5 # il revisore è Valeria, giusto?
-
-  field_segnatura_arch_tesi_laurea:
-    plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
-
-  field_segnatura_arch_tesi_licenz:
-    plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
-
-  field_titolo_tesi_laurea: nome # @TODO: immettere il campo nel csv
-
-  field_titolo_tesi_licenza: nome # @TODO: immettere il campo nel csv
-
-  field_valutazione_laurea: nome # @TODO: immettere il campo nel csv
-
 destination:
   plugin: 'entity:node'
-  bundle: carriera_studente
+  bundle: persona
 
 migration_dependencies:
   required: {  }
