@@ -9,11 +9,19 @@ dependencies:
     - field.field.node.carriera_studente.field_corso
     - field.field.node.carriera_studente.field_data_laurea
     - field.field.node.carriera_studente.field_data_licenza
+    - field.field.node.carriera_studente.field_data_nascita
     - field.field.node.carriera_studente.field_facolta
     - field.field.node.carriera_studente.field_id
+    - field.field.node.carriera_studente.field_luogo_nascita
+    - field.field.node.carriera_studente.field_primo_cognome
+    - field.field.node.carriera_studente.field_primo_nome
     - field.field.node.carriera_studente.field_revisore
+    - field.field.node.carriera_studente.field_secondo_cognome
+    - field.field.node.carriera_studente.field_secondo_nome
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_licenz
+    - field.field.node.carriera_studente.field_sesso
+    - field.field.node.carriera_studente.field_terzo_nome
     - field.field.node.carriera_studente.field_titolo_tesi_laurea
     - field.field.node.carriera_studente.field_titolo_tesi_licenza
     - field.field.node.carriera_studente.field_valutazione_laurea
@@ -36,11 +44,19 @@ hidden:
   field_corso: true
   field_data_laurea: true
   field_data_licenza: true
+  field_data_nascita: true
   field_facolta: true
   field_id: true
+  field_luogo_nascita: true
+  field_primo_cognome: true
+  field_primo_nome: true
   field_revisore: true
+  field_secondo_cognome: true
+  field_secondo_nome: true
   field_segnatura_arch_tesi_laurea: true
   field_segnatura_arch_tesi_licenz: true
+  field_sesso: true
+  field_terzo_nome: true
   field_titolo_tesi_laurea: true
   field_titolo_tesi_licenza: true
   field_valutazione_laurea: true

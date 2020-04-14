@@ -8,16 +8,25 @@ dependencies:
     - field.field.node.carriera_studente.field_corso
     - field.field.node.carriera_studente.field_data_laurea
     - field.field.node.carriera_studente.field_data_licenza
+    - field.field.node.carriera_studente.field_data_nascita
     - field.field.node.carriera_studente.field_facolta
     - field.field.node.carriera_studente.field_id
+    - field.field.node.carriera_studente.field_luogo_nascita
+    - field.field.node.carriera_studente.field_primo_cognome
+    - field.field.node.carriera_studente.field_primo_nome
     - field.field.node.carriera_studente.field_revisore
+    - field.field.node.carriera_studente.field_secondo_cognome
+    - field.field.node.carriera_studente.field_secondo_nome
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera_studente.field_segnatura_arch_tesi_licenz
+    - field.field.node.carriera_studente.field_sesso
+    - field.field.node.carriera_studente.field_terzo_nome
     - field.field.node.carriera_studente.field_titolo_tesi_laurea
     - field.field.node.carriera_studente.field_titolo_tesi_licenza
     - field.field.node.carriera_studente.field_valutazione_laurea
     - node.type.carriera_studente
   module:
+    - datetime
     - path
 id: node.carriera_studente.default
 targetEntityType: node
@@ -72,6 +81,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_data_nascita:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_facolta:
     weight: 10
     settings:
@@ -90,6 +105,30 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_luogo_nascita:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_primo_cognome:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_primo_nome:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_revisore:
     weight: 20
     settings:
@@ -99,6 +138,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_secondo_cognome:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_secondo_nome:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_segnatura_arch_tesi_laurea:
     weight: 15
@@ -110,6 +165,20 @@ content:
     region: content
   field_segnatura_arch_tesi_licenz:
     weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sesso:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_terzo_nome:
+    weight: 33
     settings:
       size: 60
       placeholder: ''

@@ -1,0 +1,21 @@
+uuid: d071b85f-6b82-4c0d-9767-8a250513e48e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sesso
+    - node.type.carriera_studente
+  module:
+    - options
+id: node.carriera_studente.field_sesso
+field_name: field_sesso
+entity_type: node
+bundle: carriera_studente
+label: Sesso
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

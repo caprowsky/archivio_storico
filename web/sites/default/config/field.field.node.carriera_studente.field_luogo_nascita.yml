@@ -1,0 +1,19 @@
+uuid: 2b0d63e2-db8d-4f9a-add4-73acbc75ed83
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_luogo_nascita
+    - node.type.carriera_studente
+id: node.carriera_studente.field_luogo_nascita
+field_name: field_luogo_nascita
+entity_type: node
+bundle: carriera_studente
+label: 'Luogo di nascita'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
