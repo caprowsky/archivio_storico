@@ -50,7 +50,7 @@ process:
 
   field_secondo_nome:
     plugin: encode
-    source: secondo_nom
+    source: secondo_nome
 
   field_terzo_nome:
     plugin: encode
