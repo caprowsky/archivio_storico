@@ -6,7 +6,7 @@ source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
   ids:
-    concatena: # @TODO: verificare il campo CSV per il matching
+    concatena:
       type: string
 
 process:
@@ -18,107 +18,110 @@ process:
     plugin: default_value
     default_value: 5 # le persone/studenti le tratta Valeria, giusto?
 
-  # Studente - Primo cognome et cetc
   title:
     plugin: concat
       source:
-        - primo_cognome # @TODO: immettere il campo nel csv
-        - secondo_cognome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
-        - secondo nome # @TODO: immettere il campo nel csv
-        - terzo nome nome # @TODO: immettere il campo nel csv
-      delimiter: " " # Delimito ogni elemento del titolo con uno spazio
+        - primo_cognome
+        - secondo_cognome
+        - primo_nome
+        - secondo_nome
+        - terzo_nome
+      delimiter: " "
 
-  ## Campi in comune con la persona
+  field_id: concatena
 
-  field_id: concatena # @TODO: immettere il campo nel csv
+  field_data_nascita: data_nascita
 
-  field_data_nascita: data_nascita # @TODO: immettere il campo nel csv
-
-  field_luogo_nascita: # @TODO: dovrebbe essere un address (configurato con geofield&geocoder
+  field_luogo_nascita:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: luogo_di_nascita
 
   field_primo_cognome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: primo_cognome
 
   field_secondo_cognome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: secondo_cognome
 
   field_primo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: primo_nome
 
   field_secondo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: secondo_nom
 
   field_terzo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: terzo_nome
 
   field_sesso:
-    plugin: static_map  # Mappa tra valore sull'excel: "M" => "m"
-      source: # @TODO: immettere il campo nel csv
+    plugin: static_map
+      source: sesso
       map:
         M: m
         F: f
-        m: m
         f: f
+        m: m
 
   ## Campi specifici della carriera studente
   field_anno_immatricolazione:
     plugin: encode
-    source: nome
+    source: anno_immatricolazione
 
   'field_carriera/value':
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: carriera
   'field_carriera/format':
     plugin: default_value
     default_value: basic_html
 
-  field_corso: # @TODO: campo multiplo
+  field_corso:
     target_id:
     plugin: migration_lookup
-      migration: corso # @TODO: verificare nome import facoltà
+      migration: corso
       no_stub: true
       source: corso # @TODO: cosa mappare qui?
 
   field_data_laurea:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: data_laurea
 
   field_data_licenza:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: data_licenza
 
   field_facolta:
     target_id:
       plugin: migration_lookup
-      migration: facolta # @TODO: verificare nome import facoltà
+      migration: facolta
       no_stub: true
       source: facolta # @TODO: cosa mappare qui?
 
   #field_revisore:
   #  plugin: default_value
-  #  default_vaulue: 5 # il revisore è Valeria, giusto? @TODO aggiungere UID prof
+  #  default_vaulue: 5 # @TODO aggiungere UID prof
 
   field_segnatura_arch_tesi_laurea:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: segnatura_archivistica_tesi_laurea
 
   field_segnatura_arch_tesi_licenz:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: segnatura_archivistica_tesi_licenza
 
-  field_titolo_tesi_laurea: nome # @TODO: immettere il campo nel csv
+  field_titolo_tesi_laurea:
+    plugin: encode
+    source: titolo_tesi_laurea
 
-  field_titolo_tesi_licenza: nome # @TODO: immettere il campo nel csv
+  field_titolo_tesi_licenza:
+    plugin: encode
+    source: titolo_tesi_licenza
 
-  field_valutazione_laurea: nome # @TODO: immettere il campo nel csv
+  field_valutazione_laurea:
+    plugin: encode
+    source: valutazione_laurea
 
 destination:
   plugin: 'entity:node'

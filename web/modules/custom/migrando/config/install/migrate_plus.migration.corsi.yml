@@ -1,0 +1,26 @@
+id: corsi
+migration_tags:
+  - CSV
+label: 'CSV file migration'
+source:
+  plugin: csv
+  path: /var/www/html/web/modules/custom/migrando/files/corsi.csv
+  ids:
+    corso:
+      type: string
+
+process:
+  vid:
+    plugin: default_value
+    default_value: corso
+  name:
+    plugin: encode
+    source: corso
+
+destination:
+  plugin: entity:taxonomy_term
+
+dependencies:
+  enforced:
+    module:
+      - migrando

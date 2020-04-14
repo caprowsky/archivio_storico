@@ -6,60 +6,59 @@ source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
   ids:
-    concatena: # @TODO: verificare il campo CSV per il matching
+    concatena:
       type: string
 
 process:
   status:
     plugin: default_value
-    default_value: 1 # Imposto il nodo come pubblico
+    default_value: 1
 
   uid:
     plugin: default_value
-    default_value: 5 # le persone/studenti le tratta Valeria, giusto?
+    default_value: 5 # Valeria
 
   title:
     plugin: concat
       source:
-        - primo_cognome # @TODO: immettere il campo nel csv
-        - secondo_cognome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
-        - secondo nome # @TODO: immettere il campo nel csv
-        - terzo nome nome # @TODO: immettere il campo nel csv
-      delimiter: " " # Delimito ogni elemento del titolo con uno spazio
+        - primo_cognome
+        - secondo_cognome
+        - primo_nome
+        - secondo_nome
+        - terzo_nome
+      delimiter: " "
 
-  field_id: concatena # @TODO: immettere il campo nel csv
+  field_id: concatena
 
-  field_data_nascita: data_nascita # @TODO: immettere il campo nel csv @TODO: verificare importazione
+  field_data_nascita: data_nascita
 
-  field_luogo_nascita: # @TODO: dovrebbe essere un address (configurato con geofield&geocoder)
+  field_luogo_nascita:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: luogo_di_nascita
 
   field_primo_cognome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: primo_cognome
 
   field_secondo_cognome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: secondo_cognome
 
   field_primo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: primo_nome
 
   field_secondo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: secondo_nom
 
   field_terzo_nome:
     plugin: encode
-    source: nome # @TODO: immettere il campo nel csv
+    source: terzo_nome
 
-  # Mappa tra valore sull'excel: "M" => "m"
   field_sesso:
     plugin: static_map
-      source: # @TODO: immettere il campo nel csv
+      source: sesso
       map:
         M: m
         F: f
