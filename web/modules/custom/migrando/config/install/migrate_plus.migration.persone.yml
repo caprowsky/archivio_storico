@@ -24,15 +24,15 @@ process:
         - primo_cognome # @TODO: immettere il campo nel csv
         - secondo_cognome # @TODO: immettere il campo nel csv
         - primo nome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
+        - secondo nome # @TODO: immettere il campo nel csv
+        - terzo nome nome # @TODO: immettere il campo nel csv
       delimiter: " " # Delimito ogni elemento del titolo con uno spazio
 
   field_id: concatena # @TODO: immettere il campo nel csv
 
-  field_data_nascita: data_nascita # @TODO: immettere il campo nel csv
+  field_data_nascita: data_nascita # @TODO: immettere il campo nel csv @TODO: verificare importazione
 
-  field_luogo_nascita: # @TODO: dovrebbe essere un address (configurato con geofield&geocoder
+  field_luogo_nascita: # @TODO: dovrebbe essere un address (configurato con geofield&geocoder)
     plugin: encode
     source: nome # @TODO: immettere il campo nel csv
 
@@ -63,6 +63,8 @@ process:
       map:
         M: m
         F: f
+        f: f
+        m: m
 
 destination:
   plugin: 'entity:node'

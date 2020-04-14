@@ -18,14 +18,15 @@ process:
     plugin: default_value
     default_value: 5 # le persone/studenti le tratta Valeria, giusto?
 
-  title: # @TODO: da valutare se il titolo del nodo coincide con la persona. Forse meglio di no per evitare ambiguità
+  # Studente - Primo cognome et cetc
+  title:
     plugin: concat
       source:
         - primo_cognome # @TODO: immettere il campo nel csv
         - secondo_cognome # @TODO: immettere il campo nel csv
         - primo nome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
-        - primo nome # @TODO: immettere il campo nel csv
+        - secondo nome # @TODO: immettere il campo nel csv
+        - terzo nome nome # @TODO: immettere il campo nel csv
       delimiter: " " # Delimito ogni elemento del titolo con uno spazio
 
   ## Campi in comune con la persona
@@ -64,24 +65,26 @@ process:
       map:
         M: m
         F: f
+        m: m
+        f: f
 
   ## Campi specifici della carriera studente
   field_anno_immatricolazione:
     plugin: encode
     source: nome
 
-  field_carriera:
+  field_carriera: # @TODO lungo
     plugin: encode
     source: nome # @TODO: immettere il campo nel csv
 
-  field_corso:
+  field_corso: # @TODO: campo multiplo
     plugin: explode
     source: nome # @TODO: immettere il campo nel csv
     delimiter: ,
     process:
       target_id:
         plugin: migration_lookup
-        migration: facolta # @TODO: verificare nome import facoltà
+        migration: corso # @TODO: verificare nome import facoltà
         no_stub: true
         source: tid # @TODO: cosa mappare qui?
 
@@ -106,7 +109,7 @@ process:
 
   field_revisore:
     plugin: default_value
-    default_vaulue: 5 # il revisore è Valeria, giusto?
+    default_vaulue: 5 # il revisore è Valeria, giusto? @TODO aggiungere UID prof
 
   field_segnatura_arch_tesi_laurea:
     plugin: encode
