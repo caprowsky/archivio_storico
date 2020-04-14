@@ -81,15 +81,11 @@ process:
     default_value: basic_html
 
   field_corso: # @TODO: campo multiplo
-    plugin: explode
-    source: nome # @TODO: immettere il campo nel csv
-    delimiter: ,
-    process:
-      target_id:
-        plugin: migration_lookup
-        migration: corso # @TODO: verificare nome import facoltà
-        no_stub: true
-        source: tid # @TODO: cosa mappare qui?
+    target_id:
+    plugin: migration_lookup
+      migration: corso # @TODO: verificare nome import facoltà
+      no_stub: true
+      source: corso # @TODO: cosa mappare qui?
 
   field_data_laurea:
     plugin: encode
@@ -100,19 +96,15 @@ process:
     source: nome # @TODO: immettere il campo nel csv
 
   field_facolta:
-    plugin: explode
-    source: nome # @TODO: immettere il campo nel csv
-    delimiter: ,
-    process:
-      target_id:
-        plugin: migration_lookup
-        migration: facolta # @TODO: verificare nome import facoltà
-        no_stub: true
-        source: tid # @TODO: cosa mappare qui?
+    target_id:
+      plugin: migration_lookup
+      migration: facolta # @TODO: verificare nome import facoltà
+      no_stub: true
+      source: facolta # @TODO: cosa mappare qui?
 
-  field_revisore:
-    plugin: default_value
-    default_vaulue: 5 # il revisore è Valeria, giusto? @TODO aggiungere UID prof
+  #field_revisore:
+  #  plugin: default_value
+  #  default_vaulue: 5 # il revisore è Valeria, giusto? @TODO aggiungere UID prof
 
   field_segnatura_arch_tesi_laurea:
     plugin: encode
