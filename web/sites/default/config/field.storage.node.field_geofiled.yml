@@ -1,16 +1,17 @@
-uuid: d95ab1d5-b5cd-43e2-b987-dd1db10cd4d4
+uuid: 6948e67d-11cc-463e-9a60-ba0afde3a1aa
 langcode: it
 status: true
 dependencies:
   module:
+    - geofield
     - node
-    - text
-id: node.field_carriera
-field_name: field_carriera
+id: node.field_geofiled
+field_name: field_geofiled
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
 locked: false
 cardinality: 1
 translatable: true

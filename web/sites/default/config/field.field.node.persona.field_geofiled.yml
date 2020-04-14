@@ -1,0 +1,41 @@
+uuid: 7375077c-fc84-4912-be48-0a1a0341a29e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geofiled
+    - node.type.persona
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    weight: 0
+    geocode_field: field_luogo_nascita
+    reverse_geocode_field: ''
+    skip_not_empty_value: 1
+    disabled: false
+    hidden: false
+    plugins:
+      - freegeoip
+      - geoip
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.persona.field_geofiled
+field_name: field_geofiled
+entity_type: node
+bundle: persona
+label: Geofiled
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

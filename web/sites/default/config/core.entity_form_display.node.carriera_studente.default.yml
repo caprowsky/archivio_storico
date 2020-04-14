@@ -29,6 +29,7 @@ dependencies:
   module:
     - datetime
     - path
+    - text
 id: node.carriera_studente.default
 targetEntityType: node
 bundle: carriera_studente
@@ -49,12 +50,12 @@ content:
     type: string_textfield
     region: content
   field_carriera:
-    weight: 19
+    weight: 35
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: text_textarea
     region: content
   field_corso:
     weight: 9

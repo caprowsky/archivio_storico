@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_primo_cognome
@@ -16,6 +17,7 @@ dependencies:
     - node.type.persona
   module:
     - datetime
+    - geofield
     - path
 id: node.persona.default
 targetEntityType: node
@@ -33,6 +35,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_geofiled:
+    weight: 135
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
     region: content
   field_id:
     weight: 132

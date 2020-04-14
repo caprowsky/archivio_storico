@@ -29,6 +29,7 @@ dependencies:
   module:
     - datetime
     - options
+    - text
     - user
 id: node.carriera_studente.default
 targetEntityType: node
@@ -44,11 +45,11 @@ content:
     type: string
     region: content
   field_carriera:
-    weight: 111
+    weight: 123
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
     region: content
   field_corso:
     weight: 101

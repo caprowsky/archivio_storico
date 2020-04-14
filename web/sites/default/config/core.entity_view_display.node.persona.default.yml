@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_primo_cognome
@@ -16,6 +17,7 @@ dependencies:
     - node.type.persona
   module:
     - datetime
+    - geofield
     - options
     - user
 id: node.persona.default
@@ -31,6 +33,15 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_geofiled:
+    weight: 115
+    label: above
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    type: geofield_default
     region: content
   field_id:
     weight: 112
