@@ -1,0 +1,8 @@
+uuid: 99067414-853a-4173-ae9e-dc6a3dd519ea
+langcode: it
+status: true
+dependencies: {  }
+id: data_completo
+label: 'Data completo'
+locked: false
+pattern: d/m/Y

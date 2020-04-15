@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - entity_browser.browser.persona
     - field.field.node.carriera_studente.field_anno_immatricolazione
     - field.field.node.carriera_studente.field_carriera
     - field.field.node.carriera_studente.field_corso
@@ -29,6 +30,7 @@ dependencies:
     - node.type.carriera_studente
   module:
     - datetime
+    - entity_browser
     - field_group
     - path
     - text
@@ -187,12 +189,16 @@ content:
   field_persona:
     weight: 28
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      entity_browser: persona
+      field_widget_display: label
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_primo_cognome:
     weight: 29
