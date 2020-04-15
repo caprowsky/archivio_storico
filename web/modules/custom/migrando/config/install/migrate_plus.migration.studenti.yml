@@ -7,6 +7,9 @@ source:
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
   ids: [concatena]
 
+  constants:
+    title_constant: "Carriera"
+
 process:
   status:
     plugin: default_value
@@ -21,8 +24,15 @@ process:
     default_value: carriera_studente
 
   title:
-    plugin: encode
-    source: concatena
+    plugin: concat
+    source:
+      - constants/title_constant
+      - primo_cognome
+      - secondo_cognome
+      - primo_nome
+      - secondo_nome
+      - terzo_nome
+    delimiter: " "
 
   field_id: concatena
 

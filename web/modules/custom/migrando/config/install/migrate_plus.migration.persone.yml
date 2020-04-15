@@ -20,9 +20,19 @@ process:
     plugin: default_value
     default_value: 5 # Valeria
 
+#  title:
+#    plugin: encode
+#    source: concatena
+
   title:
-    plugin: encode
-    source: concatena
+    plugin: concat
+    source:
+      - primo_cognome
+      - secondo_cognome
+      - primo_nome
+      - secondo_nome
+      - terzo_nome
+    delimiter: " "
 
   field_id: concatena
 
