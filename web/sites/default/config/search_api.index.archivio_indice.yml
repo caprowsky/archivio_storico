@@ -6,6 +6,7 @@ dependencies:
     - search_api_solr
     - node
     - search_api
+    - taxonomy
   config:
     - search_api.server.solr
 third_party_settings:
@@ -45,7 +46,7 @@ third_party_settings:
     advanced:
       index_prefix: ''
       collection: ''
-      timezone: ''
+      timezone: Europe/Rome
 id: archivio_indice
 name: 'Archivio Indice'
 description: ''
@@ -67,6 +68,13 @@ datasource_settings:
     languages:
       default: true
       selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
@@ -78,5 +86,5 @@ tracker_settings:
     indexing_order: fifo
 options:
   index_directly: true
-  cron_limit: 50
+  cron_limit: 500
 server: solr
