@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
     - field.field.node.persona.field_luogo_nascita
+    - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
     - field.field.node.persona.field_primo_nome
     - field.field.node.persona.field_revisore
@@ -33,6 +34,7 @@ hidden:
   field_geofiled: true
   field_id: true
   field_luogo_nascita: true
+  field_numero: true
   field_primo_cognome: true
   field_primo_nome: true
   field_revisore: true

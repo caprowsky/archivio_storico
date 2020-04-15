@@ -1,0 +1,19 @@
+uuid: 7a867542-cf4e-455b-b46a-c62b82384a8f
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_numero
+    - node.type.persona
+id: node.persona.field_numero
+field_name: field_numero
+entity_type: node
+bundle: persona
+label: Numero
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

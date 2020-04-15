@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.carriera_studente.field_facolta
     - field.field.node.carriera_studente.field_id
     - field.field.node.carriera_studente.field_luogo_nascita
+    - field.field.node.carriera_studente.field_numero
     - field.field.node.carriera_studente.field_persona
     - field.field.node.carriera_studente.field_primo_cognome
     - field.field.node.carriera_studente.field_primo_nome
@@ -149,6 +150,14 @@ content:
   field_luogo_nascita:
     weight: 21
     label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_numero:
+    weight: 22
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
