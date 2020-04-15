@@ -5,9 +5,7 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
-  ids:
-    concatena:
-      type: string
+  ids: [concatena]
 
 process:
   status:
@@ -18,15 +16,13 @@ process:
     plugin: default_value
     default_value: 5 # le persone/studenti le tratta Valeria, giusto?
 
+  type:
+    plugin: default_value
+    default_value: carriera_studente
+
   title:
-    plugin: concat
-      source:
-        - primo_cognome
-        - secondo_cognome
-        - primo_nome
-        - secondo_nome
-        - terzo_nome
-      delimiter: " "
+    plugin: encode
+    source: concatena
 
   field_id: concatena
 
@@ -58,14 +54,14 @@ process:
 
   field_sesso:
     plugin: static_map
-      source: sesso
-      map:
-        M: m
-        F: f
-        f: f
-        m: m
+    source: sesso
+    map:
+      M: m
+      F: f
+      f: f
+      m: m
 
-  ## Campi specifici della carriera studente
+#  ## Campi specifici della carriera studente
   field_anno_immatricolazione:
     plugin: encode
     source: anno_immatricolazione
@@ -79,10 +75,17 @@ process:
 
   field_corso:
     target_id:
-    plugin: migration_lookup
-      migration: corso
+      plugin: migration_lookup
+      migration: corsi
       no_stub: true
       source: corso # @TODO: cosa mappare qui?
+
+  field_persona:
+    target_id:
+      plugin: migration_lookup
+      migration: persone
+      no_stub: true
+      source: concatena # @TODO: cosa mappare qui?
 
   field_data_laurea:
     plugin: encode
@@ -99,10 +102,10 @@ process:
       no_stub: true
       source: facolta # @TODO: cosa mappare qui?
 
-  #field_revisore:
-  #  plugin: default_value
-  #  default_vaulue: 5 # @TODO aggiungere UID prof
-
+#  #field_revisore:
+#  #  plugin: default_value
+#  #  default_vaulue: 5 # @TODO aggiungere UID prof
+#
   field_segnatura_arch_tesi_laurea:
     plugin: encode
     source: segnatura_archivistica_tesi_laurea

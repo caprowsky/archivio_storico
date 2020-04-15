@@ -5,9 +5,7 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/facolta.csv
-  ids:
-    facolta:
-      type: string
+  ids: [facolta]
 
 process:
   vid:

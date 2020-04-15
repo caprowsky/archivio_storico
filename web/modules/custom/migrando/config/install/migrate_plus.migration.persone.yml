@@ -5,11 +5,13 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
-  ids:
-    concatena:
-      type: string
+  ids: [concatena]
 
 process:
+  type:
+    plugin: default_value
+    default_value: persona
+
   status:
     plugin: default_value
     default_value: 1
@@ -19,14 +21,8 @@ process:
     default_value: 5 # Valeria
 
   title:
-    plugin: concat
-      source:
-        - primo_cognome
-        - secondo_cognome
-        - primo_nome
-        - secondo_nome
-        - terzo_nome
-      delimiter: " "
+    plugin: encode
+    source: concatena
 
   field_id: concatena
 
@@ -58,12 +54,12 @@ process:
 
   field_sesso:
     plugin: static_map
-      source: sesso
-      map:
-        M: m
-        F: f
-        f: f
-        m: m
+    source: sesso
+    map:
+      M: m
+      F: f
+      f: f
+      m: m
 
 destination:
   plugin: 'entity:node'
