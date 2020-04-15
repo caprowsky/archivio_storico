@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\Node;
+
+/**
+ * Crea i nodi iniziali
+ */
+/*function ilminuto_utils_update_8001(&$sandbox) {
+
+  $entity = \Drupal::entityTypeManager()->getStorage('node')->load('6413');
+
+
+    \Drupal::service('path.alias_storage')->save("/node/" . '6413', '/provait/node-title', 'it');
+}*/
+
+

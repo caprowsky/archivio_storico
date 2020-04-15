@@ -1,0 +1,5 @@
+name: 'Archivio Storico Utils'
+type: module
+description: 'Utils for Archivio Storico Project'
+core: 8.x
+package: 'Custom'

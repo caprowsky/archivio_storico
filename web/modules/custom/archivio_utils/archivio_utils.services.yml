@@ -1,0 +1,3 @@
+services:
+  archivio_utils.utils:
+    class: Drupal\ilminuto_utils\Utils

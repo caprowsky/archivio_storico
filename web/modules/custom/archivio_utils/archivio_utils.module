@@ -1,0 +1,32 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\editor\Entity\Editor;
+
+/**
+ * @file
+ * Contains archivio_utils.module.
+ */
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function archivio_utils_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+  // Verifico se il tipo di contenuto è uno di quelli della carriera
+  if ($entity->bundle() == 'carriera_studente' || $entity->bundle() == 'carriera_docente') {
+    $persone = $entity->get('field_persona')->referencedEntities();
+
+    /**
+     * - se il nodo è nuovo, aggiorno la persona aggiungendo il link alla carriera appena creata
+     * - se il nodo non è nuovo, verifico se è cambiato il link alla persona dal nodo originale ad adesso
+     *     - se il link alla persona non è cambiato, non faccio niente (la persona deve già avere il link alla carriera). O al massimo verifico che la persona abbia il link alla carriera
+     *     - se il link alla persona è cambiatoè cambiato devo fare due cose:
+     *         - carico la persona "vecchia", dal nodo carriera originale, e tolgo il riferimento alla carriera che sto salvando
+     *         - carico la "nuova" persona e imposto il riferimento alla carriera che sto salvando
+     *
+     */
+  }
+}
+
+

@@ -65,3 +65,4 @@ hidden:
   field_titolo_tesi_licenza: true
   field_valutazione_laurea: true
   langcode: true
+  search_api_excerpt: true
