@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.carriera_studente.field_facolta
     - field.field.node.carriera_studente.field_id
     - field.field.node.carriera_studente.field_luogo_nascita
+    - field.field.node.carriera_studente.field_numero
     - field.field.node.carriera_studente.field_persona
     - field.field.node.carriera_studente.field_primo_cognome
     - field.field.node.carriera_studente.field_primo_nome
@@ -49,6 +50,7 @@ hidden:
   field_facolta: true
   field_id: true
   field_luogo_nascita: true
+  field_numero: true
   field_persona: true
   field_primo_cognome: true
   field_primo_nome: true

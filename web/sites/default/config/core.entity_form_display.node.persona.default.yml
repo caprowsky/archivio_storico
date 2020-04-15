@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
     - field.field.node.persona.field_luogo_nascita
+    - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
     - field.field.node.persona.field_primo_nome
     - field.field.node.persona.field_revisore
@@ -169,6 +170,14 @@ content:
     region: content
   field_luogo_nascita:
     weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_numero:
+    weight: 26
     settings:
       size: 60
       placeholder: ''
