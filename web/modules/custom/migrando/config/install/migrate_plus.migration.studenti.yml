@@ -5,7 +5,7 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
-  ids: [concatena]
+  ids: [numero]
 
   constants:
     title_constant: "Carriera"
@@ -35,6 +35,8 @@ process:
     delimiter: " "
 
   field_id: concatena
+
+  field_numero: numero
 
   field_data_nascita: data_nascita
 

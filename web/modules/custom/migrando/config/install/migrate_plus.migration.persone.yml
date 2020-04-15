@@ -38,6 +38,8 @@ process:
 
   field_data_nascita: data_nascita
 
+  field_numero: numero
+
   field_luogo_nascita:
     plugin: encode
     source: luogo_di_nascita
