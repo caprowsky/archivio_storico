@@ -24,6 +24,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/facets": "^1.4",
+        "drupal/field_group": "^3.0",
         "drupal/geocoder": "^2.7",
         "drupal/geofield": "^1.8",
         "drupal/geofield_map": "^2.57",
