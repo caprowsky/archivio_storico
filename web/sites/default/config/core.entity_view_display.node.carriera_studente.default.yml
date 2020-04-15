@@ -28,16 +28,62 @@ dependencies:
     - node.type.carriera_studente
   module:
     - datetime
+    - field_group
     - options
     - text
     - user
+third_party_settings:
+  field_group:
+    group_carriera:
+      children:
+        - field_anno_immatricolazione
+        - field_facolta
+        - field_corso
+        - field_data_licenza
+        - field_titolo_tesi_licenza
+        - field_segnatura_arch_tesi_licenz
+        - field_data_laurea
+        - field_titolo_tesi_laurea
+        - field_valutazione_laurea
+        - field_segnatura_arch_tesi_laurea
+        - field_carriera
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Carriera
+    group_persona:
+      children:
+        - field_persona
+        - field_id
+        - field_primo_cognome
+        - field_secondo_cognome
+        - field_primo_nome
+        - field_secondo_nome
+        - field_terzo_nome
+        - field_sesso
+        - field_data_nascita
+        - field_luogo_nascita
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Persona
 id: node.carriera_studente.default
 targetEntityType: node
 bundle: carriera_studente
 mode: default
 content:
   field_anno_immatricolazione:
-    weight: 104
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -45,14 +91,14 @@ content:
     type: string
     region: content
   field_carriera:
-    weight: 123
+    weight: 16
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_corso:
-    weight: 101
+    weight: 8
     label: above
     settings:
       link: true
@@ -60,7 +106,7 @@ content:
     type: entity_reference_label
     region: content
   field_data_laurea:
-    weight: 110
+    weight: 12
     label: above
     settings:
       link_to_entity: false
@@ -68,7 +114,7 @@ content:
     type: string
     region: content
   field_data_licenza:
-    weight: 105
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -76,8 +122,8 @@ content:
     type: string
     region: content
   field_data_nascita:
-    weight: 116
-    label: above
+    weight: 20
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -85,7 +131,7 @@ content:
     type: datetime_default
     region: content
   field_facolta:
-    weight: 102
+    weight: 7
     label: above
     settings:
       link: true
@@ -93,71 +139,71 @@ content:
     type: entity_reference_label
     region: content
   field_id:
-    weight: 113
-    label: above
+    weight: 13
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_luogo_nascita:
-    weight: 120
-    label: above
+    weight: 21
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_persona:
-    weight: 122
-    label: above
+    weight: 12
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_primo_cognome:
-    weight: 115
-    label: above
+    weight: 14
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_primo_nome:
-    weight: 114
-    label: above
+    weight: 16
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_revisore:
-    weight: 112
-    label: above
+    weight: 14
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_secondo_cognome:
-    weight: 118
-    label: above
+    weight: 15
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_secondo_nome:
-    weight: 119
-    label: above
+    weight: 17
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 107
+    weight: 15
     label: above
     settings:
       link_to_entity: false
@@ -165,7 +211,7 @@ content:
     type: string
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 106
+    weight: 11
     label: above
     settings:
       link_to_entity: false
@@ -173,45 +219,45 @@ content:
     type: string
     region: content
   field_sesso:
-    weight: 117
-    label: above
+    weight: 19
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_terzo_nome:
-    weight: 121
-    label: above
+    weight: 18
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_titolo_tesi_laurea:
-    weight: 108
+    weight: 13
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_titolo_tesi_licenza:
-    weight: 103
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 109
+    weight: 14
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

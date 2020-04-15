@@ -17,8 +17,24 @@ dependencies:
     - node.type.persona
   module:
     - datetime
-    - geofield
+    - field_group
+    - geofield_map
     - path
+third_party_settings:
+  field_group:
+    group_controllo:
+      children:
+        - field_revisore
+      parent_name: ''
+      weight: 18
+      format_type: fieldset
+      region: content
+      format_settings:
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Controllo
 id: node.persona.default
 targetEntityType: node
 bundle: persona
@@ -26,25 +42,125 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_data_nascita:
-    weight: 128
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_geofiled:
-    weight: 135
+    weight: 16
     settings:
-      html5_geolocation: false
+      map_geocoder:
+        settings:
+          providers:
+            arcgisonline:
+              weight: '0'
+              checked: 0
+            bingmaps:
+              weight: '0'
+              checked: 0
+            file:
+              weight: '0'
+              checked: 0
+            freegeoip:
+              weight: '0'
+              checked: 0
+            gpxfile:
+              weight: '0'
+              checked: 0
+            geojsonfile:
+              weight: '0'
+              checked: 0
+            geoplugin:
+              weight: '0'
+              checked: 0
+            geoip:
+              weight: '0'
+              checked: 0
+            geonames:
+              weight: '0'
+              checked: 0
+            googlemaps:
+              weight: '0'
+              checked: 0
+            googlemaps_business:
+              weight: '0'
+              checked: 0
+            hostip:
+              weight: '0'
+              checked: 0
+            ipinfodb:
+              weight: '0'
+              checked: 0
+            kmlfile:
+              weight: '0'
+              checked: 0
+            mapquest:
+              weight: '0'
+              checked: 0
+            maxmind:
+              weight: '0'
+              checked: 0
+            nominatim:
+              weight: '0'
+              checked: 0
+            opencage:
+              weight: '0'
+              checked: 0
+            openstreetmap:
+              weight: '0'
+              checked: 0
+            random:
+              weight: '0'
+              checked: 0
+            tomtom:
+              weight: '0'
+              checked: 0
+            yandex:
+              weight: '0'
+              checked: 0
+          min_terms: '4'
+          delay: '800'
+          options: ''
+        control: 0
+      map_google_places:
+        places_control: true
+        places_additional_options: ''
+      map_library: leaflet
+      map_type_google: roadmap
+      map_type_leaflet: Stamen_Terrain
+      map_type_selector: true
+      map_dimensions:
+        width: 100%
+        height: 450px
+      zoom:
+        start: 6
+        focus: 12
+        min: 0
+        max: 22
+      click_to_place_marker: true
+      hide_coordinates: true
+      geoaddress_field:
+        field: '0'
+        disabled: true
+        hidden: false
+      html5_geolocation: true
+      default_value:
+        lat: !!float 0
+        lon: !!float 0
+      click_to_find_marker: false
+      map_google_api_key: ''
+      zoom_level: 5
     third_party_settings: {  }
-    type: geofield_latlon
+    type: geofield_map
     region: content
   field_id:
-    weight: 132
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -52,7 +168,7 @@ content:
     type: string_textfield
     region: content
   field_luogo_nascita:
-    weight: 133
+    weight: 17
     settings:
       size: 60
       placeholder: ''
@@ -60,7 +176,7 @@ content:
     type: string_textfield
     region: content
   field_primo_cognome:
-    weight: 123
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -68,7 +184,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 122
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -76,7 +192,7 @@ content:
     type: string_textfield
     region: content
   field_revisore:
-    weight: 134
+    weight: 18
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -86,7 +202,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
-    weight: 124
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -94,7 +210,7 @@ content:
     type: string_textfield
     region: content
   field_secondo_nome:
-    weight: 125
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -102,13 +218,13 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    weight: 127
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_terzo_nome:
-    weight: 126
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -124,7 +240,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -132,26 +248,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
+    weight: 8
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -159,7 +275,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60

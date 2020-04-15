@@ -16,6 +16,7 @@ module:
   dblog: 0
   editor: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -42,6 +43,8 @@ module:
   text: 0
   toolbar: 0
   tour: 0
+  ui_patterns: 0
+  ui_patterns_field_group: 0
   update: 0
   user: 0
   views_ui: 0

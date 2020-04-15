@@ -28,8 +28,68 @@ dependencies:
     - node.type.carriera_studente
   module:
     - datetime
+    - field_group
     - path
     - text
+third_party_settings:
+  field_group:
+    group_controllo:
+      children:
+        - field_revisore
+      parent_name: ''
+      weight: 21
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Controllo
+    group_controllo_persona:
+      children:
+        - field_persona
+        - field_primo_cognome
+        - field_secondo_cognome
+        - field_primo_nome
+        - field_secondo_nome
+        - field_terzo_nome
+        - field_data_nascita
+        - field_sesso
+        - field_luogo_nascita
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Controllo persona'
+    group_carriera:
+      children:
+        - field_anno_immatricolazione
+        - field_facolta
+        - field_corso
+        - field_data_licenza
+        - field_titolo_tesi_licenza
+        - field_segnatura_arch_tesi_licenz
+        - field_data_laurea
+        - field_titolo_tesi_laurea
+        - field_valutazione_laurea
+        - field_segnatura_arch_tesi_laurea
+        - field_carriera
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Carriera
 id: node.carriera_studente.default
 targetEntityType: node
 bundle: carriera_studente
@@ -42,7 +102,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_anno_immatricolazione:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -50,7 +110,7 @@ content:
     type: string_textfield
     region: content
   field_carriera:
-    weight: 35
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -58,7 +118,7 @@ content:
     type: text_textarea
     region: content
   field_corso:
-    weight: 9
+    weight: 15
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -68,7 +128,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_data_laurea:
-    weight: 18
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -76,7 +136,7 @@ content:
     type: string_textfield
     region: content
   field_data_licenza:
-    weight: 13
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -84,13 +144,13 @@ content:
     type: string_textfield
     region: content
   field_data_nascita:
-    weight: 28
+    weight: 34
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_facolta:
-    weight: 10
+    weight: 14
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -108,7 +168,7 @@ content:
     type: string_textfield
     region: content
   field_luogo_nascita:
-    weight: 32
+    weight: 36
     settings:
       size: 60
       placeholder: ''
@@ -116,7 +176,7 @@ content:
     type: string_textfield
     region: content
   field_persona:
-    weight: 34
+    weight: 28
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -126,7 +186,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_primo_cognome:
-    weight: 27
+    weight: 29
     settings:
       size: 60
       placeholder: ''
@@ -134,7 +194,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 26
+    weight: 31
     settings:
       size: 60
       placeholder: ''
@@ -142,7 +202,7 @@ content:
     type: string_textfield
     region: content
   field_revisore:
-    weight: 20
+    weight: 19
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -160,7 +220,7 @@ content:
     type: string_textfield
     region: content
   field_secondo_nome:
-    weight: 31
+    weight: 32
     settings:
       size: 60
       placeholder: ''
@@ -168,7 +228,7 @@ content:
     type: string_textfield
     region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 15
+    weight: 22
     settings:
       size: 60
       placeholder: ''
@@ -176,7 +236,7 @@ content:
     type: string_textfield
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 14
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -184,7 +244,7 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    weight: 29
+    weight: 35
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -198,7 +258,7 @@ content:
     type: string_textfield
     region: content
   field_titolo_tesi_laurea:
-    weight: 16
+    weight: 20
     settings:
       rows: 5
       placeholder: ''
@@ -206,7 +266,7 @@ content:
     type: string_textarea
     region: content
   field_titolo_tesi_licenza:
-    weight: 11
+    weight: 17
     settings:
       rows: 5
       placeholder: ''
@@ -214,7 +274,7 @@ content:
     type: string_textarea
     region: content
   field_valutazione_laurea:
-    weight: 17
+    weight: 21
     settings:
       rows: 5
       placeholder: ''

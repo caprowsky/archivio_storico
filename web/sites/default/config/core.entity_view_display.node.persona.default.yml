@@ -17,107 +17,121 @@ dependencies:
     - node.type.persona
   module:
     - datetime
+    - field_group
     - geofield
     - options
     - user
+third_party_settings:
+  field_group:
+    group_controllo:
+      children:
+        - field_revisore
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Controllo
 id: node.persona.default
 targetEntityType: node
 bundle: persona
 mode: default
 content:
   field_data_nascita:
-    weight: 108
-    label: above
+    weight: 8
+    label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_geofiled:
-    weight: 115
-    label: above
+    weight: 10
+    label: inline
     settings:
-      output_format: wkt
-      output_escape: true
+      output_format: dms
     third_party_settings: {  }
-    type: geofield_default
+    type: geofield_latlon
     region: content
   field_id:
-    weight: 112
-    label: above
+    weight: 1
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_luogo_nascita:
-    weight: 113
-    label: above
+    weight: 9
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_primo_cognome:
-    weight: 103
-    label: above
+    weight: 2
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_primo_nome:
-    weight: 102
-    label: above
+    weight: 4
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_revisore:
-    weight: 114
-    label: above
+    weight: 12
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_secondo_cognome:
-    weight: 104
-    label: above
+    weight: 3
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_secondo_nome:
-    weight: 105
-    label: above
+    weight: 5
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_sesso:
-    weight: 107
-    label: above
+    weight: 7
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_terzo_nome:
-    weight: 106
-    label: above
+    weight: 6
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
