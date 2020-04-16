@@ -1,0 +1,13 @@
+name: Corresponding Entity References
+description: Allows user to create two-way references between entities.
+# core: 8.x
+package: Fields
+type: module
+configure: entity.corresponding_reference.collection
+
+
+# Information added by Drupal.org packaging script on 2017-05-05
+version: '8.x-4.0-alpha2'
+core: '8.x'
+project: 'cer'
+datestamp: 1493956093

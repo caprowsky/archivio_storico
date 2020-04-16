@@ -21,7 +21,7 @@ process:
 
   type:
     plugin: default_value
-    default_value: carriera_studente
+    default_value: carriera
 
   title:
     plugin: concat
@@ -58,11 +58,15 @@ process:
 
   field_secondo_nome:
     plugin: encode
-    source: secondo_nom
+    source: secondo_nome
 
   field_terzo_nome:
     plugin: encode
     source: terzo_nome
+
+  field_tipologia_carriera:
+    plugin: default_value
+    default_value: s
 
   field_sesso:
     plugin: static_map
@@ -140,7 +144,7 @@ process:
 
 destination:
   plugin: 'entity:node'
-  bundle: carriera_studente
+
 
 migration_dependencies:
   required: {  }

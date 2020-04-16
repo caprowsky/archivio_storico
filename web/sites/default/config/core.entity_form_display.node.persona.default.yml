@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - entity_browser.browser.carriera
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
@@ -19,6 +20,7 @@ dependencies:
     - node.type.persona
   module:
     - datetime
+    - entity_browser
     - field_group
     - geofield_map
     - path
@@ -172,12 +174,16 @@ content:
   field_link_carriera:
     weight: 29
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      entity_browser: carriera
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_luogo_nascita:
     weight: 17

@@ -6,11 +6,13 @@ dependencies:
     - field.storage.node.field_data_nascita
     - field.storage.node.field_id
     - field.storage.node.field_luogo_nascita
+    - node.type.carriera
     - node.type.persona
   module:
     - datetime
     - entity_browser
     - node
+    - options
     - user
 id: entity_browser
 label: 'Entity Browser'
@@ -406,14 +408,86 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            persona: persona
+            carriera: carriera
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_tipologia_carriera_value:
+          id: field_tipologia_carriera_value
+          table: node__field_tipologia_carriera
+          field: field_tipologia_carriera_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
           expose:
+            operator_id: field_tipologia_carriera_value_op
+            label: 'Tipologia carriera (field_tipologia_carriera)'
+            description: ''
+            use_operator: false
+            operator: field_tipologia_carriera_value_op
             operator_limit_selection: false
             operator_list: {  }
+            identifier: field_tipologia_carriera_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         field_id_value:
           id: field_id_value
           table: node__field_id
@@ -558,6 +632,31 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data_nascita'
+        - 'config:field.storage.node.field_id'
+        - 'config:field.storage.node.field_luogo_nascita'
+  carriera:
+    display_plugin: entity_browser
+    id: carriera
+    display_title: Carriera
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -579,6 +678,192 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            persona: persona
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_id_value:
+          id: field_id_value
+          table: node__field_id
+          field: field_id_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_id_value_op
+            label: Id
+            description: ''
+            use_operator: false
+            operator: field_id_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_id_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_primo_cognome_value:
+          id: field_primo_cognome_value
+          table: node__field_primo_cognome
+          field: field_primo_cognome_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_primo_cognome_value_op
+            label: 'Primo cognome'
+            description: ''
+            use_operator: false
+            operator: field_primo_cognome_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_primo_cognome_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_primo_nome_value:
+          id: field_primo_nome_value
+          table: node__field_primo_nome
+          field: field_primo_nome_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_primo_nome_value_op
+            label: 'Primo nome'
+            description: ''
+            use_operator: false
+            operator: field_primo_nome_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_primo_nome_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
