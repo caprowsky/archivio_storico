@@ -11,7 +11,7 @@ dependencies:
 id: linkcarrieracontenutofacolta
 theme: bartik
 region: sidebar_second
-weight: -7
+weight: -6
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_facolta'
 settings:

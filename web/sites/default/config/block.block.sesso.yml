@@ -1,0 +1,23 @@
+uuid: b89cc60c-6805-490d-8524-be273559c2a0
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.sesso
+  module:
+    - facets
+  theme:
+    - bartik
+id: sesso
+theme: bartik
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'facet_block:sesso'
+settings:
+  id: 'facet_block:sesso'
+  label: Sesso
+  provider: facets
+  label_display: visible
+  block_id: sesso
+visibility: {  }

@@ -9,6 +9,7 @@ docker exec -ti studenti_solr make create core=default -f /usr/local/bin/actions
 drush updb -y;
 drush cim -y;
 
+sleep 30
 drush cr;
 drush search-api-clear
 drush search-api-index
