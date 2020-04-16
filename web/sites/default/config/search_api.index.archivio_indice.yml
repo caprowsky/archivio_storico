@@ -8,6 +8,16 @@ dependencies:
     - search_api
     - taxonomy
   config:
+    - field.storage.node.field_data_nascita
+    - field.storage.node.field_link_carriera
+    - field.storage.node.field_corso
+    - field.storage.node.field_facolta
+    - field.storage.node.field_luogo_nascita
+    - field.storage.node.field_primo_cognome
+    - field.storage.node.field_primo_nome
+    - field.storage.node.field_secondo_cognome
+    - field.storage.node.field_secondo_nome
+    - field.storage.node.field_terzo_nome
     - search_api.server.solr
 third_party_settings:
   search_api_solr:
@@ -52,11 +62,131 @@ name: 'Archivio Indice'
 description: ''
 read_only: false
 field_settings:
+  field_carriera_corso:
+    label: 'Link carriera » Contenuto » Corso'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_corso'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_corso
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_carriera_facolta:
+    label: 'Link carriera » Contenuto » Facoltà'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_facolta'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_facolta
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_data_nascita:
+    label: 'Data di nascita'
+    datasource_id: 'entity:node'
+    property_path: field_data_nascita
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_data_nascita
+  field_link_carriera:
+    label: 'Link carriera'
+    datasource_id: 'entity:node'
+    property_path: field_link_carriera
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+  field_luogo_nascita:
+    label: 'Luogo di nascita'
+    datasource_id: 'entity:node'
+    property_path: field_luogo_nascita
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_luogo_nascita
+  field_primo_cognome:
+    label: 'Primo cognome'
+    datasource_id: 'entity:node'
+    property_path: field_primo_cognome
+    type: text
+    boost: !!float 21
+    dependencies:
+      config:
+        - field.storage.node.field_primo_cognome
+  field_primo_nome:
+    label: 'Primo nome'
+    datasource_id: 'entity:node'
+    property_path: field_primo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_primo_nome
+  field_secondo_cognome:
+    label: 'Secondo cognome'
+    datasource_id: 'entity:node'
+    property_path: field_secondo_cognome
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_secondo_cognome
+  field_secondo_nome:
+    label: 'Secondo nome'
+    datasource_id: 'entity:node'
+    property_path: field_secondo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_secondo_nome
+  field_terzo_nome:
+    label: 'Terzo nome'
+    datasource_id: 'entity:node'
+    property_path: field_terzo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_terzo_nome
   nid:
     label: ID
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: Pubblicato
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Titolo
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+  title_ordinamento:
+    label: 'Titolo Ordinamento'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Tipo di contenuto'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
     dependencies:
       module:
         - node
@@ -78,9 +208,46 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  highlight:
+    highlight: server
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  ignore_character:
+    all_fields: false
+    fields:
+      - field_luogo_nascita
+      - field_primo_cognome
+      - field_primo_nome
+      - field_secondo_cognome
+      - field_secondo_nome
+      - field_terzo_nome
+      - title
+      - title_ordinamento
+      - type
+    ignorable: '[''¿¡!?,.:;]'
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
   language_with_fallback: {  }
   rendered_item: {  }
-  solr_date_range: {  }
+  reverse_entity_references: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
     indexing_order: fifo

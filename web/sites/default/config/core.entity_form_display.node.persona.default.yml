@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
+    - field.field.node.persona.field_link_carriera
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
@@ -167,6 +168,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_link_carriera:
+    weight: 29
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_luogo_nascita:
     weight: 17

@@ -1,0 +1,19 @@
+uuid: 737a29c6-15c5-45d7-8dfc-4201edc4c401
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_licenza
+    - node.type.carriera
+id: node.carriera.field_data_licenza
+field_name: field_data_licenza
+entity_type: node
+bundle: carriera
+label: 'Data licenza'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

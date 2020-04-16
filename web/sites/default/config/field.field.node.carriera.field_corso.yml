@@ -1,0 +1,29 @@
+uuid: d6dc2a52-ea9e-497c-9d0d-142e3d3e607a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_corso
+    - node.type.carriera
+    - taxonomy.vocabulary.corso
+id: node.carriera.field_corso
+field_name: field_corso
+entity_type: node
+bundle: carriera
+label: Corso
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      corso: corso
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

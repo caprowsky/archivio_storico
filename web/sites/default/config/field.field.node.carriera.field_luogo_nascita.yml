@@ -1,0 +1,19 @@
+uuid: 08bf907c-e58f-443d-810d-e0ddb48c2995
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_luogo_nascita
+    - node.type.carriera
+id: node.carriera.field_luogo_nascita
+field_name: field_luogo_nascita
+entity_type: node
+bundle: carriera
+label: 'Luogo di nascita'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 5c0eb59f-62fd-4227-acc4-e843748915ba
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titolo_tesi_licenza
+    - node.type.carriera
+id: node.carriera.field_titolo_tesi_licenza
+field_name: field_titolo_tesi_licenza
+entity_type: node
+bundle: carriera
+label: 'Titolo tesi licenza'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

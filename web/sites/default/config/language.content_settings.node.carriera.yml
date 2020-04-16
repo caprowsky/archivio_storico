@@ -1,0 +1,11 @@
+uuid: 10a14668-a601-4f77-b531-a7156f27065a
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.carriera
+id: node.carriera
+target_entity_type_id: node
+target_bundle: carriera
+default_langcode: site_default
+language_alterable: false

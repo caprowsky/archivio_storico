@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
+    - field.field.node.persona.field_link_carriera
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
@@ -65,6 +66,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_link_carriera:
+    weight: 16
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_luogo_nascita:
     weight: 9

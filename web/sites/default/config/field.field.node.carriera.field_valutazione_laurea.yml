@@ -1,0 +1,19 @@
+uuid: b1684c85-3957-48b4-99c3-bdbd5f4c20e9
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_valutazione_laurea
+    - node.type.carriera
+id: node.carriera.field_valutazione_laurea
+field_name: field_valutazione_laurea
+entity_type: node
+bundle: carriera
+label: 'Valutazione laurea'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
