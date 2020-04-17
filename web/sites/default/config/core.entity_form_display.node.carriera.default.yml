@@ -67,18 +67,18 @@ third_party_settings:
         - field_terzo_nome
         - field_data_nascita
         - field_sesso
-        - field_geofiled
         - field_luogo_nascita
       parent_name: ''
       weight: 11
-      format_type: tab
+      format_type: details_sidebar
       region: content
       format_settings:
         description: ''
+        open: true
+        weight: -20
         required_fields: true
         id: ''
         classes: ''
-        formatter: closed
       label: Persona
 id: node.carriera.default
 targetEntityType: node

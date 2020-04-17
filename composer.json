@@ -37,6 +37,7 @@
         "drupal/search_api": "^1.15",
         "drupal/search_api_autocomplete": "^1.2",
         "drupal/ui_patterns": "^1.1",
+        "drupal/views_bulk_operations": "^3.6",
         "drush/drush": "^10.2"
     },
     "require-dev": {

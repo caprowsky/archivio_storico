@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
+    - field.field.node.persona.field_indirizzo
     - field.field.node.persona.field_link_carriera
+    - field.field.node.persona.field_luogo_di_morte
     - field.field.node.persona.field_luogo_nascita
     - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
@@ -31,10 +34,13 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_data_di_morte: true
   field_data_nascita: true
   field_geofiled: true
   field_id: true
+  field_indirizzo: true
   field_link_carriera: true
+  field_luogo_di_morte: true
   field_luogo_nascita: true
   field_numero: true
   field_primo_cognome: true
