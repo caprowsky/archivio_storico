@@ -2,11 +2,47 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\Entity\Editor;
+use Drupal\comment\Entity\Comment;
+use Drupal\Core\Config\ConfigImporter;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\ContentEntityType;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\search_api\Entity\Index;
+use Drupal\search_api\IndexInterface;
+use Drupal\search_api\Plugin\search_api\datasource\ContentEntity;
+use Drupal\search_api\Plugin\search_api\datasource\ContentEntityTaskManager;
+use Drupal\search_api\Plugin\views\argument\SearchApiTerm as TermArgument;
+use Drupal\search_api\Plugin\views\argument\SearchApiAllTerms;
+use Drupal\search_api\Plugin\views\filter\SearchApiTerm as TermFilter;
+use Drupal\search_api\Plugin\views\query\SearchApiQuery;
+use Drupal\search_api\SearchApiException;
+use Drupal\search_api\Task\IndexTaskManager;
+use Drupal\views\ViewEntityInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
 
 /**
  * @file
  * Contains archivio_utils.module.
  */
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function archivio_utils_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+  // Verifico se il tipo di contenuto è una carriera
+  if ($entity->bundle() == 'carriera') {
+    $persone = $entity->get('field_persona')->referencedEntities();
+    $persona = $persone[0];
+    $indexes = ContentEntity::getIndexesForEntity($persona);
+    foreach ($indexes as $index) {
+      $index->trackItemsUpdated('entity:node', [$persona->id() . ':it']);
+    }
+  }
+}
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -16,7 +52,7 @@ function archivio_utils_node_presave(Drupal\Core\Entity\EntityInterface $entity)
   // Verifico se il tipo di contenuto è uno di quelli della carriera
   if ($entity->bundle() == 'carriera_studente' || $entity->bundle() == 'carriera_docente') {
     $persone = $entity->get('field_persona')->referencedEntities();
-
+    $a = 1;
     /**
      * - se il nodo è nuovo, aggiorno la persona aggiungendo il link alla carriera appena creata
      * - se il nodo non è nuovo, verifico se è cambiato il link alla persona dal nodo originale ad adesso
