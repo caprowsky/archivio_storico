@@ -3,6 +3,9 @@ langcode: it
 status: true
 dependencies:
   config:
+    - block.block.linkcarrieracontenutocorso
+    - block.block.linkcarrieracontenutofacolta
+    - block.block.sesso
     - field.storage.node.field_luogo_nascita
     - field.storage.node.field_primo_cognome
     - field.storage.node.field_secondo_cognome
@@ -39,7 +42,7 @@ display:
         type: basic
         options:
           submit_button: Applica
-          reset_button: false
+          reset_button: true
           reset_button_label: Ripristina
           exposed_sorts_label: 'Ordina per'
           expose_sort_order: true
@@ -64,40 +67,11 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: table
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            nid: nid
-            field_primo_cognome: field_primo_cognome
-            field_secondo_cognome: field_secondo_cognome
-          info:
-            nid:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_primo_cognome:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_secondo_cognome:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
       row:
         type: fields
       fields:
@@ -586,7 +560,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           link_to_item: false
-          use_highlighting: false
+          use_highlighting: true
           multi_type: separator
           multi_separator: ', '
           plugin_id: search_api
@@ -701,6 +675,45 @@ display:
           empty: false
           content: 'Visualizzazione elementi @start - @end su @total'
           plugin_id: result
+        entity_block:
+          id: entity_block
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: Sesso
+          empty: false
+          tokenize: true
+          target: sesso
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
+        entity_block_1:
+          id: entity_block_1
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: Facoltà
+          empty: false
+          tokenize: true
+          target: linkcarrieracontenutofacolta
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
+        entity_block_2:
+          id: entity_block_2
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: Corso
+          empty: false
+          tokenize: true
+          target: linkcarrieracontenutocorso
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       footer: {  }
       empty: {  }
       relationships: {  }

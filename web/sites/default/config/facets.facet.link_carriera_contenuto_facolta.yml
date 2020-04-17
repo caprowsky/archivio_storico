@@ -10,22 +10,16 @@ dependencies:
 id: link_carriera_contenuto_facolta
 name: 'Link carriera » Contenuto » Facoltà'
 url_alias: link_carriera_contenuto_facolta
-weight: 0
+weight: -1
 min_count: 1
-show_only_one_result: false
+show_only_one_result: true
 field_identifier: field_carriera_facolta
 facet_source_id: 'search_api:views_page__ricerca_persone__ricerca'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: false
-    soft_limit: 0
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
-    show_reset_link: false
-    reset_text: 'Mostra tutti'
-    hide_reset_when_no_selection: false
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
-    - field.field.node.carriera.field_geofiled
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_luogo_nascita
     - field.field.node.carriera.field_persona
@@ -47,7 +46,6 @@ hidden:
   field_data_licenza: true
   field_data_nascita: true
   field_facolta: true
-  field_geofiled: true
   field_id: true
   field_luogo_nascita: true
   field_persona: true

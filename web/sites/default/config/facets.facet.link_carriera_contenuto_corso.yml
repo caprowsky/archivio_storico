@@ -12,20 +12,14 @@ name: 'Link carriera » Contenuto » Corso'
 url_alias: link_carriera_contenuto_corso
 weight: 0
 min_count: 1
-show_only_one_result: false
+show_only_one_result: true
 field_identifier: field_carriera_corso
 facet_source_id: 'search_api:views_page__ricerca_persone__ricerca'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: false
-    soft_limit: 0
-    soft_limit_settings:
-      show_less_label: 'Show less'
-      show_more_label: 'Show more'
-    show_reset_link: false
-    reset_text: 'Mostra tutti'
-    hide_reset_when_no_selection: false
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -46,6 +40,21 @@ processor_configs:
       sort: 30
     settings:
       sort: DESC
+  dependent_processor:
+    processor_id: dependent_processor
+    weights:
+      build: 5
+    settings:
+      link_carriera_contenuto_facolta:
+        enable: true
+        condition: not_empty
+        values: ''
+        negate: false
+      sesso:
+        enable: false
+        condition: null
+        values: ''
+        negate: false
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:

@@ -10,7 +10,7 @@ dependencies:
 id: sesso
 name: Sesso
 url_alias: sesso
-weight: 0
+weight: -2
 min_count: 1
 show_only_one_result: true
 field_identifier: field_sesso
@@ -19,7 +19,7 @@ widget:
   type: dropdown
   config:
     show_numbers: true
-    default_option_label: Choose
+    default_option_label: Genere
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
-    - field.field.node.carriera.field_geofiled
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_luogo_nascita
     - field.field.node.carriera.field_persona
@@ -29,11 +28,10 @@ dependencies:
     - field.field.node.carriera.field_valutazione_laurea
     - node.type.carriera
   module:
-    - datetime
     - entity_browser
     - field_group
-    - geofield
     - path
+    - readonly_field_widget
 third_party_settings:
   field_group:
     group_carriera_studente:
@@ -73,13 +71,14 @@ third_party_settings:
         - field_luogo_nascita
       parent_name: ''
       weight: 11
-      format_type: fieldset
+      format_type: tab
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
+        id: ''
+        classes: ''
+        formatter: closed
       label: Persona
 id: node.carriera.default
 targetEntityType: node
@@ -127,10 +126,14 @@ content:
     type: string_textfield
     region: content
   field_data_nascita:
-    type: datetime_default
+    type: readonly_field_widget
     weight: 32
     region: content
-    settings: {  }
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_facolta:
     weight: 15
@@ -142,28 +145,25 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_geofiled:
-    type: geofield_latlon
-    weight: 34
-    region: content
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
   field_id:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 26
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_luogo_nascita:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 35
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_persona:
     weight: 8
@@ -180,20 +180,24 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_primo_cognome:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 27
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_primo_nome:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 29
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_revisore:
     weight: 12
@@ -206,20 +210,24 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 28
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_secondo_nome:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 30
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
     weight: 18
@@ -238,18 +246,24 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    type: options_select
+    type: readonly_field_widget
     weight: 33
     region: content
-    settings: {  }
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_terzo_nome:
-    type: string_textfield
+    type: readonly_field_widget
     weight: 31
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
   field_tipologia_carriera:
     weight: 9
