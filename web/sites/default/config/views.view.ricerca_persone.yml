@@ -69,13 +69,79 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: table
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_tipologia_carriera: field_tipologia_carriera
+            field_luogo_nascita: field_luogo_nascita
+            field_anno_immatricolazione: field_anno_immatricolazione
+            field_carriera_facolta: field_carriera_facolta
+            search_api_excerpt: search_api_excerpt
+            aggregated_field_conteggio: aggregated_field_conteggio
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tipologia_carriera:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_luogo_nascita:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_anno_immatricolazione:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_carriera_facolta:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            search_api_excerpt:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            aggregated_field_conteggio:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       fields:
         title:
           id: title
@@ -84,7 +150,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Nome e cognome'
           exclude: false
           alter:
             alter_text: false
@@ -117,7 +183,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -154,11 +220,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Carriere
           exclude: false
           alter:
             alter_text: true
-            text: 'Lui è {{ field_tipologia_carriera__value }}'
+            text: '{{ field_tipologia_carriera__value }}'
             make_link: false
             path: ''
             absolute: false
@@ -223,7 +289,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Nato a'
+          label: 'Luogo di nascita'
           exclude: false
           alter:
             alter_text: false
@@ -256,7 +322,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -294,7 +360,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Anno di immatricolazione'
           exclude: false
           alter:
             alter_text: false
@@ -327,7 +393,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -397,7 +463,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -484,59 +550,6 @@ display:
           hide_alter_empty: true
           link_to_item: false
           use_highlighting: true
-          multi_type: separator
-          multi_separator: ', '
-          plugin_id: search_api
-        aggregated_field_conteggio:
-          id: aggregated_field_conteggio
-          table: search_api_index_archivio_indice
-          field: aggregated_field_conteggio
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          link_to_item: false
-          use_highlighting: false
           multi_type: separator
           multi_separator: ', '
           plugin_id: search_api

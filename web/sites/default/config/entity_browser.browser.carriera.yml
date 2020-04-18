@@ -8,11 +8,11 @@ dependencies:
     - entity_browser_entity_form
     - views
 name: carriera
-label: carriera
+label: Carriera
 display: modal
 display_configuration:
-  width: '650'
-  height: '500'
+  width: ''
+  height: ''
   link_text: 'Select entities'
   auto_open: false
 selection_display: no_display
@@ -33,7 +33,7 @@ widgets:
   19ff9f85-5571-4f4f-9b70-5f58cf86e5ef:
     settings:
       entity_type: node
-      bundle: persona
+      bundle: carriera
       form_mode: default
       submit_text: 'Salva carriera'
     uuid: 19ff9f85-5571-4f4f-9b70-5f58cf86e5ef

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_corso
+    - field.storage.node.field_facolta
     - search_api.index.archivio_indice
   module:
     - search_api
@@ -49,21 +50,55 @@ display:
           items_per_page: 5
           offset: 0
       style:
-        type: default
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: 'Mostra altri studenti o docenti con affinità'
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_carriera_facolta: field_carriera_facolta
+            field_carriera_corso: field_carriera_corso
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_carriera_facolta:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_carriera_corso:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
-        field_carriera_corso:
+        title:
+          id: title
           table: search_api_index_archivio_indice
-          field: field_carriera_corso
-          id: field_carriera_corso
-          entity_type: null
-          entity_field: null
-          plugin_id: search_api_field
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Nome e cognome'
           exclude: false
           alter:
             alter_text: false
@@ -96,7 +131,77 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          plugin_id: search_api_field
+        field_carriera_facolta:
+          id: field_carriera_facolta
+          table: search_api_index_archivio_indice
+          field: field_carriera_facolta
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Facoltà
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -106,7 +211,8 @@ display:
           hide_alter_empty: true
           click_sort_column: target_id
           type: entity_reference_label
-          settings: {  }
+          settings:
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -124,7 +230,93 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-            display_methods: {  }
+            display_methods:
+              corso:
+                display_method: label
+              facolta:
+                display_method: label
+              tags:
+                display_method: label
+          plugin_id: search_api_field
+        field_carriera_corso:
+          id: field_carriera_corso
+          table: search_api_index_archivio_indice
+          field: field_carriera_corso
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Corso
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+            display_methods:
+              corso:
+                display_method: label
+              facolta:
+                display_method: label
+              tags:
+                display_method: label
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
       filters: {  }
       sorts:
         search_api_relevance:
@@ -185,6 +377,7 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_corso'
+        - 'config:field.storage.node.field_facolta'
         - 'config:search_api.index.archivio_indice'
   mlt:
     display_plugin: block
@@ -203,4 +396,5 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_corso'
+        - 'config:field.storage.node.field_facolta'
         - 'config:search_api.index.archivio_indice'

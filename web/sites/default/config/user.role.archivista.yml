@@ -7,6 +7,8 @@ label: Archivista
 weight: 3
 is_admin: null
 permissions:
+  - 'access carriera entity browser pages'
+  - 'access persona entity browser pages'
   - 'access toolbar'
   - 'access tour'
   - 'create carriera content'

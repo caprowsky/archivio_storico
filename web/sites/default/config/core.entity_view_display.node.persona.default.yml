@@ -33,7 +33,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 11
+      weight: 16
       format_type: fieldset
       region: content
       format_settings:
@@ -47,8 +47,8 @@ bundle: persona
 mode: default
 content:
   field_data_di_morte:
-    weight: 18
-    label: above
+    weight: 13
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -81,15 +81,15 @@ content:
     type: string
     region: content
   field_indirizzo:
-    weight: 17
-    label: above
+    weight: 12
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_link_carriera:
-    weight: 16
-    label: above
+    weight: 15
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -97,8 +97,8 @@ content:
     type: entity_reference_entity_view
     region: content
   field_luogo_di_morte:
-    weight: 19
-    label: above
+    weight: 14
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -113,8 +113,8 @@ content:
     type: string
     region: content
   field_numero:
-    weight: 13
-    label: above
+    weight: 11
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }

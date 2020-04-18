@@ -27,7 +27,6 @@ dependencies:
     - field.field.node.carriera.field_valutazione_laurea
     - node.type.carriera
   module:
-    - datetime
     - options
     - user
 id: node.carriera.default
@@ -36,7 +35,7 @@ bundle: carriera
 mode: default
 content:
   field_anno_immatricolazione:
-    weight: 106
+    weight: 6
     label: inline
     settings:
       link_to_entity: false
@@ -44,7 +43,7 @@ content:
     type: string
     region: content
   field_corso:
-    weight: 104
+    weight: 4
     label: inline
     settings:
       link: true
@@ -52,7 +51,7 @@ content:
     type: entity_reference_label
     region: content
   field_data_laurea:
-    weight: 108
+    weight: 8
     label: inline
     settings:
       link_to_entity: false
@@ -60,24 +59,15 @@ content:
     type: string
     region: content
   field_data_licenza:
-    weight: 107
+    weight: 7
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_data_nascita:
-    weight: 115
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_facolta:
-    weight: 105
+    weight: 5
     label: inline
     settings:
       link: true
@@ -85,71 +75,31 @@ content:
     type: entity_reference_label
     region: content
   field_id:
-    weight: 118
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_luogo_nascita:
-    weight: 119
-    label: above
+    weight: 1
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_persona:
-    weight: 103
+    weight: 3
     label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_primo_cognome:
-    weight: 120
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_primo_nome:
-    weight: 121
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_revisore:
-    weight: 114
+    weight: 14
     label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_secondo_cognome:
-    weight: 122
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_secondo_nome:
-    weight: 123
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 109
+    weight: 9
     label: inline
     settings:
       link_to_entity: false
@@ -157,61 +107,54 @@ content:
     type: string
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 110
+    weight: 10
     label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_sesso:
-    weight: 116
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
-  field_terzo_nome:
-    weight: 124
-    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_tipologia_carriera:
-    weight: 102
+    weight: 2
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_titolo_tesi_laurea:
-    weight: 111
+    weight: 11
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_titolo_tesi_licenza:
-    weight: 112
+    weight: 12
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 113
+    weight: 13
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_data_nascita: true
+  field_luogo_nascita: true
+  field_primo_cognome: true
+  field_primo_nome: true
+  field_secondo_cognome: true
+  field_secondo_nome: true
+  field_sesso: true
+  field_terzo_nome: true
   langcode: true
   search_api_excerpt: true

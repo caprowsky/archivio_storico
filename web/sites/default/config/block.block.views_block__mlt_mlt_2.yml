@@ -1,0 +1,24 @@
+uuid: 412f564d-48e9-49db-86de-bd5d6ef52067
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.mlt
+  module:
+    - views
+  theme:
+    - claro
+id: views_block__mlt_mlt_2
+theme: claro
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:mlt-mlt'
+settings:
+  id: 'views_block:mlt-mlt'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }
