@@ -10,12 +10,14 @@ dependencies:
   config:
     - field.storage.node.field_data_nascita
     - field.storage.node.field_link_carriera
+    - field.storage.node.field_anno_immatricolazione
     - field.storage.node.field_corso
     - field.storage.node.field_data_laurea
     - field.storage.node.field_data_licenza
     - field.storage.node.field_facolta
     - field.storage.node.field_segnatura_arch_tesi_laurea
     - field.storage.node.field_segnatura_arch_tesi_licenz
+    - field.storage.node.field_tipologia_carriera
     - field.storage.node.field_titolo_tesi_laurea
     - field.storage.node.field_titolo_tesi_licenza
     - field.storage.node.field_valutazione_laurea
@@ -70,6 +72,25 @@ name: 'Archivio Indice'
 description: ''
 read_only: false
 field_settings:
+  aggregated_field_conteggio:
+    label: 'Aggregated field conteggio'
+    property_path: aggregated_field
+    type: integer
+    configuration:
+      type: count
+      fields:
+        - 'entity:node/title'
+  field_anno_immatricolazione:
+    label: 'Link carriera » Contenuto » Anno di immatricolazione'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_anno_immatricolazione'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_anno_immatricolazione
+        - field.storage.node.field_link_carriera
+      module:
+        - node
   field_carriera_corso:
     label: 'Link carriera » Contenuto » Corso'
     datasource_id: 'entity:node'
@@ -122,17 +143,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_data_nascita
-  field_data_nascita_1:
-    label: 'Link carriera » Contenuto » Data di nascita'
-    datasource_id: 'entity:node'
-    property_path: 'field_link_carriera:entity:field_data_nascita'
-    type: date
-    dependencies:
-      config:
-        - field.storage.node.field_data_nascita
-        - field.storage.node.field_link_carriera
-      module:
-        - node
   field_link_carriera:
     label: 'Link carriera'
     datasource_id: 'entity:node'
@@ -229,6 +239,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_terzo_nome
+  field_tipologia_carriera:
+    label: 'Link carriera » Contenuto » Tipologia carriera'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_tipologia_carriera'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_tipologia_carriera
+      module:
+        - node
   field_titolo_tesi_laurea:
     label: 'Link carriera » Contenuto » Titolo tesi di laurea'
     datasource_id: 'entity:node'
@@ -356,7 +377,6 @@ processor_settings:
       preprocess_query: -10
   language_with_fallback: {  }
   rendered_item: {  }
-  reverse_entity_references: {  }
   solr_date_range:
     weights:
       preprocess_index: 0

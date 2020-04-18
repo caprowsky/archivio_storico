@@ -1,0 +1,39 @@
+uuid: bdf590ab-0587-495b-91df-6fe87cdda4ef
+langcode: it
+status: true
+dependencies: {  }
+id: archivista
+label: Archivista
+weight: 3
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access tour'
+  - 'create carriera content'
+  - 'create page content'
+  - 'create persona content'
+  - 'delete any carriera content'
+  - 'delete any page content'
+  - 'delete any persona content'
+  - 'delete carriera revisions'
+  - 'delete own carriera content'
+  - 'delete own page content'
+  - 'delete own persona content'
+  - 'delete page revisions'
+  - 'delete persona revisions'
+  - 'edit any carriera content'
+  - 'edit any page content'
+  - 'edit any persona content'
+  - 'edit own carriera content'
+  - 'edit own page content'
+  - 'edit own persona content'
+  - 'revert carriera revisions'
+  - 'revert page revisions'
+  - 'revert persona revisions'
+  - 'use admin toolbar search'
+  - 'view all revisions'
+  - 'view backoffice in toolbar'
+  - 'view carriera revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view persona revisions'

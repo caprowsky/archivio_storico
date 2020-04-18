@@ -1,0 +1,126 @@
+uuid: 0138bd95-5e9e-4191-9550-1baeadd49f3e
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WliLQOeangO6AMCNfjVIRA-jenqmiYu7XGBlNIs8dPY
+id: studenti
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - CSV
+migration_group: null
+label: 'CSV file migration'
+source:
+  plugin: csv
+  path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
+  ids:
+    - numero
+  constants:
+    title_constant: Carriera
+process:
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 5
+  type:
+    plugin: default_value
+    default_value: carriera
+  title:
+    plugin: concat
+    source:
+      - constants/title_constant
+      - primo_cognome
+      - secondo_cognome
+      - primo_nome
+      - secondo_nome
+      - terzo_nome
+    delimiter: ' '
+  field_id: concatena
+  field_numero: numero
+  field_data_nascita: data_nascita
+  field_luogo_nascita:
+    plugin: encode
+    source: luogo_di_nascita
+  field_primo_cognome:
+    plugin: encode
+    source: primo_cognome
+  field_secondo_cognome:
+    plugin: encode
+    source: secondo_cognome
+  field_primo_nome:
+    plugin: encode
+    source: primo_nome
+  field_secondo_nome:
+    plugin: encode
+    source: secondo_nome
+  field_terzo_nome:
+    plugin: encode
+    source: terzo_nome
+  field_tipologia_carriera:
+    plugin: default_value
+    default_value: s
+  field_sesso:
+    plugin: static_map
+    source: sesso
+    map:
+      M: m
+      F: f
+      f: f
+      m: m
+  field_anno_immatricolazione:
+    plugin: encode
+    source: anno_immatricolazione
+  field_carriera/value:
+    plugin: encode
+    source: carriera
+  field_carriera/format:
+    plugin: default_value
+    default_value: basic_html
+  field_corso:
+    target_id:
+      plugin: migration_lookup
+      migration: corsi
+      no_stub: true
+      source: corso
+  field_persona:
+    target_id:
+      plugin: migration_lookup
+      migration: persone
+      no_stub: true
+      source: concatena
+  field_data_laurea:
+    plugin: encode
+    source: data_laurea
+  field_data_licenza:
+    plugin: encode
+    source: data_licenza
+  field_facolta:
+    target_id:
+      plugin: migration_lookup
+      migration: facolta
+      no_stub: true
+      source: facolta
+  field_segnatura_arch_tesi_laurea:
+    plugin: encode
+    source: segnatura_archivistica_tesi_laurea
+  field_segnatura_arch_tesi_licenz:
+    plugin: encode
+    source: segnatura_archivistica_tesi_licenza
+  field_titolo_tesi_laurea:
+    plugin: encode
+    source: titolo_tesi_laurea
+  field_titolo_tesi_licenza:
+    plugin: encode
+    source: titolo_tesi_licenza
+  field_valutazione_laurea:
+    plugin: encode
+    source: valutazione_laurea
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required: {  }
+  optional: {  }

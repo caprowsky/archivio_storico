@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_tipologia_carriera
     - user.role.administrator
+    - user.role.archivista
   module:
     - node
     - options
@@ -14,7 +15,7 @@ id: bulk_operation
 label: 'Bulk operation'
 module: views
 description: ''
-tag: ''
+tag: Backoffice
 base_table: node_field_data
 base_field: nid
 display:
@@ -29,6 +30,7 @@ display:
         options:
           role:
             administrator: administrator
+            archivista: archivista
       cache:
         type: tag
         options: {  }
