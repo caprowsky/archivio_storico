@@ -651,7 +651,7 @@ if ($settings['hash_salt']) {
 /**
  * Load services definition file.
  */
-#$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
  * Override the default service container class.
@@ -769,4 +769,4 @@ $databases['default']['default'] = array (
 $settings['config_sync_directory'] = 'sites/default/config';
 
 
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/services.yml';
+#$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/ssssservices.yml';
