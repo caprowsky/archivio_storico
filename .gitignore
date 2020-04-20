@@ -3,3 +3,4 @@
 /mariadb-init/*
 /web/sites/*/files/
 /.idea/
+web/themes/custom/archivio/node_modules
