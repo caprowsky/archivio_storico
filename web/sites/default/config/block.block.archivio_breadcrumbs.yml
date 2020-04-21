@@ -1,15 +1,15 @@
-uuid: 3f33269b-d4cf-4b4f-9d94-f08e67262b62
+uuid: 295fc23c-d747-4172-ae55-0f93a68259e6
 langcode: it
 status: true
 dependencies:
   module:
     - system
   theme:
-    - seven
+    - archivio
 _core:
-  default_config_hash: WWu2OQswgCztl9OeXjD1stexIEMZsSgPMYIdC-JHx9c
-id: seven_breadcrumbs
-theme: seven
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: archivio_breadcrumbs
+theme: archivio
 region: breadcrumb
 weight: 0
 provider: null

@@ -1,15 +1,15 @@
-uuid: 95eea234-57ae-4409-bb36-13389083366c
+uuid: 758ce7b4-a9c8-4cb9-8136-9ac76373a778
 langcode: it
 status: true
 dependencies:
   module:
     - help
   theme:
-    - bartik
+    - bootstrap_italia
 _core:
   default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
-id: bartik_help
-theme: bartik
+id: bootstrap_italia_help
+theme: bootstrap_italia
 region: content
 weight: -30
 provider: null

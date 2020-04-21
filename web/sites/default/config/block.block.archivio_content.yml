@@ -1,15 +1,15 @@
-uuid: f68642e5-0cee-430d-b0e5-365673cdc0a3
+uuid: d0ef2bcc-cf60-42fd-9ce1-90148f2e7eee
 langcode: it
 status: true
 dependencies:
   module:
     - system
   theme:
-    - seven
+    - archivio
 _core:
-  default_config_hash: YRY68JWkaUiGeZlWMv1nzeIgDm0ZZwXYgpqUpLFzwAY
-id: seven_content
-theme: seven
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: archivio_content
+theme: archivio
 region: content
 weight: 0
 provider: null

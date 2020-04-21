@@ -1,16 +1,16 @@
-uuid: b7752484-e419-486b-8335-b2b8ae2088ec
+uuid: 7877cc7f-5177-4c85-8dc8-47a954cae21f
 langcode: it
 status: true
 dependencies:
   module:
     - system
   theme:
-    - seven
+    - bootstrap_italia
 _core:
-  default_config_hash: XJqWwLt1LDCnazcEN6QkJmCLjk4R0__-8s0OO9xeNjg
-id: seven_messages
-theme: seven
-region: highlighted
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: bootstrap_italia_messages
+theme: bootstrap_italia
+region: disabled_blocks
 weight: 0
 provider: null
 plugin: system_messages_block

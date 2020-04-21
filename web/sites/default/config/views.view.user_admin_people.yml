@@ -250,7 +250,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Status
+          label: Stato
           exclude: false
           alter:
             alter_text: false
@@ -650,7 +650,7 @@ display:
             operator_list: {  }
           is_grouped: true
           group_info:
-            label: Status
+            label: Stato
             description: ''
             identifier: status
             optional: true

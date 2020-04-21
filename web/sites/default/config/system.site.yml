@@ -1,11 +1,11 @@
 uuid: 2e1cb0e6-51b8-4ffc-bd81-4d9ca2291e8e
-name: 'Archivio Storico'
+name: 'Archivio Storico Università di Cagliari'
 mail: alessandrocapra@gmail.com
-slogan: 'Università di Cagliari'
+slogan: ''
 page:
   403: ''
   404: ''
-  front: /ricerca-persone
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 langcode: it

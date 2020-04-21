@@ -1,9 +1,0 @@
-uuid: cf0993d2-16d3-4b1d-9c3a-c936a0076832
-langcode: it
-status: true
-dependencies: {  }
-id: backoffice
-label: Backoffice
-weight: null
-menu: backoffice
-rewrite_label: false

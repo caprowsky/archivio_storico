@@ -1,0 +1,25 @@
+uuid: 43c7fbfd-d16b-4bd4-a0e6-464abce463bd
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap_italia
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: bootstrap_italia_branding
+theme: bootstrap_italia
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Branding del sito'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

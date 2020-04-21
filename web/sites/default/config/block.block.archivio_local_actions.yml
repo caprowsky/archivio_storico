@@ -1,13 +1,13 @@
-uuid: e08cb583-3f70-43fb-9b0a-f1ac04f7b00d
+uuid: a36a234e-6fc6-41ec-b1f0-a52368e26c5e
 langcode: it
 status: true
 dependencies:
   theme:
-    - bartik
+    - archivio
 _core:
   default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
-id: bartik_local_actions
-theme: bartik
+id: archivio_local_actions
+theme: archivio
 region: content
 weight: -20
 provider: null

@@ -1,0 +1,22 @@
+uuid: ac91ce28-83e1-44e3-b84b-00967a7e26d0
+langcode: it
+status: true
+dependencies:
+  theme:
+    - bootstrap_italia
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: bootstrap_italia_local_tasks
+theme: bootstrap_italia
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Schede
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

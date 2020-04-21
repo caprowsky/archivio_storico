@@ -1,15 +1,15 @@
-uuid: 3f33269b-d4cf-4b4f-9d94-f08e67262b62
+uuid: 55338afe-862e-47ba-aacf-34bcd7b6cac9
 langcode: it
 status: true
 dependencies:
   module:
     - system
   theme:
-    - seven
+    - bootstrap_italia
 _core:
-  default_config_hash: WWu2OQswgCztl9OeXjD1stexIEMZsSgPMYIdC-JHx9c
-id: seven_breadcrumbs
-theme: seven
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: bootstrap_italia_breadcrumbs
+theme: bootstrap_italia
 region: breadcrumb
 weight: 0
 provider: null

@@ -1,17 +1,17 @@
-uuid: b7752484-e419-486b-8335-b2b8ae2088ec
+uuid: 11ffc572-9e6e-4def-ad42-37438513ded5
 langcode: it
 status: true
 dependencies:
   module:
     - system
   theme:
-    - seven
+    - archivio
 _core:
-  default_config_hash: XJqWwLt1LDCnazcEN6QkJmCLjk4R0__-8s0OO9xeNjg
-id: seven_messages
-theme: seven
-region: highlighted
-weight: 0
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: archivio_messages
+theme: archivio
+region: disabled_blocks
+weight: -5
 provider: null
 plugin: system_messages_block
 settings:
