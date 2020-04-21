@@ -1,4 +1,4 @@
-uuid: a4884ad6-c507-4afb-a3cd-6d80ba07166f
+uuid: 8797f743-5b55-417d-980c-e811ca0b3f02
 langcode: it
 status: true
 dependencies:
@@ -7,16 +7,16 @@ dependencies:
   theme:
     - bootstrap_italia
 _core:
-  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+  default_config_hash: QTwkfDaGeBUk6aerktJBDXso4fCsqLTQOuWKXE1xMPU
 id: bootstrap_italia_content
 theme: bootstrap_italia
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: system_main_block
 settings:
   id: system_main_block
-  label: 'Contenuto della pagina principale'
+  label: 'Main page content'
   provider: system
   label_display: '0'
 visibility: {  }

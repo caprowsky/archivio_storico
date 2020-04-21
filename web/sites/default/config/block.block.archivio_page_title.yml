@@ -1,20 +1,20 @@
-uuid: 1f1cba2e-b925-4725-b52f-29113db2229c
+uuid: bee0a27f-6e4f-464f-90a7-f3f04cf0da5f
 langcode: it
 status: true
 dependencies:
   theme:
     - archivio
 _core:
-  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+  default_config_hash: gfXKmThltk6eewwrjAEaxVPxzPEVHV1UfNjjOUQ5A7g
 id: archivio_page_title
 theme: archivio
-region: content
-weight: -50
+region: disabled_blocks
+weight: -30
 provider: null
 plugin: page_title_block
 settings:
   id: page_title_block
-  label: 'Titolo della pagina'
+  label: 'Page title'
   provider: core
   label_display: '0'
 visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 19bf4215-fa0d-4fcc-9cee-0bc05b1502c5
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.link_carriera_contenuto_facolta
+  module:
+    - facets
+  theme:
+    - bartik
+id: linkcarrieracontenutofacolta
+theme: bartik
+region: sidebar_second
+weight: -6
+provider: null
+plugin: 'facet_block:link_carriera_contenuto_facolta'
+settings:
+  id: 'facet_block:link_carriera_contenuto_facolta'
+  label: 'Link carriera » Contenuto » Facoltà'
+  provider: facets
+  label_display: visible
+  block_id: linkcarrieracontenutofacolta
+visibility: {  }

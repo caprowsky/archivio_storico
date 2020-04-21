@@ -1,4 +1,4 @@
-uuid: 295fc23c-d747-4172-ae55-0f93a68259e6
+uuid: a1dc91bf-3937-4ffb-9bd8-39f8939be1bc
 langcode: it
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   theme:
     - archivio
 _core:
-  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+  default_config_hash: b6mUaCq5YPapRUABXRHfNTT6fxWIj5lgf0Mg4HaRJ_I
 id: archivio_breadcrumbs
 theme: archivio
 region: breadcrumb
@@ -16,7 +16,7 @@ provider: null
 plugin: system_breadcrumb_block
 settings:
   id: system_breadcrumb_block
-  label: Breadcrumb
+  label: Breadcrumbs
   provider: system
   label_display: '0'
 visibility: {  }

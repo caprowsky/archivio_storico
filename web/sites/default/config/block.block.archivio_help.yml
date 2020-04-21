@@ -1,4 +1,4 @@
-uuid: cb0129a6-ae17-4814-9207-82acbdb6cbdd
+uuid: 37de5531-372f-4f0a-b7b7-9648dcf11b85
 langcode: it
 status: true
 dependencies:
@@ -7,16 +7,16 @@ dependencies:
   theme:
     - archivio
 _core:
-  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+  default_config_hash: bMLNWPKf3uHuqgmVszMb5zhM205c4Y-r7j5Tw6NDo-o
 id: archivio_help
 theme: archivio
-region: content
-weight: -30
+region: help
+weight: 0
 provider: null
 plugin: help_block
 settings:
   id: help_block
-  label: Aiuto
+  label: Help
   provider: help
   label_display: '0'
 visibility: {  }

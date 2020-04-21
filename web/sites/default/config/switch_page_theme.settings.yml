@@ -1,0 +1,14 @@
+spt_table:
+  -
+    status: '1'
+    pages: "/backoffice\r\n/backoffice/*"
+    theme: claro
+    roles:
+      administrator: administrator
+      archivista: archivista
+      anonymous: 0
+      authenticated: 0
+    language:
+      it: it
+    weight: '-10'
+    remove: Elimina

@@ -1,0 +1,19 @@
+uuid: ecfdca1a-3356-4b25-88ea-d252d44966ad
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondo_nome
+    - node.type.carriera
+id: node.carriera.field_secondo_nome
+field_name: field_secondo_nome
+entity_type: node
+bundle: carriera
+label: 'Secondo nome'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

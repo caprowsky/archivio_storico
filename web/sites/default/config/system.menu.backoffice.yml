@@ -1,0 +1,8 @@
+uuid: 02b9837b-6dae-425b-8e1c-e09d5a92832b
+langcode: it
+status: true
+dependencies: {  }
+id: backoffice
+label: Backoffice
+description: 'Menu del backoffice del sito'
+locked: false

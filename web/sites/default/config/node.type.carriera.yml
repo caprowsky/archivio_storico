@@ -1,0 +1,18 @@
+uuid: beebc306-a6aa-4123-822c-18a649dc79c8
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Carriera
+type: carriera
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

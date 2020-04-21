@@ -1,0 +1,20 @@
+uuid: 62b470e3-aa7b-4e9c-aae1-e522a0531671
+langcode: it
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_data_di_morte
+field_name: field_data_di_morte
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

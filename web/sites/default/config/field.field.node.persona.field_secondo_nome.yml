@@ -1,0 +1,19 @@
+uuid: a3ab4d66-b801-4d09-88db-722d5f14ba8e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondo_nome
+    - node.type.persona
+id: node.persona.field_secondo_nome
+field_name: field_secondo_nome
+entity_type: node
+bundle: persona
+label: 'Secondo nome'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

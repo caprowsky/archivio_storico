@@ -1,0 +1,389 @@
+uuid: cd0421d5-0c7c-413b-933b-b30c814e3899
+langcode: it
+status: true
+dependencies:
+  module:
+    - search_api_solr
+    - node
+    - search_api
+    - taxonomy
+  config:
+    - field.storage.node.field_data_nascita
+    - field.storage.node.field_link_carriera
+    - field.storage.node.field_anno_immatricolazione
+    - field.storage.node.field_corso
+    - field.storage.node.field_data_laurea
+    - field.storage.node.field_data_licenza
+    - field.storage.node.field_facolta
+    - field.storage.node.field_segnatura_arch_tesi_laurea
+    - field.storage.node.field_segnatura_arch_tesi_licenz
+    - field.storage.node.field_tipologia_carriera
+    - field.storage.node.field_titolo_tesi_laurea
+    - field.storage.node.field_titolo_tesi_licenza
+    - field.storage.node.field_valutazione_laurea
+    - field.storage.node.field_luogo_nascita
+    - field.storage.node.field_primo_cognome
+    - field.storage.node.field_primo_nome
+    - field.storage.node.field_secondo_cognome
+    - field.storage.node.field_secondo_nome
+    - field.storage.node.field_sesso
+    - field.storage.node.field_terzo_nome
+    - search_api.server.solr
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: Europe/Rome
+id: archivio_indice
+name: 'Archivio Indice'
+description: ''
+read_only: false
+field_settings:
+  aggregated_field_conteggio:
+    label: 'Aggregated field conteggio'
+    property_path: aggregated_field
+    type: integer
+    configuration:
+      type: count
+      fields:
+        - 'entity:node/title'
+  field_anno_immatricolazione:
+    label: 'Link carriera » Contenuto » Anno di immatricolazione'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_anno_immatricolazione'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_anno_immatricolazione
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_carriera_corso:
+    label: 'Link carriera » Contenuto » Corso'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_corso'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_corso
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_carriera_facolta:
+    label: 'Link carriera » Contenuto » Facoltà'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_facolta'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_facolta
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_data_laurea:
+    label: 'Link carriera » Contenuto » Data di laurea'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_data_laurea'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_data_laurea
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_data_licenza:
+    label: 'Link carriera » Contenuto » Data licenza'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_data_licenza'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_data_licenza
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_data_nascita:
+    label: 'Data di nascita'
+    datasource_id: 'entity:node'
+    property_path: field_data_nascita
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_data_nascita
+  field_link_carriera:
+    label: 'Link carriera'
+    datasource_id: 'entity:node'
+    property_path: field_link_carriera
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+  field_luogo_nascita:
+    label: 'Luogo di nascita'
+    datasource_id: 'entity:node'
+    property_path: field_luogo_nascita
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_luogo_nascita
+  field_luogo_nascita_1:
+    label: 'Luogo di nascita'
+    datasource_id: 'entity:node'
+    property_path: field_luogo_nascita
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_luogo_nascita
+  field_primo_cognome:
+    label: 'Primo cognome'
+    datasource_id: 'entity:node'
+    property_path: field_primo_cognome
+    type: text
+    boost: !!float 21
+    dependencies:
+      config:
+        - field.storage.node.field_primo_cognome
+  field_primo_nome:
+    label: 'Primo nome'
+    datasource_id: 'entity:node'
+    property_path: field_primo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_primo_nome
+  field_secondo_cognome:
+    label: 'Secondo cognome'
+    datasource_id: 'entity:node'
+    property_path: field_secondo_cognome
+    type: text
+    boost: !!float 8
+    dependencies:
+      config:
+        - field.storage.node.field_secondo_cognome
+  field_secondo_nome:
+    label: 'Secondo nome'
+    datasource_id: 'entity:node'
+    property_path: field_secondo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_secondo_nome
+  field_segnatura_arch_tesi_laurea:
+    label: 'Link carriera » Contenuto » Segnatura archivistica tesi laurea'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_segnatura_arch_tesi_laurea'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_segnatura_arch_tesi_laurea
+      module:
+        - node
+  field_segnatura_arch_tesi_licenz:
+    label: 'Link carriera » Contenuto » Segnatura archivistica tesi licenza'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_segnatura_arch_tesi_licenz'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_segnatura_arch_tesi_licenz
+      module:
+        - node
+  field_sesso:
+    label: Sesso
+    datasource_id: 'entity:node'
+    property_path: field_sesso
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_sesso
+  field_terzo_nome:
+    label: 'Terzo nome'
+    datasource_id: 'entity:node'
+    property_path: field_terzo_nome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_terzo_nome
+  field_tipologia_carriera:
+    label: 'Link carriera » Contenuto » Tipologia carriera'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_tipologia_carriera'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_tipologia_carriera
+      module:
+        - node
+  field_titolo_tesi_laurea:
+    label: 'Link carriera » Contenuto » Titolo tesi di laurea'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_titolo_tesi_laurea'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_titolo_tesi_laurea
+      module:
+        - node
+  field_titolo_tesi_licenza:
+    label: 'Link carriera » Contenuto » Titolo tesi licenza'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_titolo_tesi_licenza'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_titolo_tesi_licenza
+      module:
+        - node
+  field_valutazione_laurea:
+    label: 'Link carriera » Contenuto » Valutazione laurea'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_valutazione_laurea'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_valutazione_laurea
+      module:
+        - node
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+    dependencies:
+      module:
+        - node
+  status:
+    label: Pubblicato
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - node
+  title:
+    label: Titolo
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    dependencies:
+      module:
+        - node
+  title_ordinamento:
+    label: 'Titolo Ordinamento'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Tipo di contenuto'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:taxonomy_term':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  highlight:
+    highlight: server
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  ignore_character:
+    all_fields: false
+    fields:
+      - field_luogo_nascita
+      - field_primo_cognome
+      - field_primo_nome
+      - field_secondo_cognome
+      - field_secondo_nome
+      - field_terzo_nome
+      - title
+      - title_ordinamento
+      - type
+    ignorable: '[''¿¡!?,.:;]'
+    ignorable_classes:
+      - Pc
+      - Pd
+      - Pe
+      - Pf
+      - Pi
+      - Po
+      - Ps
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 500
+server: solr

@@ -1,20 +1,20 @@
-uuid: a36a234e-6fc6-41ec-b1f0-a52368e26c5e
+uuid: c3c0e8b3-0511-4adc-b75f-6cc1fc6bf3bb
 langcode: it
 status: true
 dependencies:
   theme:
     - archivio
 _core:
-  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+  default_config_hash: osZQ9lL2jTdH5am4LJiZ29RaivhzOf6vCpoRy6FZwIE
 id: archivio_local_actions
 theme: archivio
 region: content
-weight: -20
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:
   id: local_actions_block
-  label: 'Azioni di amministrazione principali'
+  label: 'Primary admin actions'
   provider: core
   label_display: '0'
 visibility: {  }

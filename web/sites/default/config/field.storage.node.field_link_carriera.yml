@@ -1,0 +1,19 @@
+uuid: fb2b52cd-d785-496d-9c5d-e89a09b9775b
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_link_carriera
+field_name: field_link_carriera
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

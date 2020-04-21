@@ -1,0 +1,21 @@
+uuid: f56623d1-300c-49b3-83ea-676aeb8b8994
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sesso
+    - node.type.carriera
+  module:
+    - options
+id: node.carriera.field_sesso
+field_name: field_sesso
+entity_type: node
+bundle: carriera
+label: Sesso
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

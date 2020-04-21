@@ -1,20 +1,20 @@
-uuid: 577193ca-b640-4c16-baa1-3b01bfc5365a
+uuid: 503ef362-19e2-4927-8eed-73944ae1426e
 langcode: it
 status: true
 dependencies:
   theme:
     - bootstrap_italia
 _core:
-  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+  default_config_hash: osZQ9lL2jTdH5am4LJiZ29RaivhzOf6vCpoRy6FZwIE
 id: bootstrap_italia_local_actions
 theme: bootstrap_italia
 region: content
-weight: -20
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:
   id: local_actions_block
-  label: 'Azioni di amministrazione principali'
+  label: 'Primary admin actions'
   provider: core
   label_display: '0'
 visibility: {  }

@@ -66,8 +66,8 @@ stylesheets-remove:
 ckeditor_stylesheets:
   - assets/css/main.css
 
-component-libraries:
-  archivio_components:
-    paths:
-      ./templates/components
+# component-libraries:
+#  archivio_components:
+#    paths:
+#      ./templates/components
 

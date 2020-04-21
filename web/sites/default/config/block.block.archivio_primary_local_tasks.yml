@@ -1,0 +1,22 @@
+uuid: 9f05b2be-0ab9-4ba1-a62e-64d48b7f6abd
+langcode: it
+status: true
+dependencies:
+  theme:
+    - archivio
+_core:
+  default_config_hash: 7cvXIzw8NabmQCWMPqBz0mvIQZzXUZB3OeOTa5eqbCo
+id: archivio_primary_local_tasks
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

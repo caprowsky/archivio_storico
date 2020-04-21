@@ -1,0 +1,32 @@
+uuid: bb754676-d09d-4254-8286-a27a8736317d
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.mlt
+  module:
+    - node
+    - views
+  theme:
+    - bartik
+id: views_block__mlt_mlt
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:mlt-mlt'
+settings:
+  id: 'views_block:mlt-mlt'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      persona: persona
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

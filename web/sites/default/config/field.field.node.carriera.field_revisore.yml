@@ -1,0 +1,28 @@
+uuid: 6fcdfc71-0387-4b16-9ffc-9c372029c8ce
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_revisore
+    - node.type.carriera
+id: node.carriera.field_revisore
+field_name: field_revisore
+entity_type: node
+bundle: carriera
+label: Revisore
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,4 +1,4 @@
-uuid: 7877cc7f-5177-4c85-8dc8-47a954cae21f
+uuid: dc41e169-f9cd-4743-936f-5300c20ae2fd
 langcode: it
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   theme:
     - bootstrap_italia
 _core:
-  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+  default_config_hash: iIy-YIc9d9s1isAtTIKWDBKd6kd2r6LxoYz_-hkLJco
 id: bootstrap_italia_messages
 theme: bootstrap_italia
 region: disabled_blocks
@@ -16,7 +16,7 @@ provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: 'Messaggi di stato'
+  label: 'Status messages'
   provider: system
   label_display: '0'
 visibility: {  }

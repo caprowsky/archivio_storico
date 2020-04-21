@@ -1,0 +1,24 @@
+uuid: a94f6999-a29a-416a-a982-622ae3d7d645
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.mlt
+  module:
+    - views
+  theme:
+    - bootstrap_italia
+id: bootstrap_italia_views_block__mlt_mlt_2
+theme: bootstrap_italia
+region: content
+weight: -2
+provider: null
+plugin: 'views_block:mlt-mlt'
+settings:
+  id: 'views_block:mlt-mlt'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

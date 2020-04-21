@@ -1,0 +1,14 @@
+uuid: 0d2b3cb7-d165-4566-aade-51505804042c
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.archivista
+  module:
+    - user
+id: user_add_role_action.archivista
+label: 'Add the Archivista role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: archivista
