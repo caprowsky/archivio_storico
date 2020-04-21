@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.persona
-    - field.field.node.carriera.field_anno_immatricolazione
+    - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_biografia
+    - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
-    - field.field.node.carriera.field_data_laurea
+    - field.field.node.carriera.field_data_fine_carriera
+    - field.field.node.carriera.field_data_inizio_carriera
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
@@ -16,6 +19,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
     - field.field.node.carriera.field_segnatura_arch_tesi_laurea
@@ -32,6 +36,7 @@ dependencies:
     - field_group
     - path
     - readonly_field_widget
+    - text
 third_party_settings:
   field_group:
     group_carriera_studente:
@@ -91,13 +96,29 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_anno_immatricolazione:
-    weight: 13
+  field_ambiti_di_ricerca:
+    weight: 37
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: text_textarea
+    region: content
+  field_biografia:
+    weight: 36
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_carriera_extra_acca:
+    weight: 38
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_corso:
     weight: 14
@@ -109,8 +130,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_data_laurea:
-    weight: 17
+  field_data_fine_carriera:
+    weight: 41
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_data_inizio_carriera:
+    weight: 40
     settings:
       size: 60
       placeholder: ''
@@ -208,6 +237,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_riferimenti_bibliografici:
+    weight: 39
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
     region: content
   field_secondo_cognome:
     type: readonly_field_widget

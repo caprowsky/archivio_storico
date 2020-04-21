@@ -1,18 +1,18 @@
-uuid: 94080a7b-8938-4ade-a6ad-aea869cf68a3
+uuid: 88811905-40c8-4071-b804-d53b0ad0f98a
 langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.node.field_data_laurea
+    - field.storage.node.field_data_fine_carriera
     - node.type.carriera
-id: node.carriera.field_data_laurea
-field_name: field_data_laurea
+id: node.carriera.field_data_fine_carriera
+field_name: field_data_fine_carriera
 entity_type: node
 bundle: carriera
-label: 'Data di laurea'
+label: 'Data fine carriera'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

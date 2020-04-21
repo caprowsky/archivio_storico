@@ -3,9 +3,12 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.field.node.carriera.field_anno_immatricolazione
+    - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_biografia
+    - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
-    - field.field.node.carriera.field_data_laurea
+    - field.field.node.carriera.field_data_fine_carriera
+    - field.field.node.carriera.field_data_inizio_carriera
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
@@ -15,6 +18,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
     - field.field.node.carriera.field_segnatura_arch_tesi_laurea
@@ -28,19 +32,33 @@ dependencies:
     - node.type.carriera
   module:
     - options
+    - text
     - user
 id: node.carriera.default
 targetEntityType: node
 bundle: carriera
 mode: default
 content:
-  field_anno_immatricolazione:
-    weight: 6
-    label: inline
-    settings:
-      link_to_entity: false
+  field_ambiti_di_ricerca:
+    weight: 16
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: string
+    type: text_default
+    region: content
+  field_biografia:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_carriera_extra_acca:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_corso:
     weight: 4
@@ -50,9 +68,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_data_laurea:
-    weight: 8
-    label: inline
+  field_data_fine_carriera:
+    weight: 20
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_data_inizio_carriera:
+    weight: 19
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -97,6 +123,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_riferimenti_bibliografici:
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_segnatura_arch_tesi_laurea:
     weight: 9

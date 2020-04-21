@@ -1,0 +1,21 @@
+uuid: 585cb107-614a-4b15-b9f0-7a7548a6f8d1
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carriera_extra_acca
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_carriera_extra_acca
+field_name: field_carriera_extra_acca
+entity_type: node
+bundle: carriera
+label: 'Carriera extra accademica'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

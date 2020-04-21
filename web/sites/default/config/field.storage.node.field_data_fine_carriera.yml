@@ -1,11 +1,11 @@
-uuid: 1a75626d-e085-4988-8822-fe6418b69e01
+uuid: 845391cd-0f40-4efd-bafb-9afc6f43cc47
 langcode: it
 status: true
 dependencies:
   module:
     - node
-id: node.field_data_laurea
-field_name: field_data_laurea
+id: node.field_data_fine_carriera
+field_name: field_data_fine_carriera
 entity_type: node
 type: string
 settings:

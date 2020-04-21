@@ -1,0 +1,21 @@
+uuid: a9f29792-33be-4fc2-9990-d08c11b8e142
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ambiti_di_ricerca
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_ambiti_di_ricerca
+field_name: field_ambiti_di_ricerca
+entity_type: node
+bundle: carriera
+label: 'Ambiti di ricerca'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 4d334956-6536-4ff1-bc21-d7a5e4683eaf
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_riferimenti_bibliografici
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_riferimenti_bibliografici
+field_name: field_riferimenti_bibliografici
+entity_type: node
+bundle: carriera
+label: 'Riferimenti bibliografici'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

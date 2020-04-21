@@ -1,0 +1,19 @@
+uuid: 23392dbf-e67b-4d9b-bc57-5dfd7838735a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_inizio_carriera
+    - node.type.carriera
+id: node.carriera.field_data_inizio_carriera
+field_name: field_data_inizio_carriera
+entity_type: node
+bundle: carriera
+label: 'Data inizio carriera'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: f7f64ef3-f91a-4f47-aa06-9ae8ac70c77b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_biografia
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_biografia
+field_name: field_biografia
+entity_type: node
+bundle: carriera
+label: Biografia
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
