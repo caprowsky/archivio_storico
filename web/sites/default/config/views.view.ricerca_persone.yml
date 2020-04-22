@@ -1,6 +1,6 @@
 uuid: a94b7f50-cce1-459a-a87d-f121a2881bbe
 langcode: it
-status: false
+status: true
 dependencies:
   config:
     - block.block.linkcarrieracontenutocorso

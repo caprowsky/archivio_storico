@@ -361,5 +361,5 @@ tracker_settings:
     indexing_order: fifo
 options:
   index_directly: true
-  cron_limit: 500
+  cron_limit: 50
 server: solr

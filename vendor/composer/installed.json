@@ -1969,6 +1969,72 @@
         }
     },
     {
+        "name": "drupal/conditional_fields",
+        "version": "1.0.0-alpha6",
+        "version_normalized": "1.0.0.0-alpha6",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/conditional_fields.git",
+            "reference": "8.x-1.0-alpha6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/conditional_fields-8.x-1.0-alpha6.zip",
+            "reference": "8.x-1.0-alpha6",
+            "shasum": "2fd76d29f643fc870024f57cf90215f8478af3e0"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-alpha6",
+                "datestamp": "1567032716",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Adyax",
+                "homepage": "https://www.adyax.com/"
+            },
+            {
+                "name": "colan",
+                "homepage": "https://www.drupal.org/user/58704"
+            },
+            {
+                "name": "ergonlogic",
+                "homepage": "https://www.drupal.org/user/368613"
+            },
+            {
+                "name": "geek-merlin",
+                "homepage": "https://www.drupal.org/user/229048"
+            },
+            {
+                "name": "itsekhmistro",
+                "homepage": "https://www.drupal.org/user/928152"
+            },
+            {
+                "name": "peterpoe",
+                "homepage": "https://www.drupal.org/user/55674"
+            }
+        ],
+        "description": "Conditional fields",
+        "homepage": "https://www.drupal.org/project/conditional_fields",
+        "support": {
+            "source": "https://git.drupalcode.org/project/conditional_fields"
+        }
+    },
+    {
         "name": "drupal/core",
         "version": "8.8.5",
         "version_normalized": "8.8.5.0",
@@ -2521,6 +2587,59 @@
             "source": "git://git.drupal.org/project/facets.git",
             "issues": "https://www.drupal.org/project/issues/facets",
             "irc": "irc://irc.freenode.org/drupal-search-api"
+        }
+    },
+    {
+        "name": "drupal/fico",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/fico.git",
+            "reference": "8.x-1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/fico-8.x-1.0.zip",
+            "reference": "8.x-1.0",
+            "shasum": "c026eb1392f30a3fbf912197bd8f141dae68cd53"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0",
+                "datestamp": "1473413339",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Erik Seifert",
+                "homepage": "https://www.drupal.org/user/161429"
+            },
+            {
+                "name": "Tim Lepek",
+                "homepage": "https://www.drupal.org/user/3379304"
+            }
+        ],
+        "description": "Adds conditional functionality to fields.",
+        "homepage": "https://www.drupal.org/project/fico",
+        "support": {
+            "source": "https://git.drupalcode.org/project/fico"
         }
     },
     {

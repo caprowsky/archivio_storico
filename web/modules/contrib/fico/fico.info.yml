@@ -1,0 +1,11 @@
+name: Field formatter conditions
+type: module
+description: Adds conditional functionality to fields.
+# core: 8.x
+package: b-connect GmbH
+
+# Information added by Drupal.org packaging script on 2016-09-09
+version: '8.x-1.0'
+core: '8.x'
+project: 'fico'
+datestamp: 1473413340

@@ -1,8 +1,8 @@
 spt_table:
   -
     status: '1'
-    pages: "/backoffice\r\n/backoffice/*"
-    theme: claro
+    pages: "/backoffice\r\n/backoffice/*\r\n/node/add/*"
+    theme: seven
     roles:
       administrator: administrator
       archivista: archivista
