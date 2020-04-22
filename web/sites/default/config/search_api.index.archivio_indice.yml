@@ -81,6 +81,14 @@ field_settings:
       type: count
       fields:
         - 'entity:node/title'
+  date_end_integer:
+    label: 'Data fine carriera intero'
+    property_path: search_api_date_end_integer
+    type: integer
+  date_start_integer:
+    label: 'Data inizio carriera intero'
+    property_path: search_api_date_start_integer
+    type: integer
   field_carriera_corso:
     label: 'Link carriera » Contenuto » Corso'
     datasource_id: 'entity:node'

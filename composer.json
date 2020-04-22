@@ -40,6 +40,7 @@
         "drupal/search_api": "^1.15",
         "drupal/search_api_autocomplete": "^1.2",
         "drupal/switch_page_theme": "^1.0",
+        "drupal/token": "^1.6",
         "drupal/toolbar_menu": "^2.1",
         "drupal/ui_patterns": "^1.1",
         "drupal/views_bulk_operations": "^3.6",
