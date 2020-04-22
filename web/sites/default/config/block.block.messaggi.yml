@@ -1,4 +1,4 @@
-uuid: 7493c219-8178-45d7-b4f4-cdce041e6196
+uuid: ffa40382-0cb5-4c33-96d8-f8ab4048d69e
 langcode: it
 status: true
 dependencies:
@@ -6,17 +6,15 @@ dependencies:
     - system
   theme:
     - archivio
-_core:
-  default_config_hash: iIy-YIc9d9s1isAtTIKWDBKd6kd2r6LxoYz_-hkLJco
-id: archivio_messages
+id: messaggi
 theme: archivio
 region: content
-weight: -7
+weight: -5
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: 'Status messages'
+  label: Messaggi
   provider: system
   label_display: '0'
 visibility: {  }

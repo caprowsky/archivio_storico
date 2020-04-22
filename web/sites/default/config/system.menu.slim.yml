@@ -1,0 +1,8 @@
+uuid: 4c8fbad3-fa17-43cb-bf0f-c656caa3004b
+langcode: it
+status: true
+dependencies: {  }
+id: slim
+label: Slim
+description: 'Slim menu'
+locked: false

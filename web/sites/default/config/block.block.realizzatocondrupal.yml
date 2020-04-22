@@ -1,0 +1,20 @@
+uuid: 7037e4c5-5ff7-4c5e-bace-35be5f60cbd2
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - archivio
+id: realizzatocondrupal
+theme: archivio
+region: footer_credits
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Realizzato con Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

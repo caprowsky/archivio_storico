@@ -9,7 +9,7 @@ _core:
 id: archivio_secondary_local_tasks
 theme: archivio
 region: disabled_blocks
-weight: 0
+weight: -7
 provider: null
 plugin: local_tasks_block
 settings:

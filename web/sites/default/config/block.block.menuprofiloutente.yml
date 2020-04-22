@@ -1,0 +1,25 @@
+uuid: abfa9d1f-8356-428a-94e3-75baa099df8a
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - archivio
+id: menuprofiloutente
+theme: archivio
+region: header_slim_action
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'Menu profilo utente'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }
