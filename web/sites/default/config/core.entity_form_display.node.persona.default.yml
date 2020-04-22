@@ -34,7 +34,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 18
+      weight: 23
       format_type: fieldset
       region: content
       format_settings:
@@ -55,7 +55,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 31
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -67,7 +67,7 @@ content:
     type: datetime_default
     region: content
   field_geofiled:
-    weight: 16
+    weight: 18
     settings:
       map_geocoder:
         settings:
@@ -182,13 +182,13 @@ content:
     type: string_textfield
     region: content
   field_indirizzo:
-    weight: 30
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_link_carriera:
-    weight: 29
+    weight: 21
     settings:
       entity_browser: carriera
       field_widget_display: label
@@ -202,14 +202,6 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_luogo_di_morte:
-    weight: 32
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_luogo_nascita:
     weight: 17
     settings:
       size: 60
@@ -217,8 +209,16 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_luogo_nascita:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_numero:
-    weight: 26
+    weight: 22
     settings:
       size: 60
       placeholder: ''
