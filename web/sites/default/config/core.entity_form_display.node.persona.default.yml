@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_foto
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
     - field.field.node.persona.field_indirizzo
@@ -25,6 +26,7 @@ dependencies:
     - datetime
     - field_group
     - geofield_map
+    - media_library
     - path
     - readonly_field_widget
 third_party_settings:
@@ -33,7 +35,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 23
+      weight: 21
       format_type: fieldset
       region: content
       format_settings:
@@ -66,24 +68,31 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 18
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_data_nascita:
     weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_data_nascita:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_foto:
+    type: media_library_widget
+    weight: 2
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_geofiled:
-    weight: 20
+    weight: 19
     settings:
       map_geocoder:
         settings:
@@ -200,13 +209,13 @@ content:
     type: readonly_field_widget
     region: content
   field_indirizzo:
-    weight: 22
+    weight: 20
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_luogo_di_morte:
-    weight: 19
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -234,7 +243,7 @@ content:
     type: readonly_field_widget
     region: content
   field_primo_cognome:
-    weight: 11
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -242,7 +251,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 13
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -260,7 +269,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
-    weight: 12
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -268,7 +277,7 @@ content:
     type: string_textfield
     region: content
   field_secondo_nome:
-    weight: 14
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -276,13 +285,13 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    weight: 16
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_terzo_nome:
-    weight: 15
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -291,14 +300,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 4
+    weight: 3
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -306,21 +315,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 6
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 9
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 7
     region: content
     third_party_settings: {  }
   title:
@@ -333,7 +342,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60

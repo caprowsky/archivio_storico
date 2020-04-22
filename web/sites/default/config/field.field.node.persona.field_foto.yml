@@ -1,0 +1,28 @@
+uuid: dcf06e64-d62d-4462-ae8a-17706e7ac194
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_foto
+    - media.type.image
+    - node.type.persona
+id: node.persona.field_foto
+field_name: field_foto
+entity_type: node
+bundle: persona
+label: Foto
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
