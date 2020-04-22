@@ -1,0 +1,21 @@
+uuid: 7b9cb8f7-77e5-4536-a036-b04a78274199
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_fine_carriera_fake
+    - node.type.carriera
+  module:
+    - datetime
+id: node.carriera.field_data_fine_carriera_fake
+field_name: field_data_fine_carriera_fake
+entity_type: node
+bundle: carriera
+label: 'Data fine carriera fake'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -9,7 +9,9 @@ dependencies:
     - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
     - field.field.node.carriera.field_data_fine_carriera
+    - field.field.node.carriera.field_data_fine_carriera_fake
     - field.field.node.carriera.field_data_inizio_carriera
+    - field.field.node.carriera.field_data_inizio_carriera_fake
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
@@ -577,4 +579,6 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_data_fine_carriera_fake: true
+  field_data_inizio_carriera_fake: true

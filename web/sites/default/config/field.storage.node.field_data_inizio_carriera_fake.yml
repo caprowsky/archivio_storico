@@ -1,0 +1,20 @@
+uuid: dc4eaccc-815e-462f-9643-82a98fa40e54
+langcode: it
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_data_inizio_carriera_fake
+field_name: field_data_inizio_carriera_fake
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

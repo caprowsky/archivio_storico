@@ -1,0 +1,21 @@
+uuid: a93b1ba7-4ebd-42e5-aa8c-5de97da63409
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_inizio_carriera_fake
+    - node.type.carriera
+  module:
+    - datetime
+id: node.carriera.field_data_inizio_carriera_fake
+field_name: field_data_inizio_carriera_fake
+entity_type: node
+bundle: carriera
+label: 'Data inizio carriera fake'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

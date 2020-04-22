@@ -9,7 +9,9 @@ dependencies:
     - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
     - field.field.node.carriera.field_data_fine_carriera
+    - field.field.node.carriera.field_data_fine_carriera_fake
     - field.field.node.carriera.field_data_inizio_carriera
+    - field.field.node.carriera.field_data_inizio_carriera_fake
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
@@ -49,7 +51,9 @@ hidden:
   field_carriera_extra_acca: true
   field_corso: true
   field_data_fine_carriera: true
+  field_data_fine_carriera_fake: true
   field_data_inizio_carriera: true
+  field_data_inizio_carriera_fake: true
   field_data_licenza: true
   field_data_nascita: true
   field_facolta: true
