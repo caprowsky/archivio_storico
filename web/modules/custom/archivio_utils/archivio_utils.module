@@ -13,11 +13,13 @@ use Drupal\search_api\Plugin\search_api\datasource\ContentEntity;
 function archivio_utils_node_update(Drupal\Core\Entity\EntityInterface $entity) {
   // Verifico se il tipo di contenuto è una carriera
   if ($entity->bundle() == 'carriera') {
-    $persone = $entity->get('field_persona')->referencedEntities();
-    $persona = $persone[0];
-    $indexes = ContentEntity::getIndexesForEntity($persona);
-    foreach ($indexes as $index) {
-      $index->trackItemsUpdated('entity:node', [$persona->id() . ':it']);
+    if (!$entity->get('field_persona')->isEmpty()) {
+      $persone = $entity->get('field_persona')->referencedEntities();
+      $persona = $persone[0];
+      $indexes = ContentEntity::getIndexesForEntity($persona);
+      foreach ($indexes as $index) {
+        $index->trackItemsUpdated('entity:node', [$persona->id() . ':it']);
+      }
     }
   }
 }

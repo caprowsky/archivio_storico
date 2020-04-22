@@ -6,26 +6,27 @@ dependencies:
     - search_api_solr
     - node
     - search_api
+    - archivio_utils
     - taxonomy
   config:
-    - field.storage.node.field_corso
-    - field.storage.node.field_link_carriera
-    - field.storage.node.field_facolta
-    - field.storage.node.field_data_licenza
     - field.storage.node.field_data_nascita
+    - field.storage.node.field_link_carriera
+    - field.storage.node.field_corso
+    - field.storage.node.field_data_licenza
+    - field.storage.node.field_facolta
+    - field.storage.node.field_segnatura_arch_tesi_laurea
+    - field.storage.node.field_segnatura_arch_tesi_licenz
+    - field.storage.node.field_tipologia_carriera
+    - field.storage.node.field_titolo_tesi_laurea
+    - field.storage.node.field_titolo_tesi_licenza
+    - field.storage.node.field_valutazione_laurea
     - field.storage.node.field_luogo_nascita
     - field.storage.node.field_primo_cognome
     - field.storage.node.field_primo_nome
     - field.storage.node.field_secondo_cognome
     - field.storage.node.field_secondo_nome
-    - field.storage.node.field_segnatura_arch_tesi_laurea
-    - field.storage.node.field_segnatura_arch_tesi_licenz
     - field.storage.node.field_sesso
     - field.storage.node.field_terzo_nome
-    - field.storage.node.field_tipologia_carriera
-    - field.storage.node.field_titolo_tesi_laurea
-    - field.storage.node.field_titolo_tesi_licenza
-    - field.storage.node.field_valutazione_laurea
     - search_api.server.solr
 third_party_settings:
   search_api_solr:
@@ -78,6 +79,14 @@ field_settings:
       type: count
       fields:
         - 'entity:node/title'
+  date_end_integer:
+    label: 'Data fine carriera intero'
+    property_path: search_api_date_end_integer
+    type: integer
+  date_start_integer:
+    label: 'Data inizio carriera intero'
+    property_path: search_api_date_start_integer
+    type: integer
   field_carriera_corso:
     label: 'Link carriera » Contenuto » Corso'
     datasource_id: 'entity:node'
@@ -317,6 +326,10 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  date_end_date: {  }
+  date_end_integer: {  }
+  date_start_date: {  }
+  date_start_integer: {  }
   highlight:
     highlight: server
     highlight_partial: false
