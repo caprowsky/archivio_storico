@@ -218,7 +218,25 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        ad4dd39e-1cb0-4d5f-9374-6d6df824bc6b:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textfield
     region: content
   field_data_nascita:
@@ -356,7 +374,25 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        aac54c1b-c448-4366-a7e9-b0ede96a2b15:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textfield
     region: content
   field_segnatura_arch_tesi_licenz:
@@ -364,7 +400,25 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        657ea341-50e4-4be8-a54f-7add5885c20f:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textfield
     region: content
   field_sesso:
@@ -398,7 +452,25 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        5f0af0fe-519a-47da-86f5-48c6f68ce529:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textarea
     region: content
   field_titolo_tesi_licenza:
@@ -406,7 +478,25 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        a3bd2b3d-4bc3-406f-bdcd-8c14bcb0e242:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textarea
     region: content
   field_valutazione_laurea:
@@ -414,7 +504,25 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        159e2a30-d214-4c8e-8e5d-2be6dd026ff7:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textarea
     region: content
   langcode:
