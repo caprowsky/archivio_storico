@@ -3,7 +3,6 @@ langcode: it
 status: true
 dependencies:
   config:
-    - entity_browser.browser.carriera
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_geofiled
@@ -24,10 +23,10 @@ dependencies:
   module:
     - address
     - datetime
-    - entity_browser
     - field_group
     - geofield_map
     - path
+    - readonly_field_widget
 third_party_settings:
   field_group:
     group_controllo:
@@ -43,6 +42,23 @@ third_party_settings:
         id: ''
         classes: ''
       label: Controllo
+    group_id_controllo:
+      children:
+        - field_id
+        - field_numero
+        - field_luogo_nascita
+      parent_name: ''
+      weight: 1
+      format_type: details_sidebar
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+        weight: -10
+      label: 'ID controllo'
 id: node.persona.default
 targetEntityType: node
 bundle: persona
@@ -50,24 +66,24 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 16
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_data_nascita:
-    weight: 15
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_geofiled:
-    weight: 18
+    weight: 20
     settings:
       map_geocoder:
         settings:
@@ -174,42 +190,22 @@ content:
     type: geofield_map
     region: content
   field_id:
-    weight: 1
+    weight: 2
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
-    type: string_textfield
+    type: readonly_field_widget
     region: content
   field_indirizzo:
-    weight: 20
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
-  field_link_carriera:
-    weight: 21
-    settings:
-      entity_browser: carriera
-      field_widget_display: label
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_replace: false
-      open: false
-      field_widget_display_settings: {  }
-    third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_luogo_di_morte:
-    weight: 17
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_luogo_nascita:
     weight: 19
     settings:
       size: 60
@@ -217,16 +213,28 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_numero:
-    weight: 22
+  field_luogo_nascita:
+    weight: 4
     settings:
-      size: 60
-      placeholder: ''
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
     third_party_settings: {  }
-    type: string_textfield
+    type: readonly_field_widget
+    region: content
+  field_numero:
+    weight: 3
+    settings:
+      label: above
+      formatter_type: null
+      formatter_settings: null
+      show_description: false
+    third_party_settings: {  }
+    type: readonly_field_widget
     region: content
   field_primo_cognome:
-    weight: 9
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -234,7 +242,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 11
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -252,14 +260,6 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
-    weight: 10
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_secondo_nome:
     weight: 12
     settings:
       size: 60
@@ -267,14 +267,22 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_sesso:
+  field_secondo_nome:
     weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sesso:
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_terzo_nome:
-    weight: 13
+    weight: 15
     settings:
       size: 60
       placeholder: ''
@@ -283,14 +291,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -298,21 +306,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 7
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 10
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -325,7 +333,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -333,4 +341,5 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_link_carriera: true

@@ -7,6 +7,26 @@ dependencies:
     - node.type.persona
   module:
     - address
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: destination
+    weight: 0
+    geocode_field: field_id
+    reverse_geocode_field: field_geofiled
+    skip_not_empty_value: 0
+    disabled: false
+    hidden: true
+    plugins:
+      - freegeoip
+      - geoip
+      - openstreetmap
+    dumper: geojson
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: node.persona.field_indirizzo
 field_name: field_indirizzo
 entity_type: node
@@ -15,7 +35,21 @@ label: Indirizzo
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    langcode: ''
+    country_code: IT
+    administrative_area: ''
+    locality: ''
+    dependent_locality: null
+    postal_code: ''
+    sorting_code: null
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: null
+    family_name: ''
 default_value_callback: ''
 settings:
   available_countries: {  }

@@ -47,7 +47,7 @@ bundle: persona
 mode: default
 content:
   field_data_di_morte:
-    weight: 13
+    weight: 12
     label: inline
     settings:
       format_type: medium
@@ -81,7 +81,7 @@ content:
     type: string
     region: content
   field_indirizzo:
-    weight: 12
+    weight: 14
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -97,7 +97,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_luogo_di_morte:
-    weight: 14
+    weight: 13
     label: inline
     settings:
       link_to_entity: false
