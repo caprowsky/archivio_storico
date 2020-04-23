@@ -1,8 +1,9 @@
-uuid: 1a8da485-f466-452d-9225-491e0931c6ed
+uuid: e10ee92b-214a-4149-a217-c78b9500dc7a
 langcode: it
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.carriera_studente
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera_extra_acca
@@ -35,7 +36,6 @@ dependencies:
   module:
     - field_group
     - options
-    - text
     - user
 third_party_settings:
   field_group:
@@ -43,13 +43,12 @@ third_party_settings:
       children:
         - field_data_licenza
         - field_titolo_tesi_licenza
-        - field_data_laurea
         - field_segnatura_arch_tesi_licenz
         - field_titolo_tesi_laurea
         - field_valutazione_laurea
         - field_segnatura_arch_tesi_laurea
       parent_name: ''
-      weight: 8
+      weight: 6
       format_type: fieldset
       region: content
       format_settings:
@@ -59,47 +58,26 @@ third_party_settings:
       label: 'Carriera studente'
     group_carriera_docente:
       children:
-        - field_biografia
         - field_ambiti_di_ricerca
+        - field_biografia
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 9
+      weight: 22
       format_type: fieldset
-      region: content
+      region: hidden
       format_settings:
         id: ''
         classes: ''
         description: ''
       label: 'Carriera docente'
-id: node.carriera.default
+id: node.carriera.carriera_studente
 targetEntityType: node
 bundle: carriera
-mode: default
+mode: carriera_studente
 content:
-  field_ambiti_di_ricerca:
-    weight: 12
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_biografia:
-    weight: 11
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_carriera_extra_acca:
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_corso:
-    weight: 4
+    weight: 2
     label: inline
     settings:
       link: true
@@ -107,16 +85,16 @@ content:
     type: entity_reference_label
     region: content
   field_data_fine_carriera:
-    weight: 7
-    label: above
+    weight: 5
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_data_inizio_carriera:
-    weight: 6
-    label: above
+    weight: 4
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -131,22 +109,6 @@ content:
     type: string
     region: content
   field_facolta:
-    weight: 5
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_id:
-    weight: 1
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_persona:
     weight: 3
     label: inline
     settings:
@@ -154,23 +116,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_revisore:
-    weight: 10
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_riferimenti_bibliografici:
-    weight: 14
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 26
+    weight: 25
     label: inline
     settings:
       link_to_entity: false
@@ -178,7 +125,7 @@ content:
     type: string
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 23
+    weight: 22
     label: inline
     settings:
       link_to_entity: false
@@ -186,14 +133,14 @@ content:
     type: string
     region: content
   field_tipologia_carriera:
-    weight: 2
-    label: inline
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_titolo_tesi_laurea:
-    weight: 24
+    weight: 23
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -207,7 +154,7 @@ content:
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 25
+    weight: 24
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -219,12 +166,19 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_ambiti_di_ricerca: true
+  field_biografia: true
+  field_carriera_extra_acca: true
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera_fake: true
   field_data_nascita: true
+  field_id: true
   field_luogo_nascita: true
+  field_persona: true
   field_primo_cognome: true
   field_primo_nome: true
+  field_revisore: true
+  field_riferimenti_bibliografici: true
   field_secondo_cognome: true
   field_secondo_nome: true
   field_sesso: true

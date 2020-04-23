@@ -78,7 +78,7 @@ process:
       m: m
 
 #  ## Campi specifici della carriera studente
-  field_anno_immatricolazione:
+  field_data_inizio_carriera:
     plugin: encode
     source: anno_immatricolazione
 
@@ -103,7 +103,7 @@ process:
       no_stub: true
       source: concatena # @TODO: cosa mappare qui?
 
-  field_data_laurea:
+  field_data_fine_carriera:
     plugin: encode
     source: data_laurea
 
@@ -141,6 +141,8 @@ process:
   field_valutazione_laurea:
     plugin: encode
     source: valutazione_laurea
+
+#  ## Campi specifici della carriera studente
 
 destination:
   plugin: 'entity:node'

@@ -1,0 +1,10 @@
+uuid: e5a98c4e-3070-4d22-a9b7-36a77793738a
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.carriera_docente
+label: 'Carriera docente'
+targetEntityType: node
+cache: true

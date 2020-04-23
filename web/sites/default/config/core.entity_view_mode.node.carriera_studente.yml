@@ -1,0 +1,10 @@
+uuid: 2fd2c98c-d9ad-4be1-92fe-e6027403c0dc
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.carriera_studente
+label: 'Carriera studente'
+targetEntityType: node
+cache: true

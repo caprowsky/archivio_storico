@@ -22,10 +22,8 @@ dependencies:
     - field.field.node.persona.field_terzo_nome
     - node.type.persona
   module:
-    - address
     - datetime
     - field_group
-    - geofield
     - options
     - user
 third_party_settings:
@@ -34,7 +32,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 17
+      weight: 14
       format_type: fieldset
       region: content
       format_settings:
@@ -48,7 +46,7 @@ bundle: persona
 mode: default
 content:
   field_data_di_morte:
-    weight: 13
+    weight: 10
     label: inline
     settings:
       format_type: medium
@@ -57,7 +55,7 @@ content:
     type: datetime_default
     region: content
   field_data_nascita:
-    weight: 9
+    weight: 8
     label: inline
     settings:
       timezone_override: ''
@@ -67,38 +65,15 @@ content:
     region: content
   field_foto:
     type: entity_reference_entity_view
-    weight: 2
-    label: above
+    weight: 1
+    label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
     region: content
-  field_geofiled:
-    weight: 11
-    label: inline
-    settings:
-      output_format: dms
-    third_party_settings: {  }
-    type: geofield_latlon
-    region: content
-  field_id:
-    weight: 1
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_indirizzo:
-    weight: 15
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: address_default
-    region: content
   field_link_carriera:
-    weight: 16
+    weight: 13
     label: hidden
     settings:
       view_mode: default
@@ -107,7 +82,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_luogo_di_morte:
-    weight: 14
+    weight: 11
     label: inline
     settings:
       link_to_entity: false
@@ -115,7 +90,7 @@ content:
     type: string
     region: content
   field_luogo_nascita:
-    weight: 10
+    weight: 9
     label: inline
     settings:
       link_to_entity: false
@@ -131,16 +106,16 @@ content:
     type: string
     region: content
   field_primo_cognome:
-    weight: 3
-    label: inline
+    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_primo_nome:
-    weight: 5
-    label: inline
+    weight: 4
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -155,31 +130,31 @@ content:
     type: entity_reference_label
     region: content
   field_secondo_cognome:
-    weight: 4
-    label: inline
+    weight: 3
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_secondo_nome:
-    weight: 6
-    label: inline
+    weight: 5
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_sesso:
-    weight: 8
+    weight: 7
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_terzo_nome:
-    weight: 7
-    label: inline
+    weight: 6
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -191,5 +166,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_geofiled: true
+  field_id: true
+  field_indirizzo: true
   langcode: true
   search_api_excerpt: true

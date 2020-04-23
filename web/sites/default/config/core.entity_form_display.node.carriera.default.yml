@@ -47,6 +47,7 @@ third_party_settings:
         - field_data_licenza
         - field_titolo_tesi_licenza
         - field_segnatura_arch_tesi_licenz
+        - field_data_laurea
         - field_valutazione_laurea
         - field_titolo_tesi_laurea
         - field_segnatura_arch_tesi_laurea
@@ -372,7 +373,7 @@ content:
       show_description: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
-    weight: 21
+    weight: 22
     settings:
       size: 60
       placeholder: ''
@@ -450,7 +451,7 @@ content:
     type: options_select
     region: content
   field_titolo_tesi_laurea:
-    weight: 20
+    weight: 21
     settings:
       rows: 5
       placeholder: ''
@@ -502,7 +503,7 @@ content:
     type: string_textarea
     region: content
   field_valutazione_laurea:
-    weight: 19
+    weight: 20
     settings:
       rows: 5
       placeholder: ''
