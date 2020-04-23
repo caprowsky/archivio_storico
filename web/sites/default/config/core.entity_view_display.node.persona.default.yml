@@ -22,6 +22,7 @@ dependencies:
     - field.field.node.persona.field_terzo_nome
     - node.type.persona
   module:
+    - address
     - datetime
     - field_group
     - options
@@ -32,7 +33,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 14
+      weight: 12
       format_type: fieldset
       region: content
       format_settings:
@@ -49,13 +50,13 @@ content:
     weight: 10
     label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: data_completo
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_data_nascita:
-    weight: 8
+    weight: 9
     label: inline
     settings:
       timezone_override: ''
@@ -72,33 +73,15 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  field_link_carriera:
-    weight: 13
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
+  field_indirizzo:
+    type: address_default
+    weight: 8
     region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_luogo_di_morte:
     weight: 11
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_luogo_nascita:
-    weight: 9
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_numero:
-    weight: 12
     label: inline
     settings:
       link_to_entity: false
@@ -168,6 +151,8 @@ content:
 hidden:
   field_geofiled: true
   field_id: true
-  field_indirizzo: true
+  field_link_carriera: true
+  field_luogo_nascita: true
+  field_numero: true
   langcode: true
   search_api_excerpt: true

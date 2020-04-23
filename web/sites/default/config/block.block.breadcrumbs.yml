@@ -8,8 +8,8 @@ dependencies:
     - archivio
 id: breadcrumbs
 theme: archivio
-region: content
-weight: -6
+region: title
+weight: -7
 provider: null
 plugin: system_breadcrumb_block
 settings:

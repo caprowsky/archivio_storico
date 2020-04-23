@@ -10,8 +10,8 @@ _core:
   default_config_hash: iIy-YIc9d9s1isAtTIKWDBKd6kd2r6LxoYz_-hkLJco
 id: archivio_messages
 theme: archivio
-region: content
-weight: -7
+region: title
+weight: -8
 provider: null
 plugin: system_messages_block
 settings:

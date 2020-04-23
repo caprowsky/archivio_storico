@@ -11,7 +11,7 @@ dependencies:
 id: archivio_views_block__mlt_mlt_2
 theme: archivio
 region: content
-weight: -2
+weight: -6
 provider: null
 plugin: 'views_block:mlt-mlt'
 settings:

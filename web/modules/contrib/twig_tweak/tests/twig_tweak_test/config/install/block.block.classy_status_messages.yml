@@ -1,20 +1,19 @@
-uuid: ffa40382-0cb5-4c33-96d8-f8ab4048d69e
-langcode: it
+langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - archivio
-id: messaggi
-theme: archivio
-region: disabled_blocks
-weight: -4
+    - classy
+id: classy_status_messages
+theme: classy
+region: sidebar_first
+weight: 10
 provider: null
 plugin: system_messages_block
 settings:
   id: system_messages_block
-  label: Messaggi
+  label: 'Status messages'
   provider: system
   label_display: '0'
 visibility: {  }
