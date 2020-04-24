@@ -1,5 +1,5 @@
 status: 1
-pattern: '[node:field_primo_cognome][node:field_secondo_cognome][node:field_primo_nome][node:field_secondo_nome][node:field_terzo_nome][node:field_data_nascita]'
+pattern: '[node:field_primo_cognome] [node:field_secondo_cognome] [node:field_primo_nome] [node:field_secondo_nome] [node:field_terzo_nome] [node:field_data_nascita]'
 escape: false
 dependencies:
   config:
