@@ -11,7 +11,7 @@ id: node.persona.field_sesso
 field_name: field_sesso
 entity_type: node
 bundle: persona
-label: Sesso
+label: Genere
 description: ''
 required: false
 translatable: false

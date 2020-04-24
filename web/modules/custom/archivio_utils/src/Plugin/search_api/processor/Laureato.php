@@ -71,7 +71,6 @@ class Laureato extends ProcessorPluginBase {
           } else {
             $field->addValue('non laureata');
           }
-
         }
       }
     }
