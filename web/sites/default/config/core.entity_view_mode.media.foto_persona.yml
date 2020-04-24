@@ -1,0 +1,10 @@
+uuid: ae9434f6-207e-4771-bb70-00ac6445f891
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+id: media.foto_persona
+label: 'foto persona'
+targetEntityType: media
+cache: true

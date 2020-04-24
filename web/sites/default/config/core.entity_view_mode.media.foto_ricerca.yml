@@ -1,0 +1,10 @@
+uuid: 8a45a7a6-cd69-4548-8156-3ca85dbab71f
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+id: media.foto_ricerca
+label: 'foto ricerca'
+targetEntityType: media
+cache: true

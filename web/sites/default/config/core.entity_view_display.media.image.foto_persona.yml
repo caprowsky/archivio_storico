@@ -1,0 +1,34 @@
+uuid: 1976fb12-2cc0-44c5-8127-534d891fe9a6
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.foto_persona
+    - field.field.media.image.field_media_image
+    - image.style.medium
+    - media.type.image
+  module:
+    - image
+_core:
+  default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
+id: media.image.foto_persona
+targetEntityType: media
+bundle: image
+mode: foto_persona
+content:
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true
