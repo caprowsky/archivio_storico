@@ -298,6 +298,10 @@ field_settings:
     label: 'Facoltà per persona'
     property_path: search_api_persona_facolta
     type: string
+  persona_laureata:
+    label: 'Laureato si no'
+    property_path: search_api_persona_laureata
+    type: string
   status:
     label: Pubblicato
     datasource_id: 'entity:node'
@@ -385,6 +389,7 @@ processor_settings:
       preprocess_index: -10
       preprocess_query: -10
   language_with_fallback: {  }
+  laureato: {  }
   persona_facoltà: {  }
   rendered_item: {  }
   solr_date_range:
