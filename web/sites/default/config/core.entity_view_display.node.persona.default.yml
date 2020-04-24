@@ -130,7 +130,7 @@ content:
     region: content
   field_sesso:
     weight: 7
-    label: inline
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
