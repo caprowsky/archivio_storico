@@ -302,6 +302,10 @@ field_settings:
     label: 'Laureato si no'
     property_path: search_api_persona_laureata
     type: string
+  persona_periodo:
+    label: Periodo
+    property_path: search_api_persona_periodo
+    type: string
   status:
     label: Pubblicato
     datasource_id: 'entity:node'
@@ -390,6 +394,7 @@ processor_settings:
       preprocess_query: -10
   language_with_fallback: {  }
   laureato: {  }
+  periodo: {  }
   persona_facoltà: {  }
   rendered_item: {  }
   solr_date_range:
