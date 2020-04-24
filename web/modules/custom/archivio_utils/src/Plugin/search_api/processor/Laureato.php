@@ -61,7 +61,7 @@ class Laureato extends ProcessorPluginBase {
               $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
 
               if ($tipologia[0]['value'] == 's') {
-                if (!$carriera->get('field_data_fine_carriere')->isEmpty()) {
+                if (!$carriera->get('field_data_fine_carriera')->isEmpty()) {
                   $laureato[] = TRUE;
                 }
               }
