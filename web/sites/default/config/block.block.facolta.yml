@@ -1,4 +1,4 @@
-uuid: 19bf4215-fa0d-4fcc-9cee-0bc05b1502c5
+uuid: e49881a3-4733-472d-b281-3164acefeaea
 langcode: it
 status: true
 dependencies:
@@ -7,17 +7,17 @@ dependencies:
   module:
     - facets
   theme:
-    - bartik
-id: linkcarrieracontenutofacolta
-theme: bartik
-region: sidebar_second
-weight: -6
+    - archivio
+id: facolta
+theme: archivio
+region: disabled_blocks
+weight: 0
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_facolta'
 settings:
   id: 'facet_block:link_carriera_contenuto_facolta'
-  label: 'Link carriera » Contenuto » Facoltà'
+  label: Facoltà
   provider: facets
   label_display: '0'
-  block_id: linkcarrieracontenutofacolta
+  block_id: facolta
 visibility: {  }

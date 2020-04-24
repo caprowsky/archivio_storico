@@ -12,14 +12,14 @@ name: 'Laureato si no'
 url_alias: laureato_si_no
 weight: 0
 min_count: 1
-show_only_one_result: false
+show_only_one_result: true
 field_identifier: persona_laureata
 facet_source_id: 'search_api:views_page__ricerca_persone__ricerca'
 widget:
   type: dropdown
   config:
-    show_numbers: false
-    default_option_label: Choose
+    show_numbers: true
+    default_option_label: Laureato
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

@@ -19,7 +19,7 @@ widget:
   type: dropdown
   config:
     show_numbers: true
-    default_option_label: 'Scegli la facoltà'
+    default_option_label: Facoltà
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

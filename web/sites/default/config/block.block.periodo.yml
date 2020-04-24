@@ -1,0 +1,23 @@
+uuid: 3e2586a8-99ad-43c2-ae97-d432a6605693
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.periodo
+  module:
+    - facets
+  theme:
+    - archivio
+id: periodo
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:periodo'
+settings:
+  id: 'facet_block:periodo'
+  label: Periodo
+  provider: facets
+  label_display: '0'
+  block_id: periodo
+visibility: {  }

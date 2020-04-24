@@ -18,9 +18,7 @@ third_party_settings:
     disabled: false
     hidden: true
     plugins:
-      - freegeoip
-      - geoip
-      - openstreetmap
+      - googlemaps
     dumper: geojson
     delta_handling: default
     failure:

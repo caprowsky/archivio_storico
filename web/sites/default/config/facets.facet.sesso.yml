@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: sesso
 name: Sesso
-url_alias: sesso
+url_alias: genere
 weight: -2
 min_count: 1
 show_only_one_result: true
@@ -46,6 +46,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

@@ -1,0 +1,23 @@
+uuid: a76ddcd9-f045-48e7-a3c3-de8bc5bac43a
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.laureato_si_no
+  module:
+    - facets
+  theme:
+    - archivio
+id: laureatosino
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:laureato_si_no'
+settings:
+  id: 'facet_block:laureato_si_no'
+  label: 'Laureato si no'
+  provider: facets
+  label_display: '0'
+  block_id: laureatosino
+visibility: {  }

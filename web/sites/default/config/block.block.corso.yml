@@ -1,0 +1,23 @@
+uuid: f2de7f4b-bed2-4eca-b498-e09d155400c1
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.link_carriera_contenuto_corso
+  module:
+    - facets
+  theme:
+    - archivio
+id: corso
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:link_carriera_contenuto_corso'
+settings:
+  id: 'facet_block:link_carriera_contenuto_corso'
+  label: Corso
+  provider: facets
+  label_display: '0'
+  block_id: corso
+visibility: {  }

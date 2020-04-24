@@ -1,0 +1,18 @@
+uuid: 1ef6709c-e25a-4218-812c-160ef1bbf6e9
+langcode: it
+status: true
+dependencies:
+  theme:
+    - archivio
+id: pagetitle
+theme: archivio
+region: title
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

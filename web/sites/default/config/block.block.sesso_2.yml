@@ -1,0 +1,23 @@
+uuid: 617fc701-7921-4d8e-bed6-a0f2f9e0fb6b
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.sesso
+  module:
+    - facets
+  theme:
+    - archivio
+id: sesso_2
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:sesso'
+settings:
+  id: 'facet_block:sesso'
+  label: Sesso
+  provider: facets
+  label_display: '0'
+  block_id: sesso_2
+visibility: {  }
