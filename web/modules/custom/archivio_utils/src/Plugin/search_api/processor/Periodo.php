@@ -53,21 +53,17 @@ class Periodo extends ProcessorPluginBase {
         ->filterForPropertyPath($item->getFields(), NULL, 'search_api_persona_periodo');
       foreach ($fields as $field) {
         if (!$field->getDatasourceId()) {
-          $laureato = array();
           if (!$entity->field_link_carriera->isEmpty()) {
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
               $periodi = array();
               if (!$carriera->field_data_inizio_carriera->isEmpty()) {
-                $value_original = $entity->get('field_data_inizio_carriera')->getValue();
+                $value_original = $carriera->get('field_data_inizio_carriera')->getValue();
                 $explode = explode('-', $value_original[0]['value']);
                 $anno_inizio = $explode[0];
-                  $periodi[] = $this->getPeriodo($anno_inizio);
+                  $periodo = $this->getPeriodo($anno_inizio);
+                $field->addValue($periodo);
               }
-            }
-
-            if (count($periodi) > 0) {
-              $field->addValue($periodi);
             }
           }
         }
