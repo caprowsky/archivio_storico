@@ -1,0 +1,22 @@
+uuid: 7557ea83-e333-4e2f-86a1-d2ab94aecec7
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: persone
+label: Persone
+type: 'canonical_entities:node'
+pattern: 'persone/[node:title]'
+selection_criteria:
+  a68442e0-7c89-40f0-a1b4-8ae0fbc65b18:
+    id: node_type
+    bundles:
+      persona: persona
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a68442e0-7c89-40f0-a1b4-8ae0fbc65b18
+selection_logic: and
+weight: -5
+relationships: {  }
