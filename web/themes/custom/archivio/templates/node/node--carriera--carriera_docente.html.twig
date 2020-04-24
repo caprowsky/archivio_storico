@@ -71,31 +71,43 @@
  */
 #}
 <article{{ attributes }}>
-
-
-
-
-
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
   <div{{ content_attributes }}>
 
-    {{ content.field_tipologia_carriera }}
+    <div class="callout">
+<!-- NON MI PIACE QUESTO OGGETTO -->
+  <div class="callout-title"><svg class="icon"><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-info-circle"></use></svg><span class="sr-only">Confermato</span> CARRIERA {{ content.field_tipologia_carriera }}</div>
+  <p>{{ content.field_data_inizio_carriera }}</p>
+  <p>{{ content.field_data_fine_carriera }}</p>
+  <p>{{ content.field_facolta }}</p>
+  <p>{{ content.field_corso }}</p>
+</div>
 
-
-   
-
-
-
- 
-
-
+<!-- ESEMPIO SEZIONE -->
+<div class="section section-muted">
+  <div class="section-content">
+    <!-- contenuto di esempio START -->
+    <h4 class="mb-4">CARRIERA DOCENTE</h4>
+    <div class="card-deck">
+      <div class="card shadow border-0 mg-md-4">
+        <div class="card-body">
+          <p class="card-text">
+        <p>{{ content.field_biografia }}</p>
+        <p>{{ content.field_ambiti_di_ricerca }}</p>
+        </p>
+        </div>
+      </div>
+      <div class="card shadow border-0 mg-md-4">
+        <div class="card-body">
+          <p class="card-text">
+        <p>{{ content.field_carriera_extra_acca }}</p>
+        <p>{{ content.field_riferimenti_bibliografici }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- contenuto di esempio END -->
+  </div>
+</div>
+<!-- FINE ESEMPIO SEZIONE -->
 
   </div>
 

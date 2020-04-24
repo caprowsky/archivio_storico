@@ -40,17 +40,11 @@ dependencies:
 third_party_settings:
   field_group:
     group_carriera_studente:
-      children:
-        - field_data_licenza
-        - field_titolo_tesi_licenza
-        - field_segnatura_arch_tesi_licenz
-        - field_titolo_tesi_laurea
-        - field_valutazione_laurea
-        - field_segnatura_arch_tesi_laurea
+      children: {  }
       parent_name: ''
-      weight: 6
+      weight: 12
       format_type: fieldset
-      region: content
+      region: hidden
       format_settings:
         description: ''
         id: ''
@@ -63,7 +57,7 @@ third_party_settings:
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 22
+      weight: 28
       format_type: fieldset
       region: hidden
       format_settings:
@@ -101,7 +95,7 @@ content:
     type: string
     region: content
   field_data_licenza:
-    weight: 20
+    weight: 6
     label: inline
     settings:
       link_to_entity: false
@@ -117,7 +111,7 @@ content:
     type: entity_reference_label
     region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 25
+    weight: 11
     label: inline
     settings:
       link_to_entity: false
@@ -125,7 +119,7 @@ content:
     type: string
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 22
+    weight: 8
     label: inline
     settings:
       link_to_entity: false
@@ -140,21 +134,21 @@ content:
     type: list_default
     region: content
   field_titolo_tesi_laurea:
-    weight: 23
+    weight: 9
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_titolo_tesi_licenza:
-    weight: 21
+    weight: 7
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 24
+    weight: 10
     label: inline
     settings: {  }
     third_party_settings: {  }
