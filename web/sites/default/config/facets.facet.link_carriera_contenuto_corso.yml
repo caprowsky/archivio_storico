@@ -4,17 +4,17 @@ status: true
 dependencies:
   config:
     - search_api.index.archivio_indice
-    - views.view.ricerca_persone
+    - views.view.persone
   module:
     - search_api
 id: link_carriera_contenuto_corso
-name: Corso
+name: 'Link carriera » Contenuto » Corso'
 url_alias: corso
 weight: 0
 min_count: 1
 show_only_one_result: true
 field_identifier: field_carriera_corso
-facet_source_id: 'search_api:views_page__ricerca_persone__ricerca'
+facet_source_id: 'search_api:views_page__persone__ricerca'
 widget:
   type: dropdown
   config:

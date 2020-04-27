@@ -1,0 +1,23 @@
+uuid: cae25f08-1ce9-43eb-99b6-85b4a331c9d2
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.luogo_di_nascita
+  module:
+    - facets
+  theme:
+    - archivio
+id: luogodinascita
+theme: archivio
+region: disabled_blocks
+weight: -3
+provider: null
+plugin: 'facet_block:luogo_di_nascita'
+settings:
+  id: 'facet_block:luogo_di_nascita'
+  label: 'Luogo di nascita'
+  provider: facets
+  label_display: '0'
+  block_id: luogodinascita
+visibility: {  }

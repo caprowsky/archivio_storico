@@ -1,6 +1,6 @@
-uuid: f2de7f4b-bed2-4eca-b498-e09d155400c1
+uuid: 48aab7fe-0686-40c8-86c4-6a95555468db
 langcode: it
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.link_carriera_contenuto_corso
@@ -8,16 +8,16 @@ dependencies:
     - facets
   theme:
     - archivio
-id: corso
+id: linkcarrieracontenutocorso_2
 theme: archivio
 region: disabled_blocks
-weight: -6
+weight: -7
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_corso'
 settings:
   id: 'facet_block:link_carriera_contenuto_corso'
-  label: Corso
+  label: 'Link carriera » Contenuto » Corso'
   provider: facets
   label_display: '0'
-  block_id: corso
+  block_id: linkcarrieracontenutocorso_2
 visibility: {  }

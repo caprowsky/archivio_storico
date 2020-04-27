@@ -1,9 +1,10 @@
-uuid: a94b7f50-cce1-459a-a87d-f121a2881bbe
+uuid: 93c157be-4a33-4b8a-9e0b-febd18e7eaf5
 langcode: it
 status: true
 dependencies:
   config:
     - block.block.corso
+    - block.block.docenteostudente
     - block.block.facolta
     - block.block.laureatosino
     - block.block.luogodinascita
@@ -16,8 +17,8 @@ dependencies:
   module:
     - options
     - search_api
-id: ricerca_persone
-label: 'Ricerca persone'
+id: persone
+label: 'Ricerca persone archivio'
 module: views
 description: ''
 tag: ''
@@ -611,6 +612,19 @@ display:
           view_mode: default
           bypass_access: false
           plugin_id: entity
+        entity_block_6:
+          id: entity_block_6
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: Carriera
+          empty: false
+          tokenize: true
+          target: docenteostudente
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -637,7 +651,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: ricerca-persone
+      path: persone
       display_description: ''
       cache:
         type: none

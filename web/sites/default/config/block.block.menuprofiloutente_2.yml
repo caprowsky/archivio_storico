@@ -11,7 +11,7 @@ dependencies:
 id: menuprofiloutente_2
 theme: archivio
 region: disabled_blocks
-weight: -8
+weight: -11
 provider: null
 plugin: 'system_menu_block:account'
 settings:

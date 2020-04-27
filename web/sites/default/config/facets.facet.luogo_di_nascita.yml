@@ -1,4 +1,4 @@
-uuid: dcfa316c-4142-4582-bf44-4f76d570f00b
+uuid: ccb1b388-3274-429c-a7d1-66248b052180
 langcode: it
 status: true
 dependencies:
@@ -7,19 +7,19 @@ dependencies:
     - views.view.persone
   module:
     - search_api
-id: sesso
-name: Sesso
-url_alias: genere
-weight: -2
+id: luogo_di_nascita
+name: 'Luogo di nascita testo'
+url_alias: luogo_nascita
+weight: 0
 min_count: 1
 show_only_one_result: true
-field_identifier: field_sesso
+field_identifier: field_luogo_nascita_1
 facet_source_id: 'search_api:views_page__persone__ricerca'
 widget:
   type: dropdown
   config:
     show_numbers: true
-    default_option_label: Genere
+    default_option_label: 'Luogo di nascita'
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -46,11 +46,6 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  list_item:
-    processor_id: list_item
-    weights:
-      build: 5
-    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

@@ -163,7 +163,7 @@ field_settings:
       config:
         - field.storage.node.field_luogo_nascita
   field_luogo_nascita_1:
-    label: 'Luogo di nascita'
+    label: 'Luogo di nascita testo'
     datasource_id: 'entity:node'
     property_path: field_luogo_nascita
     type: string
@@ -294,6 +294,10 @@ field_settings:
     dependencies:
       module:
         - node
+  persona_docente_studente:
+    label: 'Docente o studente'
+    property_path: search_api_persona_docente_studente
+    type: string
   persona_facolta:
     label: 'Facoltà per persona'
     property_path: search_api_persona_facolta
@@ -358,6 +362,7 @@ processor_settings:
   aggregated_field: {  }
   date_end_integer: {  }
   date_start_integer: {  }
+  docentestudente: {  }
   highlight:
     highlight: server
     highlight_partial: false

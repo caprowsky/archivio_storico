@@ -1,0 +1,23 @@
+uuid: 6d742f65-1cd5-4f38-bad1-a3bfd24e2a3f
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.docente_o_studente
+  module:
+    - facets
+  theme:
+    - archivio
+id: docenteostudente
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:docente_o_studente'
+settings:
+  id: 'facet_block:docente_o_studente'
+  label: 'Docente o studente'
+  provider: facets
+  label_display: '0'
+  block_id: docenteostudente
+visibility: {  }

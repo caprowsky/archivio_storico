@@ -1,0 +1,9 @@
+uuid: 1edfc9ea-dd64-4c91-a06c-46df17ee7302
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__ricerca_persone__ricerca
+name: 'search_api:views_page__ricerca_persone__ricerca'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

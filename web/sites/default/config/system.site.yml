@@ -5,7 +5,7 @@ slogan: 'Università degli studi di Cagliari'
 page:
   403: ''
   404: ''
-  front: /ricerca-persone
+  front: /persone
 admin_compact_mode: false
 weight_select_max: 100
 langcode: it
