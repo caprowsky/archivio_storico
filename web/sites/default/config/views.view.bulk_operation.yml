@@ -1,6 +1,6 @@
 uuid: 926654a1-5a57-4f4c-98a5-7cb552265990
 langcode: it
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_tipologia_carriera
@@ -10,7 +10,6 @@ dependencies:
     - node
     - options
     - user
-    - views_bulk_operations
 id: bulk_operation
 label: 'Bulk operation'
 module: views
@@ -75,74 +74,6 @@ display:
       row:
         type: fields
       fields:
-        views_bulk_operations_bulk_form:
-          id: views_bulk_operations_bulk_form
-          table: views
-          field: views_bulk_operations_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Views bulk operations'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          batch: true
-          batch_size: 10
-          form_step: true
-          buttons: false
-          clear_on_exposed: true
-          action_title: Azione
-          selected_actions:
-            3:
-              action_id: node_save_action
-              preconfiguration:
-                label_override: Salva
-            6:
-              action_id: node_publish_action
-              preconfiguration:
-                label_override: Pubblica
-            7:
-              action_id: node_unpublish_action
-              preconfiguration:
-                label_override: 'Togli dalla pubblicazione'
-          plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
           table: node_field_data
@@ -518,6 +449,59 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
+        edit_node:
+          id: edit_node
+          table: node
+          field: edit_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: Modifica
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link_edit
       filters:
         status:
           id: status
@@ -662,7 +646,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: backoffice/bulk
+      title: 'Gestione contenuti'
       header: {  }
       footer: {  }
       empty: {  }
@@ -670,7 +654,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -687,9 +671,9 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: backoffice/bulk-operation
+      path: backoffice/contenuti
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

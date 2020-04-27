@@ -81,6 +81,14 @@ field_settings:
       type: count
       fields:
         - 'entity:node/title'
+  changed:
+    label: 'Data di modifica'
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+    dependencies:
+      module:
+        - node
   date_end_integer:
     label: 'Data fine carriera intero'
     property_path: search_api_date_end_integer

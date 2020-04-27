@@ -10,12 +10,11 @@ dependencies:
     - block.block.luogodinascita
     - block.block.periodo
     - block.block.sesso_2
-    - field.storage.node.field_foto
+    - field.storage.node.field_data_nascita
     - field.storage.node.field_luogo_nascita
-    - field.storage.node.field_tipologia_carriera
     - search_api.index.archivio_indice
   module:
-    - options
+    - datetime
     - search_api
 id: persone
 label: 'Ricerca persone archivio'
@@ -74,103 +73,64 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: table
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            field_foto: field_foto
+            title: title
+            field_tipologia_carriera: field_tipologia_carriera
+            field_luogo_nascita: field_luogo_nascita
+            persona_facolta: persona_facolta
+          info:
+            field_foto:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tipologia_carriera:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_luogo_nascita:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            persona_facolta:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
-        type: search_api
+        type: fields
         options:
-          view_modes: {  }
-      fields:
-        field_foto:
-          id: field_foto
-          table: search_api_datasource_archivio_indice_entity_node
-          field: field_foto
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Foto
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
+          default_field_elements: true
+          inline: {  }
+          separator: ''
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
-          settings:
-            view_mode: foto_ricerca
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          field_rendering: true
-          fallback_handler: search_api_entity
-          fallback_options:
-            link_to_item: false
-            use_highlighting: false
-            multi_type: separator
-            multi_separator: ', '
-            display_methods:
-              audio:
-                display_method: label
-                view_mode: default
-              document:
-                display_method: label
-                view_mode: default
-              image:
-                display_method: label
-                view_mode: default
-              remote_video:
-                display_method: label
-                view_mode: default
-              video:
-                display_method: label
-                view_mode: default
-          entity_type: node
-          plugin_id: search_api_field
+      fields:
         title:
           id: title
           table: search_api_index_archivio_indice
@@ -241,18 +201,18 @@ display:
             multi_type: separator
             multi_separator: ', '
           plugin_id: search_api_field
-        field_tipologia_carriera:
-          id: field_tipologia_carriera
+        field_data_nascita:
+          id: field_data_nascita
           table: search_api_index_archivio_indice
-          field: field_tipologia_carriera
+          field: field_data_nascita
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Data di nascita'
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ field_tipologia_carriera__value }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -281,7 +241,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -290,8 +250,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: list_default
-          settings: {  }
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: data_completo
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -308,7 +270,7 @@ display:
             link_to_item: false
             use_highlighting: false
             multi_type: separator
-            multi_separator: '-'
+            multi_separator: ', '
           plugin_id: search_api_field
         field_luogo_nascita:
           id: field_luogo_nascita
@@ -693,9 +655,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_foto'
+        - 'config:field.storage.node.field_data_nascita'
         - 'config:field.storage.node.field_luogo_nascita'
-        - 'config:field.storage.node.field_tipologia_carriera'
         - 'config:search_api.index.archivio_indice'
   ricerca:
     display_plugin: page
@@ -719,7 +680,6 @@ display:
         - url.query_args
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_foto'
+        - 'config:field.storage.node.field_data_nascita'
         - 'config:field.storage.node.field_luogo_nascita'
-        - 'config:field.storage.node.field_tipologia_carriera'
         - 'config:search_api.index.archivio_indice'
