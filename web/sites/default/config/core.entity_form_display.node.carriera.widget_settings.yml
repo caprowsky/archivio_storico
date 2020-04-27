@@ -1,9 +1,9 @@
-uuid: 863c7d70-5d30-4df9-a779-c08064647f6e
+uuid: 13eba568-6e29-48eb-8c3a-044bc83986a1
 langcode: it
 status: true
 dependencies:
   config:
-    - entity_browser.browser.persona
+    - core.entity_form_mode.node.widget_settings
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera_extra_acca
@@ -35,10 +35,8 @@ dependencies:
     - node.type.carriera
   module:
     - conditional_fields
-    - entity_browser
     - field_group
     - path
-    - readonly_field_widget
     - text
 third_party_settings:
   field_group:
@@ -51,7 +49,7 @@ third_party_settings:
         - field_titolo_tesi_laurea
         - field_segnatura_arch_tesi_laurea
       parent_name: ''
-      weight: 15
+      weight: 13
       format_type: fieldset
       region: content
       format_settings:
@@ -73,7 +71,7 @@ third_party_settings:
         - field_sesso
         - field_luogo_nascita
       parent_name: ''
-      weight: 1
+      weight: 16
       format_type: details_sidebar
       region: content
       format_settings:
@@ -83,7 +81,7 @@ third_party_settings:
         required_fields: true
         id: ''
         classes: ''
-      label: 'Id Controllo'
+      label: Persona
     group_carriera_docente:
       children:
         - field_biografia
@@ -91,7 +89,7 @@ third_party_settings:
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 16
+      weight: 14
       format_type: fieldset
       region: content
       format_settings:
@@ -100,29 +98,14 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Carriera docente'
-    group_persona_1:
-      children:
-        - field_persona
-      parent_name: ''
-      weight: 2
-      format_type: details_sidebar
-      region: content
-      format_settings:
-        id: ''
-        classes: ''
-        description: ''
-        open: true
-        required_fields: true
-        weight: -19
-      label: Persona
-id: node.carriera.default
+id: node.carriera.widget_settings
 targetEntityType: node
 bundle: carriera
-mode: default
+mode: widget_settings
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -205,7 +188,7 @@ content:
     type: text_textarea
     region: content
   field_corso:
-    weight: 13
+    weight: 11
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -215,7 +198,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_data_fine_carriera:
-    weight: 12
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -223,7 +206,7 @@ content:
     type: string_textfield
     region: content
   field_data_inizio_carriera:
-    weight: 11
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -256,18 +239,8 @@ content:
           bundle: carriera
     type: string_textfield
     region: content
-  field_data_nascita:
-    type: readonly_field_widget
-    weight: 32
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
   field_facolta:
-    weight: 14
+    weight: 12
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -276,63 +249,8 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_id:
-    type: readonly_field_widget
-    weight: 26
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-  field_luogo_nascita:
-    type: readonly_field_widget
-    weight: 35
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-  field_persona:
-    weight: 10
-    settings:
-      entity_browser: persona
-      field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: widget_editing
-      field_widget_remove: true
-      open: true
-      selection_mode: selection_append
-      field_widget_edit: false
-      field_widget_replace: false
-    third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
-  field_primo_cognome:
-    type: readonly_field_widget
-    weight: 27
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-  field_primo_nome:
-    type: readonly_field_widget
-    weight: 29
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
   field_revisore:
-    weight: 17
+    weight: 15
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -367,26 +285,6 @@ content:
           bundle: carriera
     type: text_textarea
     region: content
-  field_secondo_cognome:
-    type: readonly_field_widget
-    weight: 28
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-  field_secondo_nome:
-    type: readonly_field_widget
-    weight: 30
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
     weight: 22
     settings:
@@ -439,28 +337,8 @@ content:
           bundle: carriera
     type: string_textfield
     region: content
-  field_sesso:
-    type: readonly_field_widget
-    weight: 33
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-  field_terzo_nome:
-    type: readonly_field_widget
-    weight: 31
-    region: content
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
   field_tipologia_carriera:
-    weight: 10
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -545,14 +423,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 3
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -560,21 +438,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 4
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 5
     region: content
     third_party_settings: {  }
   title:
@@ -587,7 +465,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
@@ -598,3 +476,13 @@ content:
 hidden:
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera_fake: true
+  field_data_nascita: true
+  field_id: true
+  field_luogo_nascita: true
+  field_persona: true
+  field_primo_cognome: true
+  field_primo_nome: true
+  field_secondo_cognome: true
+  field_secondo_nome: true
+  field_sesso: true
+  field_terzo_nome: true

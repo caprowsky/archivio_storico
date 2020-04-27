@@ -1,8 +1,9 @@
-uuid: 1a8da485-f466-452d-9225-491e0931c6ed
+uuid: 0dc56d75-e9e3-41bf-aff6-70bb59c01e03
 langcode: it
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.widget_editing
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera_extra_acca
@@ -35,22 +36,21 @@ dependencies:
   module:
     - field_group
     - options
-    - text
     - user
 third_party_settings:
   field_group:
     group_carriera_studente:
       children:
         - field_data_licenza
-        - field_titolo_tesi_licenza
+        - field_segnatura_arch_tesi_laurea
         - field_segnatura_arch_tesi_licenz
         - field_titolo_tesi_laurea
+        - field_titolo_tesi_licenza
         - field_valutazione_laurea
-        - field_segnatura_arch_tesi_laurea
       parent_name: ''
-      weight: 8
+      weight: 22
       format_type: fieldset
-      region: content
+      region: hidden
       format_settings:
         description: ''
         id: ''
@@ -58,71 +58,42 @@ third_party_settings:
       label: 'Carriera studente'
     group_carriera_docente:
       children:
-        - field_biografia
         - field_ambiti_di_ricerca
+        - field_biografia
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 9
+      weight: 21
       format_type: fieldset
-      region: content
+      region: hidden
       format_settings:
         id: ''
         classes: ''
         description: ''
       label: 'Carriera docente'
-id: node.carriera.default
+id: node.carriera.widget_editing
 targetEntityType: node
 bundle: carriera
-mode: default
+mode: widget_editing
 content:
-  field_ambiti_di_ricerca:
-    weight: 12
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_biografia:
-    weight: 11
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_carriera_extra_acca:
-    weight: 13
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_corso:
-    weight: 4
+    weight: 2
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_data_fine_carriera:
-    weight: 7
-    label: above
+    weight: 4
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_data_inizio_carriera:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_data_licenza:
-    weight: 20
+    weight: 3
     label: inline
     settings:
       link_to_entity: false
@@ -130,103 +101,44 @@ content:
     type: string
     region: content
   field_facolta:
-    weight: 5
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_id:
     weight: 1
     label: inline
     settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_persona:
-    weight: 3
-    label: inline
-    settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_revisore:
-    weight: 10
-    label: inline
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_riferimenti_bibliografici:
-    weight: 14
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_segnatura_arch_tesi_laurea:
-    weight: 26
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_segnatura_arch_tesi_licenz:
-    weight: 23
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_tipologia_carriera:
-    weight: 2
+    weight: 0
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
-  field_titolo_tesi_laurea:
-    weight: 24
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_titolo_tesi_licenza:
-    weight: 21
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_valutazione_laurea:
-    weight: 25
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  links:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  field_ambiti_di_ricerca: true
+  field_biografia: true
+  field_carriera_extra_acca: true
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera_fake: true
+  field_data_licenza: true
   field_data_nascita: true
+  field_id: true
   field_luogo_nascita: true
+  field_persona: true
   field_primo_cognome: true
   field_primo_nome: true
+  field_revisore: true
+  field_riferimenti_bibliografici: true
   field_secondo_cognome: true
   field_secondo_nome: true
+  field_segnatura_arch_tesi_laurea: true
+  field_segnatura_arch_tesi_licenz: true
   field_sesso: true
   field_terzo_nome: true
+  field_titolo_tesi_laurea: true
+  field_titolo_tesi_licenza: true
+  field_valutazione_laurea: true
   langcode: true
+  links: true
   search_api_excerpt: true

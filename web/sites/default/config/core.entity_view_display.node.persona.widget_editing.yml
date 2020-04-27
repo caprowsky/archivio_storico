@@ -1,0 +1,116 @@
+uuid: 54efb58d-4e32-472a-b709-c3330be83ae4
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.widget_editing
+    - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_foto
+    - field.field.node.persona.field_geofiled
+    - field.field.node.persona.field_id
+    - field.field.node.persona.field_indirizzo
+    - field.field.node.persona.field_link_carriera
+    - field.field.node.persona.field_luogo_di_morte
+    - field.field.node.persona.field_luogo_nascita
+    - field.field.node.persona.field_numero
+    - field.field.node.persona.field_primo_cognome
+    - field.field.node.persona.field_primo_nome
+    - field.field.node.persona.field_revisore
+    - field.field.node.persona.field_secondo_cognome
+    - field.field.node.persona.field_secondo_nome
+    - field.field.node.persona.field_sesso
+    - field.field.node.persona.field_terzo_nome
+    - node.type.persona
+  module:
+    - address
+    - datetime
+    - field_group
+    - options
+    - user
+third_party_settings:
+  field_group:
+    group_controllo:
+      children:
+        - field_revisore
+      parent_name: ''
+      weight: 19
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Controllo
+id: node.persona.widget_editing
+targetEntityType: node
+bundle: persona
+mode: widget_editing
+content:
+  field_data_di_morte:
+    type: datetime_default
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: data_completo
+    third_party_settings: {  }
+  field_data_nascita:
+    weight: 3
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: data_completo
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_indirizzo:
+    type: address_default
+    weight: 2
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_luogo_di_morte:
+    type: string
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_luogo_nascita:
+    type: string
+    weight: 4
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_sesso:
+    weight: 1
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_foto: true
+  field_geofiled: true
+  field_id: true
+  field_link_carriera: true
+  field_numero: true
+  field_primo_cognome: true
+  field_primo_nome: true
+  field_revisore: true
+  field_secondo_cognome: true
+  field_secondo_nome: true
+  field_terzo_nome: true
+  langcode: true
+  search_api_excerpt: true

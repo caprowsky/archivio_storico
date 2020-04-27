@@ -1,9 +1,9 @@
-uuid: 785c8f1f-875c-4157-ac58-fc029a2dcb66
+uuid: aab87bf4-7e97-46e3-a80a-576a242b0c6f
 langcode: it
 status: true
 dependencies:
   config:
-    - entity_browser.browser.carriera
+    - core.entity_form_mode.node.widget_settings
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_foto
@@ -25,19 +25,17 @@ dependencies:
   module:
     - address
     - datetime
-    - entity_browser
     - field_group
     - geofield_map
     - media_library
     - path
-    - readonly_field_widget
 third_party_settings:
   field_group:
     group_controllo:
       children:
         - field_revisore
       parent_name: ''
-      weight: 22
+      weight: 20
       format_type: fieldset
       region: content
       format_settings:
@@ -52,9 +50,9 @@ third_party_settings:
         - field_numero
         - field_luogo_nascita
       parent_name: ''
-      weight: 1
+      weight: 22
       format_type: details_sidebar
-      region: content
+      region: hidden
       format_settings:
         description: ''
         open: true
@@ -67,9 +65,9 @@ third_party_settings:
       children:
         - field_link_carriera
       parent_name: ''
-      weight: 2
+      weight: 21
       format_type: details_sidebar
-      region: content
+      region: hidden
       format_settings:
         description: ''
         open: true
@@ -78,38 +76,38 @@ third_party_settings:
         classes: ''
         required_fields: false
       label: Carriere
-id: node.persona.default
+id: node.persona.widget_settings
 targetEntityType: node
 bundle: persona
-mode: default
+mode: widget_settings
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 18
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_data_nascita:
-    weight: 17
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_foto:
     type: media_library_widget
-    weight: 3
+    weight: 1
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   field_geofiled:
-    weight: 20
+    weight: 18
     settings:
       map_geocoder:
         settings:
@@ -215,67 +213,22 @@ content:
     third_party_settings: {  }
     type: geofield_map
     region: content
-  field_id:
-    weight: 2
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-    type: readonly_field_widget
-    region: content
   field_indirizzo:
-    weight: 21
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
-  field_link_carriera:
-    type: entity_browser_entity_reference
-    weight: 20
-    region: content
-    settings:
-      entity_browser: carriera
-      field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: widget_editing
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_edit: false
-      field_widget_replace: false
-      open: false
-    third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 19
+    weight: 17
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_luogo_nascita:
-    weight: 4
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-    type: readonly_field_widget
-    region: content
-  field_numero:
-    weight: 3
-    settings:
-      label: above
-      formatter_type: null
-      formatter_settings: null
-      show_description: false
-    third_party_settings: {  }
-    type: readonly_field_widget
-    region: content
   field_primo_cognome:
-    weight: 11
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -283,7 +236,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 13
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -301,7 +254,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_secondo_cognome:
-    weight: 12
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -309,7 +262,7 @@ content:
     type: string_textfield
     region: content
   field_secondo_nome:
-    weight: 14
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -317,13 +270,13 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    weight: 16
+    weight: 14
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_terzo_nome:
-    weight: 15
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -332,14 +285,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 4
+    weight: 2
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -347,21 +300,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 8
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
@@ -374,7 +327,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -382,4 +335,8 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_id: true
+  field_link_carriera: true
+  field_luogo_nascita: true
+  field_numero: true

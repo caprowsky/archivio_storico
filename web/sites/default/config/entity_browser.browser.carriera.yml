@@ -34,7 +34,7 @@ widgets:
     settings:
       entity_type: node
       bundle: carriera
-      form_mode: default
+      form_mode: widget_settings
       submit_text: 'Salva carriera'
     uuid: 19ff9f85-5571-4f4f-9b70-5f58cf86e5ef
     weight: 2

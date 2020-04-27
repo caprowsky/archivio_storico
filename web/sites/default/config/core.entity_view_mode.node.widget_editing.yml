@@ -1,0 +1,10 @@
+uuid: 9317e39d-5791-4df5-99a4-edc8d94cbafc
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.widget_editing
+label: 'Widget editing'
+targetEntityType: node
+cache: true

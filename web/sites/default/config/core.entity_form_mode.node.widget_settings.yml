@@ -1,0 +1,10 @@
+uuid: 2f3d8ba6-2219-41a0-9561-3857f14567a0
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.widget_settings
+label: 'Widget settings'
+targetEntityType: node
+cache: true

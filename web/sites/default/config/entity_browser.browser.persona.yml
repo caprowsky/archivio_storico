@@ -24,7 +24,7 @@ widgets:
     settings:
       entity_type: node
       bundle: persona
-      form_mode: default
+      form_mode: widget_settings
       submit_text: 'Salva persona'
     uuid: 4916894d-cc0a-4363-b490-ff129a408060
     weight: -9
