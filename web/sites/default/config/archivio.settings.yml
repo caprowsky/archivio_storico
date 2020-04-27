@@ -8,6 +8,7 @@ features:
   comment_user_verification: true
   favicon: true
 logo:
-  use_default: true
+  use_default: false
+  path: 'public://unica.png'
 favicon:
   use_default: true

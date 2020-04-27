@@ -518,7 +518,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: 0
+        weight: -50
         context: '0'
         menu_name: backoffice
     cache_metadata:
