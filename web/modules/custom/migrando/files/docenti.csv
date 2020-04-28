@@ -1,0 +1,75 @@
+id,foto,concatena,primo_cognome,secondo_cognome,primo_nome,secondo_nome,terzo_nome,sesso,data_di_nascita,luogo_di_nascita,data_di_morte,luogo_di_morte,facolta,corso,insegnamenti,inizio_carriera_accademica,fine_carriera_accademica,biografia,ambiti_di_ricerca,carriera_extra_acc,riferimenti_bibliografici,riferimenti_archivistici,autore,revisore
+1,,PalatestSalvatoreTestTest,Pala,test,Salvatore,Test,Test,M,1970-01-01,Cagliari,1638,Roma,"Filosofia ed arti, Teologia",Chimica,"Matematica, Teologia",1770-1771,1790-1791,"Salvatore Pala fu il primo lettore di Matematica dell'Università di Cagliari dall’anno accademico 1626-27 fino, presumibilmente, al 1631-32. Il Pala  fu anche professore di Teologia, nonché qualificatore del Sant’Uffizio. Gli succedette Padre Stephano Natter. ","Il Pala scrisse il ""Trattato di alcune scienze matematiche"", manoscritto autografo del 1628 in 4°. Contiene tre libri, oltre ad un Albero di tutte le matematiche, che si dividono in più di 42 scienze. Scrisse anche un libro dell'astronomia gnomica, ossia dell'arte di fare gli orologi solari; la Dichiarazione sopra i quattro libri della Meteora d'Aristotile, in spagnolo; il trattato De arte metiendi, sive geometria pratica.","Protomedico del Regno, donò il terreno sul quale fu costruita le chiesa di santa restituta","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+2,,NattertestStefano/StephanoTestTest,Natter,test,Stefano/Stephano,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Filosofia ed arti,Chimica,"Matematica, Teologia",1770-1771,1790-1791,"Padre Stefano Natter, gesuita, succedette a Padre Pala come lettore di Matematica dall’anno accademico 1632-33 al 1633-34 e dal 1639-40 al 1672-73.","Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Protomedico del Regno, donò il terreno sul quale fu costruita le chiesa di santa restituta","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. MANUS: Cagliari, Biblioteca universitaria di Cagliari, Manoscritti, ms. 153
+ ","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+3,,MelistestGiovanni DomenicoTest,Melis,test,Giovanni ,Domenico,Test,M,1970-01-01,Cagliari,1638,Roma,Filosofia ed arti,Chimica,"Matematica, Teologia",1770-1771,1790-1791,orden de los menores conventuales de San Francesco - professore di Logica -  cattedratico di Arti dell’Università di Cagliari - cattedra di Filosofia Aristotelica,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Protomedico del Regno, donò il terreno sul quale fu costruita le chiesa di santa restituta","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+4,,MancatestFrancescoTestTest,Manca,test,Francesco,Test,Test,M,1970-01-01,Prado,1638,Roma,Filosofia ed arti,Chimica,"Matematica, Teologia",1770-1771,1790-1791,"Frate domenicano, filosofo, cattedratico vespertino di canoni; cattedratico mattutino di San Tommaso","Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Protomedico del Regno, donò il terreno sul quale fu costruita le chiesa di santa restituta","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+5,,MostellinotestSalvatoreTestTest,Mostellino,test,Salvatore,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Medicina,Chimica,"Matematica, Teologia",1770-1771,1790-1791,Maestro di Medicina,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Protomedico del Regno, donò il terreno sul quale fu costruita le chiesa di santa restituta","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+6,,GalcerinotestAntonioTestTest,Galcerino,test,Antonio,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Medicina,Chimica,"Matematica, Teologia",1770-1771,1790-1791,,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Protomedico del Regno, tipografo","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+7,,CarnicertestGiovanniTestTest,Carnicer,test,Giovanni,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Giurisprudenza,Chimica,"Matematica, Teologia",1770-1771,1790-1791,La prima e più importante cattedra di istituzioni dell'università di Cagliari appena fondata fu affidata al dottor Giovanni Carnicer (Juan Carniçer) con titolo di primario e decano dell’Università.,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","Avv., consigliere capo della città","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+8,,TandatestGiovanni MariaTest,Tanda,test,Giovanni ,Maria,Test,M,1970-01-01,Cagliari,1638,Roma,Giurisprudenza,Chimica,"Matematica, Teologia",1770-1771,1790-1791,maestro di Leggi all’Università di Cagliari,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","avvocato, giurista, consigliere capo della città","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+9,,MelitestSalvadorTestTest,Meli,test,Salvador,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Teologia,Chimica,"Matematica, Teologia",1770-1771,1790-1791,"Insigne teologo, maestro dell’Ordine dei minori conventuali di San Francesco e maestro di Scoto dell’Università di Cagliari","Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","avvocato, giurista, consigliere capo della città","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,
+10,,AdzorytestSalvadorTestTest,Adzory,test,Salvador,Test,Test,M,1970-01-01,Cagliari,1638,Roma,Teologia,Chimica,"Matematica, Teologia",1770-1771,1790-1791,Cattedratico dell'Università di Cagliari,"Scrisse In geographiam lucubrationes a patre Stephano Natter sardo calaritano Societatis Jesu in Universitate calaritana mathematicarum professore, Manoscritto autografo del 1634.
+
+Titolo presente: Lucubrationum geographicarum tractatus","avvocato, giurista, consigliere capo della città","Roberto Scoth, Gli insegnamenti matematici e fisici nell'università di Cagliari, (1764-1848) p. 310. Giovanni Siotto Pintor, Storia letteraria di Sardegna, I, Cagliari, 1843-44, rist. anast., Bologna,
+Forni, 1966, p. 253. Consultare CARLOS SOMMERVOGEL, Bibliothèque
+de la Compagnie de Jésus, VI, Bruxelles-Paris,
+1890, p. 98; EDOARDO TODA Y GÜELL, Bibliografia
+Española de Cerdeña, Madrid, Tip.
+de los huérfanos, 1840, p. 250","ASCa, vol. 407 bis, fasc. 4, n.16.1 (XXXV)",Laura Cogoni,

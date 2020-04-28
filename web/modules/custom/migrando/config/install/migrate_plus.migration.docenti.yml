@@ -1,11 +1,11 @@
-id: studenti
+id: docenti
 migration_tags:
   - CSV
 label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/docenti.csv
-  ids: [numero]
+  ids: [id]
 
   constants:
     title_constant: "Carriera"
@@ -36,7 +36,7 @@ process:
 
   field_id: concatena
 
-  field_numero: numero
+  field_numero: id
 
   field_data_nascita: data_nascita
 
@@ -81,10 +81,6 @@ process:
 ##### Campi comuni alle carriere docente e studente ####
 ########################################################
 
-  field_data_inizio_carriera:
-    plugin: encode
-    source: anno_immatricolazione
-
   'field_carriera/value':
     plugin: encode
     source: carriera
@@ -97,54 +93,73 @@ process:
       plugin: migration_lookup
       migration: corsi
       no_stub: true
-      source: corso # @TODO: cosa mappare qui?
-
-#  field_persona:
-#    target_id:
-#      plugin: migration_lookup
-#      migration: persone
-#      no_stub: true
-#      source: concatena # @TODO: cosa mappare qui?
-
-  field_data_fine_carriera:
-    plugin: encode
-    source: data_laurea
+      source: corso 
 
   field_facolta:
     target_id:
       plugin: migration_lookup
       migration: facolta
       no_stub: true
-      source: facolta # @TODO: cosa mappare qui?
+      source: facolta 
 
-#################################################
-##### Campi specifici della carriera docente ####
-#################################################
+#  field_persona:
+#    target_id:
+#      plugin: migration_lookup
+#      migration: persone
+#      no_stub: true
+#      source: concatena 
+
+  field_data_inizio_carriera:
+    plugin: encode
+    source: inizio_carriera_accademica
+
+
+  field_data_fine_carriera:
+    plugin: encode
+    source: fine_carriera_accademica
 
   field_revisore:
     plugin: default_value
     default_value: 7 # Eleonora
 
-  field_biografia:
+#################################################
+##### Campi specifici della carriera docente ####
+#################################################
+
+  'field_biografia/value':
     plugin: encode
     source: biografia
+  'field_biografia/format':
+    plugin: default_value
+    default_value: basic_html
 
-  field_ambiti_di_ricerca:
+  'field_ambiti_di_ricerca/value':
     plugin: encode
     source: ambiti_di_ricerca
+  'field_ambiti_di_ricerca/format':
+    plugin: default_value
+    default_value: basic_html
 
-  field_carriera_extra_acca:
+  'field_carriera_extra_acca/value':
     plugin: encode
     source: carriera_extra_acc
+  'field_carriera_extra_acca/format':
+    plugin: default_value
+    default_value: basic_html
 
-  field_riferimenti_bibliografici:
+  'field_riferimenti_bibliografici/value':
     plugin: encode
     source: riferimenti_bibliografici
+  'field_riferimenti_bibliografici/format':
+    plugin: default_value
+    default_value: basic_html
 
-  field_riferimenti_archivistici:
+  'field_riferimenti_archivistici/value':
     plugin: encode
     source: riferimenti_archivistici
-
+  'field_riferimenti_archivistici/format':
+    plugin: default_value
+    default_value: basic_html
 
 destination:
   plugin: 'entity:node'

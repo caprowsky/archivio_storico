@@ -1,5 +1,5 @@
 status: 1
-pattern: 'Carriera [node:field_tipologia_carriera] [node:field_persona:entity:title] [node:field_data_inizio_carriera] [node:field_facolta]'
+pattern: 'Carriera [node:field_tipologia_carriera] ([node:field_id]) [node:field_persona:entity:title] [node:field_data_inizio_carriera] [node:field_facolta]'
 escape: false
 dependencies:
   config:

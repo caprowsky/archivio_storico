@@ -23,16 +23,16 @@ process:
     plugin: default_value
     default_value: carriera
 
-  title:
-    plugin: concat
-    source:
-      - constants/title_constant
-      - primo_cognome
-      - secondo_cognome
-      - primo_nome
-      - secondo_nome
-      - terzo_nome
-    delimiter: " "
+#  title:
+#    plugin: concat
+#    source:
+#      - constants/title_constant
+#      - primo_cognome
+#      - secondo_cognome
+#      - primo_nome
+#      - secondo_nome
+#      - terzo_nome
+#    delimiter: " "
 
   field_id: concatena
 
@@ -51,6 +51,10 @@ process:
   field_secondo_cognome:
     plugin: encode
     source: secondo_cognome
+
+#  field_terzo_cognome:
+#    plugin: encode
+#    source: terzo_cognome
 
   field_primo_nome:
     plugin: encode
@@ -81,10 +85,6 @@ process:
 ##### Campi comuni alle carriere docente e studente ####
 ########################################################
 
-  field_data_inizio_carriera:
-    plugin: encode
-    source: anno_immatricolazione
-
   'field_carriera/value':
     plugin: encode
     source: carriera
@@ -97,14 +97,25 @@ process:
       plugin: migration_lookup
       migration: corsi
       no_stub: true
-      source: corso # @TODO: cosa mappare qui?
+      source: corso 
+
+  field_facolta:
+    target_id:
+      plugin: migration_lookup
+      migration: facolta
+      no_stub: true
+      source: facolta 
 
   field_persona:
     target_id:
       plugin: migration_lookup
       migration: persone
       no_stub: true
-      source: concatena # @TODO: cosa mappare qui?
+      source: concatena 
+
+  field_data_inizio_carriera:
+    plugin: encode
+    source: anno_immatricolazione
 
   field_data_fine_carriera:
     plugin: encode
@@ -113,13 +124,6 @@ process:
   field_data_licenza:
     plugin: encode
     source: data_licenza
-
-  field_facolta:
-    target_id:
-      plugin: migration_lookup
-      migration: facolta
-      no_stub: true
-      source: facolta # @TODO: cosa mappare qui?
 
   field_revisore:
     plugin: default_value
