@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
@@ -172,6 +173,7 @@ hidden:
   field_primo_cognome: true
   field_primo_nome: true
   field_revisore: true
+  field_riferimenti_archivistici: true
   field_riferimenti_bibliografici: true
   field_secondo_cognome: true
   field_secondo_nome: true

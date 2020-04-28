@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
@@ -49,7 +50,7 @@ third_party_settings:
         - field_titolo_tesi_licenza
         - field_valutazione_laurea
       parent_name: ''
-      weight: 26
+      weight: 27
       format_type: fieldset
       region: hidden
       format_settings:
@@ -60,7 +61,7 @@ third_party_settings:
     group_carriera_docente:
       children: {  }
       parent_name: ''
-      weight: 10
+      weight: 26
       format_type: fieldset
       region: hidden
       format_settings:
@@ -126,6 +127,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_riferimenti_archivistici:
+    type: text_default
+    weight: 10
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_riferimenti_bibliografici:
     weight: 9
     label: above

@@ -1,0 +1,21 @@
+uuid: c8b8351f-80b2-49ca-9341-38252aecc769
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_riferimenti_archivistici
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_riferimenti_archivistici
+field_name: field_riferimenti_archivistici
+entity_type: node
+bundle: carriera
+label: 'Riferimenti archivistici'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

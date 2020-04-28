@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
@@ -61,17 +62,17 @@ third_party_settings:
       label: 'Carriera studente'
     group_persona:
       children:
-        - field_id
-        - field_primo_cognome
-        - field_secondo_cognome
-        - field_primo_nome
-        - field_secondo_nome
-        - field_terzo_nome
         - field_data_nascita
-        - field_sesso
+        - field_id
         - field_luogo_nascita
+        - field_primo_cognome
+        - field_primo_nome
+        - field_secondo_cognome
+        - field_secondo_nome
+        - field_sesso
+        - field_terzo_nome
       parent_name: ''
-      weight: 16
+      weight: 17
       format_type: details_sidebar
       region: content
       format_settings:
@@ -88,6 +89,7 @@ third_party_settings:
         - field_ambiti_di_ricerca
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
+        - field_riferimenti_archivistici
       parent_name: ''
       weight: 14
       format_type: fieldset
@@ -250,7 +252,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_revisore:
-    weight: 15
+    weight: 16
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -259,6 +261,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_riferimenti_archivistici:
+    type: text_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_riferimenti_bibliografici:
     weight: 15
     settings:

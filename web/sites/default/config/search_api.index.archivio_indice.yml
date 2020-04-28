@@ -9,13 +9,18 @@ dependencies:
     - search_api
     - archivio_utils
   config:
+    - field.storage.node.field_ambiti_di_ricerca
+    - field.storage.node.field_biografia
+    - field.storage.node.field_carriera_extra_acca
     - field.storage.node.field_corso
     - field.storage.node.field_data_nascita
     - field.storage.node.field_data_fine_carriera_fake
     - field.storage.node.field_data_inizio_carriera_fake
+    - field.storage.node.field_data_licenza
     - field.storage.node.field_facolta
     - field.storage.node.field_link_carriera
-    - field.storage.node.field_data_licenza
+    - field.storage.node.field_riferimenti_archivistici
+    - field.storage.node.field_riferimenti_bibliografici
     - field.storage.node.field_segnatura_arch_tesi_laurea
     - field.storage.node.field_segnatura_arch_tesi_licenz
     - field.storage.node.field_tipologia_carriera
@@ -117,6 +122,44 @@ field_settings:
         - field.storage.node.field_facolta
       module:
         - taxonomy
+  field_ambiti_di_ricerca:
+    label: 'Link carriera » Contenuto » Ambiti di ricerca'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_ambiti_di_ricerca'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ambiti_di_ricerca
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_ambiti_di_ricerca_1:
+    label: 'Ambiti di ricerca'
+    datasource_id: 'entity:node'
+    property_path: field_ambiti_di_ricerca
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ambiti_di_ricerca
+  field_biografia:
+    label: Biografia
+    datasource_id: 'entity:node'
+    property_path: field_biografia
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_biografia
+  field_biografia_1:
+    label: 'Link carriera » Contenuto » Biografia'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_biografia'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_biografia
+        - field.storage.node.field_link_carriera
+      module:
+        - node
   field_carriera_corso:
     label: 'Link carriera » Contenuto » Corso'
     datasource_id: 'entity:node'
@@ -128,6 +171,25 @@ field_settings:
         - field.storage.node.field_link_carriera
       module:
         - node
+  field_carriera_extra_acca:
+    label: 'Link carriera » Contenuto » Carriera extra accademica'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_carriera_extra_acca'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_carriera_extra_acca
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_carriera_extra_acca_1:
+    label: 'Carriera extra accademica'
+    datasource_id: 'entity:node'
+    property_path: field_carriera_extra_acca
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_carriera_extra_acca
   field_carriera_facolta:
     label: 'Link carriera » Contenuto » Facoltà'
     datasource_id: 'entity:node'
@@ -174,6 +236,14 @@ field_settings:
         - field.storage.node.field_link_carriera
       module:
         - node
+  field_data_licenza_1:
+    label: 'Data licenza'
+    datasource_id: 'entity:node'
+    property_path: field_data_licenza
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_data_licenza
   field_data_nascita:
     label: 'Data di nascita'
     datasource_id: 'entity:node'
@@ -231,6 +301,44 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_primo_nome
+  field_riferimenti_archivistici:
+    label: 'Riferimenti archivistici'
+    datasource_id: 'entity:node'
+    property_path: field_riferimenti_archivistici
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_riferimenti_archivistici
+  field_riferimenti_archivistici_1:
+    label: 'Link carriera » Contenuto » Riferimenti archivistici'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_riferimenti_archivistici'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_riferimenti_archivistici
+      module:
+        - node
+  field_riferimenti_bibliografici:
+    label: 'Link carriera » Contenuto » Riferimenti bibliografici'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_riferimenti_bibliografici'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_riferimenti_bibliografici
+      module:
+        - node
+  field_riferimenti_bibliografici_1:
+    label: 'Riferimenti bibliografici'
+    datasource_id: 'entity:node'
+    property_path: field_riferimenti_bibliografici
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_riferimenti_bibliografici
   field_secondo_cognome:
     label: 'Secondo cognome'
     datasource_id: 'entity:node'
@@ -259,6 +367,14 @@ field_settings:
         - field.storage.node.field_segnatura_arch_tesi_laurea
       module:
         - node
+  field_segnatura_arch_tesi_laurea_1:
+    label: 'Segnatura archivistica tesi laurea'
+    datasource_id: 'entity:node'
+    property_path: field_segnatura_arch_tesi_laurea
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_segnatura_arch_tesi_laurea
   field_segnatura_arch_tesi_licenz:
     label: 'Link carriera » Contenuto » Segnatura archivistica tesi licenza'
     datasource_id: 'entity:node'
@@ -270,6 +386,14 @@ field_settings:
         - field.storage.node.field_segnatura_arch_tesi_licenz
       module:
         - node
+  field_segnatura_arch_tesi_licenz_1:
+    label: 'Segnatura archivistica tesi licenza'
+    datasource_id: 'entity:node'
+    property_path: field_segnatura_arch_tesi_licenz
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_segnatura_arch_tesi_licenz
   field_sesso:
     label: Sesso
     datasource_id: 'entity:node'
@@ -316,6 +440,14 @@ field_settings:
         - field.storage.node.field_titolo_tesi_laurea
       module:
         - node
+  field_titolo_tesi_laurea_1:
+    label: 'Titolo tesi di laurea'
+    datasource_id: 'entity:node'
+    property_path: field_titolo_tesi_laurea
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_titolo_tesi_laurea
   field_titolo_tesi_licenza:
     label: 'Link carriera » Contenuto » Titolo tesi licenza'
     datasource_id: 'entity:node'
@@ -327,6 +459,14 @@ field_settings:
         - field.storage.node.field_titolo_tesi_licenza
       module:
         - node
+  field_titolo_tesi_licenza_1:
+    label: 'Titolo tesi licenza'
+    datasource_id: 'entity:node'
+    property_path: field_titolo_tesi_licenza
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_titolo_tesi_licenza
   field_valutazione_laurea:
     label: 'Link carriera » Contenuto » Valutazione laurea'
     datasource_id: 'entity:node'
@@ -338,6 +478,14 @@ field_settings:
         - field.storage.node.field_valutazione_laurea
       module:
         - node
+  field_valutazione_laurea_1:
+    label: 'Valutazione laurea'
+    datasource_id: 'entity:node'
+    property_path: field_valutazione_laurea
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_valutazione_laurea
   nid:
     label: ID
     datasource_id: 'entity:node'

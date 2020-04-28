@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
+    - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
     - field.field.node.carriera.field_secondo_nome
@@ -62,6 +63,7 @@ third_party_settings:
         - field_ambiti_di_ricerca
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
+        - field_riferimenti_archivistici
       parent_name: ''
       weight: 9
       format_type: fieldset
@@ -160,6 +162,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_riferimenti_archivistici:
+    weight: 15
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_riferimenti_bibliografici:
     weight: 14

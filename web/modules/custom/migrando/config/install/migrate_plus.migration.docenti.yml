@@ -4,7 +4,7 @@ migration_tags:
 label: 'CSV file migration'
 source:
   plugin: csv
-  path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
+  path: /var/www/html/web/modules/custom/migrando/files/docenti.csv
   ids: [numero]
 
   constants:
@@ -17,7 +17,7 @@ process:
 
   uid:
     plugin: default_value
-    default_value: 5 # Valeria
+    default_value: 4 # Laura
 
   type:
     plugin: default_value
@@ -66,7 +66,7 @@ process:
 
   field_tipologia_carriera:
     plugin: default_value
-    default_value: s
+    default_value: d
 
   field_sesso:
     plugin: static_map
@@ -99,20 +99,16 @@ process:
       no_stub: true
       source: corso # @TODO: cosa mappare qui?
 
-  field_persona:
-    target_id:
-      plugin: migration_lookup
-      migration: persone
-      no_stub: true
-      source: concatena # @TODO: cosa mappare qui?
+#  field_persona:
+#    target_id:
+#      plugin: migration_lookup
+#      migration: persone
+#      no_stub: true
+#      source: concatena # @TODO: cosa mappare qui?
 
   field_data_fine_carriera:
     plugin: encode
     source: data_laurea
-
-  field_data_licenza:
-    plugin: encode
-    source: data_licenza
 
   field_facolta:
     target_id:
@@ -121,33 +117,34 @@ process:
       no_stub: true
       source: facolta # @TODO: cosa mappare qui?
 
+#################################################
+##### Campi specifici della carriera docente ####
+#################################################
+
   field_revisore:
     plugin: default_value
     default_value: 7 # Eleonora
 
-##################################################
-##### Campi specifici della carriera studente ####
-##################################################
-
-  field_segnatura_arch_tesi_laurea:
+  field_biografia:
     plugin: encode
-    source: segnatura_archivistica_tesi_laurea
+    source: biografia
 
-  field_segnatura_arch_tesi_licenz:
+  field_ambiti_di_ricerca:
     plugin: encode
-    source: segnatura_archivistica_tesi_licenza
+    source: ambiti_di_ricerca
 
-  field_titolo_tesi_laurea:
+  field_carriera_extra_acca:
     plugin: encode
-    source: titolo_tesi_laurea
+    source: carriera_extra_acc
 
-  field_titolo_tesi_licenza:
+  field_riferimenti_bibliografici:
     plugin: encode
-    source: titolo_tesi_licenza
+    source: riferimenti_bibliografici
 
-  field_valutazione_laurea:
+  field_riferimenti_archivistici:
     plugin: encode
-    source: valutazione_laurea
+    source: riferimenti_archivistici
+
 
 destination:
   plugin: 'entity:node'
