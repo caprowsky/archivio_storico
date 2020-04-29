@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Implements hook_contextual_links_view_alter()
+ */
+function layout_builder_dialog_control_contextual_links_view_alter(&$element, $items) {
+  if (isset($element['#contextual_links']['layout_builder_block'])) {
+    $contextual_links_settings = \Drupal::config('layout_builder_dialog_control.settings')
+      ->get('layout_builder_contextual_links');
+    foreach ($element['#links'] as $key => &$link) {
+      foreach ($contextual_links_settings as $link_settings) {
+        if ($link_settings['route_name'] == $link['url']->getRouteName() && $link_settings['dialog_type'] != 'default') {
+          $options = $link['url']->getOptions();
+          switch($link_settings['dialog_type']) {
+            case 'off-screen':
+              $options['attributes']['data-dialog-renderer'] = 'off_canvas';
+              unset($options['attributes']['data-dialog-options']);
+              break;
+            case 'overlay':
+              unset($options['attributes']['data-dialog-renderer']);
+              $options['attributes']['data-dialog-options'] = json_encode([
+                'width' => 800,
+                'height' => "auto",
+                'autoResize' => TRUE,
+                'modal' => TRUE,
+                'target' => 'layout-builder-overlay',
+              ]);
+              break;
+          }
+          $link['url']->setOptions($options);
+        }
+      }
+    }
+  }
+}

@@ -2597,35 +2597,36 @@
     },
     {
         "name": "drupal/entity_browser",
-        "version": "2.4.0",
-        "version_normalized": "2.4.0.0",
+        "version": "2.5.0",
+        "version_normalized": "2.5.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/entity_browser.git",
-            "reference": "8.x-2.4"
+            "reference": "8.x-2.5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.4.zip",
-            "reference": "8.x-2.4",
-            "shasum": "28dd5eb28284ff218ad3aed2414817e9fa5b7bb9"
+            "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.5.zip",
+            "reference": "8.x-2.5",
+            "shasum": "29456b961f0f90ff064601ab8a382446a8143774"
         },
         "require": {
-            "drupal/core": "^8.7.7 || ^9"
+            "drupal/core": "^8.8 || ^9"
         },
         "require-dev": {
             "drupal/embed": "~1.0",
-            "drupal/entity_embed": "~1.0",
-            "drupal/entityqueue": "~1.0",
-            "drupal/inline_entity_form": "~1.0",
-            "drupal/paragraphs": "~1.0",
+            "drupal/entity_embed": "1.x-dev",
+            "drupal/entity_reference_revisions": "1.x-dev",
+            "drupal/entityqueue": "1.x-dev",
+            "drupal/inline_entity_form": "1.x-dev",
+            "drupal/paragraphs": "1.x-dev",
             "drupal/token": "~1.0"
         },
         "type": "drupal-module",
         "extra": {
             "drupal": {
-                "version": "8.x-2.4",
-                "datestamp": "1579563787",
+                "version": "8.x-2.5",
+                "datestamp": "1588015347",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -2966,18 +2967,18 @@
     },
     {
         "name": "drupal/geofield",
-        "version": "1.11.0",
-        "version_normalized": "1.11.0.0",
+        "version": "1.12.0",
+        "version_normalized": "1.12.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/geofield.git",
-            "reference": "8.x-1.11"
+            "reference": "8.x-1.12"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.11.zip",
-            "reference": "8.x-1.11",
-            "shasum": "f1628a08b115e07782930848da1bd34fff9e4f4a"
+            "url": "https://ftp.drupal.org/files/projects/geofield-8.x-1.12.zip",
+            "reference": "8.x-1.12",
+            "shasum": "ddd035a4e6955a31f63e47eecb33afc186f0eaa5"
         },
         "require": {
             "drupal/core": "^8 || ^9",
@@ -2986,8 +2987,8 @@
         "type": "drupal-module",
         "extra": {
             "drupal": {
-                "version": "8.x-1.11",
-                "datestamp": "1586208210",
+                "version": "8.x-1.12",
+                "datestamp": "1587146817",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -3046,18 +3047,18 @@
     },
     {
         "name": "drupal/geofield_map",
-        "version": "2.61.0",
-        "version_normalized": "2.61.0.0",
+        "version": "2.62.0",
+        "version_normalized": "2.62.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/geofield_map.git",
-            "reference": "8.x-2.61"
+            "reference": "8.x-2.62"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.61.zip",
-            "reference": "8.x-2.61",
-            "shasum": "bab2253bef9cbd86e400384bceddf256131730b2"
+            "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.62.zip",
+            "reference": "8.x-2.62",
+            "shasum": "8f4661628b4cdcfc8dd951fa63f766b13a4cb5b6"
         },
         "require": {
             "drupal/core": "^8 || ^9",
@@ -3066,8 +3067,8 @@
         "type": "drupal-module",
         "extra": {
             "drupal": {
-                "version": "8.x-2.61",
-                "datestamp": "1586207935",
+                "version": "8.x-2.62",
+                "datestamp": "1587234682",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -3231,6 +3232,52 @@
         }
     },
     {
+        "name": "drupal/layout_builder_dialog_control",
+        "version": "1.0.0-beta2",
+        "version_normalized": "1.0.0.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/layout_builder_dialog_control.git",
+            "reference": "8.x-1.0-beta2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/layout_builder_dialog_control-8.x-1.0-beta2.zip",
+            "reference": "8.x-1.0-beta2",
+            "shasum": "4e2db43e758d25dfeb18bb9a6b777c33890be5a4"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.0-beta2",
+                "datestamp": "1588076369",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "junaidpv",
+                "homepage": "https://www.drupal.org/user/255728"
+            }
+        ],
+        "description": "Control display dialogs in layout builder",
+        "homepage": "https://www.drupal.org/project/layout_builder_dialog_control",
+        "support": {
+            "source": "https://git.drupalcode.org/project/layout_builder_dialog_control"
+        }
+    },
+    {
         "name": "drupal/layout_builder_modal",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -3376,18 +3423,18 @@
     },
     {
         "name": "drupal/leaflet",
-        "version": "1.33.0",
-        "version_normalized": "1.33.0.0",
+        "version": "1.36.0",
+        "version_normalized": "1.36.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/leaflet.git",
-            "reference": "8.x-1.33"
+            "reference": "8.x-1.36"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.33.zip",
-            "reference": "8.x-1.33",
-            "shasum": "4b1f566dc82710a7fcd06a5b9115ceefbce12745"
+            "url": "https://ftp.drupal.org/files/projects/leaflet-8.x-1.36.zip",
+            "reference": "8.x-1.36",
+            "shasum": "e214cda64e7141709010ecb80c83ada747345e0d"
         },
         "require": {
             "drupal/core": "^8 || ^9",
@@ -3396,8 +3443,8 @@
         "type": "drupal-module",
         "extra": {
             "drupal": {
-                "version": "8.x-1.33",
-                "datestamp": "1586209401",
+                "version": "8.x-1.36",
+                "datestamp": "1587388724",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -3696,35 +3743,40 @@
     },
     {
         "name": "drupal/pathauto",
-        "version": "1.6.0",
-        "version_normalized": "1.6.0.0",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/pathauto.git",
-            "reference": "8.x-1.6"
+            "reference": "8.x-1.8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.6.zip",
-            "reference": "8.x-1.6",
-            "shasum": "eb976ae110d73c06fafb1b657adb967dd2cb8246"
+            "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.8.zip",
+            "reference": "8.x-1.8",
+            "shasum": "ede3216abb9c4f77709338d9147334c595046329"
         },
         "require": {
-            "drupal/core": "^8.6",
+            "drupal/core": "^8.8 || ^9",
             "drupal/ctools": "*",
             "drupal/token": "*"
         },
+        "suggest": {
+            "drupal/redirect": "When installed Pathauto will provide a new \"Update Action\" in case your URLs change. This is the recommended update action and is considered the best practice for SEO and usability."
+        },
         "type": "drupal-module",
         "extra": {
-            "branch-alias": {
-                "dev-1.x": "1.x-dev"
-            },
             "drupal": {
-                "version": "8.x-1.6",
-                "datestamp": "1575467285",
+                "version": "8.x-1.8",
+                "datestamp": "1588103046",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9 || ^10"
                 }
             }
         },
@@ -3754,7 +3806,9 @@
         "description": "Provides a mechanism for modules to automatically generate aliases for the content they manage.",
         "homepage": "https://www.drupal.org/project/pathauto",
         "support": {
-            "source": "https://git.drupalcode.org/project/pathauto"
+            "source": "https://cgit.drupalcode.org/pathauto",
+            "issues": "https://www.drupal.org/project/issues/pathauto",
+            "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
         }
     },
     {
@@ -4088,18 +4142,18 @@
     },
     {
         "name": "drupal/token",
-        "version": "1.6.0",
-        "version_normalized": "1.6.0.0",
+        "version": "1.7.0",
+        "version_normalized": "1.7.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupalcode.org/project/token.git",
-            "reference": "8.x-1.6"
+            "reference": "8.x-1.7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/token-8.x-1.6.zip",
-            "reference": "8.x-1.6",
-            "shasum": "22039a3d927220609e708932ac5c501b90ca4925"
+            "url": "https://ftp.drupal.org/files/projects/token-8.x-1.7.zip",
+            "reference": "8.x-1.7",
+            "shasum": "c7e3a3757282e4c94e3c1fff08d01e22155cb853"
         },
         "require": {
             "drupal/core": "^8.7.7 || ^9"
@@ -4107,8 +4161,8 @@
         "type": "drupal-module",
         "extra": {
             "drupal": {
-                "version": "8.x-1.6",
-                "datestamp": "1577708583",
+                "version": "8.x-1.7",
+                "datestamp": "1587893588",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"

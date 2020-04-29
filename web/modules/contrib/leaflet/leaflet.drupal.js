@@ -233,7 +233,9 @@
               lFeature.setStyle(feature.path);
             }
             if (groupFeature.popup) {
-              lFeature.bindPopup(groupFeature.popup);
+              lFeature.bindPopup(groupFeature.popup, {
+                maxWidth: "auto"
+              });
             }
             lGroup.addLayer(lFeature);
           }
@@ -252,7 +254,9 @@
           self.lMap.addLayer(lFeature);
 
           if (feature.popup) {
-            lFeature.bindPopup(feature.popup);
+            lFeature.bindPopup(feature.popup, {
+              maxWidth: "auto"
+            });
           }
         }
       }
@@ -428,11 +432,12 @@
       img.onerror = logError;
     }
 
+    lMarker = new L.Marker(latLng, options);
+
     if (marker.icon) {
       if (marker.icon.iconType && marker.icon.iconType === 'html' && marker.icon.html) {
-        lMarker = new L.Marker(latLng, options);
-        options.icon = self.create_divicon(marker.icon);
-        lMarker.setIcon(options.icon);
+        var icon = self.create_divicon(marker.icon);
+        lMarker.setIcon(icon);
       }
       else if (marker.icon.iconType && marker.icon.iconType === 'circle_marker') {
         try {
@@ -445,7 +450,6 @@
         lMarker = new L.CircleMarker(latLng, options);
       }
       else if (marker.icon.iconUrl) {
-        lMarker = new L.Marker(latLng, options);
         checkImage(marker.icon.iconUrl,
           // Success loading image.
           function() {
@@ -457,17 +461,13 @@
               marker.icon.shadowSize.x = marker.icon.shadowSize.x || this.naturalWidth;
               marker.icon.shadowSize.y = marker.icon.shadowSize.y || this.naturalHeight;
             }
-            options.icon = self.create_icon(marker.icon);
-            lMarker.setIcon(options.icon);
+            var icon = self.create_icon(marker.icon);
+            lMarker.setIcon(icon);
           },
           // Error loading image.
           function(err) {
             console.log("Leaflet: The Icon Image doesn't exist at the requested path: " + marker.icon.iconUrl);
           });
-      }
-      else {
-        // Fallback to Leaflet default marker.
-        lMarker = new L.Marker(latLng);
       }
     }
 
@@ -558,7 +558,9 @@
         layer._leaflet_id = feature.properties.leaflet_id;
       }
       if (feature.properties.popup) {
-        layer.bindPopup(feature.properties.popup);
+        layer.bindPopup(feature.properties.popup, {
+          maxWidth: "auto"
+        });
       }
     };
 

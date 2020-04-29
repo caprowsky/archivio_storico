@@ -22,6 +22,7 @@ use Symfony\Component\Yaml\Exception\ParseException;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Utility\LinkGeneratorInterface;
 use Drupal\Core\Render\ElementInfoManagerInterface;
+use Drupal\Core\File\Exception\NotRegularDirectoryException;
 
 /**
  * Provides an Icon Managed File Service.
@@ -161,16 +162,22 @@ class MarkerIconService {
     $regex = '/\.(' . preg_replace('/ +/', '|', preg_quote($this->allowedExtension)) . ')$/i';
     $security = $this->geofieldMapSettings->get('theming.markers_location.security');
     $rel_path = $this->geofieldMapSettings->get('theming.markers_location.rel_path');
-    $files = $this->fileSystem->scanDirectory($security . $rel_path, $regex);
-    $additional_markers_location = $this->geofieldMapSettings->get('theming.additional_markers_location');
-    if (!empty($additional_markers_location)) {
-      $additional_files = $this->fileSystem->scanDirectory($additional_markers_location, $regex);
-      $files = array_merge($files, $additional_files);
+    try {
+      $files = $this->fileSystem->scanDirectory($security . $rel_path, $regex);
+      $additional_markers_location = $this->geofieldMapSettings->get('theming.additional_markers_location');
+      if (!empty($additional_markers_location)) {
+        $additional_files = $this->fileSystem->scanDirectory($additional_markers_location, $regex);
+        $files = array_merge($files, $additional_files);
+      }
+      ksort($files, SORT_STRING);
+      foreach ($files as $k => $file) {
+        $markers_files_list[$k] = $file->filename;
+      }
     }
-    ksort($files, SORT_STRING);
-    foreach ($files as $k => $file) {
-      $markers_files_list[$k] = $file->filename;
+    catch (NotRegularDirectoryException $e) {
+      watchdog_exception('geofield map set markers fiel list', $e);
     }
+
     return $markers_files_list;
   }
 

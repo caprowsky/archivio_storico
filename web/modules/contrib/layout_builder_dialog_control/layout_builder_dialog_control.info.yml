@@ -1,0 +1,11 @@
+name: Layout Builder Dialog Control
+type: module
+description: Control display dialogs in layout builder
+core: 8.x
+dependencies:
+  - drupal:layout_builder
+configure: layout_builder_dialog_control.settings
+# Information added by Drupal.org packaging script on 2020-04-28
+version: '8.x-1.0-beta2'
+project: 'layout_builder_dialog_control'
+datestamp: 1588076372

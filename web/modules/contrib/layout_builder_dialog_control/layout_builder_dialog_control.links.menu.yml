@@ -1,0 +1,5 @@
+layout_builder_dialog_control.settings:
+  title: Layout Builder Dialog Control Settings
+  route_name: layout_builder_dialog_control.settings
+  parent: system.admin_config_ui
+  description: 'Administer Layout Builder Dialog Control.'

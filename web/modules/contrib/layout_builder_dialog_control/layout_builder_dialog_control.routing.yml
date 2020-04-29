@@ -1,0 +1,8 @@
+layout_builder_dialog_control.settings:
+  path: '/admin/config/user-interface/lbdc'
+  defaults:
+    _form: '\Drupal\layout_builder_dialog_control\Form\SettingsForm'
+    _title: 'Layout Builder Dialog Control settings'
+  requirements:
+    _permission: 'administer site configuration'
+
