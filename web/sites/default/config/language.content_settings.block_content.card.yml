@@ -1,0 +1,11 @@
+uuid: 55641d03-1c20-4605-8a08-6d54a31ac2b4
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+id: block_content.card
+target_entity_type_id: block_content
+target_bundle: card
+default_langcode: site_default
+language_alterable: false

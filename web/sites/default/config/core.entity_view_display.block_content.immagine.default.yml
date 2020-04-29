@@ -1,0 +1,34 @@
+uuid: 3679c8eb-c9a0-4e00-828f-b67937f6da2c
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.immagine
+    - field.field.block_content.immagine.field_didascalia
+    - field.field.block_content.immagine.field_immagine
+  module:
+    - text
+id: block_content.immagine.default
+targetEntityType: block_content
+bundle: immagine
+mode: default
+content:
+  field_didascalia:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_immagine:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

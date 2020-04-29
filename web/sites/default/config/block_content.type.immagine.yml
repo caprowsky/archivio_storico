@@ -1,0 +1,8 @@
+uuid: 7941c873-2093-4ed8-8013-5fcbecdd41de
+langcode: it
+status: true
+dependencies: {  }
+id: immagine
+label: Immagine
+revision: 0
+description: 'Un blocco che aggiunge una immagine'

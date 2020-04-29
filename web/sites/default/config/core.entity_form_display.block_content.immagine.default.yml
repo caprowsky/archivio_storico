@@ -1,0 +1,41 @@
+uuid: 82d940f0-555e-4ff6-a7c0-a497a3c9642a
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.immagine
+    - field.field.block_content.immagine.field_didascalia
+    - field.field.block_content.immagine.field_immagine
+  module:
+    - media_library
+    - text
+id: block_content.immagine.default
+targetEntityType: block_content
+bundle: immagine
+mode: default
+content:
+  field_didascalia:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_immagine:
+    type: media_library_widget
+    weight: 1
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

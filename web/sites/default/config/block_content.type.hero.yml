@@ -1,0 +1,8 @@
+uuid: 8ecc177a-825d-4a45-9737-c4af5612937c
+langcode: it
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+revision: 0
+description: 'Un blocco immagine con testo'

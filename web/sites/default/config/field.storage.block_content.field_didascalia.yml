@@ -1,0 +1,19 @@
+uuid: 84647dce-693e-4799-a279-154c7f3f815b
+langcode: it
+status: true
+dependencies:
+  module:
+    - block_content
+    - text
+id: block_content.field_didascalia
+field_name: field_didascalia
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

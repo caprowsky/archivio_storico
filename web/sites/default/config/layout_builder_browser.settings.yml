@@ -1,4 +1,5 @@
 enabled_section_storages:
+  - defaults
   - overrides
 _core:
   default_config_hash: fFtMJuqkP65BjEBqTnAa-5fVJMy3cUCpJRv0FwXuDcE

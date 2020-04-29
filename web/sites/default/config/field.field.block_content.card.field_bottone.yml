@@ -1,0 +1,23 @@
+uuid: 9a932ad6-d688-4ae9-ab13-c2a3de72638e
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_bottone
+  module:
+    - link
+id: block_content.card.field_bottone
+field_name: field_bottone
+entity_type: block_content
+bundle: card
+label: Bottone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

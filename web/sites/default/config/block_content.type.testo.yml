@@ -1,0 +1,8 @@
+uuid: 0cee4a8c-2f65-41d7-9d2a-2cdea904aa71
+langcode: it
+status: true
+dependencies: {  }
+id: testo
+label: Testo
+revision: 0
+description: 'Un semplice blocco con testo'

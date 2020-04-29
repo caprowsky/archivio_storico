@@ -1,0 +1,46 @@
+uuid: 4e52d266-b15f-44a1-b309-5693c1c88fb9
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.field.block_content.hero.body
+    - field.field.block_content.hero.field_bottone
+    - field.field.block_content.hero.field_titolo_hero
+  module:
+    - link
+    - text
+id: block_content.hero.default
+targetEntityType: block_content
+bundle: hero
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_bottone:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 255
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_titolo_hero:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

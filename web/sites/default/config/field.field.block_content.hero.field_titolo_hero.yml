@@ -1,0 +1,19 @@
+uuid: 8a6923a0-d267-42ae-90eb-a5947c7c46cb
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_titolo_hero
+id: block_content.hero.field_titolo_hero
+field_name: field_titolo_hero
+entity_type: block_content
+bundle: hero
+label: Titolo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

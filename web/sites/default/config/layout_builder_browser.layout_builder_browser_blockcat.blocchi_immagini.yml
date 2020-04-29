@@ -1,0 +1,12 @@
+uuid: 947de8d9-8217-4db2-ab43-36834e7557cd
+langcode: it
+status: true
+dependencies: {  }
+id: blocchi_immagini
+label: 'Blocchi Immagini'
+weight: null
+blocks:
+  -
+    block_id: 'inline_block:immagine'
+    weight: 0
+    image_path: null
