@@ -1,0 +1,23 @@
+uuid: fa29b0ef-d3c4-4f93-a3b1-d08e004e7c62
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_bottone
+  module:
+    - link
+id: block_content.hero.field_bottone
+field_name: field_bottone
+entity_type: block_content
+bundle: hero
+label: Bottone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

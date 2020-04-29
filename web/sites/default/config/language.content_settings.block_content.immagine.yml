@@ -1,0 +1,11 @@
+uuid: b7168482-f366-433c-840f-7a1f1ebc4454
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.immagine
+id: block_content.immagine
+target_entity_type_id: block_content
+target_bundle: immagine
+default_langcode: site_default
+language_alterable: false

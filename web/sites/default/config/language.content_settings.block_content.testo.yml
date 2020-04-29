@@ -1,0 +1,11 @@
+uuid: 8858dc2d-4df2-41f4-be1c-92101d4c38f4
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.testo
+id: block_content.testo
+target_entity_type_id: block_content
+target_bundle: testo
+default_langcode: site_default
+language_alterable: false

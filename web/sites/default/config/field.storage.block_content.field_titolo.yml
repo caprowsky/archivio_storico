@@ -1,0 +1,19 @@
+uuid: a0982d1d-d315-4677-97e3-021f68494022
+langcode: it
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+id: block_content.field_titolo
+field_name: field_titolo
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

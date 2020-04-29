@@ -1,0 +1,21 @@
+uuid: 5d5b5670-6826-45f6-ad14-6101a95de6d6
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.immagine
+    - field.storage.block_content.field_didascalia
+  module:
+    - text
+id: block_content.immagine.field_didascalia
+field_name: field_didascalia
+entity_type: block_content
+bundle: immagine
+label: Didascalia
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

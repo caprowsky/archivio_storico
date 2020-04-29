@@ -1,0 +1,10 @@
+uuid: e28ddec8-71b4-4ef9-8417-06475b00255a
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+id: media.immagine_builder
+label: 'Immagine builder'
+targetEntityType: media
+cache: true
