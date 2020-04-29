@@ -1,0 +1,26 @@
+layout_builder_browser.layout_builder_browser_blockcat.*:
+  type: config_entity
+  label: 'Layout builder browser block category'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    blocks:
+      type: sequence
+      label: 'Blocks and their settings for current category'
+      sequence:
+        type: mapping
+        label: 'A block instance'
+        mapping:
+          block_id:
+            type: string
+            label: 'The plugin ID of the block'
+          weight:
+            type: integer
+            label: 'The block weight'
+          image_path:
+            type: string
+            label: "Image preview path"

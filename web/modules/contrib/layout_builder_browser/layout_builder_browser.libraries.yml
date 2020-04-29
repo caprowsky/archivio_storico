@@ -1,0 +1,10 @@
+browser:
+  version: VERSION
+  css:
+    theme:
+      css/layout_builder_browser.css: {}
+admin:
+  version: VERSION
+  css:
+    theme:
+      css/layout_builder_browser.admin.css: {}

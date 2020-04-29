@@ -1,0 +1,10 @@
+layout_builder_browser.settings:
+  type: config_object
+  mapping:
+    enabled_section_storages:
+      type: sequence
+      label: 'Layout builder browser enabled section storages'
+      orderby: value
+      sequence:
+        type: string
+        label: 'Section storage id'
