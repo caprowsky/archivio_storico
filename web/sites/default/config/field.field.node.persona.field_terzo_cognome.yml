@@ -1,0 +1,19 @@
+uuid: c6950e89-bf65-4f9c-ae3c-6335e4346e07
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_terzo_cognome
+    - node.type.persona
+id: node.persona.field_terzo_cognome
+field_name: field_terzo_cognome
+entity_type: node
+bundle: persona
+label: 'Terzo cognome'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

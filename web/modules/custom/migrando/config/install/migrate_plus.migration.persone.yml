@@ -52,6 +52,10 @@ process:
     plugin: encode
     source: secondo_cognome
 
+  field_terzo_cognome:
+    plugin: encode
+    source: terzo_cognome
+
   field_primo_nome:
     plugin: encode
     source: primo_nome

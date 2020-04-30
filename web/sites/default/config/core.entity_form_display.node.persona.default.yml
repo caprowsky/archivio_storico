@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.persona.field_secondo_cognome
     - field.field.node.persona.field_secondo_nome
     - field.field.node.persona.field_sesso
+    - field.field.node.persona.field_terzo_cognome
     - field.field.node.persona.field_terzo_nome
     - node.type.persona
   module:
@@ -37,7 +38,7 @@ third_party_settings:
       children:
         - field_revisore
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: fieldset
       region: content
       format_settings:
@@ -90,13 +91,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 18
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_data_nascita:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -109,7 +110,7 @@ content:
     third_party_settings: {  }
     region: content
   field_geofiled:
-    weight: 20
+    weight: 21
     settings:
       map_geocoder:
         settings:
@@ -226,7 +227,7 @@ content:
     type: readonly_field_widget
     region: content
   field_indirizzo:
-    weight: 21
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -247,7 +248,7 @@ content:
       open: false
     third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 19
+    weight: 20
     settings:
       size: 60
       placeholder: ''
@@ -283,7 +284,7 @@ content:
     type: string_textfield
     region: content
   field_primo_nome:
-    weight: 13
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -309,7 +310,7 @@ content:
     type: string_textfield
     region: content
   field_secondo_nome:
-    weight: 14
+    weight: 15
     settings:
       size: 60
       placeholder: ''
@@ -317,13 +318,21 @@ content:
     type: string_textfield
     region: content
   field_sesso:
-    weight: 16
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
+  field_terzo_cognome:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_terzo_nome:
-    weight: 15
+    weight: 16
     settings:
       size: 60
       placeholder: ''
