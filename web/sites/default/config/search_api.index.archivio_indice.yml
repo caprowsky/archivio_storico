@@ -33,6 +33,7 @@ dependencies:
     - field.storage.node.field_secondo_cognome
     - field.storage.node.field_secondo_nome
     - field.storage.node.field_sesso
+    - field.storage.node.field_terzo_cognome
     - field.storage.node.field_terzo_nome
     - search_api.server.solr
 third_party_settings:
@@ -402,6 +403,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_sesso
+  field_terzo_cognome:
+    label: 'Terzo cognome'
+    datasource_id: 'entity:node'
+    property_path: field_terzo_cognome
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_terzo_cognome
   field_terzo_nome:
     label: 'Terzo nome'
     datasource_id: 'entity:node'

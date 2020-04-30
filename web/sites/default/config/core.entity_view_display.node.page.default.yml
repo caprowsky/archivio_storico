@@ -29,6 +29,16 @@ third_party_settings:
               id: 'extra_field_block:node:page:links'
             additional: {  }
             weight: 0
+          938907b1-91bb-489f-8691-e9b3f0bd2b0c:
+            uuid: 938907b1-91bb-489f-8691-e9b3f0bd2b0c
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:page:links'
+            additional: {  }
+            weight: 1
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
