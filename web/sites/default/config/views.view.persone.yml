@@ -1145,6 +1145,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        title_ordinamento:
+          id: title_ordinamento
+          table: search_api_index_archivio_indice
+          field: title_ordinamento
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: 'Ricerca persone'
       header:
         entity_block:
