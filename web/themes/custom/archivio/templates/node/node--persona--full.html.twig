@@ -107,17 +107,28 @@
         <div class="contenuto">
           {{ content.field_foto }}
 
-          // Condivisione social<br>
-          // Segnala notifiche
+          <div class="tool">
+            <ul>
+              <li><a href="#"><i class="fas fa-envelope"></i> Segnala modifiche</a></li>
+            </ul>
+          </div>
 
         </div>
       </div>
     </div>
 
+    {% if carriere.studente %}
+      <div id="carriere-studente">
+      {{ drupal_view('carriera_persona', 'carriera_studente') }}
+      </div>
+    {% endif %}
 
+    {% if carriere.docente %}
+      <div id="carriere-docente">
+        {{ drupal_view('carriera_persona', 'carriera_docente') }}
+      </div>
+    {% endif %}
 
-  {{ drupal_view('carriera_persona', 'carriera_docente') }}
-  {{ drupal_view('carriera_persona', 'carriera_studente') }}
   </div>
 
   </div>

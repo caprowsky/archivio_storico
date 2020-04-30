@@ -30,6 +30,7 @@
         "drupal/facets": "^1.4",
         "drupal/fico": "^1.0",
         "drupal/field_group": "^3.0",
+        "drupal/fontawesome": "^2.15",
         "drupal/geocoder": "^2.7",
         "drupal/geofield": "^1.8",
         "drupal/geofield_map": "^2.57",

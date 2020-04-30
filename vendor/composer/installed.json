@@ -2865,6 +2865,69 @@
         }
     },
     {
+        "name": "drupal/fontawesome",
+        "version": "2.15.0",
+        "version_normalized": "2.15.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/fontawesome.git",
+            "reference": "8.x-2.15"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.15.zip",
+            "reference": "8.x-2.15",
+            "shasum": "d3ee7a02ddd01c14cab44afcd6f3e55cfa3d0491"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-2.15",
+                "datestamp": "1578431890",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Daniel.Moberly",
+                "homepage": "https://www.drupal.org/user/1160788"
+            },
+            {
+                "name": "RobLoach",
+                "homepage": "https://www.drupal.org/user/61114"
+            },
+            {
+                "name": "inders",
+                "homepage": "https://www.drupal.org/user/127640"
+            },
+            {
+                "name": "truls1502",
+                "homepage": "https://www.drupal.org/user/325866"
+            }
+        ],
+        "description": "The web's most popular icon set and toolkit.",
+        "homepage": "https://www.drupal.org/project/fontawesome",
+        "support": {
+            "source": "https://git.drupalcode.org/project/fontawesome"
+        }
+    },
+    {
         "name": "drupal/geocoder",
         "version": "2.11.0",
         "version_normalized": "2.11.0.0",
