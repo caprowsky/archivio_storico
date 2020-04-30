@@ -72,49 +72,28 @@
 #}
 <article{{ attributes }}>
   <div{{ content_attributes }}>
+    <!--start card-->
+    <div class="dettaglio-carriera studente">
 
-<div class="callout">
-<!-- NON MI PIACE QUESTO OGGETTO -->
-  <div class="callout-title"><svg class="icon"><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-info-circle"></use></svg><span class="sr-only">Confermato</span> CARRIERA {{ content.field_tipologia_carriera }}</div>
-  <p>{{ content.field_data_inizio_carriera }}</p>
-  <p>{{ content.field_data_fine_carriera }}</p>
-  <p>{{ content.field_facolta }}</p>
-  <p>{{ content.field_corso }}</p>
-</div>
-<!-- ESEMPIO SEZIONE -->
-<div class="section section-muted">
-  <div class="section-content">
-    <!-- contenuto di esempio START -->
-    <h4 class="mb-4">CARRIERA STUDENTE</h4>
-    <div class="card-deck">
-      <div class="card shadow border-0 mg-md-4">
-        <div class="card-body">
-          <p class="card-text">
-        <p>{{ content.field_data_licenza }}</p>
-        <p>{{ content.field_titolo_tesi_licenza }}</p>
-        <p>{{ content.field_segnatura_arch_tesi_licenz }}</p></p></p>
-        </div>
-      </div>
-      <div class="card shadow border-0 mg-md-4">
-        <div class="card-body">
-          <p class="card-text">
-        <p>{{ content.field_titolo_tesi_laurea }}</p>
-        <p>{{ content.field_valutazione_laurea }}</p>
-        <p>{{ content.field_segnatura_arch_tesi_laurea }}</p>
-        <p>{{ content.field_carriera }}</p>
-        <p>File tesi di laurea</p>
-        </div>
-      </div>
-    </div>
-    <!-- contenuto di esempio END -->
-  </div>
-</div>
-<!-- FINE ESEMPIO SEZIONE -->
-
+      <h3><i class="fas fa-user-graduate"></i> Carriera studente</h3>
+            <!-- campi principali -->
+          {{ content.field_data_inizio_carriera }}
+          {{ content.field_data_fine_carriera }}
+          {{ content.field_facolta }}
+          {{ content.field_corso }}
+          <!-- campi secondari -->
+          {{ content.field_data_licenza }}
+          {{ content.field_titolo_tesi_licenza }}
+          {{ content.field_segnatura_arch_tesi_licenz }}
+          {{ content.field_data_licenza }}
+          {{ content.field_titolo_tesi_licenza }}
+          {{ content.field_segnatura_arch_tesi_licenz }}
+          {{ content.field_titolo_tesi_laurea }}
+          {{ content.field_valutazione_laurea }}
+          {{ content.field_segnatura_arch_tesi_laurea }}
+          {{ content.field_carriera }}
 
 
     </div>
-    
   </div>
-
 </article>
