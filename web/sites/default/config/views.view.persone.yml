@@ -770,7 +770,7 @@ display:
           relationship: none
           group_type: group
           admin_label: Titolo
-          label: 'Testo personalizzato'
+          label: Nome
           exclude: false
           alter:
             alter_text: true

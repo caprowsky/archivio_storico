@@ -134,7 +134,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    type: list_key
     region: content
   field_terzo_cognome:
     weight: 4

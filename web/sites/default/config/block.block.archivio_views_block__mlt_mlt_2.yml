@@ -1,6 +1,6 @@
 uuid: 2a87894f-fa9d-4094-a04d-08083a9a6458
 langcode: it
-status: true
+status: false
 dependencies:
   config:
     - views.view.mlt
