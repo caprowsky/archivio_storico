@@ -89,12 +89,13 @@
           {{ content.field_data_di_morte }}
           {{ content.field_luogo_di_morte }}
 
-
-
           <div class="carriere">
-            Carriere studente: 1<br>
-            Carriere docente: 1 <br>
-
+            {% if carriere.studente %}
+              <a href="#carriere-studente">Carriere studente:  {{ carriere.studente }}</a>
+            {% endif %}
+            {% if carriere.docente %}
+              <a href="#carriere-docente">Carriere docente:  {{ carriere.docente }}</a>
+            {% endif %}
           </div>
 
           <div class="changed">Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
