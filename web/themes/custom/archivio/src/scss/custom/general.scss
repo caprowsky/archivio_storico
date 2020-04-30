@@ -1,32 +1,32 @@
 .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
-    width: 82px;
+  width: 82px;
 }
 
 
 // Header slim
 .it-header-slim-wrapper {
-    background: $medio;
+  background: $medio;
 }
 
 // Header principale
 .it-header-center-wrapper {
-    background: $chiaro;
+  background: $chiaro;
 }
 
 // Header menu
 .it-header-navbar-wrapper {
-    background: $chiaro;
+  background: $chiaro;
 }
 
 // Footer principale
 .it-footer-main {
-    background: $scuro;
+  background: $scuro;
 }
 
 // Footer basso
 
 .it-footer-small-prints {
-    background: $scurissimo;
+  background: $scurissimo;
 }
 
 // Pager
@@ -53,4 +53,21 @@
     }
   }
 
+}
+
+.field--label-inline .field--items, .field--label-inline .field--label {
+  float: left
+}
+
+.field--label-inline .field--items, .field--label-inline .field--label, .field--label-inline > .field--item {
+  padding-right: .5em
+}
+
+[dir=rtl] .field--label-inline .field--items, [dir=rtl] .field--label-inline .field--label {
+  padding-left: .5em;
+  padding-right: 0
+}
+
+.field--label-inline .field--label::after {
+  content: ':'
 }

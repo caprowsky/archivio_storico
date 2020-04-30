@@ -76,27 +76,43 @@
 
   <div{{ content_attributes }}>
 
-   <h1 class="page-title">{{ content.field_primo_cognome|field_value }} {{ content.field_secondo_cognome|field_value }}
-    {{ content.field_primo_nome|field_value }}
-    {{ content.field_secondo_nome|field_value }}
-     {{ content.field_terzo_nome|field_value }}</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="contenuto">
+          <h1 class="page-title">{{ content.field_primo_cognome|field_value }} {{ content.field_secondo_cognome|field_value }}
+            {{ content.field_primo_nome|field_value }}
+            {{ content.field_secondo_nome|field_value }}
+            {{ content.field_terzo_nome|field_value }}</h1>
+          {{ content.field_sesso }}
+          {{ content.field_indirizzo }}
+          {{ content.field_data_nascita }}
+          {{ content.field_data_di_morte }}
+          {{ content.field_luogo_di_morte }}
 
 
-    {{ content.field_sesso }}
-    {{ content.field_indirizzo }}
-    {{ content.field_data_nascita }}
-    {{ content.field_data_di_morte }}
-    {{ content.field_luogo_di_morte }}
 
-    //Data di aggiornamento del nodo//
+          <div class="carriere">
+            Carriere studente: 1<br>
+            Carriere docente: 1 <br>
 
-    //Carriera docente: 1//
-    //Carriera studente: 1//
+          </div>
 
+          <div class="changed">Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
 
-        {{ content.field_foto }}
-    //Condividi sui social//
-    <a href="/contact" class="">Segnala una modifica</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="contenuto">
+          {{ content.field_foto }}
+
+          // Condivisione social<br>
+          // Segnala notifiche
+
+        </div>
+      </div>
+    </div>
+
 
 
   {{ drupal_view('carriera_persona', 'carriera_docente') }}

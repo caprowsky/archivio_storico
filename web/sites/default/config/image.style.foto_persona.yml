@@ -1,0 +1,15 @@
+uuid: 58fe5744-2506-4cd4-8da7-bfce0ea84b11
+langcode: it
+status: true
+dependencies: {  }
+name: foto_persona
+label: 'Foto persona'
+effects:
+  98922e20-e6ae-48aa-9718-095dfb5a23a7:
+    uuid: 98922e20-e6ae-48aa-9718-095dfb5a23a7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 300
+      anchor: center-center
