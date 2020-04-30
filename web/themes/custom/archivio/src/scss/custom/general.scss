@@ -28,3 +28,29 @@
 .it-footer-small-prints {
     background: $scurissimo;
 }
+
+// Pager
+.pager {
+  text-align: center;
+  margin-top: 25px;
+
+  ul {
+    li {
+      list-style-type: none;
+      display: inline;
+      padding: 0 5px;
+      font-size: 1.2rem;
+
+      &.is-active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      a {
+        text-decoration: none;
+
+      }
+    }
+  }
+
+}
