@@ -487,7 +487,7 @@ field_settings:
       config:
         - field.storage.node.field_valutazione_laurea
   nid:
-    label: ID
+    label: NID
     datasource_id: 'entity:node'
     property_path: nid
     type: integer
@@ -542,6 +542,10 @@ field_settings:
     dependencies:
       module:
         - node
+  url:
+    label: URI
+    property_path: search_api_url
+    type: string
 datasource_settings:
   'entity:node':
     bundles:

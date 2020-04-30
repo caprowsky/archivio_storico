@@ -76,3 +76,8 @@ function aarchivio_preprocess_links(&$variables) {
   // Add current language to block
   $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId();
 }
+
+function archivio_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'views_view__' . $variables['view']->id();
+  $suggestions[] = 'views_view__' . $variables['view']->id() . '__' . $variables['view']->current_display;
+}

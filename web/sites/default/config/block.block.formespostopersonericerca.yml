@@ -1,0 +1,23 @@
+uuid: 71502b41-368c-4a19-be78-ba5ebfa72434
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.persone
+  module:
+    - views
+  theme:
+    - archivio
+id: formespostopersonericerca
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:persone-ricerca'
+settings:
+  id: 'views_exposed_filter_block:persone-ricerca'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }

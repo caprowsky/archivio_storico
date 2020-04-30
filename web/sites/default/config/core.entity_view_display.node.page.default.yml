@@ -18,7 +18,17 @@ third_party_settings:
         layout_id: layout_builder_blank
         layout_settings:
           label: ''
-        components: {  }
+        components:
+          feb93896-adb8-4880-8ba9-a43e17f519ef:
+            uuid: feb93896-adb8-4880-8ba9-a43e17f519ef
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:page:links'
+            additional: {  }
+            weight: 0
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }

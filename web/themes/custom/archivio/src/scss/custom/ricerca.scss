@@ -1,11 +1,44 @@
 .ricerca-persone {
-    .facets-widget-dropdown {
-        float: left;
-    }
-    .views-exposed-form {
-        margin-top: 50px;
-        padding-top: 60px;
-    }
-
-
+  .facets-widget-dropdown {
+    float: left;
+    margin-right: 30px;
   }
+
+  .views-exposed-form {
+    margin-top: 50px;
+    padding-top: 60px;
+  }
+
+  .input-required, .no-results {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.5rem;
+  }
+
+  table {
+    margin-top: 30px;
+    width: 100%;
+
+    tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      padding: 5px 0;
+      a {
+        text-decoration: none;
+        font-size: 1.2rem;
+      }
+    }
+
+    th {
+      padding-bottom: 10px;
+    }
+
+    img.tipo-carriera {
+      width: 15px;
+      margin-left: 10px;
+    }
+  }
+
+}
