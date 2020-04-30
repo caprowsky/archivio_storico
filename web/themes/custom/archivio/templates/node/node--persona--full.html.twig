@@ -74,62 +74,67 @@
   <div class="persona-full">
 
 
-  <div{{ content_attributes }}>
+    <div{{ content_attributes }}>
 
-    <div class="row">
-      <div class="col-md-8">
-        <div class="contenuto">
-          <h1 class="page-title">{{ content.field_primo_cognome|field_value }} {{ content.field_secondo_cognome|field_value }}
-            {{ content.field_primo_nome|field_value }}
-            {{ content.field_secondo_nome|field_value }}
-            {{ content.field_terzo_nome|field_value }}</h1>
-          {{ content.field_sesso }}
-          {{ content.field_indirizzo }}
-          {{ content.field_data_nascita }}
-          {{ content.field_data_di_morte }}
-          {{ content.field_luogo_di_morte }}
+      <div class="row">
+        <div class="col-md-8">
+          <div class="contenuto">
+            <h1 class="page-title">
+              {{ content.field_primo_cognome|field_value }}
+              {{ content.field_secondo_cognome|field_value }}
+              {{ content.field_terzo_cognome|field_value }}
+              {{ content.field_primo_nome|field_value }}
+              {{ content.field_secondo_nome|field_value }}
+              {{ content.field_terzo_nome|field_value }}
+            </h1>
 
-          <div class="carriere">
-            {% if carriere.studente %}
-              <a href="#carriere-studente">Carriere studente:  {{ carriere.studente }}</a>
-            {% endif %}
-            {% if carriere.docente %}
-              <a href="#carriere-docente">Carriere docente:  {{ carriere.docente }}</a>
-            {% endif %}
+            {{ content.field_sesso }}
+            {{ content.field_indirizzo }}
+            {{ content.field_data_nascita }}
+            {{ content.field_data_di_morte }}
+            {{ content.field_luogo_di_morte }}
+
+            <div class="carriere">
+              {% if carriere.studente %}
+                <p><a href="#carriere-studente">Carriere studente: {{ carriere.studente }}</a></p>
+              {% endif %}
+              {% if carriere.docente %}
+                <p><a href="#carriere-docente">Carriere docente: {{ carriere.docente }}</a></p>
+              {% endif %}
+            </div>
+
+            <div class="changed">Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
+
           </div>
+        </div>
 
-          <div class="changed">Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
+        <div class="col-md-4">
+          <div class="contenuto">
+            {{ content.field_foto }}
 
+            <div class="tool">
+              <ul>
+                <li><a href="#"><i class="fas fa-envelope"></i> Segnala modifiche</a></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="contenuto">
-          {{ content.field_foto }}
-
-          <div class="tool">
-            <ul>
-              <li><a href="#"><i class="fas fa-envelope"></i> Segnala modifiche</a></li>
-            </ul>
-          </div>
-
+      {% if carriere.studente %}
+        <div id="carriere-studente">
+          {{ drupal_view('carriera_persona', 'carriera_studente') }}
         </div>
-      </div>
+      {% endif %}
+
+      {% if carriere.docente %}
+        <div id="carriere-docente">
+          {{ drupal_view('carriera_persona', 'carriera_docente') }}
+        </div>
+      {% endif %}
+
     </div>
-
-    {% if carriere.studente %}
-      <div id="carriere-studente">
-      {{ drupal_view('carriera_persona', 'carriera_studente') }}
-      </div>
-    {% endif %}
-
-    {% if carriere.docente %}
-      <div id="carriere-docente">
-        {{ drupal_view('carriera_persona', 'carriera_docente') }}
-      </div>
-    {% endif %}
-
-  </div>
 
   </div>
 </article>

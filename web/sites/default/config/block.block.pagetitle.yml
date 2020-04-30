@@ -2,6 +2,8 @@ uuid: 1ef6709c-e25a-4218-812c-160ef1bbf6e9
 langcode: it
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - archivio
 id: pagetitle
@@ -15,4 +17,9 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/persone/*'
+    negate: true
+    context_mapping: {  }

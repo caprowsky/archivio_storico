@@ -76,21 +76,21 @@ mode: carriera_docente
 content:
   field_ambiti_di_ricerca:
     weight: 7
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_biografia:
     weight: 6
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_carriera_extra_acca:
     weight: 8
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -99,7 +99,7 @@ content:
     weight: 2
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -123,7 +123,7 @@ content:
     weight: 3
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -131,12 +131,12 @@ content:
     type: text_default
     weight: 10
     region: content
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
   field_riferimenti_bibliografici:
     weight: 9
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default

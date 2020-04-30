@@ -73,44 +73,18 @@
 <article{{ attributes }}>
   <div{{ content_attributes }}>
 
-    <div class="callout">
-<!-- NON MI PIACE QUESTO OGGETTO -->
-  <div class="callout-title"><svg class="icon"><use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-info-circle"></use></svg><span class="sr-only">Confermato</span> CARRIERA {{ content.field_tipologia_carriera }}</div>
-  <p>{{ content.field_data_inizio_carriera }}</p>
-  <p>{{ content.field_data_fine_carriera }}</p>
-  <p>{{ content.field_facolta }}</p>
-  <p>{{ content.field_corso }}</p>
-</div>
-
-<!-- ESEMPIO SEZIONE -->
-<div class="section section-muted">
-  <div class="section-content">
-    <!-- contenuto di esempio START -->
-    <h4 class="mb-4">CARRIERA DOCENTE</h4>
-    <div class="card-deck">
-      <div class="card shadow border-0 mg-md-4">
-        <div class="card-body">
-          <p class="card-text">
-        <p>{{ content.field_biografia }}</p>
-        <p>{{ content.field_ambiti_di_ricerca }}</p>
-        </p>
-        </div>
-      </div>
-      <div class="card shadow border-0 mg-md-4">
-        <div class="card-body">
-          <p class="card-text">
-        <p>{{ content.field_carriera_extra_acca }}</p>
-        <p>{{ content.field_riferimenti_bibliografici }}</p>
-        <p>{{ content.field_riferimenti_archivistici }}</p>
-
-        </div>
-      </div>
+    <div class="dettaglio-carriera studente">
+      <h3><i class="fas fa-chalkboard-teacher"></i> Carriera docente</h3>
+      {{ content.field_data_inizio_carriera }}
+      {{ content.field_data_fine_carriera }}
+      {{ content.field_facolta }}
+      {{ content.field_corso }}
+      {{ content.field_biografia }}
+      {{ content.field_ambiti_di_ricerca }}
+      {{ content.field_carriera_extra_acca }}
+      {{ content.field_riferimenti_bibliografici }}
+      {{ content.field_riferimenti_archivistici }}
     </div>
-    <!-- contenuto di esempio END -->
-  </div>
-</div>
-<!-- FINE ESEMPIO SEZIONE -->
-
   </div>
 
 </article>

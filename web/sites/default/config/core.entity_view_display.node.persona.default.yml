@@ -75,7 +75,7 @@ content:
     third_party_settings: {  }
     region: content
   field_indirizzo:
-    type: address_default
+    type: address_plain
     weight: 8
     region: content
     label: inline
