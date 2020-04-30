@@ -71,191 +71,37 @@
  */
 #}
 <article{{ attributes }}>
+  <div class="persona-full">
 
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
 
   <div{{ content_attributes }}>
 
-    <h3>{{ content.field_primo_cognome }} {{ content.field_secondo_cognome }}
-    {{ content.field_primo_nome }}
-    {{ content.field_secondo_nome }}
-    {{ content.field_terzo_nome }}</h3>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="contenuto">
-        
+   <h1 class="page-title">{{ content.field_primo_cognome|field_value }} {{ content.field_secondo_cognome|field_value }}
+    {{ content.field_primo_nome|field_value }}
+    {{ content.field_secondo_nome|field_value }}
+     {{ content.field_terzo_nome|field_value }}</h1>
+
+
     {{ content.field_sesso }}
     {{ content.field_indirizzo }}
     {{ content.field_data_nascita }}
     {{ content.field_data_di_morte }}
     {{ content.field_luogo_di_morte }}
-    
-    //Data di aggiornamento del nodo// </br>
 
-    //Carriera docente: 1// </br>
-    //Carriera studente: 1// </br>
-        
-        </div>
-      </div>
+    //Data di aggiornamento del nodo//
 
-      <div class="col-md-6">
-        <div class="contenuto">
+    //Carriera docente: 1//
+    //Carriera studente: 1//
+
+
         {{ content.field_foto }}
-    //Condividi sui social//</br>
+    //Condividi sui social//
     <a href="/contact" class="">Segnala una modifica</a>
-
-      
-        </div>
-      </div>
-    </div>
-
-
-<div class="it-hero-wrapper it-hero-small-size">
-   <div class="img-responsive-wrapper">
-      <div class="img-responsive">
-         <div class="img-wrapper"><img src="https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg" title="img title" alt="imagealt"></div>
-      </div>
-   </div>
-</div>
-
 
 
   {{ drupal_view('carriera_persona', 'carriera_docente') }}
-
   {{ drupal_view('carriera_persona', 'carriera_studente') }}
-
-
-<div class="it-carousel-wrapper it-carousel-landscape-abstract-three-cols">
-  <div class="it-header-block">
-    <div class="it-header-block-title">
-      <h2 class="no_toc">Persone analoghe (da capire quale analogia)</h2>
-    </div>
-  </div>
-  <div class="it-carousel-all owl-carousel it-card-bg">
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="it-single-slide-wrapper">
-      <div class="card-wrapper card-space">
-        <div class="card card-bg">
-          <div class="card-body">
-            <h5 class="card-title">4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="read-more" href="#">
-              <span class="text">Leggi di più</span>
-              <svg class="icon">
-                <use xlink:href="/bootstrap-italia/dist/svg/sprite.svg#it-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
   </div>
 
+  </div>
 </article>
