@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mariadb:
+    restart: always
+  
+  php:
+    restart: always
+    environment:
+      ARCHIVIO_ENV: "live"
+
+  nginx:
+    restart: always 
+
+  solr:
+    restart: always 
