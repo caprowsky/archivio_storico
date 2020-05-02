@@ -47,8 +47,8 @@ ini_set('memory_limit', '1024M');
 
 
 // Redis
-$settings['cache']['bins']['form'] = 'cache.backend.database';
-$settings['redis.connection']['interface'] = 'PhpRedis';
-$settings['redis.connection']['host'] = 'redis';
-$settings['cache']['default'] = 'cache.backend.redis';
-$settings['container_yaml'][] = 'modules/contrib/redis/example.services.yml';
+#$settings['cache']['bins']['form'] = 'cache.backend.database';
+#$settings['redis.connection']['interface'] = 'PhpRedis';
+#$settings['redis.connection']['host'] = 'redis';
+#$settings['cache']['default'] = 'cache.backend.redis';
+#$settings['container_yaml'][] = 'modules/contrib/redis/example.services.yml';
