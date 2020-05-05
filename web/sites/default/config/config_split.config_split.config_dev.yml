@@ -1,0 +1,16 @@
+uuid: 46a7c767-64af-47b4-bcce-9d23da809bcf
+langcode: it
+status: false
+dependencies: {  }
+id: config_dev
+label: 'Config dev'
+description: ''
+folder: sites/default/config-dev
+module:
+  devel: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

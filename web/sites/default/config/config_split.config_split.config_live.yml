@@ -1,0 +1,16 @@
+uuid: d9473c4a-f159-46d3-be6b-f3323ad334d6
+langcode: it
+status: true
+dependencies: {  }
+id: config_live
+label: 'Config live'
+description: ''
+folder: sites/default/config-live
+module:
+  google_analytics: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

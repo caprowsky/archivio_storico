@@ -30,11 +30,11 @@ $settings['config_sync_directory'] = 'sites/default/config';
 if (isset($_SERVER['ARCHIVIO_ENV'])) {
   switch ($_SERVER['ARCHIVIO_ENV']) {
     case 'dev':
-      include _DIR_ . '/settings.dev.archivio.php';
+      include __DIR__ . '/settings.dev.archivio.php';
     break;
     
     case 'live':
-      include _DIR_ . '/settings.live.archivio.php';
+      include __DIR__ . '/settings.live.archivio.php';
       break;
   }
 } else {
