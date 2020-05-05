@@ -6,6 +6,8 @@ dependencies:
     - block_content.type.hero
     - field.field.block_content.hero.body
     - field.field.block_content.hero.field_bottone
+    - field.field.block_content.hero.field_immagine_sfondo
+    - field.field.block_content.hero.field_larghezza
     - field.field.block_content.hero.field_titolo_hero
   module:
     - link
@@ -34,6 +36,15 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  field_immagine_sfondo:
+    type: entity_reference_entity_view
+    weight: 3
+    label: visually_hidden
+    settings:
+      view_mode: sfondo
+      link: false
+    third_party_settings: {  }
+    region: content
   field_titolo_hero:
     weight: 0
     label: hidden
@@ -42,5 +53,6 @@ content:
     type: basic_string
     region: content
 hidden:
+  field_larghezza: true
   langcode: true
   search_api_excerpt: true

@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.immagine
     - field.field.block_content.immagine.field_didascalia
     - field.field.block_content.immagine.field_immagine
+    - field.field.block_content.immagine.field_larghezza
   module:
     - media_library
     - text
@@ -28,6 +29,13 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+    region: content
+  field_larghezza:
+    weight: 27
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   info:
     type: string_textfield

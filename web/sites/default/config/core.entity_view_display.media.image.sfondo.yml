@@ -1,0 +1,51 @@
+uuid: 607d0de6-4669-4994-8f6b-4b77523a0eca
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.sfondo
+    - field.field.media.image.field_media_image
+    - media.type.image
+  module:
+    - bg_image_formatter
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
+id: media.image.sfondo
+targetEntityType: media
+bundle: image
+mode: sfondo
+content:
+  field_media_image:
+    label: hidden
+    settings:
+      image_style: ''
+      css_settings:
+        bg_image_selector: '#test'
+        bg_image_z_index: auto
+        bg_image_color: '#FFFFFF'
+        bg_image_x: left
+        bg_image_y: top
+        bg_image_attachment: scroll
+        bg_image_repeat: no-repeat
+        bg_image_background_size: cover
+        bg_image_gradient: ''
+        bg_image_media_query: all
+        bg_image_important: 1
+        bg_image_path_format: absolute
+        bg_image_background_size_ie8: 0
+    third_party_settings: {  }
+    type: bg_image_formatter
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

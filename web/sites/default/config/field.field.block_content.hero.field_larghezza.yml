@@ -1,0 +1,23 @@
+uuid: 427ca58e-d0a6-4f5a-88c7-6e9dd5b0ed93
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_larghezza
+id: block_content.hero.field_larghezza
+field_name: field_larghezza
+entity_type: block_content
+bundle: hero
+label: 'Larghezza 100%'
+description: 'Il campo definisce se il contenuto deve avere larghezza a tutto schermo oppure no.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 100%
+  off_label: 'Non 100%'
+field_type: boolean

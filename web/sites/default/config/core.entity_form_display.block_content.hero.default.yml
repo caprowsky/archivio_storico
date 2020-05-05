@@ -4,10 +4,14 @@ status: true
 dependencies:
   config:
     - block_content.type.hero
+    - entity_browser.browser.immagine
     - field.field.block_content.hero.body
     - field.field.block_content.hero.field_bottone
+    - field.field.block_content.hero.field_immagine_sfondo
+    - field.field.block_content.hero.field_larghezza
     - field.field.block_content.hero.field_titolo_hero
   module:
+    - entity_browser
     - link
     - text
 id: block_content.hero.default
@@ -32,6 +36,27 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_immagine_sfondo:
+    type: entity_browser_entity_reference
+    weight: 26
+    settings:
+      entity_browser: immagine
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_larghezza:
+    weight: 27
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_titolo_hero:
     weight: 1

@@ -19,6 +19,7 @@
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^2.0",
         "drupal/auto_entitylabel": "^3.0",
+        "drupal/bg_image_formatter": "^1.14",
         "drupal/bootstrap_italia": "^0.6.0",
         "drupal/cer": "^4.0",
         "drupal/components": "^1.1",

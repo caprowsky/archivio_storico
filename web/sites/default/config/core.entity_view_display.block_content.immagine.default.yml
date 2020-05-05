@@ -6,6 +6,7 @@ dependencies:
     - block_content.type.immagine
     - field.field.block_content.immagine.field_didascalia
     - field.field.block_content.immagine.field_immagine
+    - field.field.block_content.immagine.field_larghezza
   module:
     - text
 id: block_content.immagine.default
@@ -28,6 +29,16 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_larghezza:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
 hidden:
   langcode: true

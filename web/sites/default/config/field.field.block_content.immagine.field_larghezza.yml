@@ -1,0 +1,23 @@
+uuid: 215b4e9d-4d06-4f2a-9c55-8dceb0935d7e
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.immagine
+    - field.storage.block_content.field_larghezza
+id: block_content.immagine.field_larghezza
+field_name: field_larghezza
+entity_type: block_content
+bundle: immagine
+label: 'Larghezza 100%'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Larghezza 100%'
+  off_label: 'Larghezza non 100%'
+field_type: boolean

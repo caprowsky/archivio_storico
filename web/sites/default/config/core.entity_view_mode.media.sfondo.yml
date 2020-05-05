@@ -1,0 +1,10 @@
+uuid: 7285fda5-4143-457f-b5e3-71b09ecc1b31
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+id: media.sfondo
+label: Sfondo
+targetEntityType: media
+cache: true

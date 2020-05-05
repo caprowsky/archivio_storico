@@ -1,18 +1,17 @@
-uuid: 2b14e9d7-a352-4316-ab1e-97b41f396107
+uuid: bcea9b99-6da2-434f-8074-8c0f64c457b5
 langcode: it
 status: true
 dependencies:
   module:
     - block_content
-    - link
-id: block_content.field_bottone
-field_name: field_bottone
+id: block_content.field_larghezza
+field_name: field_larghezza
 entity_type: block_content
-type: link
+type: boolean
 settings: {  }
-module: link
+module: core
 locked: false
-cardinality: 3
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

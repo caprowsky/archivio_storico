@@ -1,0 +1,28 @@
+uuid: d55b4c37-2491-4082-acca-ef7ffa075442
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_immagine_sfondo
+    - media.type.image
+id: block_content.hero.field_immagine_sfondo
+field_name: field_immagine_sfondo
+entity_type: block_content
+bundle: hero
+label: 'Immagine sfondo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

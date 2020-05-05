@@ -1,0 +1,42 @@
+uuid: 9db38346-2635-4d5d-958e-a1cf64321351
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_media
+  module:
+    - entity_browser_entity_form
+    - views
+name: immagine
+label: Immagine
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Seleziona immagine'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  e5d90439-9618-453c-a251-887e08856286:
+    settings:
+      view: entity_browser_media
+      view_display: immagini
+      submit_text: Seleziona
+      auto_select: false
+    uuid: e5d90439-9618-453c-a251-887e08856286
+    weight: 1
+    label: 'Scegli immagine'
+    id: view
+  dfb8c840-c287-4cd2-8d67-a9eac92dc437:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: 'Salva immagine'
+    uuid: dfb8c840-c287-4cd2-8d67-a9eac92dc437
+    weight: 2
+    label: 'Carica immagine'
+    id: entity_form
