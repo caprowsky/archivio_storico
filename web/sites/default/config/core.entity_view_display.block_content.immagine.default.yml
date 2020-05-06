@@ -15,7 +15,7 @@ bundle: immagine
 mode: default
 content:
   field_didascalia:
-    weight: 2
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -23,23 +23,14 @@ content:
     region: content
   field_immagine:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 0
     label: hidden
     settings:
-      view_mode: default
+      view_mode: immagine_builder
       link: false
     third_party_settings: {  }
     region: content
-  field_larghezza:
-    weight: 3
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
 hidden:
+  field_larghezza: true
   langcode: true
   search_api_excerpt: true

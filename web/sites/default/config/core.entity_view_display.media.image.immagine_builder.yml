@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.immagine_builder
     - field.field.media.image.field_media_image
-    - image.style.large
+    - image.style.blocco_immagine
     - media.type.image
   module:
     - image
@@ -24,7 +24,7 @@ content:
   field_media_image:
     label: visually_hidden
     settings:
-      image_style: large
+      image_style: blocco_immagine
       image_link: ''
     third_party_settings: {  }
     type: image

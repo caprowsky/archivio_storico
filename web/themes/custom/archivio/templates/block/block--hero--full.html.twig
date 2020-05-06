@@ -34,11 +34,19 @@
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
   {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+
+  <div class="it-hero-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-hero-text-wrapper bg-dark">
+            <h1 class="no_toc">{{ content.field_titolo_hero }}</h1>
+            <p class="d-none d-lg-block">{{ content.body }}</p>
+              {{ content.field_bottone }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

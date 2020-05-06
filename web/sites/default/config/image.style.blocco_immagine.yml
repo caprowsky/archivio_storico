@@ -1,0 +1,15 @@
+uuid: 6385bd13-66ae-4d30-b83e-12c5d796240a
+langcode: it
+status: true
+dependencies: {  }
+name: blocco_immagine
+label: 'Blocco immagine'
+effects:
+  a8cad547-b1d4-4372-8bc3-ea7d2c8041fb:
+    uuid: a8cad547-b1d4-4372-8bc3-ea7d2c8041fb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 400
+      anchor: center-center
