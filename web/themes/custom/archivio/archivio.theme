@@ -3,9 +3,19 @@
 use \Drupal\block_content\BlockContentInterface;
 
 /**
+ * Implements hook_preprocess_html()
+ */
+function archivio_preprocess_html(&$variables) {
+  $node = \Drupal::request()->attributes->get('node');
+  if ($node) {
+    $variables['attributes']['class'][] = 'nodo-' . $node->bundle();
+  }
+}
+
+/**
  * Implements hook_preprocess_page()
  */
-function aarchivio_preprocess_page(&$variables) {
+function archivio_preprocess_page(&$variables) {
   $variables['ente_appartenenza'] = theme_get_setting('ente_appartenenza');
 }
 
