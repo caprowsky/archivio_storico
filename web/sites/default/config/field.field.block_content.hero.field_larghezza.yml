@@ -11,7 +11,7 @@ entity_type: block_content
 bundle: hero
 label: 'Larghezza 100%'
 description: 'Il campo definisce se il contenuto deve avere larghezza a tutto schermo oppure no.'
-required: true
+required: false
 translatable: false
 default_value:
   -
