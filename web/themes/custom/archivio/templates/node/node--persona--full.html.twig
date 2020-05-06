@@ -103,7 +103,10 @@
               {% endif %}
             </div>
 
-            <div class="changed">Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
+            <div class="changed">
+            Autore: {{ author_name }}
+            {{ content.field_revisore }}
+            Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
 
           </div>
         </div>
