@@ -43,6 +43,25 @@
 
 .block-inline-blockcard {
   margin: 40px 0;
+
+  .card {
+    width: 90%;
+  }
+
+  .field--name-field-bottone {
+    .field--item {
+      float: left;
+      margin-right: 30px;
+    }
+
+    a  {
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: bold;
+      color: $chiaro;
+    }
+  }
+
 }
 
 .block-field-blocknodepagetitle {

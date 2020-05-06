@@ -20,6 +20,33 @@ function archivio_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_page()
+ */
+function archivio_preprocess_field(&$vars) {
+  $element = $vars['element'];
+
+  if ($vars['element']['#field_name'] == 'field_data_inizio_carriera') {
+    $node = $vars['element']['#object'];
+    if ($node->bundle() == 'carriera' && !$node->get('field_tipologia_carriera')->isEmpty()) {
+      $tipologia = $node->get('field_tipologia_carriera')->getValue();
+      if ($tipologia[0]['value'] == 's') {
+        $vars['label'] = 'Anno accademico di immatricolazione';
+      }
+    }
+  }
+
+  if ($vars['element']['#field_name'] == 'field_data_fine_carriera') {
+    $node = $vars['element']['#object'];
+    if ($node->bundle() == 'carriera' && !$node->get('field_tipologia_carriera')->isEmpty()) {
+      $tipologia = $node->get('field_tipologia_carriera')->getValue();
+      if ($tipologia[0]['value'] == 's') {
+        $vars['label'] = 'Anno accademico di laurea';
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_page_alter().
  * https://www.drupal.org/node/2521876#comment-10684366
  */
@@ -102,6 +129,17 @@ function archivio_preprocess_node(&$vars) {
       $vars['carriere']['docente'] = count($docente);
     }
 
+  }
+
+  if ($node->bundle() == 'carriera') {
+      $tipologia = $node->get('field_tipologia_carriera')->getValue();
+      $vars['laureato'] = FALSE;
+      if ($tipologia[0]['value'] == 's') {
+
+        if (!$node->get('field_data_fine_carriera')) {
+          $vars['laureato'] = TRUE;
+        }
+      }
   }
 
 }

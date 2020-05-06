@@ -34,11 +34,20 @@
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
   {{ title_suffix }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+
+      <!--start card-->
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title big-heading">{{ content.field_titolo_hero }}</h5>
+            <p class="card-text">{{ content.body }}</p>
+
+            {{ content.field_bottone }}
+
+          </div>
+        </div>
+      </div>
+      <!--end card-->
+
 </div>

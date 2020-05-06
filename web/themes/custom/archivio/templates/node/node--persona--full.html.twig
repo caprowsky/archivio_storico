@@ -89,7 +89,11 @@
             </h1>
 
             {{ content.field_sesso }}
-            {{ content.field_indirizzo }}
+
+            {% if node.field_indirizzo.value %}
+              {{ content.field_indirizzo }}
+            {% endif %}
+
             {{ content.field_data_nascita }}
             {{ content.field_data_di_morte }}
             {{ content.field_luogo_di_morte }}

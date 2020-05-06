@@ -75,7 +75,14 @@
 
     <div class="dettaglio-carriera studente">
 
-      <h3><i class="fas fa-user-graduate"></i> Carriera studente</h3>
+      <h3>
+        {% if laureato %}
+          <i class="fas fa-user-graduate"></i>
+        {% else %}
+          <i class="fas fa-user"></i>
+        {% endif %}
+
+        Carriera studente</h3>
             <!-- campi principali -->
           {{ content.field_data_inizio_carriera }}
           {{ content.field_data_fine_carriera }}
