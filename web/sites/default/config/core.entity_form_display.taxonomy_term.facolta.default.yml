@@ -1,0 +1,56 @@
+uuid: d67f14ae-3c40-4e52-a4b8-701fdcf87206
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.facolta.field_immagine
+    - field.field.taxonomy_term.facolta.layout_builder__layout
+    - taxonomy.vocabulary.facolta
+  module:
+    - media_library
+    - path
+    - text
+id: taxonomy_term.facolta.default
+targetEntityType: taxonomy_term
+bundle: facolta
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_immagine:
+    type: media_library_widget
+    weight: 2
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  layout_builder__layout: true

@@ -1,0 +1,10 @@
+uuid: 2b7fddd5-7239-4278-8ed3-ec24bb2d95da
+langcode: it
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.elenco
+label: Elenco
+targetEntityType: taxonomy_term
+cache: true

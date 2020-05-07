@@ -75,7 +75,8 @@ third_party_settings:
           - 'inline_block:hero'
           - 'inline_block:immagine'
           - 'inline_block:testo'
-        'Lists (Views)': {  }
+        'Lists (Views)':
+          - 'views_block:termini-elenco_facolta'
         Menus: {  }
         System: {  }
         Utente: {  }
