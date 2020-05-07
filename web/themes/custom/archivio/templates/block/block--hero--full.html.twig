@@ -36,7 +36,15 @@
   {{ title_prefix }}
   {{ title_suffix }}
 
-  <div class="it-hero-wrapper">
+
+  <div class="it-hero-wrapper it-primary it-overlay ">
+
+    <div class="img-responsive-wrapper">
+      <div class="img-responsive">
+        <div class="img-wrapper"><img src="{{ file_url(content.field_immagine_sfondo[0]['#media'].field_media_image.entity.uri.value) }}" /></div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-12">
