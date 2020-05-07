@@ -1,0 +1,10 @@
+uuid: 3bdb9887-2eb9-472d-a04e-eec969ec99a9
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+id: media.elenco_
+label: 'Elenco '
+targetEntityType: media
+cache: true

@@ -1,0 +1,15 @@
+uuid: 67632ffc-09ef-4cba-b18a-48fb163908ef
+langcode: it
+status: true
+dependencies: {  }
+name: elenco
+label: Elenco
+effects:
+  f63bce0a-c2f3-4faa-88da-a586ef62977c:
+    uuid: f63bce0a-c2f3-4faa-88da-a586ef62977c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 500
+      height: 200
+      anchor: center-center

@@ -1,0 +1,39 @@
+uuid: 0b04c281-3e43-4019-abff-3d7017173b6f
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.elenco_
+    - field.field.media.image.field_media_image
+    - image.style.elenco
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+_core:
+  default_config_hash: B1a2aBHmUulUZN6HrxITEH1tSResuVjXMBEv1lUBtOo
+id: media.image.elenco_
+targetEntityType: media
+bundle: image
+mode: elenco_
+content:
+  field_media_image:
+    label: visually_hidden
+    settings:
+      image_style: elenco
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

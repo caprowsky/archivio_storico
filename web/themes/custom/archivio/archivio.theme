@@ -144,3 +144,12 @@ function archivio_preprocess_node(&$vars) {
 
 }
 
+/**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function archivio_theme_suggestions_taxonomy_term_alter(&$suggestions, &$vars) {
+  $suggestions[] = 'taxonomy_term__' . $vars['elements']['#view_mode'];
+  $suggestions[] = 'taxonomy_term__' . $vars['elements']['#taxonomy_term']->getVocabularyId();
+  $suggestions[] = 'taxonomy_term__' . $vars['elements']['#taxonomy_term']->getVocabularyId() . '__' . $vars['elements']['#view_mode'];
+}
+
