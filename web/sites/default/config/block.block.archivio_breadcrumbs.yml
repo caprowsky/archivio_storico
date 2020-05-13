@@ -11,7 +11,7 @@ _core:
 id: archivio_breadcrumbs
 theme: archivio
 region: disabled_blocks
-weight: -10
+weight: -12
 provider: null
 plugin: system_breadcrumb_block
 settings:

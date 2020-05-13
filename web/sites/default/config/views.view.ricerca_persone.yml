@@ -17,7 +17,7 @@ dependencies:
     - options
     - search_api
 id: ricerca_persone
-label: 'Ricerca persone'
+label: 'Ricerca persone disattivata'
 module: views
 description: ''
 tag: ''

@@ -11,7 +11,7 @@ dependencies:
 id: docenteostudente
 theme: archivio
 region: disabled_blocks
-weight: 0
+weight: -3
 provider: null
 plugin: 'facet_block:docente_o_studente'
 settings:

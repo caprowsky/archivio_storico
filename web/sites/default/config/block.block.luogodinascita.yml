@@ -11,7 +11,7 @@ dependencies:
 id: luogodinascita
 theme: archivio
 region: disabled_blocks
-weight: -3
+weight: -6
 provider: null
 plugin: 'facet_block:luogo_di_nascita'
 settings:

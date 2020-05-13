@@ -11,7 +11,7 @@ dependencies:
 id: sesso_2
 theme: archivio
 region: disabled_blocks
-weight: -1
+weight: -4
 provider: null
 plugin: 'facet_block:sesso'
 settings:

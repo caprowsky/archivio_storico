@@ -11,7 +11,7 @@ dependencies:
 id: facolta
 theme: archivio
 region: disabled_blocks
-weight: -5
+weight: -8
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_facolta'
 settings:
