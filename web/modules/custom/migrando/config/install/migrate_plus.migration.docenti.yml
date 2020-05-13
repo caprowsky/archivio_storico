@@ -29,6 +29,7 @@ process:
       - constants/title_constant
       - primo_cognome
       - secondo_cognome
+      - terzo_cognome
       - primo_nome
       - secondo_nome
       - terzo_nome
@@ -52,6 +53,10 @@ process:
     plugin: encode
     source: secondo_cognome
 
+  field_terzo_cognome:
+    plugin: encode
+    source: terzo_cognome
+
   field_primo_nome:
     plugin: encode
     source: primo_nome
@@ -63,6 +68,7 @@ process:
   field_terzo_nome:
     plugin: encode
     source: terzo_nome
+
 
   field_tipologia_carriera:
     plugin: default_value

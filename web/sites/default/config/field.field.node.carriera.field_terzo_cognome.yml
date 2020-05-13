@@ -1,0 +1,19 @@
+uuid: 59486a4e-b7c0-4fbd-96e3-e616ed00309a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_terzo_cognome
+    - node.type.carriera
+id: node.carriera.field_terzo_cognome
+field_name: field_terzo_cognome
+entity_type: node
+bundle: carriera
+label: 'Terzo cognome'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

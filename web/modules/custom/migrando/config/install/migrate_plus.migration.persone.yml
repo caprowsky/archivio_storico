@@ -29,6 +29,7 @@ process:
     source:
       - primo_cognome
       - secondo_cognome
+      - terzo_cognome
       - primo_nome
       - secondo_nome
       - terzo_nome
@@ -76,7 +77,7 @@ process:
       F: f
       f: f
       m: m
-  
+
   field_revisore:
     plugin: default_value
     default_value: 7 # Eleonora

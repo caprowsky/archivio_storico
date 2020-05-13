@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.carriera.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera.field_segnatura_arch_tesi_licenz
     - field.field.node.carriera.field_sesso
+    - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
@@ -87,6 +88,7 @@ third_party_settings:
     group_carriera_docente:
       children:
         - field_biografia
+        - field_insegnamenti
         - field_ambiti_di_ricerca
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
@@ -113,7 +115,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ambiti_di_ricerca:
-    weight: 13
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
@@ -165,7 +167,7 @@ content:
     type: text_textarea
     region: content
   field_carriera_extra_acca:
-    weight: 14
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -252,6 +254,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_insegnamenti:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_revisore:
     weight: 16
     settings:
@@ -264,14 +274,14 @@ content:
     region: content
   field_riferimenti_archivistici:
     type: text_textarea
-    weight: 16
+    weight: 17
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_riferimenti_bibliografici:
-    weight: 15
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -489,7 +499,6 @@ hidden:
   field_data_inizio_carriera_fake: true
   field_data_nascita: true
   field_id: true
-  field_insegnamenti: true
   field_luogo_nascita: true
   field_persona: true
   field_primo_cognome: true
@@ -497,4 +506,5 @@ hidden:
   field_secondo_cognome: true
   field_secondo_nome: true
   field_sesso: true
+  field_terzo_cognome: true
   field_terzo_nome: true

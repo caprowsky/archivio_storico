@@ -18,6 +18,7 @@ dependencies:
     - field.storage.node.field_data_inizio_carriera_fake
     - field.storage.node.field_data_licenza
     - field.storage.node.field_facolta
+    - field.storage.node.field_insegnamenti
     - field.storage.node.field_link_carriera
     - field.storage.node.field_riferimenti_archivistici
     - field.storage.node.field_riferimenti_bibliografici
@@ -261,6 +262,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_facolta
+  field_insegnamenti:
+    label: Insegnamenti
+    datasource_id: 'entity:node'
+    property_path: field_insegnamenti
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_insegnamenti
   field_link_carriera:
     label: 'Link carriera'
     datasource_id: 'entity:node'

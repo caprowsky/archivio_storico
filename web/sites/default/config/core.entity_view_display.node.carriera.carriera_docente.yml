@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.carriera.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera.field_segnatura_arch_tesi_licenz
     - field.field.node.carriera.field_sesso
+    - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
@@ -51,7 +52,7 @@ third_party_settings:
         - field_titolo_tesi_licenza
         - field_valutazione_laurea
       parent_name: ''
-      weight: 27
+      weight: 28
       format_type: fieldset
       region: hidden
       format_settings:
@@ -62,7 +63,7 @@ third_party_settings:
     group_carriera_docente:
       children: {  }
       parent_name: ''
-      weight: 26
+      weight: 27
       format_type: fieldset
       region: hidden
       format_settings:
@@ -128,9 +129,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_insegnamenti:
+    type: string
+    weight: 10
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_riferimenti_archivistici:
     type: text_default
-    weight: 10
+    weight: 11
     region: content
     label: inline
     settings: {  }
@@ -160,7 +169,6 @@ hidden:
   field_data_licenza: true
   field_data_nascita: true
   field_id: true
-  field_insegnamenti: true
   field_luogo_nascita: true
   field_persona: true
   field_primo_cognome: true
@@ -171,6 +179,7 @@ hidden:
   field_segnatura_arch_tesi_laurea: true
   field_segnatura_arch_tesi_licenz: true
   field_sesso: true
+  field_terzo_cognome: true
   field_terzo_nome: true
   field_titolo_tesi_laurea: true
   field_titolo_tesi_licenza: true

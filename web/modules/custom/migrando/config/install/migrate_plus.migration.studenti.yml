@@ -52,9 +52,9 @@ process:
     plugin: encode
     source: secondo_cognome
 
-#  field_terzo_cognome:
-#    plugin: encode
-#    source: terzo_cognome
+  field_terzo_cognome:
+    plugin: encode
+    source: terzo_cognome
 
   field_primo_nome:
     plugin: encode
@@ -97,21 +97,21 @@ process:
       plugin: migration_lookup
       migration: corsi
       no_stub: true
-      source: corso 
+      source: corso
 
   field_facolta:
     target_id:
       plugin: migration_lookup
       migration: facolta
       no_stub: true
-      source: facolta 
+      source: facolta
 
   field_persona:
     target_id:
       plugin: migration_lookup
       migration: persone
       no_stub: true
-      source: concatena 
+      source: concatena
 
   field_data_inizio_carriera:
     plugin: encode

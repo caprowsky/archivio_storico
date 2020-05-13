@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.carriera.field_segnatura_arch_tesi_laurea
     - field.field.node.carriera.field_segnatura_arch_tesi_licenz
     - field.field.node.carriera.field_sesso
+    - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
@@ -139,6 +140,7 @@ hidden:
   field_segnatura_arch_tesi_laurea: true
   field_segnatura_arch_tesi_licenz: true
   field_sesso: true
+  field_terzo_cognome: true
   field_terzo_nome: true
   field_titolo_tesi_laurea: true
   field_titolo_tesi_licenza: true
