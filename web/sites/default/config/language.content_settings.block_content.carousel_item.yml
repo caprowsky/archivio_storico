@@ -1,0 +1,11 @@
+uuid: 809cd778-1777-4552-88f7-4839d5f0f201
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel_item
+id: block_content.carousel_item
+target_entity_type_id: block_content
+target_bundle: carousel_item
+default_langcode: site_default
+language_alterable: false

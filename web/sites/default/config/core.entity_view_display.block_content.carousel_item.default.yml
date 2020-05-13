@@ -1,0 +1,24 @@
+uuid: 00ff90e5-125b-4c61-99c3-bdda60a04ad1
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel_item
+    - field.field.block_content.carousel_item.body
+  module:
+    - text
+id: block_content.carousel_item.default
+targetEntityType: block_content
+bundle: carousel_item
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

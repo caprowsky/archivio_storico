@@ -1,0 +1,30 @@
+uuid: ea3a7714-4f8c-49d8-8c8f-3862a06c1a2e
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - block_content.type.carousel
+    - block_content.type.carousel_item
+    - field.storage.block_content.field_carousel_item
+id: block_content.carousel.field_carousel_item
+field_name: field_carousel_item
+entity_type: block_content
+bundle: carousel
+label: 'Carousel item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      card: card
+      carousel_item: carousel_item
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: card
+field_type: entity_reference

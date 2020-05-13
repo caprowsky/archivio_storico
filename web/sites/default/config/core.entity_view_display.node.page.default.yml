@@ -56,12 +56,15 @@ third_party_settings:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
       whitelisted_blocks:
+        'Archivio Storico Utils':
+          - home_top
         Block: {  }
         'Chaos Tools': {  }
         'Content fields':
           - 'field_block:node:page:title'
         'Custom block types':
           - card
+          - carousel
           - hero
           - immagine
           - testo
@@ -72,6 +75,7 @@ third_party_settings:
         Help: {  }
         'Inline blocks':
           - 'inline_block:card'
+          - 'inline_block:carousel'
           - 'inline_block:hero'
           - 'inline_block:immagine'
           - 'inline_block:testo'
