@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
     - field.field.node.carriera.field_id
+    - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
     - field.field.node.carriera.field_persona
     - field.field.node.carriera.field_primo_cognome
@@ -59,6 +60,7 @@ hidden:
   field_data_nascita: true
   field_facolta: true
   field_id: true
+  field_insegnamenti: true
   field_luogo_nascita: true
   field_persona: true
   field_primo_cognome: true

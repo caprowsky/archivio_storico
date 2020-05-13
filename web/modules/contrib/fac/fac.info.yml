@@ -1,0 +1,11 @@
+type: module
+name: 'Fast Autocomplete'
+description: 'Fast Autocomplete module offering suggestions for text inputs based on a search backend.'
+package: Search
+core_version_requirement: ^8 || ^9
+configure: entity.fac_config.collection
+
+# Information added by Drupal.org packaging script on 2020-05-12
+version: '8.x-1.5'
+project: 'fac'
+datestamp: 1589295071

@@ -93,21 +93,21 @@ process:
       plugin: migration_lookup
       migration: corsi
       no_stub: true
-      source: corso 
+      source: corso
 
   field_facolta:
     target_id:
       plugin: migration_lookup
       migration: facolta
       no_stub: true
-      source: facolta 
+      source: facolta
 
 #  field_persona:
 #    target_id:
 #      plugin: migration_lookup
 #      migration: persone
 #      no_stub: true
-#      source: concatena 
+#      source: concatena
 
   field_data_inizio_carriera:
     plugin: encode
@@ -121,6 +121,11 @@ process:
   field_revisore:
     plugin: default_value
     default_value: 7 # Eleonora
+
+  field_insegnamenti:
+    plugin: explode
+    source: insegnamenti
+    delimiter: ", "
 
 #################################################
 ##### Campi specifici della carriera docente ####

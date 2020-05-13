@@ -29,6 +29,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/entity_browser": "^2.5",
+        "drupal/fac": "^1.5",
         "drupal/facets": "^1.4",
         "drupal/fico": "^1.0",
         "drupal/field_group": "^3.0",

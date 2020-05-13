@@ -1,0 +1,19 @@
+uuid: 3471e9a0-2902-48f4-afdb-95c86ed8bf0f
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_insegnamenti
+    - node.type.carriera
+id: node.carriera.field_insegnamenti
+field_name: field_insegnamenti
+entity_type: node
+bundle: carriera
+label: Insegnamenti
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

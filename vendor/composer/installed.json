@@ -2896,6 +2896,62 @@
         }
     },
     {
+        "name": "drupal/fac",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/fac.git",
+            "reference": "8.x-1.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/fac-8.x-1.5.zip",
+            "reference": "8.x-1.5",
+            "shasum": "2a7a0f7bf7d43fc32d107b63cf7136e4ced93872"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.5",
+                "datestamp": "1589295068",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Martijn Vermeulen (Marty2081)",
+                "homepage": "https://www.drupal.org/u/marty2081",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Heine",
+                "homepage": "https://www.drupal.org/user/17943"
+            },
+            {
+                "name": "Marty2081",
+                "homepage": "https://www.drupal.org/user/960720"
+            }
+        ],
+        "description": "Fast Autocomplete",
+        "homepage": "http://drupal.org/project/fac",
+        "support": {
+            "source": "https://git.drupalcode.org/project/fac",
+            "issues": "http://drupal.org/project/issues/fac"
+        }
+    },
+    {
         "name": "drupal/facets",
         "version": "1.4.0",
         "version_normalized": "1.4.0.0",

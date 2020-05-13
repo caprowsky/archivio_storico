@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
     - field.field.node.carriera.field_id
+    - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
     - field.field.node.carriera.field_persona
     - field.field.node.carriera.field_primo_cognome
@@ -288,6 +289,14 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  field_insegnamenti:
+    weight: 36
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_luogo_nascita:
     type: readonly_field_widget
     weight: 35

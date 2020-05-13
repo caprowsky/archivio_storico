@@ -32,7 +32,7 @@ if (isset($_SERVER['ARCHIVIO_ENV'])) {
     case 'dev':
       include __DIR__ . '/settings.dev.archivio.php';
     break;
-    
+
     case 'live':
       include __DIR__ . '/settings.live.archivio.php';
       break;
@@ -45,6 +45,8 @@ $settings['install_profile'] = 'standard';
 
 ini_set('memory_limit', '1024M');
 
+// Dovrebbe sistemare la questione dei permessi di sites/default
+$settings['skip_permissions_hardening'] = TRUE;
 
 // Redis
 $settings['cache']['bins']['form'] = 'cache.backend.database';
