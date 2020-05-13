@@ -1,0 +1,74 @@
+uuid: 8103f7b0-55b3-4de8-8ef2-de04e4789a7d
+langcode: it
+status: true
+dependencies:
+  config:
+    - search_api.index.archivio_indice
+    - views.view.persone
+  module:
+    - search_api
+id: summary_ricerca_persone
+name: 'Summary ricerca persone'
+facets:
+  docente_o_studente:
+    checked: true
+    label: 'Docente o studente'
+    separator: ', '
+    weight: 0
+    show_count: false
+  laureato_si_no:
+    checked: true
+    label: 'Laureato si no'
+    separator: ', '
+    weight: 0
+    show_count: false
+  link_carriera_contenuto_corso:
+    checked: true
+    label: 'Link carriera » Contenuto » Corso'
+    separator: ', '
+    weight: 0
+    show_count: false
+  link_carriera_contenuto_facolta:
+    checked: true
+    label: 'Link carriera » Contenuto » Facoltà'
+    separator: ', '
+    weight: 0
+    show_count: false
+  luogo_di_nascita:
+    checked: true
+    label: 'Luogo di nascita testo'
+    separator: ', '
+    weight: 0
+    show_count: false
+  periodo:
+    checked: true
+    label: Periodo
+    separator: ', '
+    weight: 0
+    show_count: false
+  sesso:
+    checked: true
+    label: Sesso
+    separator: ', '
+    weight: 0
+    show_count: false
+facet_source_id: 'search_api:views_page__persone__ricerca'
+processor_configs:
+  hide_when_not_rendered:
+    processor_id: hide_when_not_rendered
+    weights:
+      build: '-7'
+    settings: {  }
+  show_count:
+    processor_id: show_count
+    weights:
+      build: '-6'
+    settings: {  }
+  show_text_when_empty:
+    processor_id: show_text_when_empty
+    weights:
+      build: '-10'
+    settings:
+      text:
+        value: 'No results found.'
+        format: plain_text
