@@ -1,0 +1,20 @@
+uuid: 5d7a2410-0dd0-4b5a-ba6a-d40a79517a83
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_nome_e_cognome
+  module:
+    - user
+id: user.user.field_nome_e_cognome
+field_name: field_nome_e_cognome
+entity_type: user
+bundle: user
+label: 'Nome e cognome'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
