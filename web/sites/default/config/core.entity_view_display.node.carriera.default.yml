@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
+    - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
     - field.field.node.carriera.field_data_fine_carriera
@@ -89,6 +90,13 @@ content:
     region: content
   field_biografia:
     weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_carriera:
+    weight: 27
     label: above
     settings: {  }
     third_party_settings: {  }

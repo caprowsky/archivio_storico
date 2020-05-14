@@ -1,0 +1,21 @@
+uuid: ad2ce609-f125-49e8-9a80-d0f72c19b475
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carriera
+    - node.type.carriera
+  module:
+    - text
+id: node.carriera.field_carriera
+field_name: field_carriera
+entity_type: node
+bundle: carriera
+label: Carriera
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

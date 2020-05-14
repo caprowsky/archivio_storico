@@ -1,0 +1,19 @@
+uuid: 71d9759f-1cee-4b91-b698-c009254589a0
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_carriera
+field_name: field_carriera
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

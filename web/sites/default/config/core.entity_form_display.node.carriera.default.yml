@@ -6,6 +6,7 @@ dependencies:
     - entity_browser.browser.persona
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
+    - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
     - field.field.node.carriera.field_data_fine_carriera
@@ -53,6 +54,7 @@ third_party_settings:
         - field_valutazione_laurea
         - field_titolo_tesi_laurea
         - field_segnatura_arch_tesi_laurea
+        - field_carriera
       parent_name: ''
       weight: 15
       format_type: fieldset
@@ -177,6 +179,32 @@ content:
             value_form:
               -
                 value: d
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
+    type: text_textarea
+    region: content
+  field_carriera:
+    weight: 22
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        902e415b-ee86-49f8-8be7-8a45a3e1c7df:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
             effect: show
             effect_options: {  }
             selector: ''
@@ -446,7 +474,7 @@ content:
       show_description: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
-    weight: 22
+    weight: 21
     settings:
       size: 60
       placeholder: ''
@@ -534,7 +562,7 @@ content:
     type: options_select
     region: content
   field_titolo_tesi_laurea:
-    weight: 21
+    weight: 20
     settings:
       rows: 5
       placeholder: ''
@@ -586,7 +614,7 @@ content:
     type: string_textarea
     region: content
   field_valutazione_laurea:
-    weight: 20
+    weight: 19
     settings:
       rows: 5
       placeholder: ''

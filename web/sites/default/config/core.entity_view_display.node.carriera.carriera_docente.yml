@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.carriera_docente
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
+    - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
     - field.field.node.carriera.field_corso
     - field.field.node.carriera.field_data_fine_carriera
@@ -164,6 +165,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_carriera: true
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera_fake: true
   field_data_licenza: true

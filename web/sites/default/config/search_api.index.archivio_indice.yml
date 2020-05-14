@@ -20,6 +20,7 @@ dependencies:
     - field.storage.node.field_facolta
     - field.storage.node.field_insegnamenti
     - field.storage.node.field_link_carriera
+    - field.storage.node.field_carriera
     - field.storage.node.field_riferimenti_archivistici
     - field.storage.node.field_riferimenti_bibliografici
     - field.storage.node.field_segnatura_arch_tesi_laurea
@@ -159,6 +160,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_biografia
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_carriera:
+    label: 'Link carriera » Contenuto » Carriera'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_carriera'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_carriera
         - field.storage.node.field_link_carriera
       module:
         - node
