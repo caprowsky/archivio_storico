@@ -69,7 +69,8 @@ third_party_settings:
           - immagine
           - testo
         Devel: {  }
-        Facets: {  }
+        Facets:
+          - 'facet_block:tipologia_carriera_mappa'
         Forms: {  }
         'Geofield Map': {  }
         Help: {  }
@@ -80,6 +81,7 @@ third_party_settings:
           - 'inline_block:immagine'
           - 'inline_block:testo'
         'Lists (Views)':
+          - 'views_block:mappa-blocco_mappa'
           - 'views_block:termini-elenco_facolta'
         Menus: {  }
         System: {  }

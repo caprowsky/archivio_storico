@@ -41,6 +41,7 @@ module:
   geocoder_geofield: 0
   geofield: 0
   geofield_map: 0
+  geofield_map_extras: 0
   help: 0
   image: 0
   inline_entity_form: 0
@@ -50,6 +51,9 @@ module:
   layout_builder_modal: 0
   layout_builder_restrictions: 0
   layout_discovery: 0
+  leaflet: 0
+  leaflet_markercluster: 0
+  leaflet_views: 0
   link: 0
   locale: 0
   media: 0
