@@ -7,6 +7,24 @@ dependencies:
     - node.type.persona
   module:
     - address
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: destination
+    weight: 0
+    geocode_field: field_id
+    reverse_geocode_field: field_geofiled
+    skip_not_empty_value: 0
+    disabled: false
+    hidden: true
+    plugins:
+      - googlemaps
+    dumper: geojson
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: node.persona.field_indirizzo
 field_name: field_indirizzo
 entity_type: node
@@ -22,14 +40,14 @@ default_value:
     administrative_area: ''
     locality: ''
     dependent_locality: null
-    postal_code: ''
+    postal_code: null
     sorting_code: null
-    address_line1: ''
-    address_line2: ''
-    organization: ''
-    given_name: ''
+    address_line1: null
+    address_line2: null
+    organization: null
+    given_name: null
     additional_name: null
-    family_name: ''
+    family_name: null
 default_value_callback: ''
 settings:
   available_countries: {  }

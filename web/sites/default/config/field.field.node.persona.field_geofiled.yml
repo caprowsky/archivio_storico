@@ -6,7 +6,25 @@ dependencies:
     - field.storage.node.field_geofiled
     - node.type.persona
   module:
+    - geocoder_field
     - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    weight: 0
+    geocode_field: field_luogo_nascita
+    reverse_geocode_field: ''
+    skip_not_empty_value: 0
+    disabled: false
+    hidden: false
+    plugins:
+      - googlemaps
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: node.persona.field_geofiled
 field_name: field_geofiled
 entity_type: node
@@ -15,7 +33,18 @@ label: Geofiled
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 'POINT (9.012893 40.120875)'
+    geo_type: Point
+    lat: 40.120875
+    lon: 9.012893
+    left: 9.012893
+    top: 40.120875
+    right: 9.012893
+    bottom: 40.120875
+    geohash: spnkjpfcp9hj
+    latlon: '40.120875,9.012893'
 default_value_callback: ''
 settings:
   backend: geofield_backend_default
