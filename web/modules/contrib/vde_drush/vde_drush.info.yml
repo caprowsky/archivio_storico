@@ -1,0 +1,13 @@
+name: Vde drush add-on
+type: module
+description: Drush support for Views Data Export.
+package: Views
+# core: 8.x
+dependencies:
+  - views_data_export
+
+# Information added by Drupal.org packaging script on 2018-09-27
+version: '8.x-1.0-beta2'
+core: '8.x'
+project: 'vde_drush'
+datestamp: 1538032985

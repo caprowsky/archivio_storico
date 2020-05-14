@@ -59,6 +59,7 @@
         "drupal/twig_field_value": "^2.0",
         "drupal/twig_tweak": "^2.5",
         "drupal/ui_patterns": "^1.1",
+        "drupal/vde_drush": "^1.0",
         "drupal/views_bulk_operations": "^3.6",
         "drupal/views_data_export": "^1.0",
         "drush/drush": "^10.2"
