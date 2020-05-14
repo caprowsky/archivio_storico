@@ -11,7 +11,7 @@ dependencies:
 id: periodo
 theme: archivio
 region: disabled_blocks
-weight: -5
+weight: -4
 provider: null
 plugin: 'facet_block:periodo'
 settings:

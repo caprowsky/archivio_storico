@@ -2,25 +2,25 @@
   width: 82px;
 }
 
-
 // Header slim
 .it-header-slim-wrapper {
-  background: $medio;
+  background: $scurissimo;
+  font-weight: bold !important;
 }
 
 // Header principale
 .it-header-center-wrapper {
-  background: $chiaro;
+  background: $scuro;
 }
 
 // Header menu
 .it-header-navbar-wrapper {
-  background: $chiaro;
+  background: $scuro;
 }
 
 // Footer principale
 .it-footer-main {
-  background: $scuro;
+  background: $scurerrimo;
 }
 
 // Footer basso
@@ -77,3 +77,20 @@
     display: none;
   }
 }
+
+.btn-primary {
+  background-color: $scuro;
+  border-color: $scuro;
+}
+
+
+.it-header-slim-wrapper .it-header-slim-wrapper-content .it-header-slim-right-zone .it-access-top-wrapper > a {
+    background: $scuro;
+}
+
+.menu-wrapper {
+  a.nav-link {
+    font-weight: bold !important;
+  }
+}
+

@@ -11,7 +11,7 @@ dependencies:
 id: corso
 theme: archivio
 region: disabled_blocks
-weight: -9
+weight: -8
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_corso'
 settings:

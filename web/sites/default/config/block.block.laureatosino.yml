@@ -11,7 +11,7 @@ dependencies:
 id: laureatosino
 theme: archivio
 region: disabled_blocks
-weight: -7
+weight: -6
 provider: null
 plugin: 'facet_block:laureato_si_no'
 settings:

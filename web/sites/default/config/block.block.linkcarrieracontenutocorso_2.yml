@@ -11,7 +11,7 @@ dependencies:
 id: linkcarrieracontenutocorso_2
 theme: archivio
 region: disabled_blocks
-weight: -1
+weight: 0
 provider: null
 plugin: 'facet_block:link_carriera_contenuto_corso'
 settings:

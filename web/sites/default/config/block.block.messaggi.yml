@@ -9,7 +9,7 @@ dependencies:
 id: messaggi
 theme: archivio
 region: disabled_blocks
-weight: -11
+weight: -10
 provider: null
 plugin: system_messages_block
 settings:

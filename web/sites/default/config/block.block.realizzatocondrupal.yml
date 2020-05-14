@@ -8,8 +8,8 @@ dependencies:
     - archivio
 id: realizzatocondrupal
 theme: archivio
-region: footer_credits
-weight: 0
+region: disabled_blocks
+weight: 1
 provider: null
 plugin: system_powered_by_block
 settings:
