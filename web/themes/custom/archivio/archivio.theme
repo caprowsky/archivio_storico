@@ -86,7 +86,6 @@ function archivio_theme_suggestions_block_alter(array &$suggestions, array $vari
   }
 }
 
-
 /**
  * Implements hook_entity_view().
  */
@@ -98,6 +97,24 @@ function archivio_preprocess_node(&$vars) {
   /**  @var \Drupal\node\Entity\Node $carriera **/
   $node = $vars['node'];
   if ($node->bundle() == 'persona' && $view_mode == 'full') {
+
+    $vars['revisore'] = 'Nome del revisore';
+    if (!$node->get('field_revisore')->isEmpty()) {
+      $revisori = $node->get('field_revisore')->referencedEntities();
+      if (!$revisori[0]->get('field_nome_e_cognome')->isEmpty()) {
+        $revisore_nome = $revisori[0]->get('field_nome_e_cognome')->getValue();
+        $vars['revisore'] = $revisore_nome[0]['value'];
+      }
+    }
+
+    $author_name = $node->getOwner();
+    if (!$author_name->get('field_nome_e_cognome')->isEmpty()) {
+      $autore_nome = $author_name->get('field_nome_e_cognome')->getValue();
+      $vars['autore'] = $autore_nome[0]['value'];
+    } else {
+      $vars['autore'] = 'Nome dell\'autore';
+    }
+
     $query = \Drupal::entityQuery('node')
       ->condition('field_persona', $node->id())
       ->condition('type', 'carriera');
