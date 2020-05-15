@@ -1,0 +1,8 @@
+uuid: dc8d0b83-fb0e-4a9e-a4c4-a01790acfd1d
+langcode: it
+status: true
+dependencies: {  }
+id: homepage_top
+label: 'Homepage top'
+revision: 0
+description: ''

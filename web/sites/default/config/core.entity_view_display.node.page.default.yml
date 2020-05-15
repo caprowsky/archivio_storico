@@ -56,8 +56,7 @@ third_party_settings:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
       whitelisted_blocks:
-        'Archivio Storico Utils':
-          - home_top
+        'Archivio Storico Utils': {  }
         Block: {  }
         'Chaos Tools': {  }
         'Content fields':
@@ -66,8 +65,10 @@ third_party_settings:
           - card
           - carousel
           - hero
+          - homepage_top
           - immagine
           - testo
+        'Custom blocks': {  }
         Devel: {  }
         Facets:
           - 'facet_block:tipologia_carriera_mappa'
@@ -78,15 +79,19 @@ third_party_settings:
           - 'inline_block:card'
           - 'inline_block:carousel'
           - 'inline_block:hero'
+          - 'inline_block:homepage_top'
           - 'inline_block:immagine'
           - 'inline_block:testo'
         'Lists (Views)':
           - 'views_block:mappa-blocco_mappa'
           - 'views_block:termini-elenco_facolta'
         Menus: {  }
+        OwlCarousel2: {  }
         System: {  }
         Utente: {  }
-        core: {  }
+        Views: {  }
+        core:
+          - page_title_block
       blacklisted_blocks: {  }
       allowed_layouts: {  }
 _core:

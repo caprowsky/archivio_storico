@@ -1,11 +1,11 @@
-uuid: 809cd778-1777-4552-88f7-4839d5f0f201
+uuid: c59596b4-2cc0-4a8f-9420-d9abda98a9d6
 langcode: it
 status: true
 dependencies:
   config:
-    - block_content.type.carousel_item
-id: block_content.carousel_item
+    - block_content.type.homepage_top
+id: block_content.homepage_top
 target_entity_type_id: block_content
-target_bundle: carousel_item
+target_bundle: homepage_top
 default_langcode: site_default
 language_alterable: false

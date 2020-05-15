@@ -5,7 +5,6 @@ dependencies:
   config:
     - block_content.type.card
     - block_content.type.carousel
-    - block_content.type.carousel_item
     - field.storage.block_content.field_carousel_item
 id: block_content.carousel.field_carousel_item
 field_name: field_carousel_item
@@ -22,7 +21,6 @@ settings:
   handler_settings:
     target_bundles:
       card: card
-      carousel_item: carousel_item
     sort:
       field: _none
     auto_create: false

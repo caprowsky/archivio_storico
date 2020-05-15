@@ -36,8 +36,7 @@
   {{ title_prefix }}
   {{ title_suffix }}
 
-
-  <div class="it-hero-wrapper it-primary it-overlay ">
+  <div class="it-hero-wrapper it-dark it-overlay it-text-centered">
 
     {% if content.field_immagine_sfondo|field_value is not empty %}
     <div class="img-responsive-wrapper">
@@ -53,6 +52,10 @@
           <div class="it-hero-text-wrapper bg-dark">
             <h1 class="no_toc">{{ content.field_titolo_hero }}</h1>
             <p class="d-none d-lg-block">{{ content.body }}</p>
+
+            <form method="get" name="ricerca-home" action="/persone">
+              <input type="text" class="ricerca" name="cerca" placeholder="Inserisci una parola" /> <button type="submit">Cerca</button></form>
+
               {{ content.field_bottone }}
           </div>
         </div>

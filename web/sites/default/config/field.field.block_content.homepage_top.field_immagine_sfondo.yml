@@ -1,0 +1,28 @@
+uuid: b13a3e25-8149-499b-b3b4-07652a580866
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.homepage_top
+    - field.storage.block_content.field_immagine_sfondo
+    - media.type.image
+id: block_content.homepage_top.field_immagine_sfondo
+field_name: field_immagine_sfondo
+entity_type: block_content
+bundle: homepage_top
+label: 'Immagine sfondo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
