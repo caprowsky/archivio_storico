@@ -1,8 +1,0 @@
-uuid: ce35cdd5-69eb-4b37-9ee8-8488794798a8
-langcode: it
-status: true
-dependencies: {  }
-id: carousel_item
-label: 'Carousel item'
-revision: 0
-description: ''

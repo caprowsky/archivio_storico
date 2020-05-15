@@ -1,0 +1,55 @@
+uuid: 4cdee889-c8cc-4f27-9b31-8b557961b881
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.homepage_top
+    - field.field.block_content.homepage_top.body
+    - field.field.block_content.homepage_top.field_bottone
+    - field.field.block_content.homepage_top.field_immagine_sfondo
+    - field.field.block_content.homepage_top.field_titolo_hero
+  module:
+    - link
+    - text
+id: block_content.homepage_top.default
+targetEntityType: block_content
+bundle: homepage_top
+mode: default
+content:
+  body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_bottone:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_immagine_sfondo:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_titolo_hero:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

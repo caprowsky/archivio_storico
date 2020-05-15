@@ -1,0 +1,23 @@
+uuid: f0a83a95-9890-46b5-898f-e04d462210fc
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.homepage_top
+    - field.storage.block_content.field_bottone
+  module:
+    - link
+id: block_content.homepage_top.field_bottone
+field_name: field_bottone
+entity_type: block_content
+bundle: homepage_top
+label: Bottone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

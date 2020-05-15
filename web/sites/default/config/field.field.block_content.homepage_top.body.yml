@@ -1,17 +1,17 @@
-uuid: fa2dd586-f355-4709-b046-b637452e6d72
+uuid: d0520118-063b-466b-a59b-61f5023c17a7
 langcode: it
 status: true
 dependencies:
   config:
-    - block_content.type.carousel_item
+    - block_content.type.homepage_top
     - field.storage.block_content.body
   module:
     - text
-id: block_content.carousel_item.body
+id: block_content.homepage_top.body
 field_name: body
 entity_type: block_content
-bundle: carousel_item
-label: Body
+bundle: homepage_top
+label: Corpo
 description: ''
 required: false
 translatable: true

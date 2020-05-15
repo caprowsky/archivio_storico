@@ -22,6 +22,14 @@
     }
 
   }
+
+  .it-hero-wrapper {
+    background-color: $scuro;
+  }
+
+  .it-hero-wrapper.it-overlay.it-primary .img-responsive-wrapper::after {
+    background: rgba(12,30,125,0.85);
+  }
 }
 
 .block-inline-blocktesto {
@@ -69,4 +77,9 @@
   font-weight: bold;
   letter-spacing: -1.2px;
   line-height: 1.25;
+}
+
+
+.it-carousel-wrapper .owl-dots .owl-dot {
+  background: $scuro;
 }

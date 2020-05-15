@@ -1,0 +1,70 @@
+uuid: 9900a5da-3434-4ef4-8f83-e02f8996d06c
+langcode: it
+status: true
+dependencies:
+  config:
+    - block_content.type.homepage_top
+    - field.field.block_content.homepage_top.body
+    - field.field.block_content.homepage_top.field_bottone
+    - field.field.block_content.homepage_top.field_immagine_sfondo
+    - field.field.block_content.homepage_top.field_titolo_hero
+  module:
+    - link
+    - text
+id: block_content.homepage_top.default
+targetEntityType: block_content
+bundle: homepage_top
+mode: default
+content:
+  body:
+    weight: 28
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_bottone:
+    weight: 26
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_immagine_sfondo:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_titolo_hero:
+    weight: 29
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }
