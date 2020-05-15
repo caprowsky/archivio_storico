@@ -10,8 +10,8 @@ dependencies:
     - archivio
 id: formespostopersonericerca
 theme: archivio
-region: disabled_blocks
-weight: -1
+region: header_center_search
+weight: -14
 provider: null
 plugin: 'views_exposed_filter_block:persone-ricerca'
 settings:

@@ -1,0 +1,25 @@
+uuid: 2337fd2b-f11f-4117-8fea-5c0381f49b69
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1098c83d-6abf-48bc-a495-eb6189d76a3d'
+  module:
+    - block_content
+  theme:
+    - archivio
+id: headersocial
+theme: archivio
+region: header_center_social
+weight: 0
+provider: null
+plugin: 'block_content:1098c83d-6abf-48bc-a495-eb6189d76a3d'
+settings:
+  id: 'block_content:1098c83d-6abf-48bc-a495-eb6189d76a3d'
+  label: 'Header social'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
