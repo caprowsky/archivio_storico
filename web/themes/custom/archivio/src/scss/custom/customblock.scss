@@ -80,6 +80,18 @@
 }
 
 
-.it-carousel-wrapper .owl-dots .owl-dot {
-  background: $scuro;
+.block-inline-blockcarousel {
+  .it-carousel-wrapper .owl-dots .owl-dot {
+    background: $scuro;
+  }
+
+  .field--name-field-titolo-hero {
+    font-weight: 700;
+    color: #17324d;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+    font-size: 1.55556rem;
+    line-height: 1.77778rem;
+  }
+
 }
