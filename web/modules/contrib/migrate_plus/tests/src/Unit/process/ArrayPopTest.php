@@ -17,7 +17,7 @@ class ArrayPopTest extends MigrateProcessTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->plugin = new ArrayPop([], 'array_pop', []);
     parent::setUp();
   }
@@ -28,7 +28,7 @@ class ArrayPopTest extends MigrateProcessTestCase {
    * @return array
    *   An array containing input values and expected output values.
    */
-  public function arrayPopDataProvider() {
+  public function arrayPopDataProvider(): array {
     return [
       'indexed array' => [
         'input' => ['v1', 'v2', 'v3'],
@@ -55,7 +55,7 @@ class ArrayPopTest extends MigrateProcessTestCase {
    *
    * @dataProvider arrayPopDataProvider
    */
-  public function testArrayPop(array $input, $expected_output) {
+  public function testArrayPop(array $input, $expected_output): void {
     $output = $this->plugin->transform($input, $this->migrateExecutable, $this->row, 'destinationproperty');
     $this->assertSame($output, $expected_output);
   }
@@ -63,7 +63,7 @@ class ArrayPopTest extends MigrateProcessTestCase {
   /**
    * Test invalid input.
    */
-  public function testArrayPopFromString() {
+  public function testArrayPopFromString(): void {
     $this->expectException(MigrateException::class);
     $this->expectExceptionMessage('Input should be an array.');
     $this->plugin->transform('foo', $this->migrateExecutable, $this->row, 'destinationproperty');

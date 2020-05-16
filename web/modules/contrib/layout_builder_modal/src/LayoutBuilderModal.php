@@ -2,10 +2,12 @@
 
 namespace Drupal\layout_builder_modal;
 
+use Drupal\Core\Security\TrustedCallbackInterface;
+
 /**
  * Class LayoutBuilderModal.
  */
-class LayoutBuilderModal {
+class LayoutBuilderModal implements TrustedCallbackInterface {
 
   /**
    * Adds contextual link metadata for Layout Builder Modal.
@@ -40,6 +42,15 @@ class LayoutBuilderModal {
     }
 
     return $element;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function trustedCallbacks() {
+    return [
+      'preRenderContextual',
+    ];
   }
 
 }

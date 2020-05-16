@@ -27,6 +27,13 @@ class LayoutBuilderModalTest extends WebDriverTestBase {
   ];
 
   /**
+   * Specify the theme to be used in testing.
+   *
+   * @var string
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp() {

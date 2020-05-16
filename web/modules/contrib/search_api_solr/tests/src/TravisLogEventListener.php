@@ -9,7 +9,9 @@ use PHPUnit\Framework\TestSuite;
 use PHPUnit\Framework\Warning;
 
 defined('TRAVIS_BUILD_DIR') || define('TRAVIS_BUILD_DIR', getenv('TRAVIS_BUILD_DIR') ?: '.');
-
+/**
+ *
+ */
 class TravisLogEventListener implements TestListener {
 
   /**
@@ -17,31 +19,52 @@ class TravisLogEventListener implements TestListener {
    */
   protected $errors;
 
-  public function addWarning(Test $test, Warning $e, $time) {
+  /**
+   *
+   */
+  public function addWarning(Test $test, Warning $e, float $time): void {
     $this->errors = TRUE;
     file_put_contents(TRAVIS_BUILD_DIR . '/solr.error.log', printf("Warning while running test '%s'.\n", $test->getName()), FILE_APPEND | LOCK_EX);
   }
 
-  public function addError(Test $test, \Exception $e, $time) {
+  /**
+   *
+   */
+  public function addError(Test $test, \Throwable $e, float $time): void {
     $this->errors = TRUE;
     file_put_contents(TRAVIS_BUILD_DIR . '/solr.error.log', printf("Error while running test '%s'.\n", $test->getName()), FILE_APPEND | LOCK_EX);
   }
 
-  public function addFailure(Test $test, AssertionFailedError $e, $time) {
+  /**
+   *
+   */
+  public function addFailure(Test $test, AssertionFailedError $e, float $time): void {
     $this->errors = TRUE;
     file_put_contents(TRAVIS_BUILD_DIR . '/solr.error.log', printf("Test '%s' failed.\n", $test->getName()), FILE_APPEND | LOCK_EX);
   }
 
-  public function addIncompleteTest(Test $test, \Exception $e, $time) {
+  /**
+   *
+   */
+  public function addIncompleteTest(Test $test, \Throwable $e, float $time): void {
   }
 
-  public function addRiskyTest(Test $test, \Exception $e, $time) {
+  /**
+   *
+   */
+  public function addRiskyTest(Test $test, \Throwable $e, float $time): void {
   }
 
-  public function addSkippedTest(Test $test, \Exception $e, $time) {
+  /**
+   *
+   */
+  public function addSkippedTest(Test $test, \Throwable $e, float $time): void {
   }
 
-  public function startTest(Test $test) {
+  /**
+   *
+   */
+  public function startTest(Test $test): void {
     // In case of a runtime error in the previous test, keep the log.
     if (file_exists(TRAVIS_BUILD_DIR . '/solr.query.log')) {
       file_put_contents(TRAVIS_BUILD_DIR . '/solr.error.log', file_get_contents(TRAVIS_BUILD_DIR . '/solr.query.log'), FILE_APPEND | LOCK_EX);
@@ -49,7 +72,10 @@ class TravisLogEventListener implements TestListener {
     $this->errors = FALSE;
   }
 
-  public function endTest(Test $test, $time) {
+  /**
+   *
+   */
+  public function endTest(Test $test, float $time): void {
     if (file_exists(TRAVIS_BUILD_DIR . '/solr.query.log')) {
       if ($this->errors) {
         file_put_contents(TRAVIS_BUILD_DIR . '/solr.error.log', file_get_contents(TRAVIS_BUILD_DIR . '/solr.query.log'), FILE_APPEND | LOCK_EX);
@@ -58,9 +84,16 @@ class TravisLogEventListener implements TestListener {
     }
   }
 
-  public function startTestSuite(TestSuite $suite) {
+  /**
+   *
+   */
+  public function startTestSuite(TestSuite $suite): void {
   }
 
-  public function endTestSuite(TestSuite $suite) {
+  /**
+   *
+   */
+  public function endTestSuite(TestSuite $suite): void {
   }
+
 }

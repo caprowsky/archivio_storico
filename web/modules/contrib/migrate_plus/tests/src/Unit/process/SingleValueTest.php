@@ -14,7 +14,7 @@ class SingleValueTest extends MigrateProcessTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     $this->plugin = new SingleValue([], 'single_value', []);
     parent::setUp();
   }
@@ -22,7 +22,7 @@ class SingleValueTest extends MigrateProcessTestCase {
   /**
    * Test input treated as single value output.
    */
-  public function testTreatAsSingle() {
+  public function testTreatAsSingle(): void {
     $value = ['v1', 'v2', 'v3'];
     $output = $this->plugin->transform($value, $this->migrateExecutable, $this->row, 'destinationproperty');
     $this->assertSame($output, $value);

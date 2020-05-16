@@ -18,7 +18,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::__construct
    */
-  public function testConfigMethodEmpty() {
+  public function testConfigMethodEmpty(): void {
     $configuration = [];
     $value = '<p>A simple paragraph.</p>';
     $this->expectException(\InvalidArgumentException::class);
@@ -30,7 +30,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::__construct
    */
-  public function testConfigMethodInvalid() {
+  public function testConfigMethodInvalid(): void {
     $configuration['method'] = 'invalid';
     $value = '<p>A simple paragraph.</p>';
     $this->expectException(\InvalidArgumentException::class);
@@ -42,7 +42,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::import
    */
-  public function testImportNonRoot() {
+  public function testImportNonRoot(): void {
     $configuration['method'] = 'import';
     $value = '<p>A simple paragraph.</p>';
     $document = (new Dom($configuration, 'dom', []))
@@ -53,7 +53,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::import
    */
-  public function testImportNonRootInvalidInput() {
+  public function testImportNonRootInvalidInput(): void {
     $configuration['method'] = 'import';
     $value = [1, 1];
     $this->expectException(MigrateException::class);
@@ -65,7 +65,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::export
    */
-  public function testExportNonRoot() {
+  public function testExportNonRoot(): void {
     $configuration['method'] = 'export';
     $partial = '<p>A simple paragraph.</p>';
     $document = Html::load($partial);
@@ -77,7 +77,7 @@ class DomTest extends MigrateProcessTestCase {
   /**
    * @covers ::export
    */
-  public function testExportNonRootInvalidInput() {
+  public function testExportNonRootInvalidInput(): void {
     $configuration['method'] = 'export';
     $this->expectException(MigrateException::class);
     $this->expectExceptionMessage('Cannot export a "string".');

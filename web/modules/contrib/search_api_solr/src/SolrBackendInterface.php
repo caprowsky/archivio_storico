@@ -19,7 +19,7 @@ interface SolrBackendInterface extends BackendInterface {
   /**
    * The minimum required Solr schema version.
    */
-  const SEARCH_API_SOLR_MIN_SCHEMA_VERSION = '8.3.8';
+  const SEARCH_API_SOLR_MIN_SCHEMA_VERSION = '4.0.0';
 
   /**
    * The separator to indicate the start of a language ID.
@@ -213,7 +213,7 @@ interface SolrBackendInterface extends BackendInterface {
    */
   public function getIndexSolrSettings(IndexInterface $index);
 
-    /**
+  /**
    * Prefixes an index ID as configured.
    *
    * The resulting ID will be a concatenation of the following strings:

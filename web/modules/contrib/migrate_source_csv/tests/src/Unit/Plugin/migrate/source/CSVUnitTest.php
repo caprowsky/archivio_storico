@@ -53,7 +53,7 @@ class CSVUnitTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->pluginId = 'test csv migration';
     $this->pluginDefinition = [];
@@ -89,7 +89,7 @@ EOD;
    *
    * @covers ::__construct
    */
-  public function testCreate() {
+  public function testCreate(): void {
     $configuration = [
       'path' => $this->standardCharsPath,
       'ids' => ['id'],
@@ -101,7 +101,7 @@ EOD;
   /**
    * Tests that a missing path will throw an exception.
    */
-  public function testMigrateExceptionPathMissing() {
+  public function testMigrateExceptionPathMissing(): void {
     $this->expectException(\InvalidArgumentException::class);
     $this->expectExceptionMessage('You must declare the "path" to the source CSV file in your source settings.');
     new CSV([], $this->pluginId, $this->pluginDefinition, $this->migration);
@@ -110,7 +110,7 @@ EOD;
   /**
    * Tests that missing ids will throw an exception.
    */
-  public function testMigrateExceptionKeysMissing() {
+  public function testMigrateExceptionKeysMissing(): void {
     $configuration = [
       'path' => $this->standardCharsPath,
     ];
@@ -124,7 +124,7 @@ EOD;
    *
    * @covers ::__toString
    */
-  public function testToString() {
+  public function testToString(): void {
     $configuration = [
       'path' => $this->standardCharsPath,
       'ids' => ['id'],
@@ -144,7 +144,7 @@ EOD;
    * @covers ::initializeIterator
    * @dataProvider iteratorDataProvider
    */
-  public function testInitializeIterator(array $configuration, array $expected) {
+  public function testInitializeIterator(array $configuration, array $expected): void {
     $file_path = $this->standardCharsPath;
     if (isset($configuration['path']) && $configuration['path'] === 'non standard') {
       $file_path = $this->nonStandardCharsPath;
@@ -169,7 +169,7 @@ EOD;
    * @return array
    *   The test case.
    */
-  public function iteratorDataProvider() {
+  public function iteratorDataProvider(): array {
     $data['non standard'] = [
       'configuration' => [
         'ids' => ['ids'],
@@ -259,7 +259,7 @@ EOD;
    * @covers ::getIds
    * @dataProvider idsDataProvider
    */
-  public function testGetIds(array $configuration, array $expected) {
+  public function testGetIds(array $configuration, array $expected): void {
     $csv = new CSV($configuration + ['path' => $this->standardCharsPath], $this->pluginId, $this->pluginDefinition, $this->migration);
     $this->assertArrayEquals($expected, $csv->getIds());
   }
@@ -270,7 +270,7 @@ EOD;
    * @return array
    *   The test case.
    */
-  public function idsDataProvider() {
+  public function idsDataProvider(): array {
     $data['ids'] = [
       'configuration' => [
         'ids' => [
@@ -301,7 +301,7 @@ EOD;
    * @covers ::fields
    * @dataProvider fieldsDataProvider
    */
-  public function testFields(array $configuration, array $expected) {
+  public function testFields(array $configuration, array $expected): void {
     $csv = new CSV($configuration + ['path' => $this->standardCharsPath], $this->pluginId, $this->pluginDefinition, $this->migration);
     $this->assertArrayEquals($expected, $csv->fields());
   }
@@ -312,7 +312,7 @@ EOD;
    * @return array
    *   The test case.
    */
-  public function fieldsDataProvider() {
+  public function fieldsDataProvider(): array {
     $data['no fields'] = [
       'configuration' => [
         'ids' => ['id'],
@@ -352,15 +352,15 @@ EOD;
    *
    * @covers ::initializeIterator
    */
-  public function testMalformedFilePath() {
+  public function testMalformedFilePath(): void {
     $configuration = [
       'path' => 'non-existent-path',
       'ids' => ['id'],
     ];
 
     $csv = new CSV($configuration, $this->pluginId, $this->pluginDefinition, $this->migration);
-    $this->expectException(Warning::class);
-    $this->expectExceptionMessage('fopen(non-existent-path): failed to open stream: No such file or directory');
+    $this->expectException(\RuntimeException::class);
+    $this->expectExceptionMessage('File "non-existent-path" was not found.');
     $csv->initializeIterator();
   }
 

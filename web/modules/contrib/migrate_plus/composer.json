@@ -2,7 +2,7 @@
     "name": "drupal/migrate_plus",
     "description": "Enhancements to core migration support.",
     "type": "drupal-module",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/migrate_plus",
     "authors": [
         {
@@ -25,5 +25,8 @@
     "suggest": {
         "sainsburys/guzzle-oauth2-plugin": "3.0 required for the OAuth2 authentication plugin",
         "ext-soap": "*"
+    },
+    "require": {
+        "php": ">=7.1"
     }
 }

@@ -15,7 +15,7 @@ class DataParserPluginBaseTest extends MigrateTestCase {
   /**
    * @covers ::nextSource
    */
-  public function testNextSourceWithOneUrl() {
+  public function testNextSourceWithOneUrl(): void {
     $parser = $this->getMockedDataParser();
     $parser->expects($this->once())
       ->method('openSourceUrl')
@@ -26,7 +26,7 @@ class DataParserPluginBaseTest extends MigrateTestCase {
   /**
    * @covers ::nextSource
    */
-  public function testNextSourceWithoutUrls() {
+  public function testNextSourceWithoutUrls(): void {
     $config = [
       'urls' => [],
     ];
@@ -40,7 +40,7 @@ class DataParserPluginBaseTest extends MigrateTestCase {
   /**
    * @covers ::count
    */
-  public function testCountWithoutUrls() {
+  public function testCountWithoutUrls(): void {
     $config = [
       'urls' => [],
     ];

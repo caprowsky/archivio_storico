@@ -58,7 +58,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Mock a  migration.
@@ -107,7 +107,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
    *
    * @dataProvider providerTestConfigValidation
    */
-  public function testConfigValidation(array $config_overrides, $message) {
+  public function testConfigValidation(array $config_overrides, $message): void {
     $configuration = $config_overrides + $this->exampleConfiguration;
     $value = '<p>A simple paragraph.</p>';
     $this->expectException(InvalidPluginDefinitionException::class);
@@ -119,7 +119,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
   /**
    * Dataprovider for testConfigValidation().
    */
-  public function providerTestConfigValidation() {
+  public function providerTestConfigValidation(): array {
     $cases = [
       'migrations-empty' => [
         ['migrations' => []],
@@ -141,7 +141,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
   /**
    * @covers ::transform
    */
-  public function testTransformInvalidInput() {
+  public function testTransformInvalidInput(): void {
     $value = 'string';
     $this->expectException(MigrateSkipRowException::class);
     $this->expectExceptionMessage('The dom_migration_lookup plugin in the destinationproperty process pipeline requires a \DOMDocument object. You can use the dom plugin to convert a string to \DOMDocument.');
@@ -154,7 +154,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
    *
    * @dataProvider providerTestTransform
    */
-  public function testTransform($config_overrides, $input_string, $output_string) {
+  public function testTransform($config_overrides, $input_string, $output_string): void {
     $configuration = $config_overrides + $this->exampleConfiguration;
     $value = Html::load($input_string);
     $document = (new DomMigrationLookup($configuration, 'dom_migration_lookup', [], $this->migration, $this->processPluginManager))
@@ -166,7 +166,7 @@ class DomMigrationLookupTest extends MigrateProcessTestCase {
   /**
    * Dataprovider for testTransform().
    */
-  public function providerTestTransform() {
+  public function providerTestTransform(): array {
     $cases = [
       'users-migration' => [
         [],

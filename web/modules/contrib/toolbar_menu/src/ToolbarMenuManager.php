@@ -15,13 +15,6 @@ class ToolbarMenuManager {
   use StringTranslationTrait;
 
   /**
-   * The entity manager.
-   *
-   * @var \Drupal\Core\Entity\EntityManagerInterface
-   */
-  protected $entityManager;
-
-  /**
    * The current account.
    *
    * @var \Drupal\Core\Session\AccountInterface
@@ -38,15 +31,14 @@ class ToolbarMenuManager {
   /**
    * Construct a new ToolbarMenu.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity manager.
    * @param \Drupal\Core\Session\AccountProxyInterface $account
    *   The account service.
    */
-  public function __construct(EntityTypeManagerInterface $entity_manager, AccountProxyInterface $account) {
-    $this->entityManager = $entity_manager;
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountProxyInterface $account) {
     $this->account = $account->getAccount();
-    $this->toolbarMenuElements = $this->entityManager->getStorage('toolbar_menu_element')->loadMultiple();
+    $this->toolbarMenuElements = $entity_type_manager->getStorage('toolbar_menu_element')->loadMultiple();
   }
 
   /**

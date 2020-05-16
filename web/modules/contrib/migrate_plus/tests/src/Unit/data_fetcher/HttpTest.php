@@ -87,7 +87,7 @@ class HttpTest extends MigrateTestCase {
   /**
    * Set up test environment.
    */
-  public function setUp() {
+  public function setUp(): void {
     // Mock up a Basic authentication plugin that will be used in requests.
     $basic_authenticator = $this->getMockBuilder(Basic::class)
       ->disableOriginalConstructor()
@@ -107,7 +107,7 @@ class HttpTest extends MigrateTestCase {
   /**
    * Test 'http' data fetcher (with auth) returns an expected response.
    */
-  public function testFetchHttpWithAuth() {
+  public function testFetchHttpWithAuth(): void {
     $migration_config = $this->migrationConfiguration + $this->specificMigrationConfig;
 
     $plugin = new TestHttp($migration_config, $this->dataFetcherPluginId, $this->pluginDefinition);
@@ -127,7 +127,7 @@ class HttpTest extends MigrateTestCase {
   /**
    * Test 'http' data fetcher (without auth) returns an expected response.
    */
-  public function testFetchHttpNoAuth() {
+  public function testFetchHttpNoAuth(): void {
     $migration_config = $this->migrationConfiguration + $this->specificMigrationConfig;
     unset($migration_config['authentication']);
 
@@ -145,7 +145,7 @@ class HttpTest extends MigrateTestCase {
   /**
    * Test 'http' data fetcher (with auth) dies as expected when auth fails.
    */
-  public function testFetchHttpAuthFailure() {
+  public function testFetchHttpAuthFailure(): void {
     $migration_config = $this->migrationConfiguration + $this->specificMigrationConfig;
 
     $plugin = new TestHttp($migration_config, $this->dataFetcherPluginId, $this->pluginDefinition);
@@ -159,7 +159,7 @@ class HttpTest extends MigrateTestCase {
   /**
    * Test 'http' data fetcher (with auth) dies as expected when server down.
    */
-  public function testFetchHttp500Error() {
+  public function testFetchHttp500Error(): void {
     $migration_config = $this->migrationConfiguration + $this->specificMigrationConfig;
 
     $plugin = new TestHttp($migration_config, $this->dataFetcherPluginId, $this->pluginDefinition);

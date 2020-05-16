@@ -17,6 +17,13 @@ class LayoutBuilderModalTest extends BrowserTestBase {
   protected static $modules = ['layout_builder', 'layout_builder_modal'];
 
   /**
+   * Specify the theme to be used in testing.
+   *
+   * @var string
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
    * Tests the Layout Builder Modal settings form.
    */
   public function testSettingsForm() {

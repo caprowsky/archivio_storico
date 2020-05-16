@@ -71,7 +71,7 @@ class EntityGenerateTest extends KernelTestBase implements MigrateMessageInterfa
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     // Create article content type.
     $values = [
@@ -132,7 +132,7 @@ class EntityGenerateTest extends KernelTestBase implements MigrateMessageInterfa
    *
    * @covers ::transform
    */
-  public function testTransform(array $definition, array $expected, array $preSeed = []) {
+  public function testTransform(array $definition, array $expected, array $preSeed = []): void {
     // Pre seed some test data.
     foreach ($preSeed as $storageName => $values) {
       // If the first element of $values is a non-empty array, create multiple
@@ -149,8 +149,11 @@ class EntityGenerateTest extends KernelTestBase implements MigrateMessageInterfa
 
     /** @var \Drupal\migrate\Plugin\Migration $migration */
     $migration = $this->migrationPluginManager->createStubMigration($definition);
+    $reflector = new \ReflectionObject($migration->getDestinationPlugin());
+    $attribute = $reflector->getProperty('storage');
+    $attribute->setAccessible(true);
     /** @var \Drupal\Core\Entity\EntityStorageBase $storage */
-    $storage = $this->readAttribute($migration->getDestinationPlugin(), 'storage');
+    $storage = $attribute->getValue($migration->getDestinationPlugin());
     $migrationExecutable = (new MigrateExecutable($migration, $this));
     $migrationExecutable->import();
 

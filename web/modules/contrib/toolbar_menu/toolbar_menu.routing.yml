@@ -1,5 +1,5 @@
 entity.toolbar_menu_element.collection:
-  path: 'admin/config/user-interface/toolbar_menu/elements'
+  path: 'admin/config/user-interface/toolbar-menu/elements'
   defaults:
     _entity_list: 'toolbar_menu_element'
     _title: 'Toolbar menu elements'
@@ -7,7 +7,7 @@ entity.toolbar_menu_element.collection:
     _permission: 'administer toolbar menu'
 
 entity.toolbar_menu_element.add_form:
-  path: 'admin/config/user-interface/toolbar_menu/elements/add'
+  path: 'admin/config/user-interface/toolbar-menu/elements/add'
   defaults:
     _entity_form: 'toolbar_menu_element.default'
     _title: 'Add Toolbar menu element'

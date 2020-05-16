@@ -5,9 +5,9 @@
  * Add menu entries in the Drupal Toolbar.
  */
 
-use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+use Drupal\toolbar_menu\ToolbarMenuPrerender;
 
 /**
  * Implements hook_help().
@@ -21,7 +21,7 @@ function toolbar_menu_help($route_name, RouteMatchInterface $route_match) {
       $output .= '<h3>' . t('Usage') . '</h3>';
       $output .= '<ul>';
       $output .= '<li>' . t('Manage your menus (Structure > Menu)') . '</li>';
-      $output .= '<li>' . t('Go to Config > Toolbar Menu > Toolbar Menu settings') . '</li>';
+      $output .= '<li>' . t('Go to Config > User interface > Toolbar Menu settings') . '</li>';
       $output .= '<li>' . t('Check all menus you want to appear in your toolbar') . '</li>';
       $output .= '<li>' . t('Re-order the menu entries if you want') . '</li>';
       $output .= '<li>' . t('Save the configuration') . '</li>';
@@ -70,7 +70,7 @@ function toolbar_menu_toolbar() {
         'toolbar_menu_' . $element_id . '_links' => [
           '#type' => 'container',
           '#id' => $element->loadMenu()->id(),
-          '#pre_render' => ['toolbar_menu_prerender_toolbar_tray'],
+          '#pre_render' => [[ToolbarMenuPrerender::class, 'prerenderToolbarTray']],
           '#attributes' => [
             'class' => ['toolbar-menu-administration'],
           ],
@@ -96,26 +96,14 @@ function toolbar_menu_toolbar() {
  * @param array $element
  *   The tray element to pre-render.
  *
+ * @deprecated in toolbar_menu:8.x-2.2 and is removed from toolbar_menu:8.x-3.0.
+ * Use \Drupal\toolbar_menu\ToolbarMenuPrerender::prerenderToolbarTray instead.
+ * @see https://www.drupal.org/project/toolbar_menu/issues/3072454
+ *
  * @return array
  *   The pre-rendered tray element.
  */
 function toolbar_menu_prerender_toolbar_tray(array $element) {
-  /** @var \Drupal\toolbar\Menu\ToolbarMenuLinkTree $menu_tree */
-  $menu_tree = \Drupal::service('toolbar.menu_tree');
-
-  $parameters = new MenuTreeParameters();
-  $parameters->excludeRoot()->onlyEnabledLinks();
-
-  $tree = $menu_tree->load($element['#id'], $parameters);
-
-  $manipulators = [
-    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
-    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
-    ['callable' => 'toolbar_menu.menu_link_tree_manipulators:addIcons'],
-  ];
-  $tree = $menu_tree->transform($tree, $manipulators);
-
-  $element['toolbar_menu_' . $element['#id']] = $menu_tree->build($tree);
-
-  return $element;
+  @trigger_error('toolbar_menu_prerender_toolbar_tray() is deprecated in toolbar_menu:8.x-2.2 and is removed from toolbar_menu:8.x-3.0. Use \Drupal\toolbar_menu\ToolbarMenuPrerender::prerenderToolbarTray() instead. See https://www.drupal.org/project/toolbar_menu/issues/3072454', E_USER_DEPRECATED);
+  return ToolbarMenuPrerender::prerenderToolbarTray($element);
 }

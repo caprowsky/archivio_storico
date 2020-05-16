@@ -41,14 +41,14 @@ class DomApplyStylesTest extends MigrateProcessTestCase {
   /**
    * Mock a config factory object.
    *
-   * @var Drupal\Core\Config\ConfigFactoryInterface
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory = NULL;
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     // Mock a config object.
     $prophecy = $this->prophesize(ImmutableConfig::class);
     $prophecy
@@ -70,7 +70,7 @@ class DomApplyStylesTest extends MigrateProcessTestCase {
    *
    * @dataProvider providerTestConfig
    */
-  public function testValidateRules(array $config_overrides, $message) {
+  public function testValidateRules(array $config_overrides, $message): void {
     $configuration = $config_overrides + $this->exampleConfiguration;
     $value = '<p>A simple paragraph.</p>';
     $this->expectException(InvalidPluginDefinitionException::class);
@@ -82,7 +82,7 @@ class DomApplyStylesTest extends MigrateProcessTestCase {
   /**
    * Dataprovider for testValidateRules().
    */
-  public function providerTestConfig() {
+  public function providerTestConfig(): array {
     $cases = [
       'format-empty' => [
         ['format' => ''],
@@ -116,7 +116,7 @@ class DomApplyStylesTest extends MigrateProcessTestCase {
   /**
    * @covers ::transform
    */
-  public function testTransformInvalidInput() {
+  public function testTransformInvalidInput(): void {
     $value = 'string';
     $this->expectException(MigrateSkipRowException::class);
     $this->expectExceptionMessage('The dom_apply_styles plugin in the destinationproperty process pipeline requires a \DOMDocument object. You can use the dom plugin to convert a string to \DOMDocument.');
@@ -127,7 +127,7 @@ class DomApplyStylesTest extends MigrateProcessTestCase {
   /**
    * @covers ::transform
    */
-  public function testTransform() {
+  public function testTransform(): void {
     $input_string = '<div><span><b>Bold text</b></span><span><i>Italic text</i></span></div>';
     $output_string = '<div><span><strong class="foo">Bold text</strong></span><em class="foo bar">Italic text</em></div>';
     $value = Html::load($input_string);

@@ -29,7 +29,7 @@ class MigrateTableIncrementTest extends MigrateTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->connection = $this->container->get('database');
     $this->connection->schema()->createTable(static::TABLE_NAME, [
@@ -57,7 +57,7 @@ class MigrateTableIncrementTest extends MigrateTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function tearDown() {
+  protected function tearDown(): void {
     $this->connection->schema()->dropTable(static::TABLE_NAME);
     parent::tearDown();
   }
@@ -68,7 +68,7 @@ class MigrateTableIncrementTest extends MigrateTestBase {
    * @return array
    *   The migration definition.
    */
-  public function tableDestinationMigration() {
+  public function tableDestinationMigration(): array {
     return [
       'dummy table' => [
         [

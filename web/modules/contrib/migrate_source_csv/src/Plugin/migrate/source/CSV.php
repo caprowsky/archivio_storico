@@ -259,7 +259,14 @@ class CSV extends SourcePluginBase implements ConfigurableInterface {
    *   The reader.
    */
   protected function createReader() {
-    return Reader::createFromStream(fopen($this->configuration['path'], 'r'));
+    if (!file_exists($this->configuration['path'])) {
+      throw new \RuntimeException(sprintf('File "%s" was not found.', $this->configuration['path']));
+    }
+    $csv = fopen($this->configuration['path'], 'r');
+    if (!$csv) {
+      throw new \RuntimeException(sprintf('File "%s" could not be opened.', $this->configuration['path']));
+    }
+    return Reader::createFromStream($csv);
   }
 
 }

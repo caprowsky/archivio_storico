@@ -32,10 +32,17 @@ use Drupal\system\Entity\Menu;
  *     "menu" = "menu",
  *     "rewrite_label" = "rewrite_label",
  *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "weight",
+ *     "menu",
+ *     "rewrite_label",
+ *   },
  *   links = {
- *     "collection" = "/admin/config/user-interface/toolbar_menu/elements",
- *     "edit-form" = "/admin/config/user-interface/toolbar_menu/elements/{toolbar_menu_element}",
- *     "delete-form" = "/admin/config/user-interface/toolbar_menu/elements/{toolbar_menu_element}/delete"
+ *     "collection" = "/admin/config/user-interface/toolbar-menu/elements",
+ *     "edit-form" = "/admin/config/user-interface/toolbar-menu/elements/{toolbar_menu_element}",
+ *     "delete-form" = "/admin/config/user-interface/toolbar-menu/elements/{toolbar_menu_element}/delete"
  *   }
  * )
  */
