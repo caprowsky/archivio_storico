@@ -1,0 +1,20 @@
+uuid: 9cc6146e-29a5-4adb-82ff-c0281aef001a
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_file_tesi_laurea
+field_name: field_file_tesi_laurea
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

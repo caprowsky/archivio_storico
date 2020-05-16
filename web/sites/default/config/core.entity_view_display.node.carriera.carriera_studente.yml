@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
+    - field.field.node.carriera.field_file_tesi_laurea
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
@@ -47,7 +48,7 @@ third_party_settings:
     group_carriera_studente:
       children: {  }
       parent_name: ''
-      weight: 31
+      weight: 32
       format_type: fieldset
       region: hidden
       format_settings:
@@ -62,7 +63,7 @@ third_party_settings:
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 32
+      weight: 33
       format_type: fieldset
       region: hidden
       format_settings:
@@ -79,7 +80,7 @@ content:
     type: text_default
     weight: 12
     region: content
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
   field_corso:
@@ -122,6 +123,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_file_tesi_laurea:
+    type: entity_reference_entity_view
+    weight: 13
+    region: content
+    label: inline
+    settings:
+      view_mode: elenco_
+      link: false
+    third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
     weight: 11
     label: inline

@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
+    - field.field.node.carriera.field_file_tesi_laurea
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
@@ -51,6 +52,8 @@ third_party_settings:
         - field_titolo_tesi_laurea
         - field_valutazione_laurea
         - field_segnatura_arch_tesi_laurea
+        - field_carriera
+        - field_file_tesi_laurea
       parent_name: ''
       weight: 8
       format_type: fieldset
@@ -96,8 +99,8 @@ content:
     type: text_default
     region: content
   field_carriera:
-    weight: 27
-    label: above
+    weight: 26
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -149,6 +152,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_file_tesi_laurea:
+    type: entity_reference_entity_view
+    weight: 27
+    label: inline
+    settings:
+      view_mode: elenco_
+      link: false
+    third_party_settings: {  }
+    region: content
   field_id:
     weight: 1
     label: inline
@@ -196,7 +208,7 @@ content:
     type: text_default
     region: content
   field_segnatura_arch_tesi_laurea:
-    weight: 26
+    weight: 25
     label: inline
     settings:
       link_to_entity: false
@@ -204,7 +216,7 @@ content:
     type: string
     region: content
   field_segnatura_arch_tesi_licenz:
-    weight: 23
+    weight: 22
     label: inline
     settings:
       link_to_entity: false
@@ -219,7 +231,7 @@ content:
     type: list_default
     region: content
   field_titolo_tesi_laurea:
-    weight: 24
+    weight: 23
     label: inline
     settings: {  }
     third_party_settings: {  }
@@ -233,7 +245,7 @@ content:
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 25
+    weight: 24
     label: inline
     settings: {  }
     third_party_settings: {  }

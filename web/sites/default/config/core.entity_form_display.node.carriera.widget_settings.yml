@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
+    - field.field.node.carriera.field_file_tesi_laurea
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
@@ -508,6 +509,7 @@ hidden:
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera_fake: true
   field_data_nascita: true
+  field_file_tesi_laurea: true
   field_id: true
   field_luogo_nascita: true
   field_persona: true

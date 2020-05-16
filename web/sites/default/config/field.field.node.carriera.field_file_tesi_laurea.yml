@@ -1,0 +1,28 @@
+uuid: ba0bb387-176f-4fbe-8ba9-0579c9d0cf27
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_tesi_laurea
+    - media.type.document
+    - node.type.carriera
+id: node.carriera.field_file_tesi_laurea
+field_name: field_file_tesi_laurea
+entity_type: node
+bundle: carriera
+label: 'File tesi di laurea'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

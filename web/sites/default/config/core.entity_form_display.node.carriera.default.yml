@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
     - field.field.node.carriera.field_facolta
+    - field.field.node.carriera.field_file_tesi_laurea
     - field.field.node.carriera.field_id
     - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
@@ -41,6 +42,7 @@ dependencies:
     - conditional_fields
     - entity_browser
     - field_group
+    - media_library
     - path
     - readonly_field_widget
     - text
@@ -55,6 +57,7 @@ third_party_settings:
         - field_titolo_tesi_laurea
         - field_segnatura_arch_tesi_laurea
         - field_carriera
+        - field_file_tesi_laurea
       parent_name: ''
       weight: 15
       format_type: fieldset
@@ -309,6 +312,31 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_file_tesi_laurea:
+    type: media_library_widget
+    weight: 23
+    settings:
+      media_types: {  }
+    third_party_settings:
+      conditional_fields:
+        590b47c0-121a-4af8-9e7a-8d33b0592571:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: s
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     region: content
   field_id:
     type: readonly_field_widget
