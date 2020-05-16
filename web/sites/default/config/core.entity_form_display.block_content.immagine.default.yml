@@ -4,11 +4,12 @@ status: true
 dependencies:
   config:
     - block_content.type.immagine
+    - entity_browser.browser.immagine
     - field.field.block_content.immagine.field_didascalia
     - field.field.block_content.immagine.field_immagine
     - field.field.block_content.immagine.field_larghezza
   module:
-    - media_library
+    - entity_browser
     - text
 id: block_content.immagine.default
 targetEntityType: block_content
@@ -24,10 +25,18 @@ content:
     type: text_textarea
     region: content
   field_immagine:
-    type: media_library_widget
+    type: entity_browser_entity_reference
     weight: 1
     settings:
-      media_types: {  }
+      entity_browser: immagine
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: media_library
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      field_widget_replace: false
     third_party_settings: {  }
     region: content
   field_larghezza:

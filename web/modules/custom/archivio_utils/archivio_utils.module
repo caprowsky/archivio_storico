@@ -45,4 +45,16 @@ function archivio_utils_node_presave(Drupal\Core\Entity\EntityInterface $entity)
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
+function archivio_utils_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
+  $a = 1;
+  if ($form_id == 'layout_builder_add_block') {
+    $form['settings']['label_display']['#default_value'] = false;
+    $form['settings']['label']['#title'] = 'Titolo amministrativo';
+    $form['settings']['label']['#description'] = 'Il titolo amministrativo del blocco, non viene visualizzato nella pagina.';
+  }
+
+}

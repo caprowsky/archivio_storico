@@ -11,7 +11,7 @@ id: block_content.card.body
 field_name: body
 entity_type: block_content
 bundle: card
-label: Body
+label: Testo
 description: ''
 required: false
 translatable: true

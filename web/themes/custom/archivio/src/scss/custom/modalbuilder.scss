@@ -1,0 +1,118 @@
+#layout-builder-modal {
+
+  & > .form-item {
+    margin-bottom: 25px;
+  }
+
+  /** intestazione blocco **/
+  .form-item-settings-label {
+    margin-bottom: 30px;
+  }
+
+  .form-item-settings-admin-label {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    label {
+      display: none;
+    }
+
+    &::before {
+      content: 'Tipo di blocco: ';
+    }
+  }
+  /** fine intestazione blocco **/
+
+  /** CHECKBOX **/
+  .js-form-type-checkbox {
+    display: none;
+    label {
+      padding-left: 30px !important;
+    }
+  }
+
+  .form-check [type="checkbox"] {
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
+    margin: 6px -1px;
+    top: -6 px;
+  }
+
+  .form-check [type="checkbox"]:not(:checked) + label::after {
+    top: -6px !important;
+    left: -6px !important;
+  }
+
+  .form-check [type="checkbox"]:checked + label::after {
+    top: -6px !important;
+    left: -6px !important;
+  }
+
+  .form-check [type="checkbox"]:checked + label::before {
+    top: 0;
+    left: -5px;
+  }
+  /** FINE CHECKBOX **/
+
+  /** texteare ck **/
+  .field--widget-text-textarea-with-summary, .field--widget-text-textarea  {
+    margin-top: 40px;
+  }
+  /** fine textarea **/
+
+  /** field link **/
+  .field--widget-link-default {
+    .description {
+      display: none;
+    }
+
+    input.form-text {
+      margin: 30px 0;
+    }
+
+    label {
+      //margin-top: 20px;
+    }
+  }
+  /** fine field link **/
+
+  /** file entity browser **/
+  .field--widget-entity-browser-entity-reference {
+    p {
+      margin-left: 22px;
+    }
+
+    input {
+      margin-left: 22px;
+    }
+
+    article {
+      margin-left: 12px;
+      margin-bottom: 20px;
+    }
+  }
+  /** fine fil entity browser **/
+
+  /** carousel **/
+  .field--name-field-carousel-item {
+    fieldset {
+      padding-top: 50px;
+    }
+
+    .field--name-info {
+      margin-bottom: 30px;
+    }
+
+    .js-form-submit {
+      margin-top: 30px;
+    }
+
+
+  }
+  /** fine carousel **/
+
+
+
+}

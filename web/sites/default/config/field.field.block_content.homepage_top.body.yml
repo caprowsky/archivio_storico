@@ -11,7 +11,7 @@ id: block_content.homepage_top.body
 field_name: body
 entity_type: block_content
 bundle: homepage_top
-label: Corpo
+label: Testo
 description: ''
 required: false
 translatable: true
