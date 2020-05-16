@@ -14,7 +14,7 @@ third_party_settings:
     weight: 0
     geocode_field: field_id
     reverse_geocode_field: field_geofiled
-    skip_not_empty_value: 0
+    skip_not_empty_value: 1
     disabled: false
     hidden: true
     plugins:

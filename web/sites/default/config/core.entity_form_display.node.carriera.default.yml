@@ -239,7 +239,7 @@ content:
     type: text_textarea
     region: content
   field_corso:
-    weight: 13
+    weight: 14
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -301,7 +301,7 @@ content:
       show_description: false
     third_party_settings: {  }
   field_facolta:
-    weight: 14
+    weight: 13
     settings:
       match_operator: CONTAINS
       match_limit: 10
