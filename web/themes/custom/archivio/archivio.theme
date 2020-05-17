@@ -76,8 +76,8 @@ function archivio_preprocess_block(&$variables) {
 
   $variables['base_path'] = base_path();
 
-  if (isset($variables['element']['content']['#block_content'])) {
-    $block = $variables['element']['content']['#block_content'];
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
     if ($variables['plugin_id'] == "inline_block:hero" || $variables['plugin_id'] == "inline_block:homepage_top") {
       if ($block->hasField('field_immagine_sfondo')) {
         if (!$block->get('field_immagine_sfondo')->isEmpty()) {
@@ -85,6 +85,7 @@ function archivio_preprocess_block(&$variables) {
           $fid = Media::load($mid)->field_media_image[0]->getValue()['target_id'];
           $file = File::load($fid);
           $variables['immagine_sfondo'] = $file->url();
+          $a = 1;
         }
       }
     }
