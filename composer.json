@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^2.0",
         "drupal/auto_entitylabel": "^3.0",
@@ -109,6 +110,9 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
+        },
+        "extra": {
+            "enable-patching": true
         }
     }
 }
