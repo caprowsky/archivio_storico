@@ -69,29 +69,28 @@ function archivio_preprocess_block(&$variables) {
   if (isset($variables['elements']['#id'])){
     $variables['content']['#attributes']['block'] = $variables['elements']['#id'];
   }
-  $variables['content']['#attributes']['block'] = $variables['elements']['#id'];
-  $variables['base_path'] = base_path();
-  $block = $variables['element']['content']['#block_content'];
 
-  if ($variables['plugin_id'] == "inline_block:hero" || $variables['plugin_id'] == "inline_block:homepage_top" )  {
-    $block = $variables['elements']['content']['#block_content'];
-    if ($block->hasField('field_immagine_sfondo')) {
-      if (!$block->get('field_immagine_sfondo')->isEmpty()) {
-        $mid = $block->field_immagine_sfondo[0]->getValue()['target_id'];
-        $fid = Media::load($mid)->field_media_image[0]->getValue()['target_id'];
-        $file = File::load($fid);
-        $variables['immagine_sfondo'] = $file->url();
+  if (isset($variables['elements']['#id'])) {
+    $variables['content']['#attributes']['block'] = $variables['elements']['#id'];
+  }
+
+  $variables['base_path'] = base_path();
+
+  if (isset($variables['element']['content']['#block_content'])) {
+    $block = $variables['element']['content']['#block_content'];
+    if ($variables['plugin_id'] == "inline_block:hero" || $variables['plugin_id'] == "inline_block:homepage_top") {
+      if ($block->hasField('field_immagine_sfondo')) {
+        if (!$block->get('field_immagine_sfondo')->isEmpty()) {
+          $mid = $block->field_immagine_sfondo[0]->getValue()['target_id'];
+          $fid = Media::load($mid)->field_media_image[0]->getValue()['target_id'];
+          $file = File::load($fid);
+          $variables['immagine_sfondo'] = $file->url();
+        }
       }
     }
   }
 
- $a = 1;
-  /*if($node->hasField('field_header_image')){
-    $mid = $node->field_header_image[0]->getValue()['target_id'];
-    $fid = Media::load($mid)->field_media_image[0]->getValue()['target_id'];
-    $file = File::load($fid);
-    $variables['project_image_url'] = $file->url();
-  }*/
+
 }
 
 
