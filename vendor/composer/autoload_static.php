@@ -144,7 +144,6 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
-            'Drupal\\Composer\\Plugin\\ProjectMessage\\' => 38,
             'Drupal\\Component\\' => 17,
             'DrupalCodeGenerator\\' => 20,
             'Doctrine\\Common\\Lexer\\' => 22,
@@ -452,10 +451,6 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
         'Drupal\\Composer\\Plugin\\Scaffold\\' => 
         array (
             0 => __DIR__ . '/..' . '/drupal/core-composer-scaffold',
-        ),
-        'Drupal\\Composer\\Plugin\\ProjectMessage\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/drupal/core-project-message',
         ),
         'Drupal\\Component\\' => 
         array (

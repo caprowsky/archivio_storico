@@ -27,7 +27,6 @@
         "drupal/conditional_fields": "^1.0",
         "drupal/config_split": "^1.4",
         "drupal/core-composer-scaffold": "^8.8",
-        "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/entity_browser": "^2.5",
         "drupal/fac": "^1.5",
