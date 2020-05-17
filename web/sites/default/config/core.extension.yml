@@ -62,6 +62,7 @@ module:
   module_filter: 0
   node: 0
   options: 0
+  override_node_options: 0
   owlcarousel2: 0
   path: 0
   path_alias: 0
