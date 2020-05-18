@@ -15,12 +15,16 @@ dependencies:
     - field.field.node.carriera.field_data_inizio_carriera_fake
     - field.field.node.carriera.field_data_licenza
     - field.field.node.carriera.field_data_nascita
+    - field.field.node.carriera.field_docente_illustre
     - field.field.node.carriera.field_facolta
     - field.field.node.carriera.field_file_tesi_laurea
+    - field.field.node.carriera.field_fine_mandato
     - field.field.node.carriera.field_id
+    - field.field.node.carriera.field_inizio_mandato
     - field.field.node.carriera.field_insegnamenti
     - field.field.node.carriera.field_luogo_nascita
     - field.field.node.carriera.field_persona
+    - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
     - field.field.node.carriera.field_revisore
@@ -95,22 +99,26 @@ third_party_settings:
       label: 'Id Controllo'
     group_carriera_docente:
       children:
+        - field_docente_illustre
+        - field_prima_donna
         - field_biografia
         - field_insegnamenti
         - field_ambiti_di_ricerca
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
         - field_riferimenti_archivistici
+        - field_inizio_mandato
+        - field_fine_mandato
       parent_name: ''
       weight: 16
       format_type: fieldset
       region: content
       format_settings:
-        id: ''
-        classes: ''
         description: ''
         required_fields: true
-      label: 'Carriera docente'
+        id: ''
+        classes: ''
+      label: 'Carriera docente e rettore'
     group_persona_1:
       children:
         - field_persona
@@ -138,7 +146,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ambiti_di_ricerca:
-    weight: 14
+    weight: 22
     settings:
       rows: 5
       placeholder: ''
@@ -150,9 +158,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d
@@ -164,7 +172,7 @@ content:
     type: text_textarea
     region: content
   field_biografia:
-    weight: 12
+    weight: 20
     settings:
       rows: 5
       placeholder: ''
@@ -176,9 +184,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d
@@ -216,7 +224,7 @@ content:
     type: text_textarea
     region: content
   field_carriera_extra_acca:
-    weight: 15
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -228,9 +236,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d
@@ -248,7 +256,23 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c8fd7e5c-f094-4fba-bfbd-ca296b2c081c:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "d\r\ns"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: entity_reference_autocomplete
     region: content
   field_data_fine_carriera:
@@ -256,7 +280,23 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        97bc8fda-9200-4ffe-9771-40f4229181fd:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "s\r\nd"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textfield
     region: content
   field_data_inizio_carriera:
@@ -264,7 +304,23 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        4ebe72f9-15d6-48f3-943c-32ec78a7bab4:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "s\r\nd"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: string_textfield
     region: content
   field_data_licenza:
@@ -303,6 +359,31 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  field_docente_illustre:
+    weight: 18
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        b6f6e715-2588-41db-afd4-29aec32c2b89:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: d
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
+    type: boolean_checkbox
+    region: content
   field_facolta:
     weight: 13
     settings:
@@ -310,7 +391,23 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        b7009673-0214-4b20-a748-ec084c99ce08:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "s\r\nd"
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
     type: entity_reference_autocomplete
     region: content
   field_file_tesi_laurea:
@@ -338,6 +435,32 @@ content:
           entity_type: node
           bundle: carriera
     region: content
+  field_fine_mandato:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        225b3f78-4865-4417-b1f7-f8eee82af6a7:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: r
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
+    type: string_textfield
+    region: content
   field_id:
     type: readonly_field_widget
     weight: 26
@@ -348,8 +471,34 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  field_inizio_mandato:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        a902b517-11c1-4bda-ab9f-97d2eb839d1c:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: r
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
+    type: string_textfield
+    region: content
   field_insegnamenti:
-    weight: 13
+    weight: 21
     settings:
       size: 60
       placeholder: ''
@@ -361,9 +510,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d
@@ -399,6 +548,31 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  field_prima_donna:
+    weight: 19
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        e372b7d4-6261-4254-bae0-1081e2d1cac2:
+          dependee: field_tipologia_carriera
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: d
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: carriera
+    type: boolean_checkbox
+    region: content
   field_primo_cognome:
     type: readonly_field_widget
     weight: 27
@@ -420,7 +594,7 @@ content:
       show_description: false
     third_party_settings: {  }
   field_revisore:
-    weight: 17
+    weight: 21
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -430,7 +604,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_riferimenti_archivistici:
-    weight: 17
+    weight: 25
     settings:
       rows: 5
       placeholder: ''
@@ -442,9 +616,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d
@@ -456,7 +630,7 @@ content:
     type: text_textarea
     region: content
   field_riferimenti_bibliografici:
-    weight: 16
+    weight: 24
     settings:
       rows: 5
       placeholder: ''
@@ -468,9 +642,9 @@ content:
             state: visible
             condition: value
             grouping: AND
-            values_set: 1
+            values_set: 3
             value: ''
-            values: {  }
+            values: "d\r\nr"
             value_form:
               -
                 value: d

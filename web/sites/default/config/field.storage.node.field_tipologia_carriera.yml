@@ -17,6 +17,12 @@ settings:
     -
       value: d
       label: Docente
+    -
+      value: r
+      label: Rettore
+    -
+      value: h
+      label: 'Honoris Causae'
   allowed_values_function: ''
 module: options
 locked: false

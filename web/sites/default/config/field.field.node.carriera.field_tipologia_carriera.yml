@@ -12,7 +12,7 @@ field_name: field_tipologia_carriera
 entity_type: node
 bundle: carriera
 label: 'Tipologia carriera'
-description: 'Indica la tipologia di carriera, se si tratta di una carriera da studente o da docente'
+description: 'Indica la tipologia di carriera, se si tratta di una carriera da studente, docente, rettore oppure honoris causae'
 required: false
 translatable: false
 default_value: {  }

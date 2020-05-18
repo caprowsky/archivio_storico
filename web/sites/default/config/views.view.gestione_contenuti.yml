@@ -6,8 +6,10 @@ dependencies:
     - field.storage.node.field_corso
     - field.storage.node.field_data_inizio_carriera
     - field.storage.node.field_data_nascita
+    - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
     - field.storage.node.field_luogo_nascita
+    - field.storage.node.field_prima_donna
     - field.storage.node.field_segnatura_arch_tesi_laurea
     - field.storage.node.field_tipologia_carriera
     - search_api.index.archivio_indice
@@ -1742,6 +1744,160 @@ display:
           hide_alter_empty: true
           destination: false
           plugin_id: search_api_entity_operations
+        field_docente_illustre:
+          id: field_docente_illustre
+          table: search_api_datasource_archivio_indice_entity_node
+          field: field_docente_illustre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Docente illustre'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: unicode-yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_boolean
+          fallback_options:
+            type: yes-no
+            type_custom_true: ''
+            type_custom_false: ''
+            not: false
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
+        field_prima_donna:
+          id: field_prima_donna
+          table: search_api_datasource_archivio_indice_entity_node
+          field: field_prima_donna
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Prima donna docente'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: unicode-yes-no
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_boolean
+          fallback_options:
+            type: yes-no
+            type_custom_true: ''
+            type_custom_false: ''
+            not: false
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
     cache_metadata:
       max-age: -1
       contexts:
@@ -1755,7 +1911,9 @@ display:
       tags:
         - 'config:field.storage.node.field_corso'
         - 'config:field.storage.node.field_data_inizio_carriera'
+        - 'config:field.storage.node.field_docente_illustre'
         - 'config:field.storage.node.field_facolta'
+        - 'config:field.storage.node.field_prima_donna'
         - 'config:field.storage.node.field_segnatura_arch_tesi_laurea'
         - 'config:field.storage.node.field_tipologia_carriera'
         - 'config:search_api.index.archivio_indice'

@@ -1,0 +1,10 @@
+uuid: 03100f40-e239-410a-b969-1eaae0e6ae14
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.carriera_rettore
+label: 'Carriera rettore'
+targetEntityType: node
+cache: true

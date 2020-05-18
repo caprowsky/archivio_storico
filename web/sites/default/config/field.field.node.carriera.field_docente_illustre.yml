@@ -1,0 +1,23 @@
+uuid: 5786a15b-23cc-4c0a-9068-1fd9deab2050
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_docente_illustre
+    - node.type.carriera
+id: node.carriera.field_docente_illustre
+field_name: field_docente_illustre
+entity_type: node
+bundle: carriera
+label: 'Docente illustre'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

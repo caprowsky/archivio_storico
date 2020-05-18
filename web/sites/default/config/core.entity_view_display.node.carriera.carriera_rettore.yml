@@ -1,9 +1,9 @@
-uuid: 5177010f-0bfe-4a9f-8b10-30998b11a657
+uuid: d27d5811-83b0-49b5-9a81-6a7f04482264
 langcode: it
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.carriera_rettore
     - field.field.node.carriera.field_ambiti_di_ricerca
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera
@@ -43,23 +43,145 @@ dependencies:
     - field.field.node.carriera.field_valutazione_laurea
     - node.type.carriera
   module:
+    - field_group
+    - layout_builder
+    - options
+    - text
     - user
-id: node.carriera.teaser
+third_party_settings:
+  field_group:
+    group_carriera_studente:
+      children:
+        - field_carriera
+        - field_data_licenza
+        - field_file_tesi_laurea
+        - field_segnatura_arch_tesi_laurea
+        - field_segnatura_arch_tesi_licenz
+        - field_titolo_tesi_laurea
+        - field_titolo_tesi_licenza
+        - field_valutazione_laurea
+      parent_name: ''
+      weight: 32
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        description: ''
+        id: ''
+        classes: ''
+      label: 'Carriera studente'
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.carriera.carriera_rettore
 targetEntityType: node
 bundle: carriera
-mode: teaser
+mode: carriera_rettore
 content:
-  links:
-    weight: 100
+  field_ambiti_di_ricerca:
+    weight: 8
+    label: inline
     settings: {  }
     third_party_settings: {  }
+    type: text_default
     region: content
+  field_biografia:
+    weight: 6
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_carriera_extra_acca:
+    weight: 9
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_corso:
+    weight: 4
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_facolta:
+    weight: 5
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_fine_mandato:
+    weight: 13
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_id:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_inizio_mandato:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_insegnamenti:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_persona:
+    weight: 3
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_riferimenti_archivistici:
+    weight: 11
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_riferimenti_bibliografici:
+    weight: 10
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tipologia_carriera:
+    weight: 2
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  field_ambiti_di_ricerca: true
-  field_biografia: true
   field_carriera: true
-  field_carriera_extra_acca: true
-  field_corso: true
   field_data_fine_carriera: true
   field_data_fine_carriera_fake: true
   field_data_inizio_carriera: true
@@ -67,20 +189,12 @@ hidden:
   field_data_licenza: true
   field_data_nascita: true
   field_docente_illustre: true
-  field_facolta: true
   field_file_tesi_laurea: true
-  field_fine_mandato: true
-  field_id: true
-  field_inizio_mandato: true
-  field_insegnamenti: true
   field_luogo_nascita: true
-  field_persona: true
   field_prima_donna: true
   field_primo_cognome: true
   field_primo_nome: true
   field_revisore: true
-  field_riferimenti_archivistici: true
-  field_riferimenti_bibliografici: true
   field_secondo_cognome: true
   field_secondo_nome: true
   field_segnatura_arch_tesi_laurea: true
@@ -88,7 +202,6 @@ hidden:
   field_sesso: true
   field_terzo_cognome: true
   field_terzo_nome: true
-  field_tipologia_carriera: true
   field_titolo_tesi_laurea: true
   field_titolo_tesi_licenza: true
   field_valutazione_laurea: true
