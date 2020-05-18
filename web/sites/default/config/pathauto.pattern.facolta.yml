@@ -8,16 +8,16 @@ dependencies:
 id: facolta
 label: Facoltà
 type: 'canonical_entities:taxonomy_term'
-pattern: 'facolta/[[term:name]'
+pattern: 'facolta/[term:name]'
 selection_criteria:
-  e47f9b3a-5b24-4cab-8231-67aa912adb4e:
+  d32b60b3-e406-45e9-8c94-7f01aa50d9b3:
     id: 'entity_bundle:taxonomy_term'
     bundles:
       facolta: facolta
     negate: false
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: e47f9b3a-5b24-4cab-8231-67aa912adb4e
+    uuid: d32b60b3-e406-45e9-8c94-7f01aa50d9b3
 selection_logic: and
 weight: -5
 relationships: {  }

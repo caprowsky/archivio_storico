@@ -139,3 +139,17 @@
   }
 
 }
+
+.block-facolta-link {
+  margin: 30px 0;
+  text-align: center;
+
+  a {
+    background: $scuro;
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+}
