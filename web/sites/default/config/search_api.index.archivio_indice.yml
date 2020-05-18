@@ -17,7 +17,10 @@ dependencies:
     - field.storage.node.field_data_fine_carriera_fake
     - field.storage.node.field_data_inizio_carriera_fake
     - field.storage.node.field_data_licenza
+    - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
+    - field.storage.node.field_fine_mandato
+    - field.storage.node.field_inizio_mandato
     - field.storage.node.field_insegnamenti
     - field.storage.node.field_link_carriera
     - field.storage.node.field_carriera
@@ -30,6 +33,7 @@ dependencies:
     - field.storage.node.field_titolo_tesi_licenza
     - field.storage.node.field_valutazione_laurea
     - field.storage.node.field_luogo_nascita
+    - field.storage.node.field_prima_donna
     - field.storage.node.field_primo_cognome
     - field.storage.node.field_primo_nome
     - field.storage.node.field_secondo_cognome
@@ -266,6 +270,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_data_nascita
+  field_docente_illustre:
+    label: 'Docente illustre'
+    datasource_id: 'entity:node'
+    property_path: field_docente_illustre
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_docente_illustre
   field_facolta:
     label: Facoltà
     datasource_id: 'entity:node'
@@ -274,6 +286,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_facolta
+  field_fine_mandato:
+    label: 'Fine mandato'
+    datasource_id: 'entity:node'
+    property_path: field_fine_mandato
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_fine_mandato
+  field_inizio_mandato:
+    label: 'Inizio mandato'
+    datasource_id: 'entity:node'
+    property_path: field_inizio_mandato
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_inizio_mandato
   field_insegnamenti:
     label: Insegnamenti
     datasource_id: 'entity:node'
@@ -328,6 +356,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_luogo_nascita
+  field_prima_donna:
+    label: 'Prima donna docente'
+    datasource_id: 'entity:node'
+    property_path: field_prima_donna
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_prima_donna
   field_primo_cognome:
     label: 'Primo cognome'
     datasource_id: 'entity:node'

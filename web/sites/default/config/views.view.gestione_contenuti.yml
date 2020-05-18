@@ -1099,6 +1099,88 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        field_docente_illustre:
+          id: field_docente_illustre
+          table: search_api_index_archivio_indice
+          field: field_docente_illustre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Docente illustre'
+            description: ''
+            use_operator: false
+            operator: field_docente_illustre_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_docente_illustre
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              archivista: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_boolean
+        field_prima_donna:
+          id: field_prima_donna
+          table: search_api_index_archivio_indice
+          field: field_prima_donna
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Prima donna docente'
+            description: ''
+            use_operator: false
+            operator: field_prima_donna_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_prima_donna
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              archivista: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_boolean
       filter_groups:
         operator: AND
         groups:
