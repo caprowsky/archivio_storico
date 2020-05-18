@@ -282,6 +282,28 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_insegnamenti
+  field_insegnamenti__fulltext:
+    label: 'Link carriera » Contenuto » Insegnamenti fulltext'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_insegnamenti'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_insegnamenti
+        - field.storage.node.field_link_carriera
+      module:
+        - node
+  field_insegnamenti_testo:
+    label: 'Link carriera » Contenuto » Insegnamenti testo'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_insegnamenti'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_insegnamenti
+        - field.storage.node.field_link_carriera
+      module:
+        - node
   field_link_carriera:
     label: 'Link carriera'
     datasource_id: 'entity:node'

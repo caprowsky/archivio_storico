@@ -7,6 +7,7 @@ dependencies:
     - block.block.docenteostudente
     - block.block.facolta
     - block.block.formespostopersonericerca
+    - block.block.linkcarrieracontenutoinsegnamentitesto
     - block.block.periodo
     - block.block.sesso_2
     - field.storage.node.field_data_nascita
@@ -1195,6 +1196,19 @@ display:
           empty: false
           tokenize: true
           target: corso
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
+        entity_block_5:
+          id: entity_block_5
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: Insegnamenti
+          empty: false
+          tokenize: true
+          target: linkcarrieracontenutoinsegnamentitesto
           view_mode: default
           bypass_access: false
           plugin_id: entity

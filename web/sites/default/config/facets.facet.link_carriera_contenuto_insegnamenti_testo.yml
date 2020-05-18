@@ -1,4 +1,4 @@
-uuid: 49b2e672-bdbd-4086-820b-543678f37ece
+uuid: f3aee19a-aa50-40d0-bf6b-2f005bf24b14
 langcode: it
 status: true
 dependencies:
@@ -7,19 +7,19 @@ dependencies:
     - views.view.persone
   module:
     - search_api
-id: link_carriera_contenuto_corso
-name: 'Link carriera » Contenuto » Corso'
-url_alias: corso
+id: link_carriera_contenuto_insegnamenti_testo
+name: 'Link carriera » Contenuto » Insegnamenti testo'
+url_alias: insegnamento
 weight: 0
 min_count: 1
 show_only_one_result: true
-field_identifier: field_carriera_corso
+field_identifier: field_insegnamenti_testo
 facet_source_id: 'search_api:views_page__persone__ricerca'
 widget:
   type: dropdown
   config:
-    show_numbers: true
-    default_option_label: Corso
+    show_numbers: false
+    default_option_label: Insegnamento
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
@@ -46,11 +46,6 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  translate_entity:
-    processor_id: translate_entity
-    weights:
-      build: 5
-    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

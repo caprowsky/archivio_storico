@@ -1,0 +1,23 @@
+uuid: 139fb4f0-afef-4250-810a-33cb79e7d707
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.link_carriera_contenuto_insegnamenti_testo
+  module:
+    - facets
+  theme:
+    - archivio
+id: linkcarrieracontenutoinsegnamentitesto
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:link_carriera_contenuto_insegnamenti_testo'
+settings:
+  id: 'facet_block:link_carriera_contenuto_insegnamenti_testo'
+  label: 'Link carriera » Contenuto » Insegnamenti testo'
+  provider: facets
+  label_display: '0'
+  block_id: linkcarrieracontenutoinsegnamentitesto
+visibility: {  }
