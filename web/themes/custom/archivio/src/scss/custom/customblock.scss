@@ -93,5 +93,50 @@
     font-size: 1.55556rem;
     line-height: 1.77778rem;
   }
+}
+
+.block-inline-blockhomepage-top {
+
+  .field--name-body {
+    margin-bottom: 40px;
+  }
+
+  .ricerca-home {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+    margin-bottom: 40px;
+
+    input {
+      display: inline;
+      width: 50%;
+    }
+
+    button {
+      background-color: $scuro;
+      border: none;
+      margin-left: 10px;
+      padding: 8px 20px;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .field--name-field-bottone {
+    .field--item {
+      display: inline;
+    }
+
+    a {
+      display: inline-block;
+      color: #fff;
+      font-weight: bold;
+      background-color: $scuro;
+      padding: 10px 30px;
+      text-decoration: none;
+      margin: 0 50px;
+    }
+
+  }
 
 }

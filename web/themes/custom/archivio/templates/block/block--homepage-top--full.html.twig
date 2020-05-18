@@ -53,8 +53,10 @@
             <h1 class="no_toc">{{ content.field_titolo_hero }}</h1>
             <p class="d-none d-lg-block">{{ content.body }}</p>
 
+            <div class="ricerca-home">
             <form method="get" name="ricerca-home" action="/persone">
-              <input type="text" class="ricerca" name="cerca" placeholder="Inserisci una parola" /> <button type="submit">Cerca</button></form>
+              <input type="text" class="ricerca" name="cerca" placeholder="Inserisci un nome o un'altra parola" /> <button type="submit">Cerca</button></form>
+            </div>
 
               {{ content.field_bottone }}
           </div>
