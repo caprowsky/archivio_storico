@@ -75,6 +75,12 @@
 
     <div{{ content_attributes }}>
 
+      {% if node.isPublished() == false %}
+        <div class="alert alert-danger" role="alert">
+          Attenzione, la scheda di questa persona non è pubblica.
+        </div>
+      {% endif %}
+
       <div class="row">
         <div class="col-md-8">
           <div class="contenuto">
