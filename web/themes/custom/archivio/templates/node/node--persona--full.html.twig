@@ -104,6 +104,9 @@
               {% if carriere.docente %}
                 <p><a href="#carriere-docente">Carriere docente: {{ carriere.docente }}</a></p>
               {% endif %}
+              {% if carriere.rettore %}
+                <p><a href="#carriere-rettore">Carriere rettore: {{ carriere.rettore }}</a></p>
+              {% endif %}
             </div>
 
             <div class="changed">
@@ -130,13 +133,19 @@
 
       {% if carriere.studente %}
         <div id="carriere-studente">
-          {{ drupal_view('carriera_persona', 'carriera_studente') }}
+          {{ drupal_view('carriera_persona', 'carriera_studente', 'carriera_rettore') }}
         </div>
       {% endif %}
 
       {% if carriere.docente %}
         <div id="carriere-docente">
-          {{ drupal_view('carriera_persona', 'carriera_docente') }}
+          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
+        </div>
+      {% endif %}
+
+      {% if carriere.rettore %}
+        <div id="carriere-rettore">
+          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
         </div>
       {% endif %}
 
