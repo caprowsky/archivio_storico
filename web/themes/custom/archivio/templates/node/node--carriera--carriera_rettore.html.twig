@@ -71,91 +71,23 @@
  */
 #}
 <article{{ attributes }}>
-  <div class="persona-full">
+  <div{{ content_attributes }}>
 
-    <div{{ content_attributes }}>
+    <div class="dettaglio-carriera rettore">
+      <h3><i class="fas fa-chalkboard-teacher"></i> Carriera rettore</h3>
+      {{ content.field_facolta }}
+      {{ content.field_corso }}
+      {{ content.field_insegnamenti }}
+      {{ content.field_biografia }}
+      {{ content.field_ambiti_di_ricerca }}
+      {{ content.field_carriera_extra_acca }}
+      {{ content.field_riferimenti_bibliografici }}
+      {{ content.field_riferimenti_archivistici }}
 
-      {% if node.isPublished() == false %}
-        <div class="alert alert-danger" role="alert">
-          Attenzione, la scheda di questa persona non è pubblica.
-        </div>
-      {% endif %}
-
-      <div class="row">
-        <div class="col-md-8">
-          <div class="contenuto">
-            <h1 class="page-title">
-              {{ content.field_primo_cognome|field_value }}
-              {{ content.field_secondo_cognome|field_value }}
-              {{ content.field_terzo_cognome|field_value }}
-              {{ content.field_primo_nome|field_value }}
-              {{ content.field_secondo_nome|field_value }}
-              {{ content.field_terzo_nome|field_value }}
-            </h1>
-
-            {{ content.field_sesso }}
-
-            {% if node.field_indirizzo.value %}
-              {{ content.field_indirizzo }}
-            {% endif %}
-
-            {{ content.field_data_nascita }}
-            {{ content.field_data_di_morte }}
-            {{ content.field_luogo_di_morte }}
-
-            <div class="carriere">
-              {% if carriere.studente %}
-                <p><a href="#carriere-studente">Carriere studente: {{ carriere.studente }}</a></p>
-              {% endif %}
-              {% if carriere.docente %}
-                <p><a href="#carriere-docente">Carriere docente: {{ carriere.docente }}</a></p>
-              {% endif %}
-              {% if carriere.rettore %}
-                <p><a href="#carriere-rettore">Carriere rettore: {{ carriere.rettore }}</a></p>
-              {% endif %}
-            </div>
-
-            <div class="changed">
-            Autore: {{ autore }}<br>
-            Revisore: {{ revisore }}<br>
-            Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
-
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="contenuto">
-            {{ content.field_foto }}
-
-            <div class="tool">
-              <ul>
-                <li><a href="#"><i class="fas fa-envelope"></i> Segnala modifiche</a></li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      {% if carriere.studente %}
-        <div id="carriere-studente">
-          {{ drupal_view('carriera_persona', 'carriera_studente', 'carriera_rettore') }}
-        </div>
-      {% endif %}
-
-      {% if carriere.docente %}
-        <div id="carriere-docente">
-          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
-        </div>
-      {% endif %}
-
-      {% if carriere.rettore %}
-        <div id="carriere-rettore">
-          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
-        </div>
-      {% endif %}
+      {{ content.field_inizio_mandato }}
+      {{ content.field_fine_mandato }}
 
     </div>
-
   </div>
+
 </article>
