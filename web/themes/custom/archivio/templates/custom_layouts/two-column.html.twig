@@ -1,0 +1,18 @@
+{% if content %}
+  <div {{ attributes.addClass('three-column') }}>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            {{ content.col1}}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            {{ content.col2 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

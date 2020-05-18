@@ -1,0 +1,73 @@
+one_column_full:
+  label: 'One column 100%'
+  category: 'Archivio'
+  template: templates/custom_layouts/one-column-full
+  default_region: main
+  icon_map:
+    - [main]
+  regions:
+    main:
+      label: Main content
+
+one_column_container:
+  label: 'One column container'
+  category: 'Archivio'
+  template: templates/custom_layouts/one-column-container
+  default_region: main
+  icon_map:
+    - [main]
+  regions:
+    main:
+      label: Main content
+
+two_column:
+  label: 'Two columns'
+  category: 'Archivio'
+  template: templates/custom_layouts/two-column
+  default_region: col1
+  icon_map:
+    - [col1, col2]
+  regions:
+    col1:
+      label: "Column 1"
+    col2:
+      label: "Column 2"
+
+two_column_stacked:
+  label: 'Two columns stacked'
+  category: 'Archivio'
+  template: templates/custom_layouts/two-column-stacked
+  default_region: col1
+  icon_map:
+    - [main1]
+    - [col1, col2]
+    - [main2]
+    - [col3, col4]
+  regions:
+    main1:
+      label: "Main 1"
+    main2:
+      label: "Main 2"
+    col1:
+      label: "Column 1"
+    col2:
+      label: "Column 2"
+    col3:
+      label: "Column 1"
+    col4:
+      label: "Column 2"
+
+three_column:
+  label: 'Three columns'
+  category: 'Archivio'
+  template: templates/custom_layouts/three-column
+  default_region: col1
+  icon_map:
+    - [col1, col2, col3]
+  regions:
+    col1:
+      label: "Column 1"
+    col2:
+      label: "Column 2"
+    col3:
+      label: "Column 3"
