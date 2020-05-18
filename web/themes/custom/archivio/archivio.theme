@@ -9,8 +9,15 @@ use Drupal\media\Entity\Media;
  */
 function archivio_preprocess_html(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
+
+  $variables['archivio_container'] = 'container';
+
   if ($node) {
     $variables['attributes']['class'][] = 'nodo-' . $node->bundle();
+
+    if ($node->bundle() == 'page') {
+      $variables['archivio_container'] = 'no-container';
+    }
   }
 }
 
@@ -19,6 +26,16 @@ function archivio_preprocess_html(&$variables) {
  */
 function archivio_preprocess_page(&$variables) {
   $variables['ente_appartenenza'] = theme_get_setting('ente_appartenenza');
+
+  $node = \Drupal::request()->attributes->get('node');
+
+  $variables['archivio_container'] = 'container';
+
+  if ($node) {
+    if ($node->bundle() == 'page') {
+      $variables['archivio_container'] = 'no-container';
+    }
+  }
 }
 
 /**
