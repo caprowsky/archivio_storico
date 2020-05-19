@@ -10,9 +10,9 @@ use Drupal\search_api\Processor\ProcessorProperty;
 /**
  *
  * @SearchApiProcessor(
- *   id = "backoffice",
- *   label = @Translation("Backoffice"),
- *   description = @Translation("Backoffice"),
+ *   id = "backoffice_carriere",
+ *   label = @Translation("Backoffice carriere"),
+ *   description = @Translation("Backoffice carriere"),
  *   stages = {
  *     "add_properties" = 0,
  *   },
@@ -20,7 +20,7 @@ use Drupal\search_api\Processor\ProcessorProperty;
  *   hidden = false,
  * )
  */
-class Backoffice extends ProcessorPluginBase {
+class BackofficeCarriere extends ProcessorPluginBase {
 
   /**
    * {@inheritdoc}
@@ -30,12 +30,12 @@ class Backoffice extends ProcessorPluginBase {
 
     if (!$datasource) {
       $definition = [
-        'label' => $this->t('Backoffice'),
-        'description' => $this->t('Backoffice'),
+        'label' => $this->t('Backoffice carriere'),
+        'description' => $this->t('Backoffice carriere'),
         'type' => 'string',
         'processor_id' => $this->getPluginId(),
       ];
-      $properties['search_api_backoffice'] = new ProcessorProperty($definition);
+      $properties['search_api_backoffice_carriere'] = new ProcessorProperty($definition);
     }
 
     return $properties;
@@ -46,11 +46,11 @@ class Backoffice extends ProcessorPluginBase {
    */
   public function addFieldValues(ItemInterface $item) {
     $entity = $item->getOriginalObject()->getValue();
-    /* @var \Drupal\node\Entity\Node $entity*/
-    /* @var \Drupal\node\Entity\Node $carriera*/
+    /* @var \Drupal\node\Entity\Node $entity */
+    /* @var \Drupal\node\Entity\Node $carriera */
     if ($entity->bundle() == 'persona') {
       $fields = $this->getFieldsHelper()
-        ->filterForPropertyPath($item->getFields(), NULL, 'search_api_backoffice');
+        ->filterForPropertyPath($item->getFields(), NULL, 'search_api_backoffice_carriere');
       foreach ($fields as $field) {
         if (!$field->getDatasourceId()) {
           if (!$entity->field_link_carriera->isEmpty()) {
