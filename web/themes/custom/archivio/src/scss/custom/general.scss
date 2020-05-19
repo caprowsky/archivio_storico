@@ -94,3 +94,12 @@
   }
 }
 
+.nav-tabs {
+  .nav-link.active {
+    border-bottom-color: $scuro;
+    color: $scuro;
+  }
+}
+a {
+  color: $scuro;
+}

@@ -1,8 +1,4 @@
 .ricerca-persone {
-  .facets-widget-dropdown {
-    float: left;
-    margin-right: 30px;
-  }
 
   .views-exposed-form {
     margin-top: 50px;
@@ -27,6 +23,7 @@
       padding: 5px 0;
       a {
         text-decoration: none;
+        color: $scuro;
         font-size: 1.2rem;
       }
     }
@@ -38,6 +35,16 @@
     img.tipo-carriera {
       width: 15px;
       margin-left: 10px;
+    }
+  }
+
+  .filtri-ricerca {
+    margin-top: 40px;
+    padding-bottom: 80px;
+
+    .block-facet--dropdown {
+      float: left;
+      margin-right: 30px;
     }
   }
 
