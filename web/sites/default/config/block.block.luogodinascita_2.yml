@@ -1,0 +1,23 @@
+uuid: 3a7e4569-9214-4bcd-8430-d99a58918365
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.luogo_di_nascita_fake
+  module:
+    - facets
+  theme:
+    - archivio
+id: luogodinascita_2
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:luogo_di_nascita_fake'
+settings:
+  id: 'facet_block:luogo_di_nascita_fake'
+  label: 'Luogo di nascita'
+  provider: facets
+  label_display: '0'
+  block_id: luogodinascita_2
+visibility: {  }
