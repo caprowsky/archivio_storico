@@ -6,7 +6,25 @@ dependencies:
     - field.storage.node.field_geofiled
     - node.type.persona
   module:
+    - geocoder_field
     - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    weight: 0
+    geocode_field: field_luogo_nascita
+    reverse_geocode_field: ''
+    skip_not_empty_value: 0
+    disabled: false
+    hidden: false
+    plugins:
+      - googlemaps
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: node.persona.field_geofiled
 field_name: field_geofiled
 entity_type: node
