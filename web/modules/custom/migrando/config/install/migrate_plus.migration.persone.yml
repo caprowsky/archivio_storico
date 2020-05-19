@@ -4,9 +4,7 @@ migration_tags:
 label: 'CSV file migration'
 source:
   plugin: csv
-  path:
-    - /var/www/html/web/modules/custom/migrando/files/studenti.csv
-    - /var/www/html/web/modules/custom/migrando/files/docenti.csv
+  path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
   ids: [concatena]
 
 process:
