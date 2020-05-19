@@ -116,7 +116,8 @@
             </div>
 
             <div class="changed">
-            Aggiornamento scheda: {{ node.created.value|format_date('short') }}</div>
+              Aggiornamento scheda: {{ node.getChangedTime|date('d/m/Y - H:i') }}
+            </div>
 
           </div>
         </div>
@@ -137,19 +138,19 @@
 
       {% if carriere.studente %}
         <div id="carriere-studente">
-          {{ drupal_view('carriera_persona', 'carriera_studente', 'carriera_rettore') }}
+          {{ drupal_view('carriera_persona', 'carriera_studente') }}
         </div>
       {% endif %}
 
       {% if carriere.docente %}
         <div id="carriere-docente">
-          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
+          {{ drupal_view('carriera_persona', 'carriera_docente') }}
         </div>
       {% endif %}
 
       {% if carriere.rettore %}
         <div id="carriere-rettore">
-          {{ drupal_view('carriera_persona', 'carriera_docente', 'carriera_rettore') }}
+          {{ drupal_view('carriera_persona', 'carriera_rettore') }}
         </div>
       {% endif %}
 
