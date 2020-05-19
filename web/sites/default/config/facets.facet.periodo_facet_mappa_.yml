@@ -1,4 +1,4 @@
-uuid: 3def3a7b-d02f-40cf-a2fb-1e90f822e676
+uuid: fc0dc600-cd30-4cc5-98c7-17366b906f62
 langcode: it
 status: true
 dependencies:
@@ -7,19 +7,19 @@ dependencies:
     - views.view.mappa
   module:
     - search_api
-id: tipologia_carriera_mappa
-name: 'Tipologia carriera mappa'
-url_alias: tipologia_carriera_mappa
+id: periodo_facet_mappa_
+name: 'Periodo facet mappa '
+url_alias: periodo
 weight: 0
 min_count: 1
 show_only_one_result: true
-field_identifier: field_tipologia_carriera_1
+field_identifier: persona_periodo
 facet_source_id: 'search_api:views_block__mappa__blocco_mappa'
 widget:
   type: dropdown
   config:
     show_numbers: true
-    default_option_label: Choose
+    default_option_label: Periodo
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

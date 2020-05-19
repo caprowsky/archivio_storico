@@ -1,0 +1,23 @@
+uuid: b392e177-7b7a-4554-9e40-5f6832f6501c
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.corso_facet_mappa
+  module:
+    - facets
+  theme:
+    - archivio
+id: corsofacetmappa
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:corso_facet_mappa'
+settings:
+  id: 'facet_block:corso_facet_mappa'
+  label: 'Corso facet mappa'
+  provider: facets
+  label_display: '0'
+  block_id: corsofacetmappa
+visibility: {  }
