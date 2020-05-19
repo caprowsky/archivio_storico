@@ -82,7 +82,12 @@
           <i class="fas fa-user"></i>
         {% endif %}
 
-        Carriera studente</h3>
+        Carriera studente
+      {% if logged_in %}
+        [<a href="/node/{{ node.id }}/edit">modifica</a>]
+        {% endif %}
+
+      </h3>
             <!-- campi principali -->
           {{ content.field_data_inizio_carriera }}
           {{ content.field_data_fine_carriera }}

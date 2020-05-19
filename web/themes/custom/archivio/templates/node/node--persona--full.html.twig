@@ -95,8 +95,9 @@
 
             {{ content.field_sesso }}
 
-            {% if node.field_indirizzo.value %}
-              {{ content.field_indirizzo }}
+
+            {% if indirizzo %}
+                {{ content.field_indirizzo }}
             {% endif %}
 
             {{ content.field_data_nascita }}

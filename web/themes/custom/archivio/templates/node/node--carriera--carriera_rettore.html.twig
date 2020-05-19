@@ -74,7 +74,10 @@
   <div{{ content_attributes }}>
 
     <div class="dettaglio-carriera rettore">
-      <h3><i class="fas fa-chalkboard-teacher"></i> Carriera rettore</h3>
+      <h3><i class="fas fa-chalkboard-teacher"></i> Carriera rettore
+        {% if logged_in %}
+          [<a href="/node/{{ node.id }}/edit">modifica</a>]
+        {% endif %}</h3>
       {{ content.field_facolta }}
       {{ content.field_corso }}
       {{ content.field_insegnamenti }}

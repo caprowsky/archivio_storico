@@ -140,6 +140,14 @@ function archivio_preprocess_node(&$vars) {
 
   if ($node->bundle() == 'persona' && $view_mode == 'full') {
 
+    $vars['indirizzo'] = FALSE;
+    if (!$node->get('field_indirizzo')->isEmpty()) {
+      $indirizzo = $node->get('field_indirizzo')->getValue();
+      if (!empty($indirizzo[0]['locality'])) {
+        $vars['indirizzo'] = TRUE;
+      }
+    }
+
     $author_name = $node->getOwner();
     if (!$author_name->get('field_nome_e_cognome')->isEmpty()) {
       $autore_nome = $author_name->get('field_nome_e_cognome')->getValue();
