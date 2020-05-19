@@ -27,7 +27,6 @@ dependencies:
     - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
-    - field.field.node.carriera.field_revisore
     - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
@@ -593,16 +592,6 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
-  field_revisore:
-    weight: 21
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_riferimenti_archivistici:
     weight: 25
     settings:

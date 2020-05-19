@@ -15,7 +15,6 @@ dependencies:
     - field.field.node.persona.field_numero
     - field.field.node.persona.field_primo_cognome
     - field.field.node.persona.field_primo_nome
-    - field.field.node.persona.field_revisore
     - field.field.node.persona.field_secondo_cognome
     - field.field.node.persona.field_secondo_nome
     - field.field.node.persona.field_sesso
@@ -103,14 +102,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_revisore:
-    weight: 13
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_secondo_cognome:
     weight: 3
