@@ -95,6 +95,14 @@ field_settings:
       type: count
       fields:
         - 'entity:node/title'
+  backoffice_carriere:
+    label: 'Backoffice carriere'
+    property_path: search_api_backoffice_carriere
+    type: string
+  backoffice_persone:
+    label: 'Backoffice persone'
+    property_path: search_api_backoffice_persone
+    type: string
   changed:
     label: 'Data di modifica'
     datasource_id: 'entity:node'
@@ -680,7 +688,8 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  backoffice: {  }
+  backoffice_carriere: {  }
+  backoffice_persone: {  }
   date_end_integer: {  }
   date_start_integer: {  }
   docentestudente: {  }
