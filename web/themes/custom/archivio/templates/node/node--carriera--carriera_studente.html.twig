@@ -98,6 +98,11 @@
           {{ content.field_carriera }}
           {{ content.field_file_tesi_laurea }}
 
+      <div class="credits">
+        {% if autore %}Autori: {{ autore }}<br>{% endif %}
+        {% if revisore %}Revisori: {{ revisore }}<br>{% endif %}
+      </div>
+
     </div>
   </div>
 </article>

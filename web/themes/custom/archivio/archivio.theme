@@ -130,12 +130,14 @@ function archivio_theme_suggestions_block_alter(array &$suggestions, array $vari
  * Implements hook_entity_view().
  */
 function archivio_preprocess_node(&$vars) {
+  $service = \Drupal::service('archivio_utils.utils');
   global $base_url;
   $vars['base_url'] = $base_url;
   $view_mode = $vars['view_mode'];
   /**  @var \Drupal\node\Entity\Node $node **/
   /**  @var \Drupal\node\Entity\Node $carriera **/
   $node = $vars['node'];
+
   if ($node->bundle() == 'persona' && $view_mode == 'full') {
 
     $author_name = $node->getOwner();
@@ -188,6 +190,18 @@ function archivio_preprocess_node(&$vars) {
           $vars['laureato'] = TRUE;
         }
       }
+
+    $vars['revisore'] = false;
+    $vars['autore'] = false;
+
+    if (!$node->get('field_revisore')->isEmpty()) {
+        $vars['revisore'] = $service->implodeValue($node, 'field_revisore');
+      }
+
+    if (!$node->get('field_autore')->isEmpty()) {
+      $vars['autore'] = $service->implodeValue($node, 'field_autore');
+    }
+
   }
 
 }
