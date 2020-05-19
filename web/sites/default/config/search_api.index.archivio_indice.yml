@@ -598,6 +598,10 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_valutazione_laurea
+  luogo_nascita:
+    label: 'Luogo di nascita fake'
+    property_path: search_api_luogo_nascita
+    type: string
   nid:
     label: NID
     datasource_id: 'entity:node'
@@ -716,6 +720,7 @@ processor_settings:
       preprocess_query: -10
   language_with_fallback: {  }
   laureato: {  }
+  luogo_nascita: {  }
   periodo: {  }
   persona_facoltà: {  }
   rendered_item: {  }

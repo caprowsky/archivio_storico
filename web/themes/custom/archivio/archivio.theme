@@ -138,15 +138,6 @@ function archivio_preprocess_node(&$vars) {
   $node = $vars['node'];
   if ($node->bundle() == 'persona' && $view_mode == 'full') {
 
-    $vars['revisore'] = 'Nome del revisore';
-    if (!$node->get('field_revisore')->isEmpty()) {
-      $revisori = $node->get('field_revisore')->referencedEntities();
-      if (!$revisori[0]->get('field_nome_e_cognome')->isEmpty()) {
-        $revisore_nome = $revisori[0]->get('field_nome_e_cognome')->getValue();
-        $vars['revisore'] = $revisore_nome[0]['value'];
-      }
-    }
-
     $author_name = $node->getOwner();
     if (!$author_name->get('field_nome_e_cognome')->isEmpty()) {
       $autore_nome = $author_name->get('field_nome_e_cognome')->getValue();

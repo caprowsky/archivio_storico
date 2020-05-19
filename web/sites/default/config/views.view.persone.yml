@@ -8,6 +8,7 @@ dependencies:
     - block.block.facolta
     - block.block.formespostopersonericerca
     - block.block.linkcarrieracontenutoinsegnamentitesto
+    - block.block.luogodinascita_2
     - block.block.periodo
     - block.block.sesso_2
     - field.storage.node.field_data_nascita
@@ -1235,6 +1236,19 @@ display:
           empty: false
           tokenize: true
           target: docenteostudente
+          view_mode: default
+          bypass_access: false
+          plugin_id: entity
+        entity_block_7:
+          id: entity_block_7
+          table: views
+          field: entity_block
+          relationship: none
+          group_type: group
+          admin_label: 'Luogo di nascita'
+          empty: false
+          tokenize: true
+          target: luogodinascita_2
           view_mode: default
           bypass_access: false
           plugin_id: entity
