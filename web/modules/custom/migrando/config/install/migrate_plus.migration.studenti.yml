@@ -5,7 +5,7 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
-  ids: [numero]
+  ids: [id]
 
   constants:
     title_constant: "Carriera"

@@ -26,7 +26,6 @@ process:
   title:
     plugin: concat
     source:
-      - constants/title_constant
       - primo_cognome
       - secondo_cognome
       - terzo_cognome
@@ -38,12 +37,18 @@ process:
   field_id: concatena
 
   field_numero: id
-
+  
   field_data_nascita: data_nascita
+
+  field_data_di_morte: data_di_morte
 
   field_luogo_nascita:
     plugin: encode
     source: luogo_di_nascita
+
+  field_luogo_di_morte:
+    plugin: encode
+    source: luogo_di_morte  
 
   field_primo_cognome:
     plugin: encode
@@ -68,11 +73,6 @@ process:
   field_terzo_nome:
     plugin: encode
     source: terzo_nome
-
-
-  field_tipologia_carriera:
-    plugin: default_value
-    default_value: d
 
   field_sesso:
     plugin: static_map
