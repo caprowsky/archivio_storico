@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.carriera_docente
     - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_autore
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
+    - field.field.node.carriera.field_revisore
     - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
@@ -57,7 +59,7 @@ third_party_settings:
         - field_titolo_tesi_licenza
         - field_valutazione_laurea
       parent_name: ''
-      weight: 28
+      weight: 36
       format_type: fieldset
       region: hidden
       format_settings:
@@ -68,7 +70,7 @@ third_party_settings:
     group_carriera_docente:
       children: {  }
       parent_name: ''
-      weight: 27
+      weight: 35
       format_type: fieldset
       region: hidden
       format_settings:
@@ -88,6 +90,14 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
+  field_autore:
+    type: string
+    weight: 12
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_biografia:
     weight: 6
     label: inline
@@ -137,6 +147,14 @@ content:
   field_insegnamenti:
     type: string
     weight: 10
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_revisore:
+    type: string
+    weight: 13
     region: content
     label: inline
     settings:

@@ -23,7 +23,9 @@ dependencies:
     - field.storage.node.field_inizio_mandato
     - field.storage.node.field_insegnamenti
     - field.storage.node.field_link_carriera
+    - field.storage.node.field_autore
     - field.storage.node.field_carriera
+    - field.storage.node.field_revisore
     - field.storage.node.field_riferimenti_archivistici
     - field.storage.node.field_riferimenti_bibliografici
     - field.storage.node.field_segnatura_arch_tesi_laurea
@@ -148,6 +150,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_ambiti_di_ricerca
+  field_autore:
+    label: 'Link carriera » Contenuto » Autore'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_autore'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_autore
+        - field.storage.node.field_link_carriera
+      module:
+        - node
   field_biografia:
     label: Biografia
     datasource_id: 'entity:node'
@@ -381,6 +394,17 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_primo_nome
+  field_revisore:
+    label: 'Link carriera » Contenuto » Revisore'
+    datasource_id: 'entity:node'
+    property_path: 'field_link_carriera:entity:field_revisore'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_link_carriera
+        - field.storage.node.field_revisore
+      module:
+        - node
   field_riferimenti_archivistici:
     label: 'Riferimenti archivistici'
     datasource_id: 'entity:node'

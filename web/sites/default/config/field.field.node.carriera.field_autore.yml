@@ -1,0 +1,19 @@
+uuid: a7fe658b-d8ad-46d3-b971-19a815df33e0
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_autore
+    - node.type.carriera
+id: node.carriera.field_autore
+field_name: field_autore
+entity_type: node
+bundle: carriera
+label: Autore
+description: 'Indica l''autore della scheda, uno per riga'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

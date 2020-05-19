@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.carriera_studente
     - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_autore
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
+    - field.field.node.carriera.field_revisore
     - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
@@ -51,7 +53,7 @@ third_party_settings:
     group_carriera_studente:
       children: {  }
       parent_name: ''
-      weight: 32
+      weight: 37
       format_type: fieldset
       region: hidden
       format_settings:
@@ -66,7 +68,7 @@ third_party_settings:
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 33
+      weight: 38
       format_type: fieldset
       region: hidden
       format_settings:
@@ -79,6 +81,14 @@ targetEntityType: node
 bundle: carriera
 mode: carriera_studente
 content:
+  field_autore:
+    type: string
+    weight: 14
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_carriera:
     type: text_default
     weight: 12
@@ -134,6 +144,14 @@ content:
     settings:
       view_mode: elenco_
       link: false
+    third_party_settings: {  }
+  field_revisore:
+    type: string
+    weight: 15
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
     weight: 11

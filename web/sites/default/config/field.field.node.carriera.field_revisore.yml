@@ -1,0 +1,19 @@
+uuid: db34baa9-305c-4f1a-8b3b-21a8fa711c98
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_revisore
+    - node.type.carriera
+id: node.carriera.field_revisore
+field_name: field_revisore
+entity_type: node
+bundle: carriera
+label: Revisore
+description: 'Indica il revisore della scheda, uno per riga'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

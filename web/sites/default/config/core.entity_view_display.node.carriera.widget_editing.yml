@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.widget_editing
     - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_autore
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
+    - field.field.node.carriera.field_revisore
     - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
@@ -141,6 +143,7 @@ content:
     region: content
 hidden:
   field_ambiti_di_ricerca: true
+  field_autore: true
   field_biografia: true
   field_carriera: true
   field_carriera_extra_acca: true
@@ -157,6 +160,7 @@ hidden:
   field_prima_donna: true
   field_primo_cognome: true
   field_primo_nome: true
+  field_revisore: true
   field_riferimenti_archivistici: true
   field_riferimenti_bibliografici: true
   field_secondo_cognome: true

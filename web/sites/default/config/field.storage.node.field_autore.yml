@@ -1,0 +1,21 @@
+uuid: 1c41f12a-6c20-451d-af58-42cbf8237d86
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_autore
+field_name: field_autore
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.persona
     - field.field.node.carriera.field_ambiti_di_ricerca
+    - field.field.node.carriera.field_autore
     - field.field.node.carriera.field_biografia
     - field.field.node.carriera.field_carriera
     - field.field.node.carriera.field_carriera_extra_acca
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.carriera.field_prima_donna
     - field.field.node.carriera.field_primo_cognome
     - field.field.node.carriera.field_primo_nome
+    - field.field.node.carriera.field_revisore
     - field.field.node.carriera.field_riferimenti_archivistici
     - field.field.node.carriera.field_riferimenti_bibliografici
     - field.field.node.carriera.field_secondo_cognome
@@ -169,6 +171,14 @@ content:
           entity_type: node
           bundle: carriera
     type: text_textarea
+    region: content
+  field_autore:
+    weight: 36
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_biografia:
     weight: 20
@@ -592,6 +602,14 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  field_revisore:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_riferimenti_archivistici:
     weight: 25
     settings:
