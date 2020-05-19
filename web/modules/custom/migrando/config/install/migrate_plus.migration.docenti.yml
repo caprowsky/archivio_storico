@@ -17,7 +17,7 @@ process:
 
   uid:
     plugin: default_value
-    default_value: 4 # Laura
+    default_value: 18 # importer
 
   type:
     plugin: default_value
@@ -125,13 +125,19 @@ process:
     source: fine_carriera_accademica
 
   field_revisore:
-    plugin: default_value
-    default_value: 7 # Eleonora
+    plugin: explode
+    source: revisore
+    delimiter: "; "
+
+  field_autore:
+    plugin: explode
+    source: autore
+    delimiter: "; "
 
   field_insegnamenti:
     plugin: explode
     source: insegnamenti
-    delimiter: ", "
+    delimiter: "; "
 
 #################################################
 ##### Campi specifici della carriera docente ####

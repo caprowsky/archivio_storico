@@ -18,7 +18,7 @@ process:
 
   uid:
     plugin: default_value
-    default_value: 5 # Valeria
+    default_value: 18 # importer
 
 #  title:
 #    plugin: encode
@@ -77,10 +77,6 @@ process:
       F: f
       f: f
       m: m
-
-  field_revisore:
-    plugin: default_value
-    default_value: 7 # Eleonora
 
 destination:
   plugin: 'entity:node'

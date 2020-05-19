@@ -17,7 +17,7 @@ process:
 
   uid:
     plugin: default_value
-    default_value: 5 # Valeria
+    default_value: 18 # importer
 
   type:
     plugin: default_value
@@ -125,9 +125,15 @@ process:
     plugin: encode
     source: data_licenza
 
+  field_autore:
+    plugin: explode
+    source: autore
+    delimiter: ", "
+
   field_revisore:
-    plugin: default_value
-    default_value: 7 # Eleonora
+    plugin: explode
+    source: revisore
+    delimiter: ", "
 
 ##################################################
 ##### Campi specifici della carriera studente ####
