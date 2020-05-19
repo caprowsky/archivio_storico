@@ -44,7 +44,6 @@ third_party_settings:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
       whitelisted_blocks:
-        'Archivio Storico Utils': {  }
         Block: {  }
         'Chaos Tools': {  }
         'Content fields':

@@ -6,24 +6,23 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
 
 /**
  * Provides a block with the current project.
  *
  * @Block(
- *   id = "home_top",
- *   admin_label = @Translation("Homepage Top Block"),
+ *   id = "mappa_facet",
+ *   admin_label = @Translation("Facet per la mappa"),
  * )
  */
-class HomeTop extends BlockBase {
+class MappaFacet extends BlockBase {
   /**
    * {@inheritdoc}
    */
   public function build() {
-    $output = '';
-    $base_url = \Drupal::request()->getSchemeAndHttpHost();
     return [
-      '#markup' => $base_url,
+      '#markup' => '',
     ];
   }
 
