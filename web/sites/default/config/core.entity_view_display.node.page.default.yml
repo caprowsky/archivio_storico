@@ -9,7 +9,6 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_discovery
-    - system
     - user
 third_party_settings:
   layout_builder:
@@ -21,17 +20,6 @@ third_party_settings:
         layout_settings:
           label: Intestazione
         components:
-          4f128a88-205b-4c42-bc6e-40989a3df19c:
-            uuid: 4f128a88-205b-4c42-bc6e-40989a3df19c
-            region: content
-            configuration:
-              id: system_breadcrumb_block
-              label: Breadcrumbs
-              provider: system
-              label_display: '0'
-              context_mapping: {  }
-            additional: {  }
-            weight: 0
           0e72d00b-1bd8-4917-91a1-322de4513efb:
             uuid: 0e72d00b-1bd8-4917-91a1-322de4513efb
             region: content
