@@ -4,7 +4,9 @@ migration_tags:
 label: 'CSV file migration'
 source:
   plugin: csv
-  path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
+  path:
+    - /var/www/html/web/modules/custom/migrando/files/studenti.csv
+    - /var/www/html/web/modules/custom/migrando/files/docenti.csv
   ids: [concatena]
 
 process:
@@ -37,13 +39,19 @@ process:
 
   field_id: concatena
 
+  field_numero: id
+  
   field_data_nascita: data_nascita
 
-  field_numero: numero
+  field_data_di_morte: data_di_morte
 
   field_luogo_nascita:
     plugin: encode
     source: luogo_di_nascita
+
+  field_luogo_di_morte:
+    plugin: encode
+    source: luogo_di_morte  
 
   field_primo_cognome:
     plugin: encode
