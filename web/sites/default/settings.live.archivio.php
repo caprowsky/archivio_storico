@@ -1,7 +1,7 @@
 <?php
 
 $settings['trusted_host_patterns'] = [
-  '^www\.archiviostorico\.org$',
+  '^archiviostorico\.unica\.it$',
   '^nginx$',
   '^localhost$',
 ];
