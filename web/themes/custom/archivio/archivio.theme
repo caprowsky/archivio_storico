@@ -10,6 +10,10 @@ use Drupal\media\Entity\Media;
 function archivio_preprocess_html(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
 
+  $current_uri = \Drupal::request()->getRequestUri();
+  $variables['attributes']['class'][] = 'custom-path-' . str_replace('/', '', $current_uri);
+
+
   $variables['archivio_container'] = 'container';
 
   if ($node) {
