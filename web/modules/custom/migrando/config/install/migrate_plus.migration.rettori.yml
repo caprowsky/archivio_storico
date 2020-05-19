@@ -1,0 +1,211 @@
+id: rettori
+migration_tags:
+  - CSV
+label: 'CSV file migration'
+source:
+  plugin: csv
+  path: /var/www/html/web/modules/custom/migrando/files/docenti.csv
+  ids: [id]
+
+  constants:
+    title_constant: "Carriera"
+
+process:
+  status:
+    plugin: default_value
+    default_value: 1 # Imposto il nodo come pubblico
+
+  uid:
+    plugin: default_value
+    default_value: 18 # importer
+
+  type:
+    plugin: default_value
+    default_value: carriera
+
+  title:
+    plugin: concat
+    source:
+      - constants/title_constant
+      - primo_cognome
+      - secondo_cognome
+      - terzo_cognome
+      - primo_nome
+      - secondo_nome
+      - terzo_nome
+    delimiter: " "
+
+  field_id: concatena
+
+  field_numero: id
+
+  field_data_nascita: data_nascita
+
+  field_luogo_nascita:
+    plugin: encode
+    source: luogo_di_nascita
+
+  field_primo_cognome:
+    plugin: encode
+    source: primo_cognome
+
+  field_secondo_cognome:
+    plugin: encode
+    source: secondo_cognome
+
+  field_terzo_cognome:
+    plugin: encode
+    source: terzo_cognome
+
+  field_primo_nome:
+    plugin: encode
+    source: primo_nome
+
+  field_secondo_nome:
+    plugin: encode
+    source: secondo_nome
+
+  field_terzo_nome:
+    plugin: encode
+    source: terzo_nome
+
+  field_tipologia_carriera:
+    plugin: default_value
+    default_value: r
+
+  field_sesso:
+    plugin: static_map
+    source: sesso
+    map:
+      M: m
+      F: f
+      f: f
+      m: m
+
+########################################################
+##### Campi comuni alle carriere docente e studente ####
+########################################################
+
+  'field_carriera/value':
+    plugin: encode
+    source: carriera
+  'field_carriera/format':
+    plugin: default_value
+    default_value: basic_html
+
+  field_corso:
+    target_id:
+      plugin: migration_lookup
+      migration: corsi
+      no_stub: true
+      source: corso
+
+  field_facolta:
+    target_id:
+      plugin: migration_lookup
+      migration: facolta
+      no_stub: true
+      source: facolta
+
+#  field_persona:
+#    target_id:
+#      plugin: migration_lookup
+#      migration: persone
+#      no_stub: true
+#      source: concatena
+
+  field_data_inizio_carriera:
+    plugin: encode
+    source: inizio_carriera_accademica
+
+  field_data_fine_carriera:
+    plugin: encode
+    source: fine_carriera_accademica
+
+  field_revisore:
+    plugin: explode
+    source: revisore
+    delimiter: "; "
+
+  field_autore:
+    plugin: explode
+    source: autore
+    delimiter: "; "
+
+  field_insegnamenti:
+    plugin: explode
+    source: insegnamenti
+    delimiter: "; "
+
+#################################################
+##### Campi specifici della carriera docente ####
+#################################################
+
+  'field_biografia/value':
+    plugin: encode
+    source: biografia
+  'field_biografia/format':
+    plugin: default_value
+    default_value: basic_html
+
+  'field_ambiti_di_ricerca/value':
+    plugin: encode
+    source: ambiti_di_ricerca
+  'field_ambiti_di_ricerca/format':
+    plugin: default_value
+    default_value: basic_html
+
+  'field_carriera_extra_acca/value':
+    plugin: encode
+    source: carriera_extra_acc
+  'field_carriera_extra_acca/format':
+    plugin: default_value
+    default_value: basic_html
+
+  'field_riferimenti_bibliografici/value':
+    plugin: encode
+    source: riferimenti_bibliografici
+  'field_riferimenti_bibliografici/format':
+    plugin: default_value
+    default_value: basic_html
+
+  'field_riferimenti_archivistici/value':
+    plugin: encode
+    source: riferimenti_archivistici
+  'field_riferimenti_archivistici/format':
+    plugin: default_value
+    default_value: basic_html
+
+  field_prima_donna:
+    plugin: static_map
+    source: prima_donna_docente
+    map:
+      "sì": 1
+      "no": 0
+
+  field_docente_illustre:
+    plugin: static_map
+    source: docente_illustre
+    map:
+      "sì": 1
+      "no": 0
+
+#################################################
+##### Campi specifici della carriera rettore ####
+#################################################
+  field_inizio_mandato:
+    plugin: explode
+    source: inizio_mandato
+    delimiter: "; "
+
+  field_fine_mandato:
+    plugin: explode
+    source: fine_mandato
+    delimiter: "; "
+
+destination:
+  plugin: 'entity:node'
+
+migration_dependencies:
+  required: {  }
+  optional: {  }
