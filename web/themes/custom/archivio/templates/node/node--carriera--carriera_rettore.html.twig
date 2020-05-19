@@ -87,6 +87,15 @@
       {{ content.field_inizio_mandato }}
       {{ content.field_fine_mandato }}
 
+      <div class="credits">
+        <div class="changed">
+          Aggiornamento scheda: {{ node.getChangedTime|date('d/m/Y - H:i') }}<br>
+        </div>
+
+        {% if autore %}Autori: {{ autore }}<br>{% endif %}
+        {% if revisore %}Revisori: {{ revisore }}<br>{% endif %}
+      </div>
+
     </div>
   </div>
 

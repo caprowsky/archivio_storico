@@ -73,7 +73,7 @@
 <article{{ attributes }}>
   <div{{ content_attributes }}>
 
-    <div class="dettaglio-carriera studente">
+    <div class="dettaglio-carriera docente">
       <h3><i class="fas fa-chalkboard-teacher"></i> Carriera docente</h3>
       {{ content.field_data_inizio_carriera }}
       {{ content.field_data_fine_carriera }}
@@ -85,6 +85,15 @@
       {{ content.field_carriera_extra_acca }}
       {{ content.field_riferimenti_bibliografici }}
       {{ content.field_riferimenti_archivistici }}
+
+      <div class="credits">
+        <div class="changed">
+          Aggiornamento scheda: {{ node.getChangedTime|date('d/m/Y - H:i') }}<br>
+        </div>
+
+        {% if autore %}Autori: {{ autore }}<br>{% endif %}
+        {% if revisore %}Revisori: {{ revisore }}<br>{% endif %}
+      </div>
     </div>
   </div>
 
