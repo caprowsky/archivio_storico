@@ -20,7 +20,8 @@ use Drupal\search_api\Processor\ProcessorProperty;
  *   hidden = false,
  * )
  */
-class BackofficePersone extends ProcessorPluginBase {
+class BackofficePersone extends ProcessorPluginBase
+{
 
   /**
    * {@inheritdoc}
@@ -53,18 +54,21 @@ class BackofficePersone extends ProcessorPluginBase {
         ->filterForPropertyPath($item->getFields(), NULL, 'search_api_backoffice_persone');
       foreach ($fields as $field) {
         if (!$field->getDatasourceId()) {
-          if (!$entity->field_link_carriera->isEmpty()) {
-            $carriere = $entity->get('field_link_carriera')->referencedEntities();
-            foreach ($carriere as $carriera) {
-              $a = 1;
-              /*$periodi = array();
-              if (!$carriera->field_data_inizio_carriera->isEmpty()) {
-                $value_original = $carriera->get('field_data_inizio_carriera')->getValue();
-                $explode = explode('-', $value_original[0]['value']);
-                $anno_inizio = $explode[0];
-                  $periodo = $this->getPeriodo($anno_inizio);
-                $field->addValue($periodo);
-              }*/
+          $fields = [
+            'field_data_di_morte',
+            'field_data_nascita',
+            'field_foto',
+            'field_geofiled',
+            'field_luogo_di_morte',
+            'field_indirizzo',
+          ];
+
+          foreach ($fields as $single_field) {
+            if ($entity->get($single_field)->isEmpty()) {
+              $field_definition = $entity->get($single_field)->getFieldDefinition();
+              $label = $field_definition->label();
+              $value = '"' . $label . '" vuoto';
+              $field->addValue($value);
             }
           }
         }

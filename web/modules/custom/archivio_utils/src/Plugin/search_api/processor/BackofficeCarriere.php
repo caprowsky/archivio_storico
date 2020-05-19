@@ -53,18 +53,35 @@ class BackofficeCarriere extends ProcessorPluginBase {
         ->filterForPropertyPath($item->getFields(), NULL, 'search_api_backoffice_carriere');
       foreach ($fields as $field) {
         if (!$field->getDatasourceId()) {
-          if (!$entity->field_link_carriera->isEmpty()) {
-            $carriere = $entity->get('field_link_carriera')->referencedEntities();
-            foreach ($carriere as $carriera) {
-              $a = 1;
-              /*$periodi = array();
-              if (!$carriera->field_data_inizio_carriera->isEmpty()) {
-                $value_original = $carriera->get('field_data_inizio_carriera')->getValue();
-                $explode = explode('-', $value_original[0]['value']);
-                $anno_inizio = $explode[0];
-                  $periodo = $this->getPeriodo($anno_inizio);
-                $field->addValue($periodo);
-              }*/
+
+          $fields = [
+            'field_ambiti_di_ricerca',
+            'field_biografia',
+            'field_carriera_extra_acca',
+            'field_corso',
+            'field_data_fine_carriera',
+            'field_data_inizio_carriera',
+            'field_data_licenza',
+            'field_facolta',
+            'field_file_tesi_laurea',
+            'field_fine_mandato',
+            'field_inizio_mandato',
+            'field_insegnamenti',
+            'field_riferimenti_archivistici',
+            'field_riferimenti_bibliografici',
+            'field_segnatura_arch_tesi_laurea',
+            'field_segnatura_arch_tesi_licenz',
+            'field_titolo_tesi_laurea',
+            'field_titolo_tesi_licenza',
+            'field_valutazione_laurea',
+          ];
+
+          foreach ($fields as $single_field) {
+            if ($entity->get($single_field)->isEmpty()) {
+              $field_definition = $entity->get($single_field)->getFieldDefinition();
+              $label = $field_definition->label();
+              $value = '"' . $label . '" vuoto';
+              $field->addValue($value);
             }
           }
         }
