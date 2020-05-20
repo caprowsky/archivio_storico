@@ -83,10 +83,12 @@ process:
       F: f
       f: f
       m: m
+    default_value: nd
+    #bypass: TRUE
 
-########################################################
-##### Campi comuni alle carriere docente e studente ####
-########################################################
+  ########################################################
+  ##### Campi comuni alle carriere docente e studente ####
+  ########################################################
 
   'field_carriera/value':
     plugin: encode
@@ -140,15 +142,17 @@ process:
     map:
       "sì": r
       "no": d
+    #bypass: true
+    default_value: d
 
   field_insegnamenti:
     plugin: explode
     source: insegnamenti
     delimiter: "; "
 
-#################################################
-##### Campi specifici della carriera docente ####
-#################################################
+  #################################################
+  ##### Campi specifici della carriera docente ####
+  #################################################
 
   'field_biografia/value':
     plugin: encode
@@ -191,6 +195,7 @@ process:
     map:
       "sì": 1
       "no": 0
+    default_value: 0
 
   field_docente_illustre:
     plugin: static_map
@@ -214,7 +219,6 @@ process:
 
 destination:
   plugin: 'entity:node'
-
 
 migration_dependencies:
   required: {  }

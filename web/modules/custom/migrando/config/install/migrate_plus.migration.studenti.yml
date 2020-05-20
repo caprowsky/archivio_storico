@@ -5,8 +5,8 @@ label: 'CSV file migration'
 source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/studenti.csv
-  ids: [id]
-
+  delimiter: "\t"
+  ids: [numero]
   constants:
     title_constant: "Carriera"
 
@@ -81,9 +81,9 @@ process:
       f: f
       m: m
 
-########################################################
-##### Campi comuni alle carriere docente e studente ####
-########################################################
+  ########################################################
+  ##### Campi comuni alle carriere docente e studente ####
+  ########################################################
 
   'field_carriera/value':
     plugin: encode
@@ -135,9 +135,9 @@ process:
     source: revisore
     delimiter: ", "
 
-##################################################
-##### Campi specifici della carriera studente ####
-##################################################
+  ##################################################
+  ##### Campi specifici della carriera studente ####
+  ##################################################
 
   field_segnatura_arch_tesi_laurea:
     plugin: encode
@@ -161,7 +161,6 @@ process:
 
 destination:
   plugin: 'entity:node'
-
 
 migration_dependencies:
   required: {  }
