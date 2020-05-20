@@ -10,7 +10,9 @@ services:
       ARCHIVIO_ENV: "live"
 
   nginx:
-    restart: always 
+    restart: always
+    ports:
+     - "8000:80"
 
   solr:
     restart: always 

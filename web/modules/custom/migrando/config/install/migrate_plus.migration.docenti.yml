@@ -108,12 +108,12 @@ process:
       no_stub: true
       source: facolta
 
-#  field_persona:
-#    target_id:
-#      plugin: migration_lookup
-#      migration: persone
-#      no_stub: true
-#      source: concatena
+  field_persona:
+    target_id:
+      plugin: migration_lookup
+      migration: persone
+      no_stub: true
+      source: concatena
 
   field_data_inizio_carriera:
     plugin: encode
