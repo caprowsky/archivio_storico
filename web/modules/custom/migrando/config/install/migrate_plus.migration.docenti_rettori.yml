@@ -6,6 +6,7 @@ source:
   plugin: csv
   path: /var/www/html/web/modules/custom/migrando/files/docenti-rettori.csv
   ids: [id]
+  delimiter: "\t"
 
   constants:
     title_constant: "Carriera"
@@ -197,6 +198,19 @@ process:
     map:
       "sì": 1
       "no": 0
+
+  #################################################
+  ##### Campi specifici della carriera rettore ####
+  #################################################
+  field_inizio_mandato:
+    plugin: explode
+    source: inizio_mandato
+    delimiter: "; "
+
+  field_fine_mandato:
+    plugin: explode
+    source: fine_mandato
+    delimiter: "; "
 
 destination:
   plugin: 'entity:node'
