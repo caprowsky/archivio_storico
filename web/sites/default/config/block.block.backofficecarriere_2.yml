@@ -1,0 +1,23 @@
+uuid: cc853977-772e-47c7-9777-cb745d8e3e93
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.backoffice_carriere
+  module:
+    - facets
+  theme:
+    - seven
+id: backofficecarriere_2
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:backoffice_carriere'
+settings:
+  id: 'facet_block:backoffice_carriere'
+  label: 'Backoffice carriere'
+  provider: facets
+  label_display: visible
+  block_id: backofficecarriere_2
+visibility: {  }

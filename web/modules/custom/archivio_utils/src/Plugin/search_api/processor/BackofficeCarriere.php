@@ -48,7 +48,7 @@ class BackofficeCarriere extends ProcessorPluginBase {
     $entity = $item->getOriginalObject()->getValue();
     /* @var \Drupal\node\Entity\Node $entity */
     /* @var \Drupal\node\Entity\Node $carriera */
-    if ($entity->bundle() == 'persona') {
+    if ($entity->bundle() == 'carriera') {
       $fields = $this->getFieldsHelper()
         ->filterForPropertyPath($item->getFields(), NULL, 'search_api_backoffice_carriere');
       foreach ($fields as $field) {
@@ -81,7 +81,7 @@ class BackofficeCarriere extends ProcessorPluginBase {
             if ($entity->get($single_field)->isEmpty()) {
               $field_definition = $entity->get($single_field)->getFieldDefinition();
               $label = $field_definition->label();
-              $value = '"' . $label . '" vuoto';
+              $value = $label . ' vuoto';
               $field->addValue($value);
             }
           }

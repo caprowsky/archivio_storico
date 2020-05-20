@@ -829,6 +829,7 @@ display:
         filters: false
         filter_groups: false
         fields: false
+        cache: false
       filters:
         search_api_fulltext:
           id: search_api_fulltext
@@ -1980,6 +1981,8 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:
@@ -2017,6 +2020,10 @@ display:
         context: '0'
         menu_name: backoffice
       display_description: ''
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,23 @@
+uuid: ef388e4d-2d5e-4878-a2c1-9e94ac1d93d3
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.backoffice_persone
+  module:
+    - facets
+  theme:
+    - seven
+id: backofficepersone_2
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:backoffice_persone'
+settings:
+  id: 'facet_block:backoffice_persone'
+  label: 'Backoffice persone'
+  provider: facets
+  label_display: visible
+  block_id: backofficepersone_2
+visibility: {  }

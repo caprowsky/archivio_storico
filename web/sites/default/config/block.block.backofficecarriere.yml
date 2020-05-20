@@ -1,0 +1,23 @@
+uuid: 9e54dc13-9f40-45d1-bfe2-8ade89d12081
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.backoffice_carriere
+  module:
+    - facets
+  theme:
+    - archivio
+id: backofficecarriere
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:backoffice_carriere'
+settings:
+  id: 'facet_block:backoffice_carriere'
+  label: 'Filtra carriere'
+  provider: facets
+  label_display: visible
+  block_id: backofficecarriere
+visibility: {  }

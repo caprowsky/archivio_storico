@@ -68,7 +68,7 @@ class BackofficePersone extends ProcessorPluginBase
             if ($entity->get($single_field)->isEmpty()) {
               $field_definition = $entity->get($single_field)->getFieldDefinition();
               $label = $field_definition->label();
-              $value = '"' . $label . '" vuoto';
+              $value = $label . ' vuoto';
               $field->addValue($value);
             }
           }

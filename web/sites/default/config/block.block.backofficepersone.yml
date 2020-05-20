@@ -1,0 +1,23 @@
+uuid: 241b9ccc-d908-45c1-895a-142a3ee4ae6c
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.backoffice_persone
+  module:
+    - facets
+  theme:
+    - archivio
+id: backofficepersone
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:backoffice_persone'
+settings:
+  id: 'facet_block:backoffice_persone'
+  label: 'Filtra persone'
+  provider: facets
+  label_display: visible
+  block_id: backofficepersone
+visibility: {  }
