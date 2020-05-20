@@ -56,6 +56,7 @@ class BackofficeCarriere extends ProcessorPluginBase {
 
           $fields = [
             'field_ambiti_di_ricerca',
+            'field_persona',
             'field_biografia',
             'field_carriera_extra_acca',
             'field_corso',

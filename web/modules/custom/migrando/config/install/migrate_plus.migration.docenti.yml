@@ -37,7 +37,7 @@ process:
   field_id: concatena
 
   field_numero: id
-  
+
   field_data_nascita: data_nascita
 
   field_data_di_morte: data_di_morte
@@ -48,7 +48,7 @@ process:
 
   field_luogo_di_morte:
     plugin: encode
-    source: luogo_di_morte  
+    source: luogo_di_morte
 
   field_primo_cognome:
     plugin: encode
@@ -132,6 +132,10 @@ process:
     plugin: explode
     source: autore
     delimiter: "; "
+
+  field_tipologia_carriera:
+    plugin: default_value
+    default_value: d
 
   field_insegnamenti:
     plugin: explode

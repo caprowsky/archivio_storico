@@ -57,6 +57,7 @@ class BackofficePersone extends ProcessorPluginBase
           $fields = [
             'field_data_di_morte',
             'field_data_nascita',
+            'field_link_carriera',
             'field_foto',
             'field_geofiled',
             'field_luogo_di_morte',
