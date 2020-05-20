@@ -1107,7 +1107,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: ''
+          value: All
           group: 1
           exposed: true
           expose:
@@ -1119,7 +1119,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
             identifier: field_docente_illustre
-            required: true
+            required: false
             remember: false
             multiple: false
             remember_roles:
@@ -1148,7 +1148,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: ''
+          value: All
           group: 1
           exposed: true
           expose:
@@ -1160,7 +1160,7 @@ display:
             operator_limit_selection: false
             operator_list: {  }
             identifier: field_prima_donna
-            required: true
+            required: false
             remember: false
             multiple: false
             remember_roles:
