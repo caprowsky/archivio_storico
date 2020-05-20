@@ -22,7 +22,7 @@ third_party_settings:
     dumper: wkt
     delta_handling: default
     failure:
-      handling: preserve
+      handling: empty
       status_message: true
       log: true
 id: node.persona.field_geofiled
@@ -33,18 +33,7 @@ label: Geofiled
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    value: 'POINT (9.012893 40.120875)'
-    geo_type: Point
-    lat: 40.120875
-    lon: 9.012893
-    left: 9.012893
-    top: 40.120875
-    right: 9.012893
-    bottom: 40.120875
-    geohash: spnkjpfcp9hj
-    latlon: '40.120875,9.012893'
+default_value: {  }
 default_value_callback: ''
 settings:
   backend: geofield_backend_default

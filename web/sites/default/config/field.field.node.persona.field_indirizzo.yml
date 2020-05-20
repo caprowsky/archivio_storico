@@ -22,7 +22,7 @@ third_party_settings:
     dumper: geojson
     delta_handling: default
     failure:
-      handling: preserve
+      handling: empty
       status_message: true
       log: true
 id: node.persona.field_indirizzo
