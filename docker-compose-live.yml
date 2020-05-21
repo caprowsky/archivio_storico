@@ -8,6 +8,9 @@ services:
     restart: always
     environment:
       ARCHIVIO_ENV: "live"
+    volumes:
+      - ../backup_migrate/archiviostorico:/var/backup/archivio 
+
 
   nginx:
     restart: always

@@ -1,0 +1,9 @@
+uuid: f608cfb4-91f4-4239-9cea-43c6fd747883
+langcode: it
+status: true
+dependencies: {  }
+id: backup_archivio
+label: 'Backup archivio'
+type: Directory
+config:
+  directory: /var/backup/archivio
