@@ -166,11 +166,13 @@ function archivio_preprocess_node(&$vars) {
 
     $vars['carriere']['docente'] = FALSE;
     $vars['carriere']['studente'] = FALSE;
+    $vars['carriere']['rettore'] = FALSE;
 
     $nids = $query->execute();
     if (count($nids) > 0) {
       $studente = array();
       $docente = array();
+      $rettore = array();
       $carriere = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
       foreach ($carriere as $carriera) {
         $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
@@ -180,6 +182,10 @@ function archivio_preprocess_node(&$vars) {
         if ($tipologia[0]['value'] == 'd') {
           $docente[] = "s";
         }
+        if ($tipologia[0]['value'] == 'r') {
+          $rettore[] = "r";
+        }
+
       }
     }
 
@@ -189,6 +195,10 @@ function archivio_preprocess_node(&$vars) {
 
     if (count($docente) > 0) {
       $vars['carriere']['docente'] = count($docente);
+    }
+
+    if (count($rettore) > 0) {
+      $vars['carriere']['rettore'] = count($rettore);
     }
 
   }
