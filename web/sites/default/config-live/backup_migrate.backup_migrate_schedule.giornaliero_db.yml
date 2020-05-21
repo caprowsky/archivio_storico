@@ -1,0 +1,13 @@
+uuid: 69475c1e-3ded-4336-abcc-49d800fd766a
+langcode: it
+status: true
+dependencies: {  }
+id: giornaliero_db
+label: 'Giornaliero db'
+enabled: false
+keep: 10
+period: 86400
+cron: null
+source_id: default_db
+destination_id: backup_archivio
+settings_profile_id: archivio
