@@ -63,6 +63,12 @@ class DocenteStudente extends ProcessorPluginBase {
               if ($tipologia[0]['value'] == 'd') {
                 $field->addValue('docente');
               }
+              if ($tipologia[0]['value'] == 'r') {
+                $field->addValue('rettore');
+              }
+              if ($tipologia[0]['value'] == 'h') {
+                $field->addValue('laaurea honoris causae');
+              }
             }
           }
         }
