@@ -1,0 +1,13 @@
+uuid: e3d8e2bd-c557-469d-9d3c-b6a1b6ea46c2
+langcode: it
+status: true
+dependencies: {  }
+id: giornaliero_files
+label: 'Giornaliero files'
+enabled: false
+keep: 10
+period: 86400
+cron: null
+source_id: public_files
+destination_id: backup_archivio
+settings_profile_id: archivio
