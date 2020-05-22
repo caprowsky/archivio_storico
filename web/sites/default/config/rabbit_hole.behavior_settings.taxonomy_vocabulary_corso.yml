@@ -1,0 +1,11 @@
+uuid: 61b6063d-a529-4186-adeb-ab53d16a208a
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.corso
+id: taxonomy_vocabulary_corso
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

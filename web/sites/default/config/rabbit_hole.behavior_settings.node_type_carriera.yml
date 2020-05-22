@@ -1,0 +1,11 @@
+uuid: fa8479a7-7863-4be9-90c4-0ecc9d1a8952
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.carriera
+id: node_type_carriera
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
