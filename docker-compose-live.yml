@@ -3,14 +3,13 @@ version: "3"
 services:
   mariadb:
     restart: always
-  
+
   php:
     restart: always
     environment:
       ARCHIVIO_ENV: "live"
     volumes:
-      - ../backup_migrate/archiviostorico:/var/backup/archivio 
-
+      - ../backup_migrate/archiviostorico:/var/backup/archivio
 
   nginx:
     restart: always
@@ -18,4 +17,7 @@ services:
      - "8000:80"
 
   solr:
-    restart: always 
+    restart: always
+
+  redis:
+    restart: always
