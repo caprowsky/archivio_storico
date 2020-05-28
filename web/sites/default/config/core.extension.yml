@@ -13,6 +13,7 @@ module:
   breakpoint: 0
   cer: 0
   ckeditor: 0
+  coffee: 0
   components: 0
   conditional_fields: 0
   config: 0
