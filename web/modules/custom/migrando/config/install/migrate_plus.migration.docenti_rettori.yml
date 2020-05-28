@@ -189,9 +189,9 @@ process:
     default_value: nd
     #bypass: TRUE
 
-  ########################################################
-  ##### Campi comuni alle carriere docente e studente ####
-  ########################################################
+##  ########################################################
+##  ##### Campi comuni alle carriere docente e studente ####
+##  ########################################################
 
   'field_carriera/value':
     plugin: encode
@@ -214,7 +214,7 @@ process:
       target_id:
         plugin: migration_lookup
         migration: facolta
-        no_stub: true
+        #no_stub: true
         source: id
 
   field_persona:
@@ -247,6 +247,7 @@ process:
     source: rettore
     map:
       "sì": r
+      "si": r
       "no": d
     #bypass: true
     default_value: d
@@ -256,9 +257,9 @@ process:
     source: insegnamenti
     delimiter: "; "
 
-  #################################################
-  ##### Campi specifici della carriera docente ####
-  #################################################
+##  #################################################
+##  ##### Campi specifici della carriera docente ####
+##  #################################################
 
   'field_biografia/value':
     plugin: encode
@@ -309,10 +310,10 @@ process:
     map:
       "sì": 1
       "no": 0
-
-  #################################################
-  ##### Campi specifici della carriera rettore ####
-  #################################################
+##
+##  #################################################
+##  ##### Campi specifici della carriera rettore ####
+##  #################################################
   field_inizio_mandato:
     plugin: explode
     source: inizio_mandato
