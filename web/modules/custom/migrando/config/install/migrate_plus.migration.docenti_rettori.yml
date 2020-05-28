@@ -3,10 +3,113 @@ migration_tags:
   - CSV
 label: 'CSV file migration'
 source:
-  plugin: csv
-  path: /var/www/html/web/modules/custom/migrando/files/docenti-rettori.csv
-  ids: [id]
-  delimiter: "\t"
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - modules/custom/migrando/files/docenti.json
+  item_selector: items
+  fields:
+    -
+      name: id
+      selector: id
+    -
+      name: concatena
+      selector: concatena
+    -
+      name: primo_cognome
+      selector: primo_cognome
+    -
+      name: secondo_cognome
+      selector: secondo_cognome
+    -
+      name: terzo_cognome
+      selector: terzo_cognome
+    -
+      name: primo_nome
+      selector: primo_nome
+    -
+      name: secondo_nome
+      selector: secondo_nome
+    -
+      name: terzo_nome
+      selector: terzo_nome
+    -
+      name: sesso
+      selector: sesso
+    -
+      name: luogo_di_nascita
+      selector: luogo_di_nascita
+    -
+      name: data_di_nascita
+      selector: data_di_nascita
+    -
+      name: luogo_di_morte
+      selector: luogo_di_morte
+    -
+      name: data_di_morte
+      selector: data_di_morte
+    -
+      name: facolta
+      selector: facolta
+    -
+      name: corso
+      selector: corso
+    -
+      name: insegnamenti
+      selector: insegnamenti
+    -
+      name: inizio_carriera_accademica
+      selector: inizio_carriera_accademica
+    -
+      name: fine_carriera_accademica
+      selector: fine_carriera_accademica
+    -
+      name: biografia
+      selector: biografia
+    -
+      name: ambiti_di_ricerca
+      selector: ambiti_di_ricerca
+    -
+      name: carriera_extra_acc
+      selector: carriera_extra_acc
+    -
+      name: riferimenti_bibliografici
+      selector: riferimenti_bibliografici
+    -
+      name: riferimenti_archivistici
+      selector: riferimenti_archivistici
+    -
+      name: docente
+      selector: docente
+    -
+      name: rettore
+      selector: rettore
+    -
+      name: inizio_mandato
+      selector: inizio_mandato
+    -
+      name: fine_mandato
+      selector: fine_mandato
+    -
+      name: docente_illustre
+      selector: docente_illustre
+    -
+      name: laureato_ad_honorem
+      selector: laureato_ad_honorem
+    -
+      name: prima_donna_docente
+      selector: prima_donna_docente
+    -
+      name: autore
+      selector: autore
+    -
+      name: revisore
+      selector: revisore
+
+  ids:
+    id:
+      type: string
 
   constants:
     title_constant: "Carriera"
@@ -105,11 +208,15 @@ process:
       source: corso
 
   field_facolta:
-    target_id:
-      plugin: migration_lookup
-      migration: facolta
-      no_stub: true
-      source: facolta
+    plugin: iterator
+    source: facolta
+    process:
+      target_id:
+        plugin: migration
+        migration:
+         - facolta
+        no_stub: true
+        source: facolta
 
   field_persona:
     target_id:
