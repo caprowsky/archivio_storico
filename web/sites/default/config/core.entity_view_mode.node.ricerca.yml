@@ -1,0 +1,10 @@
+uuid: 3b0e530f-348e-490f-81ac-a58bbef9b694
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.ricerca
+label: Ricerca
+targetEntityType: node
+cache: true
