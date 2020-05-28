@@ -6,4 +6,5 @@ id: backup_archivio
 label: 'Backup archivio'
 type: Directory
 config:
+  name: 'Backup archivio'
   directory: /var/backup/archivio
