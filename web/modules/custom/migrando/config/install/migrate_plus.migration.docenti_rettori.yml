@@ -7,7 +7,7 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   urls:
-    - modules/custom/migrando/files/docenti.json
+    - modules/custom/migrando/files/docenti_new.json
   item_selector: items
   fields:
     -
@@ -208,15 +208,14 @@ process:
       source: corso
 
   field_facolta:
-    plugin: iterator
+    plugin: sub_process
     source: facolta
     process:
       target_id:
-        plugin: migration
-        migration:
-         - facolta
+        plugin: migration_lookup
+        migration: facolta
         no_stub: true
-        source: facolta
+        source: id
 
   field_persona:
     target_id:
