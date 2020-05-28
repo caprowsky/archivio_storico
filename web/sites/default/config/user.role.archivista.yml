@@ -16,6 +16,8 @@ permissions:
   - 'create image media'
   - 'create page content'
   - 'create persona content'
+  - 'delete any carriera content'
+  - 'delete any persona content'
   - 'delete own document media'
   - 'delete own image media'
   - 'edit any carriera content'
