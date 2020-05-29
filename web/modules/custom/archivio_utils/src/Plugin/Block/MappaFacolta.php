@@ -12,11 +12,11 @@ use Drupal\Core\Url;
  * Provides a block with the current project.
  *
  * @Block(
- *   id = "mappa_facet",
- *   admin_label = @Translation("Facet per la mappa"),
+ *   id = "mappa_facolta",
+ *   admin_label = @Translation("Mappa per facoltà"),
  * )
  */
-class MappaFacet extends BlockBase {
+class MappaFacolta extends BlockBase {
   /**
    * {@inheritdoc}
    */
