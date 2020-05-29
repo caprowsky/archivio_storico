@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.widget_settings
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
@@ -32,10 +33,9 @@ dependencies:
 third_party_settings:
   field_group:
     group_controllo:
-      children:
-        - field_revisore
+      children: {  }
       parent_name: ''
-      weight: 21
+      weight: 22
       format_type: fieldset
       region: content
       format_settings:
@@ -50,7 +50,7 @@ third_party_settings:
         - field_luogo_nascita
         - field_numero
       parent_name: ''
-      weight: 23
+      weight: 24
       format_type: details_sidebar
       region: hidden
       format_settings:
@@ -65,7 +65,7 @@ third_party_settings:
       children:
         - field_link_carriera
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: details_sidebar
       region: hidden
       format_settings:
@@ -88,7 +88,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_data_di_morte:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -99,6 +99,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_data_nascita_anno:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_foto:
     type: media_library_widget
     weight: 1
@@ -107,7 +115,7 @@ content:
     third_party_settings: {  }
     region: content
   field_geofiled:
-    weight: 19
+    weight: 20
     settings:
       map_geocoder:
         settings:
@@ -214,13 +222,13 @@ content:
     type: geofield_map
     region: content
   field_indirizzo:
-    weight: 20
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_luogo_di_morte:
-    weight: 18
+    weight: 19
     settings:
       size: 60
       placeholder: ''

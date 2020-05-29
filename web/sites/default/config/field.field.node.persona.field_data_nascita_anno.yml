@@ -1,0 +1,19 @@
+uuid: e5cb33b3-f640-484e-8626-b217763171be
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_nascita_anno
+    - node.type.persona
+id: node.persona.field_data_nascita_anno
+field_name: field_data_nascita_anno
+entity_type: node
+bundle: persona
+label: 'Data nascita solo anno'
+description: 'Inserisci la data di nascita nel formato YYYYY. Questo campo deve essere popolato in ALTERNATIVA al campo data di nascita (formato data)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

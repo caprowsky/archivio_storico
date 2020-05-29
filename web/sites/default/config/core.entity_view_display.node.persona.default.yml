@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
@@ -46,7 +47,7 @@ bundle: persona
 mode: default
 content:
   field_data_di_morte:
-    weight: 11
+    weight: 12
     label: inline
     settings:
       timezone_override: ''
@@ -62,6 +63,14 @@ content:
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_data_nascita_anno:
+    weight: 11
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_foto:
     type: entity_reference_entity_view
@@ -80,7 +89,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 12
+    weight: 13
     label: inline
     settings:
       link_to_entity: false

@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.ricerca
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
+    - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
     - field.field.node.persona.field_geofiled
     - field.field.node.persona.field_id
@@ -34,7 +35,7 @@ third_party_settings:
     group_controllo:
       children: {  }
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: fieldset
       region: content
       format_settings:
@@ -51,7 +52,7 @@ bundle: persona
 mode: ricerca
 content:
   field_data_di_morte:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       timezone_override: ''
@@ -68,6 +69,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_data_nascita_anno:
+    type: string
+    weight: 5
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_foto:
     type: entity_reference_entity_view
     weight: 1
@@ -85,7 +94,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 6
+    weight: 7
     label: inline
     settings:
       link_to_entity: false
