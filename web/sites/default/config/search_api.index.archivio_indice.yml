@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_data_fine_carriera_fake
     - field.storage.node.field_data_inizio_carriera_fake
     - field.storage.node.field_data_licenza
+    - field.storage.node.field_data_nascita_anno
     - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
     - field.storage.node.field_fine_mandato
@@ -291,6 +292,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_data_nascita
+  field_data_nascita_anno:
+    label: 'Data nascita solo anno'
+    datasource_id: 'entity:node'
+    property_path: field_data_nascita_anno
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_data_nascita_anno
   field_docente_illustre:
     label: 'Docente illustre'
     datasource_id: 'entity:node'
