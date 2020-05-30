@@ -71,89 +71,56 @@
  */
 #}
 <article{{ attributes }}>
-  <div class="persona-full">
-
+  <div class="persona-ricerca">
     <div{{ content_attributes }}>
 
-      {% if node.isPublished() == false %}
-        <div class="alert alert-danger" role="alert">
-          Attenzione, la scheda di questa persona non è pubblica.
-        </div>
+
+      <div class="foto-ricerca">
+      {% if foto_default %}
+        <img src="{{ base_url }}/themes/custom/archivio/images/placeholder_persona.png" alt="Persona" />
+      {% else %}
+        {{ content.field_foto }}
       {% endif %}
-
-      <div class="row">
-        <div class="col-md-8">
-          <div class="contenuto">
-            <h1 class="page-title">
-              {{ content.field_primo_cognome|field_value }}
-              {{ content.field_secondo_cognome|field_value }}
-              {{ content.field_terzo_cognome|field_value }}
-              {{ content.field_primo_nome|field_value }}
-              {{ content.field_secondo_nome|field_value }}
-              {{ content.field_terzo_nome|field_value }}
-            </h1>
-
-            {{ content.field_sesso }}
-
-
-            {% if indirizzo %}
-                {{ content.field_indirizzo }}
-            {% endif %}
-
-            {{ content.field_data_nascita }}
-            {{ content.field_data_nascita_anno }}
-            {{ content.field_data_di_morte }}
-            {{ content.field_luogo_di_morte }}
-
-            <div class="carriere">
-              {% if carriere.studente %}
-                <p><a href="#carriere-studente">Carriere studente: {{ carriere.studente|length }}</a></p>
-              {% endif %}
-              {% if carriere.docente %}
-                <p><a href="#carriere-docente">Carriere docente: {{ carriere.docente|length }}</a></p>
-              {% endif %}
-              {% if carriere.rettore %}
-                <p><a href="#carriere-rettore">Carriere rettore: {{ carriere.rettore|length }}</a></p>
-              {% endif %}
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="contenuto">
-            {{ content.field_foto }}
-
-            <div class="tool">
-              <ul>
-                <li><a href="#"><i class="fas fa-envelope"></i> Segnala modifiche</a></li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
       </div>
 
-      {% if carriere.studente %}
-        <div id="carriere-studente">
-          {{ drupal_view('carriera_persona', 'carriera_studente') }}
-        </div>
+      <h4>
+        <a href="{{ url }}">{{ label }}</a>
+        {% if carriere.rettore %}
+          {% for carriera in carriere.rettore %}
+          <i class="fas fa-chalkboard-teacher"></i>
+          {% endfor %}
+        {% endif %}
+        {% if carriere.docente %}
+          {% for carriera in carriere.docente %}
+          <i class="fas fa-chalkboard-teacher"></i>
+          {% endfor %}
+        {% endif %}
+        {% if carriere.studente %}
+          {% for item in carriere.studente %}
+          <i class="fas fa-user"></i>
+          {% endfor %}
+        {% endif %}
+      </h4>
+
+
+
+      {% if indirizzo %}
+        {{ content.field_indirizzo }}
       {% endif %}
 
-      {% if carriere.docente %}
-        <div id="carriere-docente">
-          {{ drupal_view('carriera_persona', 'carriera_docente') }}
-        </div>
+      {% if data_nascita_normale %}
+        {{ label_anno }} il  {{ content.field_data_nascita|field_value }}
       {% endif %}
 
-      {% if carriere.rettore %}
-        <div id="carriere-rettore">
-          {{ drupal_view('carriera_persona', 'carriera_rettore') }}
-        </div>
+      {% if data_nascita_anno %}
+        {{ label_anno}} nel {{ content.field_data_nascita_anno|field_value }}
       {% endif %}
+
+      <div class="facolta">
+      {{ facolta_persona }}
+      </div>
+
 
     </div>
-
   </div>
 </article>

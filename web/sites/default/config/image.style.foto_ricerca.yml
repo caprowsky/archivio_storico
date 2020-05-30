@@ -1,0 +1,15 @@
+uuid: 065236fa-ed71-49b3-8fd8-dbdf2a69d3f8
+langcode: it
+status: true
+dependencies: {  }
+name: foto_ricerca
+label: 'Foto ricerca'
+effects:
+  f94fb0b0-242d-4979-9615-ebe8273f4353:
+    uuid: f94fb0b0-242d-4979-9615-ebe8273f4353
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 150
+      height: 170
+      anchor: center-center

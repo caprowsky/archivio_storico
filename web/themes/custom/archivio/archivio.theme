@@ -87,7 +87,7 @@ function aarchivio_suggestions_page_alter(array &$suggestions, array $variables)
 function archivio_preprocess_block(&$variables) {
   // Add the block ID as custom attribute to block content, this will be used
   // for menu template suggestions.
-  if (isset($variables['elements']['#id'])){
+  if (isset($variables['elements']['#id'])) {
     $variables['content']['#attributes']['block'] = $variables['elements']['#id'];
   }
 
@@ -124,7 +124,7 @@ function archivio_theme_suggestions_block_alter(array &$suggestions, array $vari
   if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
     $bundle = $content['#block_content']->bundle();
     $view_mode = $content['#view_mode'];
-    $suggestions[] = 'block__' . $bundle ;
+    $suggestions[] = 'block__' . $bundle;
     $suggestions[] = 'block__' . $view_mode;
     $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
   }
@@ -138,11 +138,11 @@ function archivio_preprocess_node(&$vars) {
   global $base_url;
   $vars['base_url'] = $base_url;
   $view_mode = $vars['view_mode'];
-  /**  @var \Drupal\node\Entity\Node $node **/
-  /**  @var \Drupal\node\Entity\Node $carriera **/
+  /**  @var \Drupal\node\Entity\Node $node * */
+  /**  @var \Drupal\node\Entity\Node $carriera * */
   $node = $vars['node'];
 
-  if ($node->bundle() == 'persona' && $view_mode == 'full') {
+  if ($node->bundle() == 'persona' && ($view_mode == 'full' || $view_mode == 'ricerca')) {
 
     $vars['indirizzo'] = FALSE;
     if (!$node->get('field_indirizzo')->isEmpty()) {
@@ -150,6 +150,26 @@ function archivio_preprocess_node(&$vars) {
       if (!empty($indirizzo[0]['locality'])) {
         $vars['indirizzo'] = TRUE;
       }
+    }
+
+    $vars['data_nascita_normale'] = FALSE;
+    $vars['data_nascita_anno'] = FALSE;
+    if (!$node->get('field_data_nascita')->isEmpty()) {
+      $vars['data_nascita_normale'] = TRUE;
+    }
+    if (!$node->get('field_data_nascita_anno')->isEmpty()) {
+      $vars['data_nascita_anno'] = TRUE;
+    }
+
+    $vars['sesso'] = 'm';
+    if (!$node->get('field_sesso')->isEmpty()) {
+      $genere = $node->get('field_sesso')->getValue();
+      $vars['sesso'] = $genere[0]['value'];
+    }
+
+    $vars['label_anno'] = "Nato";
+    if ($vars['sesso'] == 'f') {
+      $vars['label_anno'] = "Nata";
     }
 
     $author_name = $node->getOwner();
@@ -160,19 +180,19 @@ function archivio_preprocess_node(&$vars) {
       $vars['autore'] = 'Nome dell\'autore';
     }
 
-    $query = \Drupal::entityQuery('node')
-      ->condition('field_persona', $node->id())
-      ->condition('type', 'carriera');
-
     $vars['carriere']['docente'] = FALSE;
     $vars['carriere']['studente'] = FALSE;
     $vars['carriere']['rettore'] = FALSE;
 
+    $query = \Drupal::entityQuery('node')
+      ->condition('field_persona', $node->id())
+      ->condition('type', 'carriera');
+
     $nids = $query->execute();
     if (count($nids) > 0) {
-      $studente = array();
-      $docente = array();
-      $rettore = array();
+      $studente = array ();
+      $docente = array ();
+      $rettore = array ();
       $carriere = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
       foreach ($carriere as $carriera) {
         $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
@@ -186,39 +206,53 @@ function archivio_preprocess_node(&$vars) {
           $rettore[] = "r";
         }
 
+        if (!$carriera->get('field_facolta')->isEmpty()) {
+          $facoltas = $carriera->get('field_facolta')->referencedEntities();
+          foreach ($facoltas as $facolta) {
+            $facolta_persona[] = $facolta->label();
+          }
+        }
       }
     }
 
     if (count($studente) > 0) {
-      $vars['carriere']['studente'] = count($studente);
+      $vars['carriere']['studente'] = $studente;
     }
 
     if (count($docente) > 0) {
-      $vars['carriere']['docente'] = count($docente);
+      $vars['carriere']['docente'] = $docente;
     }
 
     if (count($rettore) > 0) {
-      $vars['carriere']['rettore'] = count($rettore);
+      $vars['carriere']['rettore'] = $rettore;
     }
+
+    $vars['foto_default'] = FALSE;
+    if ($node->get('field_foto')->isEmpty()) {
+      $vars['foto_default'] = TRUE;
+    }
+
+    $new_facolta = array_unique(($facolta_persona));
+    $vars['facolta_persona'] = implode(', ', $new_facolta);
 
   }
 
   if ($node->bundle() == 'carriera') {
-      $tipologia = $node->get('field_tipologia_carriera')->getValue();
-      $vars['laureato'] = FALSE;
-      if ($tipologia[0]['value'] == 's') {
+    $tipologia = $node->get('field_tipologia_carriera')->getValue();
+    $vars['laureato'] = FALSE;
+    if ($tipologia[0]['value'] == 's') {
 
-        if (!$node->get('field_data_fine_carriera')) {
-          $vars['laureato'] = TRUE;
-        }
+      if (!$node->get('field_data_fine_carriera')) {
+        $vars['laureato'] = TRUE;
       }
+    }
 
     $vars['revisore'] = false;
     $vars['autore'] = false;
 
     if (!$node->get('field_revisore')->isEmpty()) {
-        $vars['revisore'] = $service->implodeValue($node, 'field_revisore');
-      }
+      $vars['revisore'] = $service->implodeValue($node, 'field_revisore');
+    }
 
     if (!$node->get('field_autore')->isEmpty()) {
       $vars['autore'] = $service->implodeValue($node, 'field_autore');

@@ -70,7 +70,10 @@
 
   {% if rows -%}
 
-    {{ rows }}
+    <div class="row">
+      {{ rows }}
+    </div>
+
   {% elseif empty -%}
     {{ empty }}
   {% endif %}

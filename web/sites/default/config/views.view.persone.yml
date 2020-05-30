@@ -75,57 +75,23 @@ display:
             offset_label: Scostamento
           quantity: 9
       style:
-        type: table
+        type: default
         options:
-          grouping: {  }
-          row_class: ''
+          row_class: 'col-md-6 singola-persona'
           default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            title: title
-            field_data_nascita: field_data_nascita
-            field_luogo_nascita: field_luogo_nascita
-            persona_facolta: persona_facolta
-          info:
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_data_nascita:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_luogo_nascita:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            persona_facolta:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
+          uses_fields: false
       row:
-        type: fields
+        type: search_api
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          view_modes:
+            'entity:node':
+              carriera: default
+              page: default
+              persona: ricerca
+            'entity:taxonomy_term':
+              corso: default
+              facolta: default
+              tags: default
       fields:
         url:
           id: url
@@ -1112,7 +1078,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: ricerca-persone
+      css_class: 'ricerca-persone '
     cache_metadata:
       max-age: -1
       contexts:
