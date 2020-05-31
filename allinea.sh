@@ -12,6 +12,6 @@ drush cim -y;
 
 drush cr;
 drush search-api-clear;
-drush search-api-index;
+#drush search-api-index;
 
 

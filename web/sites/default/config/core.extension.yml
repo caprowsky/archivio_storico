@@ -25,6 +25,7 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
+  diff: 0
   editor: 0
   entity_browser: 0
   entity_browser_entity_form: 0
