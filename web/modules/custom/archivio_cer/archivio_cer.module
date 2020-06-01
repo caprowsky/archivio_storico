@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_entity_insert().
+ */
+function archivio_cer_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'carriera') {
+    $service = \Drupal::service('archivio_cer.utils');
+    $service->updateCarriera($entity);
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function archivio_cer_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'carriera') {
+    $service = \Drupal::service('archivio_cer.utils');
+    $service->updateCarriera($entity);
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function archivio_cer_entity_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'carriera') {
+    $service = \Drupal::service('archivio_cer.utils');
+    $service->deleteCarriera($entity);
+  }
+}
+

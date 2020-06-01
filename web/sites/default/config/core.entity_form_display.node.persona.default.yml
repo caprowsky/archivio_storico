@@ -3,7 +3,6 @@ langcode: it
 status: true
 dependencies:
   config:
-    - entity_browser.browser.carriera
     - field.field.node.persona.field_data_di_morte
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
@@ -26,7 +25,6 @@ dependencies:
   module:
     - address
     - datetime
-    - entity_browser
     - field_group
     - geofield_map
     - media_library
@@ -240,19 +238,18 @@ content:
     type: address_default
     region: content
   field_link_carriera:
-    type: entity_browser_entity_reference
+    type: readonly_field_widget
     weight: 20
     region: content
     settings:
-      entity_browser: carriera
-      field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: widget_editing
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_edit: false
-      field_widget_replace: false
-      open: false
+      label: above
+      formatter_type: entity_reference_label
+      formatter_settings:
+        entity_reference_label:
+          link: '1'
+        entity_reference_entity_view:
+          view_mode: default
+      show_description: 0
     third_party_settings: {  }
   field_luogo_di_morte:
     weight: 21

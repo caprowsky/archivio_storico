@@ -34,7 +34,6 @@ permissions:
   - 'override page published option'
   - 'override persona published option'
   - 'rabbit hole bypass media'
-  - 'rabbit hole bypass node'
   - 'rabbit hole bypass taxonomy_term'
   - 'revert carriera revisions'
   - 'revert page revisions'

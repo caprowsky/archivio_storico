@@ -1,0 +1,3 @@
+services:
+  archivio_cer.utils:
+    class: Drupal\archivio_cer\Utils

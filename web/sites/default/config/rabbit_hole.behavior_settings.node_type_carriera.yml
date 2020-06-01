@@ -5,7 +5,7 @@ dependencies:
   config:
     - node.type.carriera
 id: node_type_carriera
-action: page_not_found
+action: page_redirect
 allow_override: 0
-redirect: ''
+redirect: '/node/[node:nid]/edit'
 redirect_code: 301

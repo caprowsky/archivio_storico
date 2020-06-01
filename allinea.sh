@@ -11,7 +11,8 @@ drush updb -y;
 drush cim -y;
 
 drush cr;
-drush search-api-clear;
+#drush search-api-clear;
 #drush search-api-index;
+drush upwd admin admin
 
 
