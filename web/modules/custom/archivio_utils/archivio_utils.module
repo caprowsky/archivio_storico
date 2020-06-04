@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\search_api\Plugin\search_api\datasource\ContentEntity;
+use \Drupal\views\ViewExecutable;
+use \Drupal\views\Plugin\views\query\QueryPluginBase;
 
 /**
  * @file
@@ -57,4 +59,40 @@ function archivio_utils_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
     $form['settings']['label']['#description'] = 'Il titolo amministrativo del blocco, non viene visualizzato nella pagina.';
   }
 
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function archivio_utils_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  if ($view->id() == 'mappe' && $view->current_display == 'facolta') {
+    foreach ($query->getWhere() as &$condition_group) {
+      if ($condition_group['type'] == 'AND') {
+        foreach ($condition_group['conditions'] as &$condition) {
+          if ($condition[0] == 'field_carriera_facolta') {
+            /* @var \Drupal\taxonomy\Entity\Term $term */
+            $term = \Drupal::request()->attributes->get('taxonomy_term');
+            $tids = [];
+            if (!empty($term)) {
+              $service = \Drupal::service('archivio_utils.utils');
+              $tids[$term->id()] = $term->id();
+              $padre = $service->checkPadreDalFiglio($term);
+              $figli = [];
+              if ($padre == "0") {
+                $figli = $service->checkFigliDalPadre($term->id());
+              } elseif ($padre != "") {
+                $figli = $service->checkFigliDalPadre($padre);
+                $tids[$padre] = $padre;
+              }
+
+              foreach ($figli as $figlio) {
+                $tids[$figlio] = $figlio;
+              }
+            }
+            $condition[1] = $tids;
+          }
+        }
+      }
+    }
+  }
 }

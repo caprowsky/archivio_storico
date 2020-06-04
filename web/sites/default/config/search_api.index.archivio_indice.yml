@@ -21,6 +21,7 @@ dependencies:
     - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
     - field.storage.node.field_fine_mandato
+    - field.storage.node.field_geofiled
     - field.storage.node.field_inizio_mandato
     - field.storage.node.field_insegnamenti
     - field.storage.node.field_link_carriera
@@ -324,6 +325,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_fine_mandato
+  field_geofiled:
+    label: Geofiled
+    datasource_id: 'entity:node'
+    property_path: field_geofiled
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_geofiled
   field_inizio_mandato:
     label: 'Inizio mandato'
     datasource_id: 'entity:node'
