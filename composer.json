@@ -59,6 +59,7 @@
         "drupal/search_api": "^1.15",
         "drupal/search_api_autocomplete": "^1.2",
         "drupal/search_api_solr": "^4.0",
+        "drupal/security_review": "^1.0",
         "drupal/simple_sitemap": "^3.6",
         "drupal/smtp": "^1.0",
         "drupal/switch_page_theme": "^1.0",
