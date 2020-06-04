@@ -1045,7 +1045,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'Ricerca persone'
+      title: 'Ricerca nell''archivio storico'
       header:
         entity_block_4:
           id: entity_block_4
