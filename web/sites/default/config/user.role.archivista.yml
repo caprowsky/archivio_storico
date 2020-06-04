@@ -30,6 +30,7 @@ permissions:
   - 'edit own image media'
   - 'edit own page content'
   - 'edit own persona content'
+  - 'edit terms in facolta'
   - 'override carriera published option'
   - 'override page published option'
   - 'override persona published option'
