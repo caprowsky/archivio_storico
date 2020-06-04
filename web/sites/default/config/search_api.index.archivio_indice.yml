@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_data_fine_carriera_fake
     - field.storage.node.field_data_inizio_carriera_fake
     - field.storage.node.field_data_licenza
+    - field.storage.node.field_data_morte_solo_anno
     - field.storage.node.field_data_nascita_anno
     - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
@@ -285,6 +286,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_data_licenza
+  field_data_morte_solo_anno:
+    label: 'Data morte solo anno'
+    datasource_id: 'entity:node'
+    property_path: field_data_morte_solo_anno
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_data_morte_solo_anno
   field_data_nascita:
     label: 'Data di nascita'
     datasource_id: 'entity:node'
@@ -474,7 +483,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_secondo_cognome
     type: text
-    boost: !!float 8
+    boost: !!float 13
     dependencies:
       config:
         - field.storage.node.field_secondo_cognome
@@ -537,6 +546,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_terzo_cognome
     type: text
+    boost: !!float 8
     dependencies:
       config:
         - field.storage.node.field_terzo_cognome
@@ -583,6 +593,7 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: field_titolo_tesi_laurea
     type: text
+    boost: !!float 2
     dependencies:
       config:
         - field.storage.node.field_titolo_tesi_laurea
