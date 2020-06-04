@@ -81,6 +81,7 @@ module:
   search_api_solr: 0
   serialization: 0
   shortcut: 0
+  simple_sitemap: 0
   smtp: 0
   switch_page_theme: 0
   system: 0
@@ -97,6 +98,7 @@ module:
   ui_patterns_layouts: 0
   ui_patterns_library: 0
   ui_patterns_views: 0
+  ultimate_cron: 0
   update: 0
   user: 0
   vde_drush: 0

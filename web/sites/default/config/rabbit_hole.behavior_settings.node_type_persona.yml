@@ -1,0 +1,11 @@
+uuid: 09e271fa-e2df-476b-b82e-03cce32916a1
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.persona
+id: node_type_persona
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
