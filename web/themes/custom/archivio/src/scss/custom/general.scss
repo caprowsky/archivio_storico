@@ -103,3 +103,9 @@
 a {
   color: $scuro;
 }
+
+#page-user-login {
+  a .icon {
+    height: auto !important;
+  }
+}
