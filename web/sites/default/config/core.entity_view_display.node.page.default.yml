@@ -57,8 +57,7 @@ third_party_settings:
           - testo
         'Custom blocks': {  }
         Devel: {  }
-        Facets:
-          - 'facet_block:tipologia_carriera_mappa'
+        Facets: {  }
         Forms: {  }
         'Geofield Map': {  }
         Help: {  }
@@ -70,7 +69,6 @@ third_party_settings:
           - 'inline_block:immagine'
           - 'inline_block:testo'
         'Lists (Views)':
-          - 'views_block:mappa-blocco_mappa'
           - 'views_block:termini-elenco_facolta'
         Menus: {  }
         OwlCarousel2: {  }
@@ -80,7 +78,11 @@ third_party_settings:
         core:
           - page_title_block
       blacklisted_blocks: {  }
-      allowed_layouts: {  }
+      allowed_layouts:
+        - layout_twocol_section
+        - layout_threecol_section
+        - one_column_full
+        - one_column_container
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.default
