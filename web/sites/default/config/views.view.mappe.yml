@@ -67,15 +67,15 @@ display:
           map_empty:
             empty_behaviour: '0'
           map_center:
+            center_force: '1'
             lat: '39.1984791'
             lon: '9.1566963'
-            center_force: 0
             geocode: 'Find my location'
           map_zoom_and_pan:
             zoom:
-              initial: '6'
-              force: 0
-              min: '1'
+              initial: '3'
+              force: 1
+              min: '3'
               max: '12'
               finer: '0'
             gestureHandling: auto
