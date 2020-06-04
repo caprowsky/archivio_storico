@@ -9,6 +9,7 @@ use Drupal\media\Entity\Media;
  */
 function archivio_preprocess_html(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
+  $term = \Drupal::request()->attributes->get('taxonomy_term');
 
   $current_uri = \Drupal::request()->getRequestUri();
   $variables['attributes']['class'][] = 'custom-path-' . str_replace('/', '', $current_uri);
@@ -23,6 +24,10 @@ function archivio_preprocess_html(&$variables) {
       $variables['archivio_container'] = 'no-container';
     }
   }
+
+  if ($term) {
+    $variables['archivio_container'] = 'no-container';
+  }
 }
 
 /**
@@ -32,6 +37,7 @@ function archivio_preprocess_page(&$variables) {
   $variables['ente_appartenenza'] = theme_get_setting('ente_appartenenza');
 
   $node = \Drupal::request()->attributes->get('node');
+  $term = \Drupal::request()->attributes->get('taxonomy_term');
 
   $variables['archivio_container'] = 'container';
 
@@ -40,7 +46,12 @@ function archivio_preprocess_page(&$variables) {
       $variables['archivio_container'] = 'no-container';
     }
   }
+
+  if ($term) {
+      $variables['archivio_container'] = 'no-container';
+  }
 }
+
 
 /**
  * Implements hook_preprocess_page()
