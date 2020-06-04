@@ -4,7 +4,8 @@ global:
       assets/css/main.css: {}
   js:
     assets/js/bundle.js: {}
-    js/carousel.js: {}
+    js/general.js: {}
+    js/typewriter.js: {}
   dependencies:
     - core/jquery
     - core/drupal
