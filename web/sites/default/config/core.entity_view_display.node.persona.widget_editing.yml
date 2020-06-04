@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.widget_editing
     - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_morte_solo_anno
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
@@ -34,7 +35,7 @@ third_party_settings:
     group_controllo:
       children: {  }
       parent_name: ''
-      weight: 21
+      weight: 22
       format_type: fieldset
       region: hidden
       format_settings:
@@ -55,6 +56,14 @@ content:
     settings:
       timezone_override: ''
       format_type: data_completo
+    third_party_settings: {  }
+  field_data_morte_solo_anno:
+    type: string
+    weight: 8
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
   field_data_nascita:
     weight: 3

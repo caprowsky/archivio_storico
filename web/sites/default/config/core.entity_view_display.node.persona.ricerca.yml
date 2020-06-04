@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.ricerca
     - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_morte_solo_anno
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
@@ -90,6 +91,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_data_di_morte: true
+  field_data_morte_solo_anno: true
   field_geofiled: true
   field_id: true
   field_link_carriera: true

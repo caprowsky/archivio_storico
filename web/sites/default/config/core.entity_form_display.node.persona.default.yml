@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_morte_solo_anno
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
@@ -35,7 +36,7 @@ third_party_settings:
     group_controllo:
       children: {  }
       parent_name: ''
-      weight: 24
+      weight: 25
       format_type: fieldset
       region: content
       format_settings:
@@ -93,6 +94,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_data_morte_solo_anno:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_data_nascita:
     weight: 18
     settings: {  }
@@ -115,7 +124,7 @@ content:
     third_party_settings: {  }
     region: content
   field_geofiled:
-    weight: 22
+    weight: 23
     settings:
       map_geocoder:
         settings:
@@ -232,7 +241,7 @@ content:
     type: readonly_field_widget
     region: content
   field_indirizzo:
-    weight: 23
+    weight: 24
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -252,7 +261,7 @@ content:
       show_description: 0
     third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 21
+    weight: 22
     settings:
       size: 60
       placeholder: ''

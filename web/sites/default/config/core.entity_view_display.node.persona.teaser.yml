@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_morte_solo_anno
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
@@ -37,6 +38,7 @@ content:
     region: content
 hidden:
   field_data_di_morte: true
+  field_data_morte_solo_anno: true
   field_data_nascita: true
   field_data_nascita_anno: true
   field_foto: true

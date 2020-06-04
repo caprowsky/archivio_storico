@@ -1,0 +1,19 @@
+uuid: dbe648e8-8ef0-449a-ba35-dc2d373421f5
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_morte_solo_anno
+    - node.type.persona
+id: node.persona.field_data_morte_solo_anno
+field_name: field_data_morte_solo_anno
+entity_type: node
+bundle: persona
+label: 'Data morte solo anno'
+description: 'Inserisci la data di morte nel formato YYYYY. Questo campo deve essere popolato in ALTERNATIVA al campo data di morte (formato data)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

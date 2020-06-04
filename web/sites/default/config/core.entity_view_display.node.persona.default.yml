@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.persona.field_data_di_morte
+    - field.field.node.persona.field_data_morte_solo_anno
     - field.field.node.persona.field_data_nascita
     - field.field.node.persona.field_data_nascita_anno
     - field.field.node.persona.field_foto
@@ -33,7 +34,7 @@ third_party_settings:
     group_controllo:
       children: {  }
       parent_name: ''
-      weight: 14
+      weight: 15
       format_type: fieldset
       region: content
       format_settings:
@@ -54,6 +55,14 @@ content:
       format_type: data_completo
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_data_morte_solo_anno:
+    weight: 13
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_data_nascita:
     weight: 10
@@ -89,7 +98,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_luogo_di_morte:
-    weight: 13
+    weight: 14
     label: inline
     settings:
       link_to_entity: false
