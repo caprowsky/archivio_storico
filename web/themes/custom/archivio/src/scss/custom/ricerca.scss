@@ -42,10 +42,14 @@
     margin-top: 40px;
     padding-bottom: 80px;
 
-    .block-facet--dropdown {
-      //float: left;
-      //margin-right: 30px;
+    .tab-content {
+      .block-facets {
+        display: inline-block;
+        margin-bottom: 20px;
+        margin-right: 20px;
+      }
     }
+
   }
 
   .foto-ricerca {
