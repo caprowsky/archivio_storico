@@ -1,0 +1,23 @@
+uuid: bca3e1b0-189d-44b6-beac-3717cb0b2f9f
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.mappe_sesso
+  module:
+    - facets
+  theme:
+    - archivio
+id: mappesesso
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:mappe_sesso'
+settings:
+  id: 'facet_block:mappe_sesso'
+  label: 'Mappe sesso'
+  provider: facets
+  label_display: '0'
+  block_id: mappesesso
+visibility: {  }

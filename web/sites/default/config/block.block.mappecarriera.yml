@@ -1,0 +1,23 @@
+uuid: b49875f1-3d63-422e-8a98-2e0c5aa29f73
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.mappe_carriera
+  module:
+    - facets
+  theme:
+    - archivio
+id: mappecarriera
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:mappe_carriera'
+settings:
+  id: 'facet_block:mappe_carriera'
+  label: 'Mappe carriera'
+  provider: facets
+  label_display: '0'
+  block_id: mappecarriera
+visibility: {  }

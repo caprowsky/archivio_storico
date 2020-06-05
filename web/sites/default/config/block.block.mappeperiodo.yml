@@ -1,0 +1,23 @@
+uuid: 10f2c9ce-f44a-4caa-8aeb-0f838fa1b369
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets.facet.mappe_periodo
+  module:
+    - facets
+  theme:
+    - archivio
+id: mappeperiodo
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facet_block:mappe_periodo'
+settings:
+  id: 'facet_block:mappe_periodo'
+  label: 'Mappe Periodo'
+  provider: facets
+  label_display: '0'
+  block_id: mappeperiodo
+visibility: {  }
