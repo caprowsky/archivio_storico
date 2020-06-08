@@ -40,20 +40,23 @@
   {{ title_suffix }}
   {% block content %}
     {{ drupal_view('mappe', 'facolta') }}
-   <div class="filtri-ricerca">
+
+    <div class="container">
+   <div class="filtri-ricerca-mappa">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item"><a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Filtra per</a></li>
-        
+
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane p-4 fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
-          {{ drupal_entity('block', 'mappecarriera') }}          
+          {{ drupal_entity('block', 'mappecarriera') }}
           {{ drupal_entity('block', 'mappesesso') }}
           {{ drupal_entity('block', 'mappeperiodo') }}
 
         </div>
-        
+
       </div>
+    </div>
     </div>
   {% endblock %}
 </div>
