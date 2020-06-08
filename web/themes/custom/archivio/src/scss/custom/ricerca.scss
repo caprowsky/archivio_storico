@@ -21,6 +21,7 @@
 
     td {
       padding: 5px 0;
+
       a {
         text-decoration: none;
         color: $scuro;
@@ -86,16 +87,26 @@
 }
 
 
-  .filtri-ricerca-mappa {
-    margin-top: 40px;
+.filtri-ricerca-mappa {
+  margin-top: 40px;
 
-    .tab-content {
-      .block-facets {
-        display: inline-block;
-        margin-bottom: 20px;
-        margin-right: 20px;
-      }
+  .tab-content {
+    .block-facets {
+      display: inline-block;
+      margin-bottom: 20px;
+      margin-right: 20px;
     }
-
   }
 
+}
+
+#search-modal {
+  h5.modal-title {
+    font-size: 1.5rem;
+  }
+
+  .modal-body {
+    padding-bottom: 30px;
+    text-align: center;
+  }
+}
