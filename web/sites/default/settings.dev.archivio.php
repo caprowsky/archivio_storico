@@ -7,12 +7,12 @@ $settings['trusted_host_patterns'] = [
 ];
 
 // Config DEV
-#$config['config_split.config_split.config_dev']['status'] = true;
-#$config['config_split.config_split.config_live']['status'] = false;
+$config['config_split.config_split.config_dev']['status'] = true;
+$config['config_split.config_split.config_live']['status'] = false;
 
 // Config LIVE
-$config['config_split.config_split.config_dev']['status'] = false;
-$config['config_split.config_split.config_live']['status'] = true;
+#$config['config_split.config_split.config_dev']['status'] = false;
+#$config['config_split.config_split.config_live']['status'] = true;
 
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/services.dev.yml';
 
