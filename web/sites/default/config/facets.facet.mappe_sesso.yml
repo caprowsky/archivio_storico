@@ -18,7 +18,7 @@ facet_source_id: 'search_api:views_block__mappe__facolta'
 widget:
   type: dropdown
   config:
-    show_numbers: false
+    show_numbers: true
     default_option_label: Genere
 query_operator: or
 use_hierarchy: false
@@ -46,6 +46,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

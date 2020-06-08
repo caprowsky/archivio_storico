@@ -18,7 +18,7 @@ facet_source_id: 'search_api:views_page__persone__ricerca'
 widget:
   type: dropdown
   config:
-    show_numbers: false
+    show_numbers: true
     default_option_label: Periodo
 query_operator: or
 use_hierarchy: false
