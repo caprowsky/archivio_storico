@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: giornaliero_files
 label: 'Giornaliero files'
-enabled: false
-keep: 10
+enabled: true
+keep: 15
 period: 86400
 cron: null
 source_id: public_files
