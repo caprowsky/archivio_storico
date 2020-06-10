@@ -52,23 +52,17 @@ facets:
     separator: ', '
     weight: 0
     show_count: false
+  luogo_di_nascita_fake:
+    checked: true
+    label: 'Luogo di nascita'
+    separator: ', '
+    weight: 0
+    show_count: false
+  link_carriera_contenuto_insegnamenti_testo:
+    checked: true
+    label: 'Link carriera » Contenuto » Insegnamenti testo'
+    separator: ', '
+    weight: 0
+    show_count: false
 facet_source_id: 'search_api:views_page__persone__ricerca'
-processor_configs:
-  hide_when_not_rendered:
-    processor_id: hide_when_not_rendered
-    weights:
-      build: '-7'
-    settings: {  }
-  show_count:
-    processor_id: show_count
-    weights:
-      build: '-6'
-    settings: {  }
-  show_text_when_empty:
-    processor_id: show_text_when_empty
-    weights:
-      build: '-10'
-    settings:
-      text:
-        value: 'No results found.'
-        format: plain_text
+processor_configs: {  }

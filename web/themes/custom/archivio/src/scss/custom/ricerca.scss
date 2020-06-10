@@ -80,6 +80,18 @@
     }
   }
 
+  .summary {
+    ul:before{
+      content: "Filtri attivi: ";
+      font-weight: bold;
+      color: $scuro;
+    }
+    li {
+      list-style-type: none !important;
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
 }
 
 #block-formespostopersonericerca {
@@ -97,7 +109,6 @@
       margin-right: 20px;
     }
   }
-
 }
 
 #search-modal {

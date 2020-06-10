@@ -1,0 +1,28 @@
+uuid: a9baa7f6-64e7-4671-934a-453652264df7
+langcode: it
+status: true
+dependencies:
+  config:
+    - facets_summary.facets_summary.summary_ricerca_persone
+  module:
+    - facets_summary
+    - system
+  theme:
+    - archivio
+id: summaryricercapersone
+theme: archivio
+region: disabled_blocks
+weight: 0
+provider: null
+plugin: 'facets_summary_block:summary_ricerca_persone'
+settings:
+  id: 'facets_summary_block:summary_ricerca_persone'
+  label: 'Summary Ricerca Persone'
+  provider: facets_summary
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/persone*'
+    negate: false
+    context_mapping: {  }
