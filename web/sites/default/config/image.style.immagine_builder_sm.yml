@@ -1,0 +1,15 @@
+uuid: c4c54340-65af-451a-8bc0-b3e1c6446c90
+langcode: it
+status: true
+dependencies: {  }
+name: immagine_builder_sm
+label: 'Immagine builder SM'
+effects:
+  2d20a63c-6afa-4b20-bcf7-075a30716eb5:
+    uuid: 2d20a63c-6afa-4b20-bcf7-075a30716eb5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 770
+      height: 257
+      anchor: center-center

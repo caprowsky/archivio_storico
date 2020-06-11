@@ -5,11 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.media.immagine_builder
     - field.field.media.image.field_media_image
-    - image.style.blocco_immagine
     - media.type.image
+    - responsive_image.styles.immagine_builder
   module:
-    - image
     - layout_builder
+    - responsive_image
 third_party_settings:
   layout_builder:
     allow_custom: false
@@ -24,10 +24,10 @@ content:
   field_media_image:
     label: visually_hidden
     settings:
-      image_style: blocco_immagine
+      responsive_image_style: immagine_builder
       image_link: ''
     third_party_settings: {  }
-    type: image
+    type: responsive_image
     weight: 1
     region: content
 hidden:

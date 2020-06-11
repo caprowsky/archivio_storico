@@ -1,0 +1,28 @@
+archivio.xs:
+  label: "Extra Small - XS"
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+   - 1x
+
+archivio.sm:
+  label: "Small - SM"
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 992px)'
+  weight: 1
+  multipliers:
+   - 1x
+
+archivio.md:
+  label: "Medium - MD"
+  mediaQuery: 'all and (min-width: 992px) and (max-width: 1200px)'
+  weight: 2
+  multipliers:
+   - 1x
+
+archivio.lg:
+  label: "Large - LG"
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 3
+  multipliers:
+   - 1x
+

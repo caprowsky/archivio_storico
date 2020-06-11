@@ -1,0 +1,35 @@
+uuid: 086cba6d-5c13-46bc-ab0b-a573280c45b7
+langcode: it
+status: true
+dependencies:
+  config:
+    - image.style.immagine_builder_lg
+    - image.style.immagine_builder_md
+    - image.style.immagine_builder_sm
+  theme:
+    - archivio
+id: immagine_builder
+label: 'Immagine builder'
+image_style_mappings:
+  -
+    breakpoint_id: archivio.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: immagine_builder_lg
+  -
+    breakpoint_id: archivio.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: immagine_builder_md
+  -
+    breakpoint_id: archivio.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: immagine_builder_sm
+  -
+    breakpoint_id: archivio.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: immagine_builder_sm
+breakpoint_group: archivio
+fallback_image_style: immagine_builder_lg

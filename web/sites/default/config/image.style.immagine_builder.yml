@@ -3,7 +3,7 @@ langcode: it
 status: true
 dependencies: {  }
 name: immagine_builder
-label: 'Immagine builder'
+label: 'Immagine builder LG - OLD'
 effects:
   484ed47d-fed1-4634-a985-5e15777e3d91:
     uuid: 484ed47d-fed1-4634-a985-5e15777e3d91

@@ -1,0 +1,13 @@
+uuid: f1f02cd2-5d60-413d-a525-7a54f0f99b40
+langcode: it
+status: true
+dependencies:
+  config:
+    - image.style.medium
+  theme:
+    - archivio
+id: foto_persona
+label: 'Foto persona'
+image_style_mappings: {  }
+breakpoint_group: archivio
+fallback_image_style: medium

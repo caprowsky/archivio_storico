@@ -1,0 +1,15 @@
+uuid: 4b60642d-eaeb-47ac-b62a-fbd6587d690f
+langcode: it
+status: true
+dependencies: {  }
+name: immagine_builder_lg
+label: 'Immagine Builder LG'
+effects:
+  8e938df2-b986-48d1-b0cb-1c1fdb9d048d:
+    uuid: 8e938df2-b986-48d1-b0cb-1c1fdb9d048d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 400
+      anchor: center-center
