@@ -655,6 +655,10 @@ field_settings:
     label: 'Facoltà per persona'
     property_path: search_api_persona_facolta
     type: string
+  persona_insegnamenti:
+    label: 'Insegnamenti per persona'
+    property_path: search_api_persona_insegnamenti
+    type: string
   persona_laureata:
     label: 'Laureato si no'
     property_path: search_api_persona_laureata
@@ -761,6 +765,7 @@ processor_settings:
   luogo_nascita: {  }
   periodo: {  }
   persona_facoltà: {  }
+  persona_insegnamenti: {  }
   rendered_item: {  }
   solr_date_range:
     weights:
