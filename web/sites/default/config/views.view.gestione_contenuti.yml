@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_data_nascita
     - field.storage.node.field_docente_illustre
     - field.storage.node.field_facolta
+    - field.storage.node.field_indirizzo
     - field.storage.node.field_luogo_nascita
     - field.storage.node.field_prima_donna
     - field.storage.node.field_segnatura_arch_tesi_laurea
@@ -19,6 +20,7 @@ dependencies:
     - user.role.administrator
     - user.role.archivista
   module:
+    - address
     - datetime
     - options
     - search_api
@@ -100,6 +102,7 @@ display:
             persona_facolta: persona_facolta
             persona_insegnamenti: persona_insegnamenti
             field_luogo_nascita: field_luogo_nascita
+            field_indirizzo: field_indirizzo
             changed: changed
             status: status
             search_api_operations: search_api_operations
@@ -135,6 +138,11 @@ display:
             field_luogo_nascita:
               sortable: true
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_indirizzo:
               align: ''
               separator: ''
               empty_column: false
@@ -2290,7 +2298,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Luogo di nascita'
+          label: 'Luogo di nascita (import.)'
           exclude: false
           alter:
             alter_text: false
@@ -2352,6 +2360,76 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+          plugin_id: search_api_field
+        field_indirizzo:
+          id: field_indirizzo
+          table: search_api_datasource_archivio_indice_entity_node
+          field: field_indirizzo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Luogo di nascita (Geoloc.)'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{{ field_indirizzo__country_code }} - {{ field_indirizzo__locality }}\r\n\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: langcode
+          type: address_default
+          settings: {  }
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+          entity_type: node
           plugin_id: search_api_field
         changed:
           id: changed
@@ -2701,5 +2779,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_data_nascita'
+        - 'config:field.storage.node.field_indirizzo'
         - 'config:field.storage.node.field_luogo_nascita'
         - 'config:search_api.index.archivio_indice'
