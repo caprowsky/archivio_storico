@@ -1,0 +1,64 @@
+// Logo sito
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
+  width: 30px;
+  height: auto;
+  //background-color: red;
+  margin-left: 20px;
+
+  @media (max-width: $sm) {
+    width: 30px;
+    height: auto;
+    //background-color: red;
+    margin-left: 20px;
+  }
+
+  @media (min-width: $md) {
+    width: 40px;
+    height: auto;
+    //background-color: black;
+    margin-left: 0px;
+  }
+
+  @media (min-width: $lg) {
+    width: 60px;
+    height: auto;
+    //background-color: white;
+    margin-left: 0px;
+  }
+
+  @media (min-width: $xl) {
+    width: 82px;
+    height: auto;
+    //background-color: green;
+  }
+}
+
+// Header slim
+.it-header-slim-wrapper {
+  background: $scurissimo;
+  font-weight: bold !important;
+}
+
+// Header principale
+.it-header-center-wrapper {
+  background: $scuro;
+}
+
+// Header menu
+.it-header-navbar-wrapper {
+  background: $scuro;
+}
+
+// Footer principale
+.it-footer-main {
+  background: $scurerrimo;
+}
+
+// Footer basso
+.it-footer-small-prints {
+  background: $scurissimo;
+}
+
+.it-header-slim-wrapper .it-header-slim-wrapper-content .it-header-slim-right-zone .it-access-top-wrapper > a {
+  background: $scuro;
+}

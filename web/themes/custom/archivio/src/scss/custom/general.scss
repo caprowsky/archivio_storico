@@ -1,34 +1,3 @@
-.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
-  width: 82px;
-}
-
-// Header slim
-.it-header-slim-wrapper {
-  background: $scurissimo;
-  font-weight: bold !important;
-}
-
-// Header principale
-.it-header-center-wrapper {
-  background: $scuro;
-}
-
-// Header menu
-.it-header-navbar-wrapper {
-  background: $scuro;
-}
-
-// Footer principale
-.it-footer-main {
-  background: $scurerrimo;
-}
-
-// Footer basso
-
-.it-footer-small-prints {
-  background: $scurissimo;
-}
-
 // Pager
 .pager {
   text-align: center;
@@ -52,9 +21,9 @@
       }
     }
   }
-
 }
 
+// Label field
 .field--label-inline .field--items, .field--label-inline .field--label {
   float: left
 }
@@ -84,9 +53,6 @@
 }
 
 
-.it-header-slim-wrapper .it-header-slim-wrapper-content .it-header-slim-right-zone .it-access-top-wrapper > a {
-    background: $scuro;
-}
 
 .menu-wrapper {
   a.nav-link {
@@ -100,6 +66,7 @@
     color: $scuro;
   }
 }
+
 a {
   color: $scuro;
 }
