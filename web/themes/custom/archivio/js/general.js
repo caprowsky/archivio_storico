@@ -4,16 +4,48 @@ jQuery(document).ready(function(){
 
   if(jQuery("#edit-cerca").length){
     new TypeWriter('#edit-cerca', [
-        'Giuseppe Puddu Sassari',
-        'Argiolas ingegneria',
+      'Emilio Lussu',
+      'della libertà di stampa',
+      'Ottone Bacaredda',
+      'Facoltà di Medicina e Chirurgia',
+      'sulla febbre gastrica',
+      'Domenico Lovisato',
+      'Antonio Pacinotti',
+      'Facoltà di Giurisprudenza',
+      'Eva Mameli Calvino',
+      'Giovanni Spano',
+      'Facoltà di Teologia',
+      'Paola Maria Arcari',
+      'Giovanni Maria Dettori',
+      'Facoltà di Scienze fisiche, matematiche e naturali',
+      'Giovanni Maria Angioj',
+      'Giuseppe Brotzu',
+      'Facoltà di Lettere e Filosofia',
+      'Antonio Segni',
       ],
       { writeDelay: 100 });
   }
 
   if(jQuery("#ricercahome").length){
     new TypeWriter('#ricercahome', [
-      'Giuseppe Puddu Sassari',
-      'Argiolas ingegneria',
+      'Emilio Lussu',
+      'della libertà di stampa',
+      'Ottone Bacaredda',
+      'Facoltà di Medicina e Chirurgia',
+      'sulla febbre gastrica',
+      'Domenico Lovisato',
+      'Antonio Pacinotti',
+      'Facoltà di Giurisprudenza',
+      'Eva Mameli Calvino',
+      'Giovanni Spano',
+      'Facoltà di Teologia',
+      'Paola Maria Arcari',
+      'Giovanni Maria Dettori',
+      'Facoltà di Scienze fisiche, matematiche e naturali',
+      'Giovanni Maria Angioj',
+      'Giuseppe Brotzu',
+      'Facoltà di Lettere e Filosofia',
+      'Antonio Segni',
       ],
       { writeDelay: 100 });
   }
