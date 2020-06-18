@@ -1,0 +1,15 @@
+uuid: 111f0cf6-7cba-42e4-92f0-ab099848b2b7
+langcode: it
+status: true
+dependencies: {  }
+name: metatag
+label: Metatag
+effects:
+  ef4f0e7b-a481-4029-a01e-ed244038e0da:
+    uuid: ef4f0e7b-a481-4029-a01e-ed244038e0da
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 630
+      anchor: center-center

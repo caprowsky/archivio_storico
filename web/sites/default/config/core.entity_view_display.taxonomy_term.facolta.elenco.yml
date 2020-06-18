@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.taxonomy_term.elenco
     - field.field.taxonomy_term.facolta.field_immagine
+    - field.field.taxonomy_term.facolta.field_metatag
     - field.field.taxonomy_term.facolta.layout_builder__layout
     - taxonomy.vocabulary.facolta
   module:
@@ -36,6 +37,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_metatag: true
   langcode: true
   layout_builder__layout: true
   search_api_excerpt: true

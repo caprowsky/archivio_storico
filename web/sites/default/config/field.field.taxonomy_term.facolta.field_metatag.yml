@@ -1,0 +1,21 @@
+uuid: 7446f836-0bcb-4150-bfbb-9e3c7328bbca
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_metatag
+    - taxonomy.vocabulary.facolta
+  module:
+    - metatag
+id: taxonomy_term.facolta.field_metatag
+field_name: field_metatag
+entity_type: taxonomy_term
+bundle: facolta
+label: Metatag
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
