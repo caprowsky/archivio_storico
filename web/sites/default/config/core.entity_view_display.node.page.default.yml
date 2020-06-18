@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - field.field.node.page.field_immagine
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
@@ -39,6 +40,23 @@ third_party_settings:
                 view_mode: view_mode
             additional: {  }
             weight: 1
+          76ea24b4-e95c-4120-bf97-328f4631fc5b:
+            uuid: 76ea24b4-e95c-4120-bf97-328f4631fc5b
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:page:field_immagine'
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories: {  }
@@ -90,6 +108,15 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
+  field_immagine:
+    type: entity_reference_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
   links:
     weight: 101
     region: content

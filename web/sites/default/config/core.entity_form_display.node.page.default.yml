@@ -3,9 +3,11 @@ langcode: it
 status: true
 dependencies:
   config:
+    - field.field.node.page.field_immagine
     - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
+    - media_library
     - path
 _core:
   default_config_hash: AD_lefuYmjsKeH3OQApsyP_nLj6ZnGaALznLQSQ0Z_o
@@ -20,6 +22,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_immagine:
+    type: media_library_widget
+    weight: 121
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   langcode:
     type: language_select
     weight: 2
