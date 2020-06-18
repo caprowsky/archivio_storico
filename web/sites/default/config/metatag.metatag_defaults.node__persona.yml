@@ -5,6 +5,11 @@ dependencies: {  }
 id: node__persona
 label: 'Contenuto: Persona'
 tags:
+  og_image_width: '1200'
+  og_image_secure_url: '[archivio:archivio_content_image]'
+  og_image_url: '[archivio:archivio_content_image]'
+  og_image_height: '630'
+  og_image_type: '[archivio:archivio_content_image_mime]'
   schema_person_birth_date: '[node:field_data_nascita:date:html_date]'
   schema_person_url: '[node:url]'
   schema_person_name: '[node:field_primo_nome] [node:field_secondo_nome] [node:field_terzo_nome] [node:field_primo_cognome] [node:field_secondo_cognome] [node:field_terzo_cognome]'

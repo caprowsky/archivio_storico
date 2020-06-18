@@ -32,12 +32,17 @@ class Utils {
    * @return mixed
    */
   public function checkImage($entity) {
-    if ($entity->hasField('field_immagine') && !$entity->get('field_immagine')
-        ->isEmpty()) {
+    if ($entity->hasField('field_immagine') && !$entity->get('field_immagine')->isEmpty()) {
       $image = $entity->get('field_immagine')->referencedEntities();
       $fid = $image[0]->id();
       return $fid;
+    } elseif ($entity->hasField('field_foto') && !$entity->get('field_foto')->isEmpty()) {
+      $image = $entity->get('field_foto')->referencedEntities();
+      $fid = $image[0]->id();
+      return $fid;
     }
+
+
     else {
       return FALSE;
     }

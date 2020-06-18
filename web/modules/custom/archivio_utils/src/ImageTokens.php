@@ -47,6 +47,7 @@ class ImageTokens {
     $service = \Drupal::service('archivio_utils.utils');
     switch ($entity->bundle()) {
       case 'page':
+      case 'persona':
         $fid = $service->checkImage($node);
         if (!empty($fid)) {
           $image = $service->getSfondo($fid, $mode);
