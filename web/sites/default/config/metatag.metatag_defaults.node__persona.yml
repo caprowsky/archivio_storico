@@ -1,0 +1,12 @@
+uuid: 8c7d2a30-ae82-4dd5-a57f-007d30c62d2f
+langcode: it
+status: true
+dependencies: {  }
+id: node__persona
+label: 'Contenuto: Persona'
+tags:
+  schema_person_birth_date: '[node:field_data_nascita:date:html_date]'
+  schema_person_url: '[node:url]'
+  schema_person_name: '[node:field_primo_nome] [node:field_secondo_nome] [node:field_terzo_nome] [node:field_primo_cognome] [node:field_secondo_cognome] [node:field_terzo_cognome]'
+  schema_person_gender: '[node:field_sesso]'
+  schema_person_type: Person

@@ -1,0 +1,7 @@
+uuid: 035e17ee-60b3-45e3-b08e-bd59c5ecac32
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_term__facolta
+label: 'Termine della tassonomia: Facoltà'
+tags: {  }
