@@ -96,3 +96,73 @@ function archivio_utils_views_query_alter(ViewExecutable $view, QueryPluginBase 
     }
   }
 }
+
+/**
+ * Implements hook_token_info()
+ */
+function archivio_utils_token_info() {
+  $types['archivio'] = [
+    'name' => t('archivio'),
+    'description' => t('Archivio Custom Tokens'),
+  ];
+
+  $tokens['archivio_content_image'] = [
+    'name' => t('ilminuto Content Image'),
+    'description' => t('Image for contents'),
+  ];
+
+  $tokens['archivio_content_image_mime'] = [
+    'name' => t('archivio Content Image Mime'),
+    'description' => t('Image mime width for contents'),
+  ];
+
+  $tokens['archivio_base_url'] = [
+    'name' => t('archivio Base url'),
+    'description' => t('archivio base url'),
+  ];
+
+  return [
+    'types' => $types,
+    'tokens' => [
+      'archivio' => $tokens,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_tokens()
+ */
+function archivio_utils_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  if ($type == 'archivio') {
+    $service = \Drupal::service('archivio_utils.imagetokens');
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'archivio_content_image':
+          if (!empty($data)) {
+            $url = $service->getImageUrl(reset($data));
+          }
+
+          $replacements[$original] = $url;
+          break;
+
+        case 'archivio_content_image_mime':
+          $entity = reset($data);
+          if (!empty($entity)) {
+            $mime = $service->getImageMime($entity);
+          } else {
+            $mime = $service->getImageMime();
+          }
+          $replacements[$original] = $mime;
+          break;
+
+        case 'archivio_base_url':
+          $base_url = \Drupal::request()->getSchemeAndHttpHost();
+          $replacements[$original] = $base_url;
+          break;
+      }
+    }
+  }
+  return $replacements;
+}

@@ -1,3 +1,5 @@
 services:
   archivio_utils.utils:
     class: Drupal\archivio_utils\Utils
+  archivio_utils.imagetokens:
+    class: Drupal\archivio_utils\ImageTokens
