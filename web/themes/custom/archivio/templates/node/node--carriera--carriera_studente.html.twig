@@ -76,11 +76,7 @@
     <div class="dettaglio-carriera studente">
 
       <h3>
-        {% if laureato %}
-          <i class="fas fa-user-graduate"></i>
-        {% else %}
-          <i class="fas fa-user"></i>
-        {% endif %}
+        <img src="{{ icona_url }}" class="icona-carriera"  alt="icona"/>
 
         Carriera studente
       {% if logged_in %}

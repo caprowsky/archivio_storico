@@ -210,13 +210,13 @@ function archivio_preprocess_node(&$vars) {
       foreach ($carriere as $carriera) {
         $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
         if ($tipologia[0]['value'] == 's') {
-          $studente[] = "s";
+          $studente[] = $service->getIconaCarriera($carriera);
         }
         if ($tipologia[0]['value'] == 'd') {
-          $docente[] = "s";
+          $docente[] = $service->getIconaCarriera($carriera);
         }
         if ($tipologia[0]['value'] == 'r') {
-          $rettore[] = "r";
+          $rettore[] = $service->getIconaCarriera($carriera);
         }
 
         if (!$carriera->get('field_facolta')->isEmpty()) {
@@ -270,6 +270,8 @@ function archivio_preprocess_node(&$vars) {
     if (!$node->get('field_autore')->isEmpty()) {
       $vars['autore'] = $service->implodeValue($node, 'field_autore');
     }
+
+    $vars['icona_url'] = $service->getIconaCarriera($node);
 
   }
 

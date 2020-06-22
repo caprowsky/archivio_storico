@@ -87,17 +87,17 @@
         <a href="{{ url }}">{{ label }}</a>
         {% if carriere.rettore %}
           {% for carriera in carriere.rettore %}
-          <i class="fas fa-chalkboard-teacher"></i>
+            <img src="{{ carriera }}" class="icona-carriera" alt="icona"/>
           {% endfor %}
         {% endif %}
         {% if carriere.docente %}
           {% for carriera in carriere.docente %}
-          <i class="fas fa-chalkboard-teacher"></i>
+            <img src="{{ carriera }}" class="icona-carriera" alt="icona"/>
           {% endfor %}
         {% endif %}
         {% if carriere.studente %}
-          {% for item in carriere.studente %}
-          <i class="fas fa-user"></i>
+          {% for carriera in carriere.studente %}
+            <img src="{{ carriera }}" class="icona-carriera"  alt="icona"/>
           {% endfor %}
         {% endif %}
       </h4>

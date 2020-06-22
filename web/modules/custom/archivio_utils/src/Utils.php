@@ -96,5 +96,25 @@ class Utils {
 
     return TRUE;
   }
+
+  /**
+   * @var \Drupal\node\Entity\Node $carriera
+   * @var \Drupal\node\Entity\Node $persona
+   */
+  public function getIconaCarriera($carriera) {
+    global $base_url;
+    $persone = $carriera->get('field_persona')->referencedEntities();
+    $persona = $persone[0];
+    /**  @var \Drupal\node\Entity\Node $persona **/
+    $sesso = $persona->get('field_sesso')->getValue();
+    $tipologia_carriera = $carriera->get('field_tipologia_carriera')->getValue();
+
+    if ($tipologia_carriera[0]['value'] == "s" && !$carriera->get('field_data_fine_carriera')->isEmpty()) {
+      $tipologia_carriera[0]['value'] = "l";
+    }
+
+    $icona_url  = $base_url . '/themes/custom/archivio/images/icone/' . $sesso[0]['value'] . '_' . $tipologia_carriera[0]['value'] . '.svg';
+    return $icona_url;
+  }
 }
 
