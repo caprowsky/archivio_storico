@@ -2553,17 +2553,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.8.5",
-        "version_normalized": "8.8.5.0",
+        "version": "8.8.8",
+        "version_normalized": "8.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal/core.git",
-            "reference": "e22cfc3adf1dac7a92452287a7d8602f3c27b68f"
+            "reference": "c067109fcdf86184a7c75081fd8f1d81e4e23f56"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core/zipball/e22cfc3adf1dac7a92452287a7d8602f3c27b68f",
-            "reference": "e22cfc3adf1dac7a92452287a7d8602f3c27b68f",
+            "url": "https://api.github.com/repos/drupal/core/zipball/c067109fcdf86184a7c75081fd8f1d81e4e23f56",
+            "reference": "c067109fcdf86184a7c75081fd8f1d81e4e23f56",
             "shasum": ""
         },
         "require": {
@@ -2596,7 +2596,7 @@
             "symfony/console": "~3.4.0",
             "symfony/dependency-injection": "~3.4.26",
             "symfony/event-dispatcher": "~3.4.0",
-            "symfony/http-foundation": "~3.4.27",
+            "symfony/http-foundation": "~3.4.35",
             "symfony/http-kernel": "~3.4.14",
             "symfony/polyfill-iconv": "^1.0",
             "symfony/process": "~3.4.0",
@@ -2729,7 +2729,7 @@
             "drupal/workflows": "self.version",
             "drupal/workspaces": "self.version"
         },
-        "time": "2020-04-02T19:01:19+00:00",
+        "time": "2020-06-17T17:58:48+00:00",
         "type": "drupal-core",
         "extra": {
             "drupal-scaffold": {
@@ -2837,22 +2837,21 @@
     },
     {
         "name": "drupal/core-recommended",
-        "version": "8.8.5",
-        "version_normalized": "8.8.5.0",
+        "version": "8.8.8",
+        "version_normalized": "8.8.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal/core-recommended.git",
-            "reference": "7163954903e63ead331de073c83ad769926ad9a1"
+            "reference": "69f4e74170c35f2069baafbbb5b7717fe5ddbb66"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core-recommended/zipball/7163954903e63ead331de073c83ad769926ad9a1",
-            "reference": "7163954903e63ead331de073c83ad769926ad9a1",
+            "url": "https://api.github.com/repos/drupal/core-recommended/zipball/69f4e74170c35f2069baafbbb5b7717fe5ddbb66",
+            "reference": "69f4e74170c35f2069baafbbb5b7717fe5ddbb66",
             "shasum": ""
         },
         "require": {
             "asm89/stack-cors": "1.2.0",
-            "composer/installers": "v1.7.0",
             "composer/semver": "1.5.0",
             "doctrine/annotations": "v1.4.0",
             "doctrine/cache": "v1.6.2",
@@ -2860,7 +2859,7 @@
             "doctrine/common": "v2.7.3",
             "doctrine/inflector": "v1.2.0",
             "doctrine/lexer": "1.0.2",
-            "drupal/core": "8.8.5",
+            "drupal/core": "8.8.8",
             "easyrdf/easyrdf": "0.9.1",
             "egulias/email-validator": "2.1.11",
             "guzzlehttp/guzzle": "6.3.3",
@@ -2908,7 +2907,7 @@
         "conflict": {
             "webflo/drupal-core-strict": "*"
         },
-        "time": "2020-04-02T19:01:19+00:00",
+        "time": "2020-06-17T17:58:48+00:00",
         "type": "metapackage",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
