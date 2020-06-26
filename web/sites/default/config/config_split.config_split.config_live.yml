@@ -8,6 +8,7 @@ description: ''
 folder: sites/default/config-live
 module:
   backup_migrate: 0
+  big_pipe: 0
   dynamic_page_cache: 0
   google_analytics: 0
   page_cache: 0
