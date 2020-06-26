@@ -16,6 +16,11 @@ services:
     ports:
      - "8000:80"
 
+  varnish:
+    restart: always
+    ports:
+      - "6081:6081"
+
   solr:
     restart: always
 
