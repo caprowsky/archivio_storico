@@ -13,13 +13,13 @@ services:
 
   nginx:
     restart: always
-    ports:
-     - "8000:80"
+    #ports:
+    # - "8000:80"
 
   varnish:
     restart: always
     ports:
-      - "6081:6081"
+      - "8000:6081"
 
   solr:
     restart: always
