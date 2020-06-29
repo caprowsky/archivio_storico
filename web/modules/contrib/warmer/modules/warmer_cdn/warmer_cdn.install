@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Warmer CDN module.
+ */
+
+/**
+ * Init the new verify option.
+ */
+function warmer_cdn_update_8101() {
+  $warmer_config = \Drupal::configFactory()->getEditable('warmer.settings');
+  $warmers = $warmer_config->get('warmers');
+  if (isset($warmers['cdn'])) {
+    $warmers['cdn']['verify'] = TRUE;
+  }
+  if (isset($warmers['sitemap'])) {
+    $warmers['sitemap']['verify'] = TRUE;
+  }
+  $warmer_config->set('warmers', $warmers);
+  $warmer_config->save();
+}

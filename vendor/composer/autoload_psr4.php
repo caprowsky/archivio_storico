@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'vipnytt\\' => array($vendorDir . '/vipnytt/sitemapparser/src'),
     'cweagans\\Composer\\' => array($vendorDir . '/cweagans/composer-patches/src'),
     'ZipStream\\' => array($vendorDir . '/maennchen/zipstream-php/src'),
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib/src'),

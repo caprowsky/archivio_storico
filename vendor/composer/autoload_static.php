@@ -36,6 +36,10 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
     );
 
     public static $prefixLengthsPsr4 = array (
+        'v' => 
+        array (
+            'vipnytt\\' => 8,
+        ),
         'c' => 
         array (
             'cweagans\\Composer\\' => 18,
@@ -179,6 +183,10 @@ class ComposerStaticInit2f77adf49a2df08b2cd6d1bd2b067b58
     );
 
     public static $prefixDirsPsr4 = array (
+        'vipnytt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vipnytt/sitemapparser/src',
+        ),
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
