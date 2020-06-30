@@ -1,0 +1,22 @@
+uuid: 3155ebf7-2601-4c50-bd6f-f17ba94ac240
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: pagina_base
+label: 'Pagina base'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  936ac3bf-0e64-4a12-8e1d-c82207e31970:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 936ac3bf-0e64-4a12-8e1d-c82207e31970
+selection_logic: and
+weight: -5
+relationships: {  }
