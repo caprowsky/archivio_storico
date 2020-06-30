@@ -1,0 +1,41 @@
+warmers:
+  sitemap:
+    id: sitemap
+    frequency: '300'
+    batchSize: '100'
+    sitemaps:
+      - /sitemap.xml
+    minPriority: '0'
+    headers: {  }
+    verify: 1
+  cdn:
+    id: cdn
+    frequency: '300'
+    batchSize: '100'
+    urls:
+      - /facolta
+      - /facolta/giurisprudenza
+    headers: {  }
+    verify: 1
+  entity:
+    id: entity
+    frequency: 300
+    batchSize: 100
+    entity_types:
+      'block_content:basic': 'block_content:basic'
+      'block_content:card': 'block_content:card'
+      'block_content:carousel': 'block_content:carousel'
+      'block_content:hero': 'block_content:hero'
+      'block_content:homepage_top': 'block_content:homepage_top'
+      'block_content:immagine': 'block_content:immagine'
+      'block_content:testo': 'block_content:testo'
+      'facets_facet:facets_facet': 'facets_facet:facets_facet'
+      'facets_summary:facets_summary': 'facets_summary:facets_summary'
+      'node:carriera': 'node:carriera'
+      'node:page': 'node:page'
+      'node:persona': 'node:persona'
+      'taxonomy_term:corso': 'taxonomy_term:corso'
+      'taxonomy_term:facolta': 'taxonomy_term:facolta'
+_core:
+  default_config_hash: wLhhL58IKPWkAbhxcI6gpCna7d431Q7kM0y-Om92BUQ
+langcode: it

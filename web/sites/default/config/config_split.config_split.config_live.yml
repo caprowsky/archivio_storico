@@ -21,6 +21,9 @@ module:
   purge_ui: 0
   varnish_purge_tags: 0
   varnish_purger: 0
+  warmer: 0
+  warmer_cdn: 0
+  warmer_entity: 0
 theme: {  }
 blacklist: {  }
 graylist: {  }
