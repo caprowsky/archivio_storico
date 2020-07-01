@@ -9,7 +9,7 @@ id: node.carriera.field_autore
 field_name: field_autore
 entity_type: node
 bundle: carriera
-label: Autore
+label: Autore/i
 description: 'Indica l''autore della scheda, uno per riga'
 required: false
 translatable: false

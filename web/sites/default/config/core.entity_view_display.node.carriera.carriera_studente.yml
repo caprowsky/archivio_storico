@@ -38,6 +38,7 @@ dependencies:
     - field.field.node.carriera.field_sesso
     - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
+    - field.field.node.carriera.field_tesi_di_licenza
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
     - field.field.node.carriera.field_titolo_tesi_licenza
@@ -53,7 +54,7 @@ third_party_settings:
     group_carriera_studente:
       children: {  }
       parent_name: ''
-      weight: 37
+      weight: 38
       format_type: fieldset
       region: hidden
       format_settings:
@@ -68,7 +69,7 @@ third_party_settings:
         - field_carriera_extra_acca
         - field_riferimenti_bibliografici
       parent_name: ''
-      weight: 38
+      weight: 39
       format_type: fieldset
       region: hidden
       format_settings:
@@ -83,7 +84,7 @@ mode: carriera_studente
 content:
   field_autore:
     type: string
-    weight: 14
+    weight: 15
     region: content
     label: inline
     settings:
@@ -91,7 +92,7 @@ content:
     third_party_settings: {  }
   field_carriera:
     type: text_default
-    weight: 12
+    weight: 13
     region: content
     label: inline
     settings: {  }
@@ -138,7 +139,7 @@ content:
     region: content
   field_file_tesi_laurea:
     type: entity_reference_entity_view
-    weight: 13
+    weight: 14
     region: content
     label: inline
     settings:
@@ -147,14 +148,14 @@ content:
     third_party_settings: {  }
   field_revisore:
     type: string
-    weight: 15
+    weight: 16
     region: content
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
-    weight: 11
+    weight: 12
     label: inline
     settings:
       link_to_entity: false
@@ -169,6 +170,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_tesi_di_licenza:
+    type: entity_reference_label
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_tipologia_carriera:
     weight: 1
     label: hidden
@@ -191,7 +200,7 @@ content:
     type: basic_string
     region: content
   field_valutazione_laurea:
-    weight: 10
+    weight: 11
     label: inline
     settings: {  }
     third_party_settings: {  }

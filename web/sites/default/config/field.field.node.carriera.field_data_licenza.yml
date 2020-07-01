@@ -9,7 +9,7 @@ id: node.carriera.field_data_licenza
 field_name: field_data_licenza
 entity_type: node
 bundle: carriera
-label: 'Data licenza'
+label: 'Anno accademico di licenza'
 description: ''
 required: false
 translatable: true

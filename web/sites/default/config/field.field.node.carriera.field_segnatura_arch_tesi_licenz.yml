@@ -9,7 +9,7 @@ id: node.carriera.field_segnatura_arch_tesi_licenz
 field_name: field_segnatura_arch_tesi_licenz
 entity_type: node
 bundle: carriera
-label: 'Segnatura archivistica tesi licenza'
+label: 'Segnatura archivistica della tesi di licenza'
 description: ''
 required: false
 translatable: true

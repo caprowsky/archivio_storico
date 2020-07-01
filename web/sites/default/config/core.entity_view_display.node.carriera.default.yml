@@ -37,6 +37,7 @@ dependencies:
     - field.field.node.carriera.field_sesso
     - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
+    - field.field.node.carriera.field_tesi_di_licenza
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
     - field.field.node.carriera.field_titolo_tesi_licenza
@@ -271,6 +272,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_tesi_di_licenza:
+    type: entity_reference_entity_view
+    weight: 34
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
     region: content
   field_tipologia_carriera:
     weight: 2

@@ -38,6 +38,7 @@ dependencies:
     - field.field.node.carriera.field_sesso
     - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
+    - field.field.node.carriera.field_tesi_di_licenza
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
     - field.field.node.carriera.field_titolo_tesi_licenza
@@ -58,6 +59,7 @@ third_party_settings:
         - field_data_licenza
         - field_titolo_tesi_licenza
         - field_segnatura_arch_tesi_licenz
+        - field_tesi_di_licenza
         - field_valutazione_laurea
         - field_titolo_tesi_laurea
         - field_segnatura_arch_tesi_laurea
@@ -207,7 +209,7 @@ content:
     type: text_textarea
     region: content
   field_carriera:
-    weight: 22
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -421,7 +423,7 @@ content:
     region: content
   field_file_tesi_laurea:
     type: media_library_widget
-    weight: 23
+    weight: 24
     settings:
       media_types: {  }
     third_party_settings:
@@ -683,7 +685,7 @@ content:
       show_description: false
     third_party_settings: {  }
   field_segnatura_arch_tesi_laurea:
-    weight: 21
+    weight: 22
     settings:
       size: 60
       placeholder: ''
@@ -764,6 +766,13 @@ content:
       formatter_settings: null
       show_description: false
     third_party_settings: {  }
+  field_tesi_di_licenza:
+    type: media_library_widget
+    weight: 19
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
   field_tipologia_carriera:
     weight: 10
     settings: {  }
@@ -771,7 +780,7 @@ content:
     type: options_select
     region: content
   field_titolo_tesi_laurea:
-    weight: 20
+    weight: 21
     settings:
       rows: 5
       placeholder: ''
@@ -823,7 +832,7 @@ content:
     type: string_textarea
     region: content
   field_valutazione_laurea:
-    weight: 19
+    weight: 20
     settings:
       rows: 5
       placeholder: ''

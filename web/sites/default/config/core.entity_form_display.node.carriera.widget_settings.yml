@@ -38,6 +38,7 @@ dependencies:
     - field.field.node.carriera.field_sesso
     - field.field.node.carriera.field_terzo_cognome
     - field.field.node.carriera.field_terzo_nome
+    - field.field.node.carriera.field_tesi_di_licenza
     - field.field.node.carriera.field_tipologia_carriera
     - field.field.node.carriera.field_titolo_tesi_laurea
     - field.field.node.carriera.field_titolo_tesi_licenza
@@ -521,3 +522,4 @@ hidden:
   field_sesso: true
   field_terzo_cognome: true
   field_terzo_nome: true
+  field_tesi_di_licenza: true

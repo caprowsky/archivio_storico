@@ -1,0 +1,20 @@
+uuid: a40cc92d-f734-43ce-8fa0-6ee6a29b50a4
+langcode: it
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_tesi_di_licenza
+field_name: field_tesi_di_licenza
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

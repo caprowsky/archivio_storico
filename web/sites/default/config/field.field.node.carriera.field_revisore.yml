@@ -9,7 +9,7 @@ id: node.carriera.field_revisore
 field_name: field_revisore
 entity_type: node
 bundle: carriera
-label: Revisore
+label: Revisore/i
 description: 'Indica il revisore della scheda, uno per riga'
 required: false
 translatable: false

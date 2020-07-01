@@ -1,16 +1,16 @@
-uuid: ba0bb387-176f-4fbe-8ba9-0579c9d0cf27
+uuid: fcbf40d2-1266-4bb6-8f30-f0351d4afaca
 langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.node.field_file_tesi_laurea
+    - field.storage.node.field_tesi_di_licenza
     - media.type.document
     - node.type.carriera
-id: node.carriera.field_file_tesi_laurea
-field_name: field_file_tesi_laurea
+id: node.carriera.field_tesi_di_licenza
+field_name: field_tesi_di_licenza
 entity_type: node
 bundle: carriera
-label: 'Tesi di laurea'
+label: 'Tesi di licenza'
 description: ''
 required: false
 translatable: false
