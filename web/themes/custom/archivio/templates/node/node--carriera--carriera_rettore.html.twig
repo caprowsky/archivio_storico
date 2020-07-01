@@ -89,12 +89,11 @@
       {{ content.field_fine_mandato }}
 
       <div class="credits">
+        {% if autore %}Autore/i: {{ autore }}<br>{% endif %}
+        {% if revisore %}Revisore/i: {{ revisore }}<br>{% endif %}
         <div class="changed">
           Aggiornamento scheda: {{ node.getChangedTime|date('d/m/Y') }}<br>
         </div>
-
-        {% if autore %}Autori: {{ autore }}<br>{% endif %}
-        {% if revisore %}Revisori: {{ revisore }}<br>{% endif %}
       </div>
 
     </div>

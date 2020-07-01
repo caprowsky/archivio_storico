@@ -85,10 +85,11 @@
 
       </h3>
             <!-- campi principali -->
-          {{ content.field_data_inizio_carriera }}
-          {{ content.field_data_fine_carriera }}
           {{ content.field_facolta }}
           {{ content.field_corso }}
+          {{ content.field_data_inizio_carriera }}
+          {{ content.field_data_fine_carriera }}
+
           <!-- campi secondari -->
           {{ content.field_data_licenza }}
           {{ content.field_titolo_tesi_licenza }}
@@ -96,16 +97,17 @@
           {{ content.field_titolo_tesi_laurea }}
           {{ content.field_valutazione_laurea }}
           {{ content.field_segnatura_arch_tesi_laurea }}
-          {{ content.field_carriera }}
           {{ content.field_file_tesi_laurea }}
+          {{ content.field_tesi_di_licenza }}
+          {{ content.field_carriera }}
+
 
       <div class="credits">
+        {% if autore %}Autore/i: {{ autore }}<br>{% endif %}
+        {% if revisore %}Revisore/i: {{ revisore }}<br>{% endif %}
         <div class="changed">
           Aggiornamento scheda: {{ node.getChangedTime|date('d/m/Y') }}<br>
         </div>
-
-        {% if autore %}Autori: {{ autore }}<br>{% endif %}
-        {% if revisore %}Revisori: {{ revisore }}<br>{% endif %}
       </div>
 
     </div>
