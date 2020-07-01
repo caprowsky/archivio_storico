@@ -11,4 +11,6 @@ logo:
   use_default: false
   path: themes/custom/archivio/src/images/unica.png
 favicon:
-  use_default: true
+  use_default: false
+  path: 'public://favicon.png'
+  mimetype: image/png

@@ -1,0 +1,25 @@
+uuid: 7e77f3f5-7746-49f1-8653-e821d6ced3d7
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:testo:baf6f484-2d5d-46e0-bb0d-f1b2ff18be9d'
+  module:
+    - block_content
+  theme:
+    - archivio
+id: footer3
+theme: archivio
+region: footer_third
+weight: 0
+provider: null
+plugin: 'block_content:baf6f484-2d5d-46e0-bb0d-f1b2ff18be9d'
+settings:
+  id: 'block_content:baf6f484-2d5d-46e0-bb0d-f1b2ff18be9d'
+  label: 'Footer 3'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

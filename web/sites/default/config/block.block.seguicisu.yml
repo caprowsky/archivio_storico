@@ -1,0 +1,25 @@
+uuid: cc11fb78-42a2-424b-bf65-d2c28fd10be8
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:testo:c43fa933-2c5a-41b1-949b-2bf59a32a514'
+  module:
+    - block_content
+  theme:
+    - archivio
+id: seguicisu
+theme: archivio
+region: footer_fourth
+weight: 0
+provider: null
+plugin: 'block_content:c43fa933-2c5a-41b1-949b-2bf59a32a514'
+settings:
+  id: 'block_content:c43fa933-2c5a-41b1-949b-2bf59a32a514'
+  label: 'Seguici su'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

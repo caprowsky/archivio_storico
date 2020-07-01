@@ -1,0 +1,8 @@
+uuid: 71f54fa9-95ea-4971-81ac-af31a62afc12
+langcode: it
+status: true
+dependencies: {  }
+id: small-prints
+label: 'Small prints'
+description: 'Small prints'
+locked: false

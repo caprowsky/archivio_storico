@@ -1,0 +1,25 @@
+uuid: bc8b90c9-76a4-4d58-bf5f-27ba987d3d22
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:testo:a0e75a57-524d-4614-b7ec-504e2fbedac9'
+  module:
+    - block_content
+  theme:
+    - archivio
+id: footerprimo
+theme: archivio
+region: footer_first
+weight: 0
+provider: null
+plugin: 'block_content:a0e75a57-524d-4614-b7ec-504e2fbedac9'
+settings:
+  id: 'block_content:a0e75a57-524d-4614-b7ec-504e2fbedac9'
+  label: 'Footer 1'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

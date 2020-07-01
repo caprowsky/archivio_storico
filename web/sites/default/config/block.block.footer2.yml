@@ -1,0 +1,25 @@
+uuid: 9415b63c-634d-45c2-8515-faefba0a73ad
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:testo:78434877-3fe8-4ee7-8deb-43e432aa9e13'
+  module:
+    - block_content
+  theme:
+    - archivio
+id: footer2
+theme: archivio
+region: footer_second
+weight: 0
+provider: null
+plugin: 'block_content:78434877-3fe8-4ee7-8deb-43e432aa9e13'
+settings:
+  id: 'block_content:78434877-3fe8-4ee7-8deb-43e432aa9e13'
+  label: 'Footer 2'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
