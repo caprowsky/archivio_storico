@@ -8,7 +8,8 @@ id: feedback
 label: 'Website feedback'
 recipients:
   - alessandrocapra@gmail.com
-reply: ''
+  - eleonora.todde@unica.it
+reply: 'Messaggio inviato, grazie per averci contattato'
 weight: 0
-message: 'Il messaggio è stato inviato.'
-redirect: ''
+message: 'Grazie per averci contattato, il messaggio è stato inviato.'
+redirect: /messaggio-inviato
