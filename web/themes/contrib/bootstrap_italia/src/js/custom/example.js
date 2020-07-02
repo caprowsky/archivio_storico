@@ -7,7 +7,7 @@
 
   Drupal.behaviors.helloWorld = {
     attach: function (context, settings) {
-      console.log('Hello World!');
+      console.log('Hello World Sergio!');
     }
   };
 
