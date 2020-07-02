@@ -17,7 +17,7 @@ popup-users: 1
 popup-position: bottom
 popup-morelink: /gdpr-compliance/policy
 popup-custom-color: 1
-popup-color: '#1157cc'
+popup-color: '#1A337D'
 popup-text: white
 button-color: '#dbdbdb'
 button-text: black
