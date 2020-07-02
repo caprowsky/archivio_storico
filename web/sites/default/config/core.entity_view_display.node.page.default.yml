@@ -93,6 +93,7 @@ third_party_settings:
         'Custom blocks': {  }
         Devel: {  }
         Facets: {  }
+        'Facets summary (Experimental)': {  }
         Forms: {  }
         'Geofield Map': {  }
         Help: {  }
@@ -108,7 +109,6 @@ third_party_settings:
         Menus: {  }
         OwlCarousel2: {  }
         System: {  }
-        Utente: {  }
         Views: {  }
         core:
           - page_title_block

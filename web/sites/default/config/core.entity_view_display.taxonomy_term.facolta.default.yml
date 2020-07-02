@@ -42,7 +42,39 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
-      whitelisted_blocks: {  }
+      whitelisted_blocks:
+        Block: {  }
+        'Chaos Tools': {  }
+        'Content fields': {  }
+        'Custom block types':
+          - card
+          - carousel
+          - hero
+          - homepage_top
+          - immagine
+          - testo
+        'Custom blocks': {  }
+        Devel: {  }
+        Facets: {  }
+        'Facets summary (Experimental)': {  }
+        Forms: {  }
+        'Geofield Map': {  }
+        Help: {  }
+        'Inline blocks':
+          - 'inline_block:card'
+          - 'inline_block:carousel'
+          - 'inline_block:hero'
+          - 'inline_block:homepage_top'
+          - 'inline_block:immagine'
+          - 'inline_block:testo'
+        'Lists (Views)': {  }
+        Menus: {  }
+        OwlCarousel2: {  }
+        System: {  }
+        User: {  }
+        Views: {  }
+        core:
+          - page_title_block
       blacklisted_blocks: {  }
       allowed_layouts:
         - layout_twocol_section
