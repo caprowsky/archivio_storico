@@ -3597,6 +3597,60 @@
         }
     },
     {
+        "name": "drupal/gdpr_compliance",
+        "version": "1.18.0",
+        "version_normalized": "1.18.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/gdpr_compliance.git",
+            "reference": "8.x-1.18"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/gdpr_compliance-8.x-1.18.zip",
+            "reference": "8.x-1.18",
+            "shasum": "21cb248aa68da6f05eb876827b80d3e6ba3edca7"
+        },
+        "require": {
+            "drupal/core": "^8 || ^9"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-1.18",
+                "datestamp": "1593416983",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "APolitsin",
+                "homepage": "https://www.drupal.org/user/400653"
+            },
+            {
+                "name": "Kseniya Myarkovskaya",
+                "homepage": "https://www.drupal.org/user/3590754"
+            },
+            {
+                "name": "politsin",
+                "homepage": "https://www.drupal.org/user/1820324"
+            }
+        ],
+        "description": "General Data Protection Regulation Compliance",
+        "homepage": "https://www.drupal.org/project/gdpr_compliance",
+        "support": {
+            "source": "https://git.drupalcode.org/project/gdpr_compliance"
+        }
+    },
+    {
         "name": "drupal/geocoder",
         "version": "2.11.0",
         "version_normalized": "2.11.0.0",

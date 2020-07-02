@@ -1,0 +1,30 @@
+from-morelink: /gdpr-compliance/policy
+user-register: 1
+user-login: 0
+contact_message-mode: custom
+contact_message-bundles:
+  feedback: feedback
+  personal: 0
+node-mode: disable
+node-bundles:
+  carriera: 0
+  page: 0
+  persona: 0
+webform-mode: null
+webform-bundles: null
+popup-guests: 1
+popup-users: 1
+popup-position: bottom
+popup-morelink: /gdpr-compliance/policy
+popup-custom-color: 1
+popup-color: '#1157cc'
+popup-text: white
+button-color: '#dbdbdb'
+button-text: black
+popup-text-cookies: 'Utilizziamo i cookie sul nostro sito Web per supportare funzionalità tecniche che migliorano la tua esperienza utente'
+popup-text-analytics: 'Utilizziamo anche servizi di analisi e pubblicità. Per annullare l''iscrizione, fare clic per ulteriori informazioni'
+popup-btn-agree: 'L''ho letto'
+popup-btn-findmore: 'Maggiori informazioni'
+_core:
+  default_config_hash: P6YjZQN0wv2MHVDNRVc46Plx_OiZFESe-I78R-ovdVQ
+langcode: it

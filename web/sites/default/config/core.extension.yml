@@ -38,6 +38,7 @@ module:
   file: 0
   filter: 0
   fontawesome: 0
+  gdpr_compliance: 0
   geocoder: 0
   geocoder_address: 0
   geocoder_field: 0
