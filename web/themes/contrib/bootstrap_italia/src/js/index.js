@@ -45,4 +45,4 @@ import '../../node_modules/bootstrap-italia/src/js/plugins/select.js';
 import '../../node_modules/bootstrap-italia/src/js/plugins/rating.js';
 import '../../node_modules/bootstrap-italia/src/js/plugins/dimmer.js';
 
-import './custom/example.js';
+//import './custom/example.js';
