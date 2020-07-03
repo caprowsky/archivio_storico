@@ -38,9 +38,9 @@ display:
       query:
         type: views_query
         options:
-          bypass_access: false
-          skip_access: false
-          preserve_facet_query_args: false
+          skip_access: 1
+          bypass_access: 0
+          preserve_facet_query_args: 0
       exposed_form:
         type: basic
         options:
@@ -465,10 +465,16 @@ display:
     display_title: Facoltà
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       display_description: ''
       cache:
-        type: none
+        type: search_api_time
+        options:
+          results_lifespan: 518400
+          results_lifespan_custom: 0
+          output_lifespan: 518400
+          output_lifespan_custom: 0
       defaults:
         cache: false
     cache_metadata:

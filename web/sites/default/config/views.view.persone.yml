@@ -1079,6 +1079,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       css_class: 'ricerca-persone '
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -1103,11 +1104,13 @@ display:
     display_title: Ricerca
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: persone
       display_description: ''
       cache:
-        type: none
+        type: search_api_tag
+        options: {  }
       defaults:
         cache: false
       exposed_block: true
