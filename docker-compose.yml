@@ -109,6 +109,8 @@ services:
   redis:
     container_name: "${PROJECT_NAME}_redis"
     image: wodby/redis:$REDIS_TAG
+    environment:
+      REDIS_MAXMEMORY: 512m
 
 #  pma:
 #    image: phpmyadmin/phpmyadmin
