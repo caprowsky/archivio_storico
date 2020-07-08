@@ -56,13 +56,16 @@ class Periodo extends ProcessorPluginBase {
           if (!$entity->field_link_carriera->isEmpty()) {
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
-              $periodi = array();
-              if (!$carriera->field_data_inizio_carriera->isEmpty()) {
-                $value_original = $carriera->get('field_data_inizio_carriera')->getValue();
-                $explode = explode('-', $value_original[0]['value']);
-                $anno_inizio = $explode[0];
+              if ($carriera->isPublished()) {
+
+                $periodi = array ();
+                if (!$carriera->field_data_inizio_carriera->isEmpty()) {
+                  $value_original = $carriera->get('field_data_inizio_carriera')->getValue();
+                  $explode = explode('-', $value_original[0]['value']);
+                  $anno_inizio = $explode[0];
                   $periodo = $this->getPeriodo($anno_inizio);
-                $field->addValue($periodo);
+                  $field->addValue($periodo);
+                }
               }
             }
           }

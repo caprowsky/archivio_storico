@@ -57,10 +57,12 @@ class PersonaInsegnamenti extends ProcessorPluginBase {
             $nomi_insegnamenti = array();
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
-              if (!$carriera->get('field_insegnamenti')->isEmpty()) {
-                $insegnamenti = $carriera->get('field_insegnamenti')->getValue();
-                foreach ($insegnamenti as $insegnamento) {
-                  $nomi_insegnamenti[] = $insegnamento['value'];
+              if ($carriera->isPublished()) {
+                if (!$carriera->get('field_insegnamenti')->isEmpty()) {
+                  $insegnamenti = $carriera->get('field_insegnamenti')->getValue();
+                  foreach ($insegnamenti as $insegnamento) {
+                    $nomi_insegnamenti[] = $insegnamento['value'];
+                  }
                 }
               }
             }

@@ -58,11 +58,12 @@ class Laureato extends ProcessorPluginBase {
 
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
-              $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
-
-              if ($tipologia[0]['value'] == 's') {
-                if (!$carriera->get('field_data_fine_carriera')->isEmpty()) {
-                  $laureato[] = TRUE;
+              if ($carriera->isPublished()) {
+                $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
+                if ($tipologia[0]['value'] == 's') {
+                  if (!$carriera->get('field_data_fine_carriera')->isEmpty()) {
+                    $laureato[] = TRUE;
+                  }
                 }
               }
             }

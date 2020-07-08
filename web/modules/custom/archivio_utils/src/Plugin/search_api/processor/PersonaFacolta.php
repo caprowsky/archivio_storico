@@ -57,10 +57,12 @@ class PersonaFacolta extends ProcessorPluginBase {
             $nomi_facolta = array();
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
-              if (!$carriera->get('field_facolta')->isEmpty()) {
-                $facoltas = $carriera->get('field_facolta')->referencedEntities();
-                foreach ($facoltas as $facolta) {
-                  $nomi_facolta[] = $facolta->label();
+              if ($carriera->isPublished()) {
+                if (!$carriera->get('field_facolta')->isEmpty()) {
+                  $facoltas = $carriera->get('field_facolta')->referencedEntities();
+                  foreach ($facoltas as $facolta) {
+                    $nomi_facolta[] = $facolta->label();
+                  }
                 }
               }
             }
