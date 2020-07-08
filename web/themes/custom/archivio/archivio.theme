@@ -197,6 +197,7 @@ function archivio_preprocess_node(&$vars) {
 
     $query = \Drupal::entityQuery('node')
       ->condition('field_persona', $node->id())
+      ->condition('status', 1)
       ->condition('type', 'carriera');
 
     $nids = $query->execute();

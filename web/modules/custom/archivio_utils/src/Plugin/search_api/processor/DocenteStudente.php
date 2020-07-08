@@ -56,19 +56,23 @@ class DocenteStudente extends ProcessorPluginBase {
           if (!$entity->field_link_carriera->isEmpty()) {
             $carriere = $entity->get('field_link_carriera')->referencedEntities();
             foreach ($carriere as $carriera) {
-              $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
-              if ($tipologia[0]['value'] == 's') {
-                $field->addValue('studente');
+              if ($carriera->isPublished()) {
+
+                $tipologia = $carriera->get('field_tipologia_carriera')->getValue();
+                if ($tipologia[0]['value'] == 's') {
+                  $field->addValue('studente');
+                }
+                if ($tipologia[0]['value'] == 'd') {
+                  $field->addValue('docente');
+                }
+                if ($tipologia[0]['value'] == 'r') {
+                  $field->addValue('rettore');
+                }
+                if ($tipologia[0]['value'] == 'h') {
+                  $field->addValue('laaurea honoris causae');
+                }
               }
-              if ($tipologia[0]['value'] == 'd') {
-                $field->addValue('docente');
-              }
-              if ($tipologia[0]['value'] == 'r') {
-                $field->addValue('rettore');
-              }
-              if ($tipologia[0]['value'] == 'h') {
-                $field->addValue('laaurea honoris causae');
-              }
+
             }
           }
         }
