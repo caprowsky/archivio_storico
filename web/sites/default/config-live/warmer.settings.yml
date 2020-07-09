@@ -11,10 +11,20 @@ warmers:
   cdn:
     id: cdn
     frequency: '300'
-    batchSize: '100'
+    batchSize: '110'
     urls:
+      - /home
+      - /persone
+      - '/persone?cerca='
       - /facolta
       - /facolta/giurisprudenza
+      - /facolta/farmacia
+      - /facolta/ingegneria
+      - /facolta/lettere-e-filosofia
+      - /facolta/magistero
+      - /facolta/medicina-e-chirurgia
+      - /facolta/scienze-fisiche-matematiche-e-naturali
+      - /facolta/teologia
     headers: {  }
     verify: 1
   entity:
@@ -22,6 +32,7 @@ warmers:
     frequency: 300
     batchSize: 100
     entity_types:
+      'block:block': 'block:block'
       'block_content:basic': 'block_content:basic'
       'block_content:card': 'block_content:card'
       'block_content:carousel': 'block_content:carousel'
@@ -29,13 +40,24 @@ warmers:
       'block_content:homepage_top': 'block_content:homepage_top'
       'block_content:immagine': 'block_content:immagine'
       'block_content:testo': 'block_content:testo'
+      'block_content_type:block_content_type': 'block_content_type:block_content_type'
       'facets_facet:facets_facet': 'facets_facet:facets_facet'
+      'facets_facet_source:facets_facet_source': 'facets_facet_source:facets_facet_source'
       'facets_summary:facets_summary': 'facets_summary:facets_summary'
+      'field_storage_config:field_storage_config': 'field_storage_config:field_storage_config'
+      'field_config:field_config': 'field_config:field_config'
+      'image_style:image_style': 'image_style:image_style'
+      'media:image': 'media:image'
+      'metatag_defaults:metatag_defaults': 'metatag_defaults:metatag_defaults'
       'node:carriera': 'node:carriera'
       'node:page': 'node:page'
       'node:persona': 'node:persona'
+      'node_type:node_type': 'node_type:node_type'
+      'owlcarousel2:owlcarousel2': 'owlcarousel2:owlcarousel2'
+      'responsive_image_style:responsive_image_style': 'responsive_image_style:responsive_image_style'
       'taxonomy_term:corso': 'taxonomy_term:corso'
       'taxonomy_term:facolta': 'taxonomy_term:facolta'
+      'view:view': 'view:view'
 _core:
   default_config_hash: wLhhL58IKPWkAbhxcI6gpCna7d431Q7kM0y-Om92BUQ
 langcode: it
