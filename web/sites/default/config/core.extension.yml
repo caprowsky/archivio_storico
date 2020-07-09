@@ -76,6 +76,7 @@ module:
   rabbit_hole: 0
   rdf: 0
   readonly_field_widget: 0
+  redirect_after_login: 0
   redis: 0
   reroute_email: 0
   responsive_image: 0

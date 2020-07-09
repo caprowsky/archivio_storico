@@ -86,7 +86,7 @@ mode: carriera_docente
 content:
   field_ambiti_di_ricerca:
     weight: 7
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -101,14 +101,14 @@ content:
     third_party_settings: {  }
   field_biografia:
     weight: 6
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_carriera_extra_acca:
     weight: 8
-    label: inline
+    label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
