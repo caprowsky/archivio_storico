@@ -835,7 +835,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -46
+        weight: -47
         context: '0'
         menu_name: backoffice
       display_description: ''
@@ -2032,7 +2032,7 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -45
+        weight: -46
         context: '0'
         menu_name: backoffice
       display_description: ''

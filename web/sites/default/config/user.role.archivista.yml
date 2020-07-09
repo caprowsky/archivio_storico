@@ -9,6 +9,7 @@ is_admin: null
 permissions:
   - 'access carriera entity browser pages'
   - 'access persona entity browser pages'
+  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access tour'
   - 'configure editable facolta taxonomy_term layout overrides'
@@ -19,6 +20,7 @@ permissions:
   - 'create image media'
   - 'create page content'
   - 'create persona content'
+  - 'create terms in facolta'
   - 'delete any carriera content'
   - 'delete any persona content'
   - 'delete own document media'
