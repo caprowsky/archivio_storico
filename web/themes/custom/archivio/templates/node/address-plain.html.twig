@@ -57,5 +57,10 @@
     {{ locality.code }} {{ postal_code }} {{ administrative_area.code }} <br>
   {% endif %}
   {{ country.name }} #}
-  {{ locality }}
+  {% if locality is iterable %}
+    {{ locality.code }}
+    {% else %}
+      {{ locality }}
+  {% endif %}
+
 </div>
