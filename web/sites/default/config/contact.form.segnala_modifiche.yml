@@ -1,0 +1,12 @@
+uuid: ef05f02c-6811-408f-b5f1-6594d9a22de4
+langcode: it
+status: true
+dependencies: {  }
+id: segnala_modifiche
+label: 'Segnala modifiche'
+recipients:
+  - alessandrocapra@gmail.com
+reply: ''
+weight: 0
+message: 'Grazie per averci contattato'
+redirect: /home
