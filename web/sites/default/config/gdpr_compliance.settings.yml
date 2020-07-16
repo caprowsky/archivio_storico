@@ -4,6 +4,7 @@ user-login: 0
 contact_message-mode: custom
 contact_message-bundles:
   feedback: feedback
+  segnala_modifiche: segnala_modifiche
   personal: 0
 node-mode: disable
 node-bundles:
