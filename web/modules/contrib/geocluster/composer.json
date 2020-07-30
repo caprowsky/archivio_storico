@@ -1,0 +1,23 @@
+{
+  "name": "drupal/geocluster",
+  "description": "Server-side geo clustering for mapping/geofield.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/geocluster",
+  "authors": [
+    {
+      "name": "Peter Philipp",
+      "homepage": "https://www.drupal.org/u/das-peter",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/geocluster",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "https://git.drupalcode.org/project/geocluster"
+  },
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/geofield": "^1.7"
+  }
+}

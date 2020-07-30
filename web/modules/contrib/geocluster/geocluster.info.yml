@@ -1,0 +1,14 @@
+name: Geocluster
+description: Server-side geo clustering for mapping/geofield.
+package: Mapping
+type: module
+core_version_requirement: ^8 || ^9
+configure: geocluster.admin_settings
+
+dependencies:
+  - geofield:geofield
+
+# Information added by Drupal.org packaging script on 2020-07-24
+version: '2.0.1'
+project: 'geocluster'
+datestamp: 1595592669

@@ -1,0 +1,6 @@
+geocluster.leaflet.bbox:
+  css:
+    theme:
+      css/geocluster.css: {}
+  js:
+    js/geocluster.leaflet.bbox.js: {}

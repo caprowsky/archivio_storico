@@ -1,0 +1,14 @@
+geocluster.trigger_batch:
+  path: '/geocluster_install_batch'
+  defaults:
+    _controller: '\Drupal\geocluster\Controller\InstallBatch::startBatch'
+    _title: 'Geocluster Install Batch Operations'
+  requirements:
+    _permission: 'access content'
+geocluster.admin_settings:
+  path: '/admin/config/geocluster'
+  defaults:
+    _form: '\Drupal\geocluster\Form\GeoclusterSettingsForm'
+    _title: 'Geocluster configuration'
+  requirements:
+    _permission: 'administer site configuration'

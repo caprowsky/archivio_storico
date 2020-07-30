@@ -1,0 +1,4 @@
+services:
+  plugin.manager.geocluster_algorithm:
+    class: Drupal\geocluster\Plugin\GeoclusterAlgorithmManager
+    parent: default_plugin_manager
