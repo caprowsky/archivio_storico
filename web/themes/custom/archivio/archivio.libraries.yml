@@ -3,7 +3,7 @@ global:
     theme:
       assets/css/main.css: {}
   js:
-    assets/js/bundle.js: {}
+    #assets/js/bundle.js: {}
     js/general.js: {}
     js/typewriter.js: {}
   dependencies:
