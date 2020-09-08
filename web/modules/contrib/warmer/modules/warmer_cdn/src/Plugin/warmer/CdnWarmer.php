@@ -3,13 +3,11 @@
 namespace Drupal\warmer_cdn\Plugin\warmer;
 
 use Drupal\Component\Utility\UrlHelper;
-use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\SubformStateInterface;
+use Drupal\Core\Logger\LoggerChannelTrait;
 use Drupal\warmer\Plugin\WarmerPluginBase;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -25,6 +23,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 final class CdnWarmer extends WarmerPluginBase {
 
   use UserInputParserTrait;
+  use LoggerChannelTrait;
 
   /**
    * The HTTP client.
@@ -58,25 +57,35 @@ final class CdnWarmer extends WarmerPluginBase {
   public function warmMultiple(array $items = []) {
     $headers = $this->parseHeaders();
     $verify = (bool) $this->getConfiguration()['verify'];
+    $max_concurrent_requests = (int) $this->getConfiguration()['maxConcurrentRequests'];
 
-    $responses = array_map(function ($url) use ($headers, $verify) {
-      try {
-        return $this->httpClient->request('GET', $url, ['headers' => $headers, 'verify' => $verify]);
+    // Default to one request at a time.
+    if ($max_concurrent_requests <= 0) {
+      $max_concurrent_requests = 1;
+    }
+    $promises = [];
+    $success = 0;
+
+    foreach ($items as $key => $url) {
+      // Fire async request.
+      $promises[] = $this->httpClient
+        ->requestAsync('GET', $url, ['headers' => $headers, 'verify' => $verify])
+        ->then(function (ResponseInterface $response) use (&$success) {
+          if ($response->getStatusCode() < 399) {
+            $success++;
+          }
+        }, function (\Exception $e) {
+          $this->getLogger('warmer')->warning($e->getMessage());
+        });
+      // Wait for all fired requests if max number is reached.
+      $item_keys = array_keys($items);
+      if ($key % $max_concurrent_requests == 0 || $key == end($item_keys)) {
+        \GuzzleHttp\Promise\all($promises)->wait();
+        $promises = [];
       }
-      catch (ClientException $exception) {
-        return $exception->getResponse();
-      }
-      catch (RequestException $exception) {
-        return $exception->getResponse();
-      }
-    }, $items);
-    $responses = array_filter($responses, function ($res) {
-      return $res instanceof ResponseInterface;
-    });
-    $successful = array_filter($responses, function (ResponseInterface $res) {
-      return $res->getStatusCode() < 399;
-    });
-    return count($successful);
+    }
+
+    return $success;
   }
 
   /**
@@ -113,6 +122,9 @@ final class CdnWarmer extends WarmerPluginBase {
     return array_slice($urls, $cursor_position + 1, (int) $this->getBatchSize());
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::validateConfigurationForm($form, $form_state);
     $this->validateHeaders($form, $form_state);
@@ -141,6 +153,14 @@ final class CdnWarmer extends WarmerPluginBase {
       '#description' => $this->t('Enable SSL verification. Recommended to keep it checked for security reasons.'),
       '#default_value' => isset($configuration['verify']) ? $configuration['verify'] : TRUE,
     ];
+    $form['maxConcurrentRequests'] = [
+      '#type' => 'number',
+      '#min' => 1,
+      '#step' => 1,
+      '#title' => $this->t('Maximum number of concurrent Requests.'),
+      '#description' => $this->t('The maximum number of concurrent requests.'),
+      '#default_value' => empty($configuration['maxConcurrentRequests']) ? 10 : $configuration['maxConcurrentRequests'],
+    ];
 
     return $form;
   }
@@ -163,6 +183,15 @@ final class CdnWarmer extends WarmerPluginBase {
    */
   public function setHttpClient(ClientInterface $client) {
     $this->httpClient = $client;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function defaultConfiguration() {
+    return [
+      'maxConcurrentRequests' => 10,
+    ] + parent::defaultConfiguration();
   }
 
 }

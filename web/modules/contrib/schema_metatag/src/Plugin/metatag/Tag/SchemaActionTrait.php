@@ -17,10 +17,6 @@ trait SchemaActionTrait {
     SchemaPlaceTrait::postalAddressForm insteadof SchemaEventTrait;
     SchemaPlaceTrait::geoFormKeys insteadof SchemaEventTrait;
     SchemaPlaceTrait::geoForm insteadof SchemaEventTrait;
-    SchemaPlaceTrait::countryFormKeys insteadof SchemaOfferTrait;
-    SchemaPlaceTrait::countryForm insteadof SchemaOfferTrait;
-    SchemaPlaceTrait::countryFormKeys insteadof SchemaEventTrait;
-    SchemaPlaceTrait::countryForm insteadof SchemaEventTrait;
     SchemaPivotTrait::pivotForm insteadof SchemaPersonOrgTrait;
     SchemaPivotTrait::pivotForm insteadof SchemaOfferTrait;
     SchemaPivotTrait::pivotForm insteadof SchemaThingTrait;
@@ -543,18 +539,6 @@ trait SchemaActionTrait {
             'form' => 'entryPointForm',
             'description' => "Indicates a target EntryPoint for an Action.",
           ],
-          //'priceSpecification' => [
-          //  'class' => '',
-          //  'formKeys' => '',
-          //  'form' => '',
-          //  'description' => "One or more detailed price specifications, indicating the unit price and delivery or payment charges.",
-          //],
-          //'deliveryMethod' => [
-          //  'class' => '',
-          //  'formKeys' => '',
-          //  'form' => '',
-          //  'description' => "A sub property of instrument. The method of delivery.",
-          //],
         ];
 
       case 'ConsumeAction':
@@ -592,12 +576,6 @@ trait SchemaActionTrait {
       case 'InteractAction':
       case 'PlayAction':
         return [
-          //'audience' => [
-          //  'class' => '',
-          //  'formKeys' => '',
-          //  'form' => '',
-          //  'description' => "An intended audience, i.e. a group for whom something was created",
-          //],
           'event' => [
             'class' => 'SchemaEventBase',
             'formKeys' => 'eventFormKeys',
@@ -680,12 +658,6 @@ trait SchemaActionTrait {
             'form' => 'thingForm',
             'description' => "The result produced in the action. e.g. John wrote a book.",
           ],
-          //'actionStatus' => [
-          //  'class' => '',
-          //  'formKeys' => '',
-          //  'form' => '',
-          //  'description' => 'Indicates the current disposition of the Action.',
-          //],
           'agent' => [
             'class' => 'SchemaPersonOrgBase',
             'formKeys' => 'personOrgFormKeys',

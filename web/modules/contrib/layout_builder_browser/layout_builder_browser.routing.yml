@@ -19,14 +19,6 @@ layout_builder_browser.admin_blocklisting:
   requirements:
     _permission: 'administer site configuration'
 
-layout_builder_browser.edit_block:
-  path: '/admin/config/content/layout-builder-browser/edit/{block_id}'
-  defaults:
-    _form: '\Drupal\layout_builder_browser\Form\BlockEditForm'
-    _title: 'Edit block'
-  requirements:
-    _permission: 'administer site configuration'
-
 entity.layout_builder_browser_blockcat.add_form:
   path: '/admin/config/content/layout-builder-browser/categories/add'
   defaults:

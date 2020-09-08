@@ -3,7 +3,6 @@
 namespace Drupal\auto_entitylabel\Form;
 
 use Drupal\auto_entitylabel\AutoEntityLabelManager;
-use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -15,14 +14,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class AutoEntityLabelForm.
- *
- * @property \Drupal\Core\Config\ConfigFactoryInterface config_factory
- * @property \Drupal\Core\Entity\EntityTypeManagerInterface entity_manager
- * @property String entityType
- * @property String entityBundle
- * @property \Drupal\auto_entitylabel\AutoEntityLabelManager
- *   auto_entity_label_manager
- * @package Drupal\auto_entitylabel\Controller
  */
 class AutoEntityLabelForm extends ConfigFormBase {
 
@@ -38,10 +29,19 @@ class AutoEntityLabelForm extends ConfigFormBase {
    */
   protected $configFactory;
 
-  protected $entityManager;
+  /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
 
-  // @codingStandardsIgnoreLine
-  protected $route_match;
+  /**
+   * The route matcher.
+   *
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  protected $routeMatch;
 
   /**
    * Module handler.
@@ -83,8 +83,8 @@ class AutoEntityLabelForm extends ConfigFormBase {
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config Factory.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
-   *   Entity Manager.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager service.
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
    *   Route Match.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
@@ -92,14 +92,20 @@ class AutoEntityLabelForm extends ConfigFormBase {
    * @param \Drupal\Core\Session\AccountInterface $user
    *   Account Interface.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_manager, RouteMatchInterface $route_match, ModuleHandlerInterface $moduleHandler, AccountInterface $user) {
+  public function __construct(
+    ConfigFactoryInterface $config_factory,
+    EntityTypeManagerInterface $entity_type_manager,
+    RouteMatchInterface $route_match,
+    ModuleHandlerInterface $moduleHandler,
+    AccountInterface $user
+  ) {
     parent::__construct($config_factory);
-    $this->entityManager = $entity_manager;
-    $this->route_match = $route_match;
-    $route_options = $this->route_match->getRouteObject()->getOptions();
+    $this->entityTypeManager = $entity_type_manager;
+    $this->routeMatch = $route_match;
+    $route_options = $this->routeMatch->getRouteObject()->getOptions();
     $array_keys = array_keys($route_options['parameters']);
     $this->entityType = array_shift($array_keys);
-    $entity_type = $this->route_match->getParameter($this->entityType);
+    $entity_type = $this->routeMatch->getParameter($this->entityType);
     $this->entityBundle = $entity_type->id();
     $this->entityTypeBundleOf = $entity_type->getEntityType()->getBundleOf();
     $this->moduleHandler = $moduleHandler;
@@ -133,9 +139,9 @@ class AutoEntityLabelForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static (
+    return new static(
       $container->get('config.factory'),
-      $container->get('entity.manager'),
+      $container->get('entity_type.manager'),
       $container->get('current_route_match'),
       $container->get('module_handler'),
       $container->get('current_user')
@@ -218,7 +224,7 @@ class AutoEntityLabelForm extends ConfigFormBase {
       // Special treatment for Core's taxonomy_vocabulary and taxonomy_term.
       $token_type = strtr($this->entityTypeBundleOf, ['taxonomy_' => '']);
       $form['auto_entitylabel']['token_help'] = [
-        // #states needs a container to work, so put the token replacement link inside one.
+        // #states needs a container to work, put token replacement link inside
         '#type' => 'container',
         '#states' => $invisible_state,
         'token_link' => [
@@ -256,7 +262,7 @@ class AutoEntityLabelForm extends ConfigFormBase {
     }
 
     /** @var \Drupal\Core\Config\Entity\ConfigEntityStorage $storage */
-    $storage = $this->entityManager->getStorage($this->entityType);
+    $storage = $this->entityTypeManager->getStorage($this->entityType);
     /** @var \Drupal\Core\Config\Entity\ConfigEntityType $entity_type */
     $entity_type = $storage->getEntityType();
     $prefix = $entity_type->getConfigPrefix();

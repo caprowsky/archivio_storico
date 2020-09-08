@@ -3,6 +3,7 @@
 namespace Drupal\layout_builder_browser\Controller;
 
 use Drupal\Component\Serialization\Json;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Ajax\AjaxHelperTrait;
 use Drupal\Core\Block\BlockManagerInterface;
 use Drupal\Core\Controller\ControllerBase;
@@ -49,7 +50,7 @@ class BrowserController extends ControllerBase {
   protected $currentUser;
 
   /**
-   * ChooseBlockController constructor.
+   * BrowserController constructor.
    *
    * @param \Drupal\Core\Block\BlockManagerInterface $block_manager
    *   The block manager.
@@ -61,10 +62,6 @@ class BrowserController extends ControllerBase {
   public function __construct(BlockManagerInterface $block_manager, EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user = NULL) {
     $this->blockManager = $block_manager;
     $this->entityTypeManager = $entity_type_manager;
-    if (!$current_user) {
-      @trigger_error('The current_user service must be passed to ChooseBlockController::__construct(), it is required before Drupal 9.0.0.', E_USER_DEPRECATED);
-      $current_user = \Drupal::currentUser();
-    }
     $this->currentUser = $current_user;
   }
 
@@ -86,9 +83,8 @@ class BrowserController extends ControllerBase {
 
     $config = $this->config('layout_builder_browser.settings');
     $enabled_section_storages = $config->get('enabled_section_storages');
-    if(!in_array($section_storage->getPluginId(), $enabled_section_storages)) {
-      $entity_type_manager = \Drupal::service('entity_type.manager');
-      $default_choose_block_controller = new ChooseBlockController(\Drupal::service('plugin.manager.block'), $entity_type_manager, \Drupal::currentUser());
+    if (!in_array($section_storage->getPluginId(), $enabled_section_storages)) {
+      $default_choose_block_controller = new ChooseBlockController($this->blockManager, $this->entityTypeManager, $this->currentUser);
       return $default_choose_block_controller->build($section_storage, $delta, $region);
     }
     $build['filter'] = [
@@ -119,7 +115,7 @@ class BrowserController extends ControllerBase {
       'list' => 'inline_blocks',
     ]);
 
-    $blockcats = \Drupal::entityTypeManager()
+    $blockcats = $this->entityTypeManager
       ->getStorage('layout_builder_browser_blockcat')
       ->loadMultiple();
     uasort($blockcats, ['Drupal\Core\Config\Entity\ConfigEntityBase', 'sort']);
@@ -127,20 +123,29 @@ class BrowserController extends ControllerBase {
     foreach ($blockcats as $blockcat) {
 
       $blocks = [];
-      foreach ($blockcat->getBlocks() as $item) {
+      $items = $blockcat->getBlocks();
+      uasort($items, ['Drupal\Component\Utility\SortArray', 'sortByWeightElement']);
+      foreach ($items as $item) {
         $key = $item['block_id'];
         if (isset($definitions[$key])) {
           $blocks[$key] = $definitions[$key];
           $blocks[$key]['layout_builder_browser_data'] = $item;
         }
       }
-      $block_categories[$blockcat->id()]['#type'] = 'details';
-      $block_categories[$blockcat->id()]['#attributes']['class'][] = 'js-layout-builder-category';
-      $block_categories[$blockcat->id()]['#open'] = TRUE;
-      $block_categories[$blockcat->id()]['#title'] = $blockcat->label();
       $block_categories[$blockcat->id()]['links'] = $this->getBlocks($section_storage, $delta, $region, $blocks);
-    }
+      if ($block_categories[$blockcat->id()]['links']) {
+        // Only add the information if the category has links.
+        $block_categories[$blockcat->id()]['#type'] = 'details';
+        $block_categories[$blockcat->id()]['#attributes']['class'][] = 'js-layout-builder-category';
+        $block_categories[$blockcat->id()]['#open'] = TRUE;
+        $block_categories[$blockcat->id()]['#title'] = Html::escape($blockcat->label());
+      }
+      else {
+        // Since the category doesn't have links, remove it to avoid confusion.
+        unset($block_categories[$blockcat->id()]);
+      }
 
+    }
 
     $build['block_categories'] = $block_categories;
     $build['#attached']['library'][] = 'layout_builder_browser/browser';
@@ -171,13 +176,18 @@ class BrowserController extends ControllerBase {
       $attributes['class'][] = 'js-layout-builder-block-link';
       $attributes['class'][] = 'layout-builder-browser-block-item';
 
-      $image = '';
+      $block_render_array = [];
       if (isset($block["layout_builder_browser_data"]["image_path"]) && trim($block["layout_builder_browser_data"]["image_path"]) != '') {
-        $image = '<img src="' . $block["layout_builder_browser_data"]["image_path"] . '">';
+        $block_render_array['image'] = [
+          '#theme' => 'image',
+          '#uri' => $block["layout_builder_browser_data"]["image_path"],
+          '#alt' => $block['layout_builder_browser_data']['image_alt'] ?: $block['admin_label'],
+        ];
       }
+      $block_render_array['label'] = ['#markup' => $block['admin_label']];
       $link = [
         '#type' => 'link',
-        '#title' => ['#markup' => $image . $block['admin_label']],
+        '#title' => $block_render_array,
         '#url' => Url::fromRoute('layout_builder.add_block',
           [
             'section_storage_type' => $section_storage->getStorageType(),

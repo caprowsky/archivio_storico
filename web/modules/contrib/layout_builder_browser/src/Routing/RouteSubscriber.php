@@ -1,7 +1,9 @@
 <?php
+
 namespace Drupal\layout_builder_browser\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
+use Drupal\Core\Routing\RoutingEvents;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
@@ -18,4 +20,15 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setDefault('_controller', '\Drupal\layout_builder_browser\Controller\BrowserController::browse');
     }
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getSubscribedEvents() {
+    // Ensure we alter the controller after other modules, see
+    // https://www.drupal.org/node/3129158.
+    $events[RoutingEvents::ALTER] = ['onAlterRoutes', -110];
+    return $events;
+  }
+
 }

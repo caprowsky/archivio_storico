@@ -124,13 +124,20 @@ function search_api_autocomplete_form_views_exposed_form_alter(array &$form, For
 
   foreach ($view->filter as $filter_name => $filter) {
     if (!in_array($filter->realField, $fields)
-        || empty($filter->options['expose']['identifier'])
-        || !isset($form[$filter->options['expose']['identifier']])) {
+        || empty($filter->options['expose']['identifier'])) {
       continue;
     }
     $key = $filter->options['expose']['identifier'];
 
-    $element = &$form[$key];
+    if (isset($form[$key])) {
+      $element = &$form[$key];
+    }
+    elseif (isset($form[$key . '_wrapper'][$key])) {
+      $element = &$form[$key . '_wrapper'][$key];
+    }
+    else {
+      continue;
+    }
     $data = $base_data;
 
     // The Views filter for individual fulltext fields uses a nested "value"

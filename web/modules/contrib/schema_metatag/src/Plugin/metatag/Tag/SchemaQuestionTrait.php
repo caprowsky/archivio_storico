@@ -123,7 +123,7 @@ trait SchemaQuestionTrait {
       'title' => $this->t('acceptedAnswer'),
       'description' => 'A top answer to the question. There can be zero or more of these per question. Either acceptedAnswer OR suggestedAnswer is REQUIRED BY GOOGLE.',
       'value' => !empty($value['acceptedAnswer']) ? $value['acceptedAnswer'] : [],
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       'visibility_selector' => $visibility_selector . '[acceptedAnswer]',
     ];
     $form['acceptedAnswer'] = $this->answerForm($input_values);
@@ -132,7 +132,7 @@ trait SchemaQuestionTrait {
       'title' => $this->t('suggestedAnswer'),
       'description' => 'One possible answer, but not accepted as a top answer (acceptedAnswer). There can be zero or more of these per Question. Either acceptedAnswer OR suggestedAnswer is REQUIRED BY GOOGLE.',
       'value' => !empty($value['suggestedAnswer']) ? $value['suggestedAnswer'] : [],
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       'visibility_selector' => $visibility_selector . '[suggestedAnswer]',
     ];
     $form['suggestedAnswer'] = $this->answerForm($input_values);
@@ -141,7 +141,7 @@ trait SchemaQuestionTrait {
       'title' => $this->t('Author'),
       'description' => 'RECOMMENDED BY GOOGLE. The author of the question.',
       'value' => !empty($value['author']) ? $value['author'] : [],
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       'visibility_selector' => $visibility_selector . '[author]',
     ];
     $form['author'] = $this->personOrgForm($input_values);

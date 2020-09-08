@@ -65,7 +65,7 @@ trait SchemaThingTrait {
       '#title' => $this->t('@id'),
       '#default_value' => !empty($value['@id']) ? $value['@id'] : '',
       '#maxlength' => 255,
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       '#description' => $this->t("Globally unique @id of the thing, usually a url, used to to link other properties to this object."),
     ];
 
@@ -74,7 +74,7 @@ trait SchemaThingTrait {
       '#title' => $this->t('name'),
       '#default_value' => !empty($value['name']) ? $value['name'] : '',
       '#maxlength' => 255,
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       '#description' => $this->t("Name of the thing."),
     ];
 
@@ -83,7 +83,7 @@ trait SchemaThingTrait {
       '#title' => $this->t('url'),
       '#default_value' => !empty($value['url']) ? $value['url'] : '',
       '#maxlength' => 255,
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       '#description' => $this->t("Absolute URL of the canonical Web page for the thing."),
     ];
 

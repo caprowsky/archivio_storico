@@ -2,7 +2,7 @@ id: autocomplete_search_server
 name: 'Autocomplete search server'
 description: 'A server used for testing the Autocomplete module'
 backend: search_api_test
-backend_config:
+backend_config: {}
 status: true
 langcode: en
 dependencies:

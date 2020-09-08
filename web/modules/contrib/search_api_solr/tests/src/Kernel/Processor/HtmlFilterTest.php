@@ -31,10 +31,8 @@ class HtmlFilterTest extends ProcessorTestBase {
    * {@inheritdoc}
    */
   public static $modules = [
-    'devel',
     'filter',
     'search_api_solr',
-    'search_api_solr_devel',
     'search_api_solr_test',
   ];
 
@@ -88,6 +86,7 @@ class HtmlFilterTest extends ProcessorTestBase {
     $query = new Query($this->index);
     $query->sort('search_api_relevance', QueryInterface::SORT_DESC);
     $query->sort('search_api_id');
+    $query->getParseMode()->setConjunction('OR');
     $result = $query->execute();
     $this->assertEquals([
       'entity:node/1:en',
@@ -99,6 +98,7 @@ class HtmlFilterTest extends ProcessorTestBase {
     $query->keys(['beautiful']);
     $query->sort('search_api_relevance', QueryInterface::SORT_DESC);
     $query->sort('search_api_id');
+    $query->getParseMode()->setConjunction('OR');
     $result = $query->execute();
     $this->assertEquals([
       'entity:node/1:en',
@@ -111,6 +111,7 @@ class HtmlFilterTest extends ProcessorTestBase {
     $query->keys(['page']);
     $query->sort('search_api_relevance', QueryInterface::SORT_DESC);
     $query->sort('search_api_id');
+    $query->getParseMode()->setConjunction('OR');
     $result = $query->execute();
     $this->assertEquals([
       'entity:node/2:en',
@@ -149,6 +150,7 @@ class HtmlFilterTest extends ProcessorTestBase {
     $query->keys(["d'avion"]);
     $query->sort('search_api_relevance', QueryInterface::SORT_DESC);
     $query->sort('search_api_id');
+    $query->getParseMode()->setConjunction('OR');
     $result = $query->execute();
     $this->assertEquals([
       'entity:node/5:en',
@@ -159,6 +161,7 @@ class HtmlFilterTest extends ProcessorTestBase {
     $query->keys(['😀😎👾']);
     $query->sort('search_api_relevance', QueryInterface::SORT_DESC);
     $query->sort('search_api_id');
+    $query->getParseMode()->setConjunction('OR');
     $result = $query->execute();
     $this->assertEquals([
       'entity:node/7:en',

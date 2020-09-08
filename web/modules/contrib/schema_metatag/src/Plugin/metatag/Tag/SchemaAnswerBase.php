@@ -22,7 +22,7 @@ class SchemaAnswerBase extends SchemaNameBase {
       'title' => $this->label(),
       'description' => $this->description(),
       'value' => $value,
-      '#required' => isset($options['#required']) ? $options['#required'] : FALSE,
+      '#required' => isset($value['#required']) ? $value['#required'] : FALSE,
       'visibility_selector' => $this->visibilitySelector(),
     ];
 

@@ -27,67 +27,68 @@ class DrushCommandsTest extends BrowserTestBase {
   ];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
    * Tests migrate:import with feedback.
    *
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    */
-  public function testFeedback() {
+  public function testFeedback(): void {
     $this->drush('mim', ['fruit_terms'], ['feedback' => 2]);
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66% [notice] Processed 2 items (2 created, 0 updated, 0 failed, 0 ignored) - continuing with \'fruit_terms\'',
-      '',
-      ' 3/3 [============================] 100% [notice] Processed 1 item (1 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 2 items (2 created, 0 updated, 0 failed, 0 ignored) - continuing with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringContainsString('3/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 1 item (1 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('4', $this->getErrorOutput());
   }
 
   /**
    * Tests migrate:import with limit.
    */
-  public function testLimit() {
+  public function testLimit(): void {
     $this->drush('mim', ['fruit_terms'], ['limit' => 2]);
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66% [notice] Processed 2 items (2 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 2 items (2 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('3/3', $this->getErrorOutput());
   }
 
   /**
    * Test that migrations continue after a failure if the option is set.
    */
-  public function testContinueOnFailure() {
+  public function testContinueOnFailure(): void {
     // Option not set, fruit_terms should not run.
     $this->drush('mim', ['invalid_plugin,fruit_terms'], [], NULL, NULL, 1);
-    $this->assertNotContains("done with 'fruit_terms'", $this->getErrorOutput());
+    $this->assertStringNotContainsString("done with 'fruit_terms'", $this->getErrorOutput());
     // Option set, fruit_terms should run.
     $this->drush('mim', ['invalid_plugin,fruit_terms'], ['continue-on-failure' => NULL]);
-    $this->assertContains("done with 'fruit_terms'", $this->getErrorOutput());
+    $this->assertStringContainsString("done with 'fruit_terms'", $this->getErrorOutput());
     // Option not set, fruit_terms should not run.
     $this->drush('mr', ['invalid_plugin,fruit_terms'], [], NULL, NULL, 1);
-    $this->assertNotContains("done with 'fruit_terms'", $this->getErrorOutput());
+    $this->assertStringNotContainsString("done with 'fruit_terms'", $this->getErrorOutput());
     // Option set, fruit_terms should run.
     $this->drush('mr', ['invalid_plugin,fruit_terms'], ['continue-on-failure' => NULL]);
-    $this->assertContains("done with 'fruit_terms'", $this->getErrorOutput());
+    $this->assertStringContainsString("done with 'fruit_terms'", $this->getErrorOutput());
     // Option not set, fruit_terms should not display.
     $this->drush('ms', ['invalid_plugin,fruit_terms'], ['format' => 'json'], NULL, NULL, 1);
     // This demonstrates we surface the exception but not as an error.
-    $this->assertNotContains('[error]  The "does_not_exist" plugin does not exist', $this->getErrorOutput());
-    $this->assertContains('The "does_not_exist" plugin does not exist', $this->getErrorOutput());
-    $this->assertNotContains('fruit_terms    Idle     3', $this->getOutput());
+    $this->assertStringNotContainsString('[error]  The "does_not_exist" plugin does not exist', $this->getErrorOutput());
+    $this->assertStringContainsString('The "does_not_exist" plugin does not exist', $this->getErrorOutput());
+    $this->assertStringNotContainsString('fruit_terms    Idle     3', $this->getOutput());
     // Option set, fruit_terms should display.
     $this->drush('ms', ['invalid_plugin,fruit_terms'], ['continue-on-failure' => NULL]);
-    $this->assertContains('[error]  The "does_not_exist" plugin does not exist', $this->getErrorOutput());
-    $this->assertContains('fruit_terms    Idle     3', $this->getOutput());
+    $this->assertStringContainsString('[error]  The "does_not_exist" plugin does not exist', $this->getErrorOutput());
+    $this->assertStringContainsString('fruit_terms    Idle     3', $this->getOutput());
   }
 
   /**
    * Tests many of the migrate drush commands.
    */
-  public function testDrush() {
+  public function testDrush(): void {
     $this->drush('ms', [], [], NULL, NULL, 1);
-    $this->assertContains('The "does_not_exist" plugin does not exist.', $this->getErrorOutput());
+    $this->assertStringContainsString('The "does_not_exist" plugin does not exist.', $this->getErrorOutput());
     $this->container->get('config.factory')->getEditable('migrate_plus.migration.invalid_plugin')->delete();
     // Flush cache so the recently removed invalid migration is cleared.
     drupal_flush_all_caches();
@@ -113,24 +114,20 @@ class DrushCommandsTest extends BrowserTestBase {
       ],
     ];
     $this->assertEquals($expected, $this->getOutputFromJSON());
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66%',
-      ' 3/3 [============================] 100% [notice] Processed 3 items (3 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
     $this->drush('mim', ['fruit_terms']);
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66%',
-      ' 3/3 [============================] 100% [notice] Processed 3 items (0 created, 3 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('3/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 3 items (3 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('4', $this->getErrorOutput());
     $this->drush('mim', ['fruit_terms'], [
       'update' => NULL,
       'force' => NULL,
       'execute-dependencies' => NULL,
     ]);
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('3/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 3 items (0 created, 3 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('4', $this->getErrorOutput());
     $this->drush('mrs', ['fruit_terms']);
     $this->assertErrorOutputEquals('[warning] Migration fruit_terms is already Idle');
     $this->drush('mfs', ['fruit_terms'], ['format' => 'json']);
@@ -142,12 +139,10 @@ class DrushCommandsTest extends BrowserTestBase {
     ];
     $this->assertEquals($expected, $this->getOutputFromJSON());
     $this->drush('mr', ['fruit_terms']);
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66%',
-      ' 3/3 [============================] 100% [notice] Rolled back 3 items - done with \'fruit_terms\'',
-    ];
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('3/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Rolled back 3 items - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('4', $this->getErrorOutput());
     $this->drush('migrate:stop', ['fruit_terms']);
     $this->assertErrorOutputEquals('[warning] Migration fruit_terms is idle');
 
@@ -160,7 +155,7 @@ class DrushCommandsTest extends BrowserTestBase {
   /**
    * Fully test migrate messages.
    */
-  public function testMessages() {
+  public function testMessages(): void {
     $this->drush('mim', ['fruit_terms']);
     $this->drush('mmsg', ['fruit_terms']);
     $this->assertErrorOutputEquals('[notice] No messages for this migration');
@@ -188,14 +183,12 @@ EOT;
   /**
    * Tests synced import.
    */
-  public function testSyncImport() {
+  public function testSyncImport(): void {
     $this->drush('mim', ['fruit_terms']);
-    $expected = [
-      '1/3 [=========>------------------]  33%',
-      ' 2/3 [==================>---------]  66%',
-      ' 3/3 [============================] 100% [notice] Processed 3 items (3 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('3/3', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 3 items (3 created, 0 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('4', $this->getErrorOutput());
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load(2);
     $this->assertEquals('Banana', $term->label());
     $this->assertEquals(3, \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()->count()->execute());
@@ -206,14 +199,10 @@ EOT;
     // Flush cache so the recently changed migration can be refreshed.
     drupal_flush_all_caches();
     $this->drush('mim', ['fruit_terms'], ['sync' => NULL]);
-    $expected = [
-      '1/3 [=========>------------------]  33% [notice] Rolled back 1 item - done with \'fruit_terms\'',
-      '',
-      ' 2/3 [==================>---------]  66%',
-      ' 3/3 [============================] 100%',
-      ' 4/4 [============================] 100% [notice] Processed 3 items (1 created, 2 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'',
-    ];
-    $this->assertEquals($expected, $this->getErrorOutputAsList());
+    $this->assertStringContainsString('1/3', $this->getErrorOutput());
+    $this->assertStringContainsString('4/4', $this->getErrorOutput());
+    $this->assertStringContainsString('[notice] Processed 3 items (1 created, 2 updated, 0 failed, 0 ignored) - done with \'fruit_terms\'', $this->getErrorOutput());
+    $this->assertStringNotContainsString('5', $this->getErrorOutput());
     $this->assertEquals(3, \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()->count()->execute());
     $this->assertEmpty(\Drupal::entityTypeManager()->getStorage('taxonomy_term')->load(2));
 

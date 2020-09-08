@@ -35,8 +35,10 @@ trait SchemaContactPointTrait {
    * Form element.
    *
    * @param array $input_values
+   *   Array of default values.
    *
-   * @return mixed
+   * @return array
+   *   A form element.
    */
   public function contactPointForm(array $input_values) {
 

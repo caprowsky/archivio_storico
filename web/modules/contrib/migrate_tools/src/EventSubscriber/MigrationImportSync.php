@@ -3,11 +3,11 @@
 namespace Drupal\migrate_tools\EventSubscriber;
 
 use Drupal\migrate\Event\MigrateEvents;
+use Drupal\migrate\Event\MigrateImportEvent;
 use Drupal\migrate\Event\MigrateRollbackEvent;
+use Drupal\migrate\Event\MigrateRowDeleteEvent;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
-use Drupal\migrate\Event\MigrateImportEvent;
-use Drupal\migrate\Event\MigrateRowDeleteEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -53,7 +53,8 @@ class MigrationImportSync implements EventSubscriberInterface {
     if (!empty($migration->syncSource)) {
       $id_map = $migration->getIdMap();
       $id_map->prepareUpdate();
-      $source = $migration->getSourcePlugin();
+      // Clone so that any generators aren't initialized prematurely.
+      $source = clone $migration->getSourcePlugin();
       $source->rewind();
       $source_id_values = [];
       while ($source->valid()) {

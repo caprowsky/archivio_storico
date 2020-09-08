@@ -51,7 +51,7 @@
         "drupal/leaflet": "^1.36",
         "drupal/metatag": "^1.13",
         "drupal/migrate_source_csv": "^3.2",
-        "drupal/migrate_tools": "^4.5",
+        "drupal/migrate_tools": "^5.0",
         "drupal/module_filter": "^3.1",
         "drupal/override_node_options": "^2.4",
         "drupal/owlcarousel2": "^1.0",
@@ -65,7 +65,7 @@
         "drupal/schema_metatag": "^1.5",
         "drupal/search_api": "^1.15",
         "drupal/search_api_autocomplete": "^1.2",
-        "drupal/search_api_solr": "^4.0",
+        "drupal/search_api_solr": "^4.1",
         "drupal/security_review": "^1.0",
         "drupal/simple_sitemap": "^3.6",
         "drupal/smtp": "^1.0",
@@ -82,7 +82,7 @@
         "drupal/views_bulk_operations": "^3.6",
         "drupal/views_data_export": "^1.0",
         "drupal/views_geojson": "^1.0",
-        "drupal/warmer": "^1.2",
+        "drupal/warmer": "^2.0",
         "drush/drush": "^10.2"
     },
     "require-dev": {

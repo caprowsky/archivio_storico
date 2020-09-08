@@ -2,6 +2,7 @@
 
 namespace Drupal\rabbit_hole\Plugin\RabbitHoleBehaviorPlugin;
 
+use Drupal\Component\Render\PlainTextOutput;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
@@ -157,6 +158,7 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
           'langcode' => $langcode,
         ], new BubbleableMetadata()
       );
+      $target = PlainTextOutput::renderFromHtml($target);
     }
 
     if ($target === '<front>' || $target === '/<front>') {
@@ -261,7 +263,11 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
     $description[] = t('Enter the relative path or the full URL that the user should get redirected to. Query strings and fragments are supported, such as %example.', ['%example' => 'http://www.example.com/?query=value#fragment']);
 
     if ($this->moduleHandler->moduleExists('token')) {
-      $description[] = t('You may enter tokens in this field.');
+      $description[] = t(
+        'You may enter tokens in this field, such as %example1 or %example2.', [
+          '%example1' => '[node:field_link]',
+          '%example2' => '/my/view?page=[node:field_page_number]',
+      ]);
     }
 
     $form['rabbit_hole']['redirect']['rh_redirect'] = [
@@ -273,6 +279,7 @@ class PageRedirect extends RabbitHoleBehaviorPluginBase implements ContainerFact
       '#rows' => substr_count($redirect, "\r\n") + 2,
       '#element_validate' => [],
       '#after_build' => [],
+      '#maxlength' => 2000,
     ];
 
     $entity_type_id = NULL;

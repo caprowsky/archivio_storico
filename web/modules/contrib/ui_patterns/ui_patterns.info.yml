@@ -1,13 +1,11 @@
 name: UI Patterns
 type: module
 description: UI patterns
-# core: 8.x
+core: 8.x
+core_version_requirement: ^8 || ^9
 package: User interface
-dependencies:
-  - drupal:system (>=8.3.0)
 
-# Information added by Drupal.org packaging script on 2019-06-16
-version: '8.x-1.1'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2020-06-11
+version: '8.x-1.2'
 project: 'ui_patterns'
-datestamp: 1560696192
+datestamp: 1591882157

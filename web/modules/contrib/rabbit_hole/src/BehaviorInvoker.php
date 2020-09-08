@@ -156,7 +156,7 @@ class BehaviorInvoker implements BehaviorInvokerInterface {
    *   An array of values from the entity's fields matching the base properties
    *   added by rabbit hole.
    */
-  private function getRabbitHoleValuesForEntity(ContentEntityBase $entity) {
+  public function getRabbitHoleValuesForEntity(ContentEntityBase $entity) {
     $field_keys = array_keys($this->rhEntityExtender->getGeneralExtraFields());
     $values = [];
 
@@ -191,6 +191,28 @@ class BehaviorInvoker implements BehaviorInvokerInterface {
           $values[$field_key] = $entity->{$field_key}->value;
         }
       }
+    }
+    return $values;
+  }
+
+  /**
+   * An entity type's rabbit hole configuration, or the default if it does not exist.
+   *
+   * Return an entity types's rabbit hole configuration or, failing that, the base default
+   * configuration.
+   *
+   * @return array|false
+   *   An array of values from the entity's fields matching the base properties
+   *   added by rabbit hole. Explicit false if no matching configuration was found.
+   */
+  public function getRabbitHoleValuesForEntityType($entity_type_id, $bundle_id = NULL) {
+    $field_keys = array_keys($this->rhEntityExtender->getGeneralExtraFields());
+    $values = [];
+
+    $config = $this->rhBehaviorSettingsManager->loadBehaviorSettingsAsConfig($entity_type_id, $bundle_id);
+    foreach ($field_keys as $field_key) {
+      $config_field_key = substr($field_key, 3);
+      $values[$field_key] = $config->get($config_field_key);
     }
     return $values;
   }

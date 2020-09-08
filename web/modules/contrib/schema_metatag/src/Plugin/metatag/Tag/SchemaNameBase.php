@@ -89,7 +89,7 @@ class SchemaNameBase extends MetaNameBase {
       unset($array['pivot']);
       $array = SchemaMetatagManager::pivot($array);
     }
-    foreach ($array as $key => &$value) {
+    foreach ($array as &$value) {
       if (is_array($value)) {
         $value = static::pivotItem($value);
       }
@@ -234,7 +234,7 @@ class SchemaNameBase extends MetaNameBase {
    *
    * For test values, emulates the extra processing a multiple value would get.
    *
-   * @param array $items
+   * @param mixed $items
    *   The input value, either a string or an array.
    *
    * @return mixed
@@ -245,7 +245,7 @@ class SchemaNameBase extends MetaNameBase {
       $items = SchemaMetatagManager::explode($items);
       // Clean out any empty values that might have been added by explode().
       if (is_array($items)) {
-        $value = array_filter($items);
+        array_filter($items);
       }
     }
     return $items;

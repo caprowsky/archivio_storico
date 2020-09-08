@@ -1,11 +1,13 @@
 name: Layout Builder Browser
 core: 8.x
+core_version_requirement: ^8 || ^9
 description: 'Layout builder browser improvements.'
 type: module
 dependencies:
   - drupal:layout_builder
+configure: layout_builder_browser.admin_blocklisting
 
-# Information added by Drupal.org packaging script on 2019-11-04
-version: '8.x-1.0-alpha2'
+# Information added by Drupal.org packaging script on 2020-07-22
+version: '8.x-1.1'
 project: 'layout_builder_browser'
-datestamp: 1572901388
+datestamp: 1595413999

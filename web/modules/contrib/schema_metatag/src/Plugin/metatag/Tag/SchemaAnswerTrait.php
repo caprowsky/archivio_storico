@@ -105,7 +105,7 @@ trait SchemaAnswerTrait {
       'title' => $this->t('Author'),
       'description' => 'RECOMMENDED BY GOOGLE. The author of the answer.',
       'value' => !empty($value['author']) ? $value['author'] : [],
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       'visibility_selector' => $visibility_selector . '[author]',
     ];
 

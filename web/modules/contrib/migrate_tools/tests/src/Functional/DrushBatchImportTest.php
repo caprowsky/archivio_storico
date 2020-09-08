@@ -16,6 +16,11 @@ class DrushBatchImportTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
+  protected $defaultTheme = 'stark';
+
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'migrate_tools_test',
     'migrate_tools',
@@ -29,7 +34,7 @@ class DrushBatchImportTest extends BrowserTestBase {
   /**
    * Tests that a batch import run from a custom drush command succeeds.
    */
-  public function testBatchImportInDrushComand() {
+  public function testBatchImportInDrushComand(): void {
     $this->drush('migrate:batch-import-fruit');
     $migration = \Drupal::service('plugin.manager.migration')->createInstance('fruit_terms');
     $id_map = $migration->getIdMap();

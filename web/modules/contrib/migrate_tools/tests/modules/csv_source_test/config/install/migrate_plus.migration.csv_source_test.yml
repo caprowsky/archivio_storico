@@ -10,17 +10,20 @@ migration_group: csv_test
 source:
   plugin: csv
   path: 'public://test.csv'
-  header_row_count: 1
+  header_offset: 0
   enclosure: '"'
-  keys:
+  ids:
     - vid
-  column_names:
-    0:
-      vid: 'Vocabulary Id'
-    1:
-      name: 'Name'
-    2:
-      description: 'Description'
+  fields:
+    -
+      name: vid
+      label: Vocabulary Id
+    -
+      name: name
+      label: Name
+    -
+      name: description
+      label: Description
 process:
   vid: vid
   name: name

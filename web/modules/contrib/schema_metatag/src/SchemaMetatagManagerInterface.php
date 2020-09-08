@@ -69,7 +69,7 @@ interface SchemaMetatagManagerInterface {
    * @return array
    *   The pivoted array.
    */
-  public static function pivot($content);
+  public static function pivot(array $content);
 
   /**
    * If the item is an array with numeric keys, count the keys.
@@ -80,7 +80,7 @@ interface SchemaMetatagManagerInterface {
    * @return int
    *   The number of numeric keys in the array.
    */
-  public static function countNumericKeys($item);
+  public static function countNumericKeys(array $item);
 
   /**
    * Explode values if this is a multiple value field.
@@ -102,7 +102,7 @@ interface SchemaMetatagManagerInterface {
    * @return string
    *   The serialized value.
    */
-  public static function serialize($value);
+  public static function serialize(array $value);
 
   /**
    * Wrapper for unserialize to prevent errors.
@@ -137,7 +137,7 @@ interface SchemaMetatagManagerInterface {
    * @return array
    *   The original array with empty values removed.
    */
-  public static function arrayTrim($array);
+  public static function arrayTrim(array $array);
 
   /**
    * Is object?
@@ -153,7 +153,7 @@ interface SchemaMetatagManagerInterface {
    * @return bool
    *   TRUE/FALSE.
    */
-  public static function isObject($array);
+  public static function isObject(array $array);
 
   /**
    * Update serialized item length computations.

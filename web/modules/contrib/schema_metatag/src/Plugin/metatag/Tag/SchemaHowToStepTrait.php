@@ -96,7 +96,7 @@ trait SchemaHowToStepTrait {
       'title' => $this->t('image'),
       'description' => 'RECOMMENDED BY GOOGLE. An image of the step.',
       'value' => !empty($value['image']) ? $value['image'] : [],
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => $input_values['#required'],
       'visibility_selector' => $visibility_selector . '[image]',
     ];
     $form['image'] = $this->imageForm($input_values);

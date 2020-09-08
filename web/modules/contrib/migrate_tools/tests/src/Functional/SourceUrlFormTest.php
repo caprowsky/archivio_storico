@@ -26,7 +26,7 @@ class SourceUrlFormTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $profile = 'testing';
+  protected $defaultTheme = 'stark';
 
   /**
    * The migration group for the test migration.
@@ -45,7 +45,7 @@ class SourceUrlFormTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Log in as user 1. Migrations in the UI can only be performed as user 1.
@@ -61,7 +61,7 @@ class SourceUrlFormTest extends BrowserTestBase {
    *
    * @throws \Behat\Mink\Exception\ExpectationException
    */
-  public function testSourceUrl404Form() {
+  public function testSourceUrl404Form(): void {
     // Assert the test migration is listed.
     $this->drupalGet("/admin/structure/migrate/manage/{$this->group}/migrations");
     $session = $this->assertSession();

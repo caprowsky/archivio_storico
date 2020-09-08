@@ -2,13 +2,54 @@
 
 namespace Drupal\layout_builder_browser\Form;
 
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Block\BlockManagerInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Builds a listing of block entities.
  */
 class BlockListingForm extends FormBase {
+
+  /**
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * Block manager.
+   *
+   * @var \Drupal\Core\Block\BlockManagerInterface
+   */
+  protected $blockManager;
+
+  /**
+   * Constructs an layout_builder_browserForm object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entityTypeManager.
+   * @param \Drupal\Core\Block\BlockManagerInterface $blockManager
+   *   The blockManager.
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, BlockManagerInterface $blockManager) {
+    $this->entityTypeManager = $entityTypeManager;
+    $this->blockManager = $blockManager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('plugin.manager.block')
+    );
+  }
 
   /**
    * {@inheritdoc}
@@ -27,6 +68,7 @@ class BlockListingForm extends FormBase {
       ],
       'provider' => $this->t('Provider'),
       'image_path' => $this->t('Image path'),
+      'image_alt' => $this->t('Image alt text'),
       'category' => $this->t('Category'),
     ];
     return $header;
@@ -43,7 +85,6 @@ class BlockListingForm extends FormBase {
       '#header' => $this->buildHeader(),
       '#empty' => $groups['hidden_blocks'] ? '' : $this->t('No blocks or block categories defined.'),
     ];
-
 
     foreach ($groups['categories'] as $category_group) {
       $category_group_id = $category_group["category"]->id;
@@ -77,7 +118,7 @@ class BlockListingForm extends FormBase {
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => t('Save'),
+      '#value' => $this->t('Save'),
       '#button_type' => 'primary',
     ];
 
@@ -85,7 +126,12 @@ class BlockListingForm extends FormBase {
     return $form;
   }
 
-
+  /**
+   * Builds one block row.
+   *
+   * @var array $block
+   *   The block.
+   */
   private function buildBlockRow($block) {
     $row = [];
     $row['title'] = [
@@ -95,12 +141,12 @@ class BlockListingForm extends FormBase {
 
     $row['definition_category'] = [
       '#type' => 'markup',
-      '#markup' => $block["definition_category"]
+      '#markup' => $block["definition_category"],
     ];
 
     if ($block['category'] == 'hidden') {
       $row['definition_category']['#wrapper_attributes'] = [
-        'colspan' => 2,
+        'colspan' => 3,
       ];
     }
     else {
@@ -108,9 +154,14 @@ class BlockListingForm extends FormBase {
         '#type' => 'textfield',
         '#default_value' => $block['image_path'],
       ];
+      $row['image_alt'] = [
+        '#type' => 'textfield',
+        '#size' => 20,
+        '#default_value' => isset($block['image_alt']) ? $block['image_alt'] : '',
+      ];
     }
 
-    $block_categories = \Drupal::entityTypeManager()
+    $block_categories = $this->entityTypeManager
       ->getStorage('layout_builder_browser_blockcat')
       ->loadMultiple();
     uasort($block_categories, [
@@ -118,7 +169,7 @@ class BlockListingForm extends FormBase {
       'sort',
     ]);
 
-    $categories_options = ['hidden' => t('Hidden')];
+    $categories_options = ['hidden' => $this->t('Hidden')];
     foreach ($block_categories as $block_category) {
       $categories_options[$block_category->id()] = $block_category->label();
     }
@@ -149,9 +200,9 @@ class BlockListingForm extends FormBase {
           ],
         ],
         '#type' => 'markup',
-        '#markup' => $block_category->label(),
+        '#markup' => Html::escape($block_category->label()),
         '#wrapper_attributes' => [
-          'colspan' => 3,
+          'colspan' => 4,
         ],
       ],
     ];
@@ -164,7 +215,7 @@ class BlockListingForm extends FormBase {
 
     $blocks = $form_state->getValue('categories');
 
-    $block_categories = \Drupal::entityTypeManager()
+    $block_categories = $this->entityTypeManager
       ->getStorage('layout_builder_browser_blockcat')
       ->loadMultiple();
 
@@ -178,6 +229,7 @@ class BlockListingForm extends FormBase {
           'block_id' => $id,
           'weight' => 0,
           'image_path' => $block["image_path"],
+          'image_alt' => $block["image_alt"],
         ];
         $block_categories[$block['category']]->addBlock($data);
       }
@@ -187,7 +239,7 @@ class BlockListingForm extends FormBase {
       $block_category->save();
     }
 
-    \Drupal::messenger()->addMessage(t('The blocks have been updated.'));
+    $this->messenger()->addMessage($this->t('The blocks have been updated.'));
   }
 
   /**
@@ -201,9 +253,7 @@ class BlockListingForm extends FormBase {
    */
   public function loadGroups() {
 
-
-    $block_plugin_manager = \Drupal::service('plugin.manager.block');
-    $definitions = $block_plugin_manager->getFilteredDefinitions('layout_builder', NULL, ['list' => 'inline_blocks']);
+    $definitions = $this->blockManager->getFilteredDefinitions('layout_builder', NULL, ['list' => 'inline_blocks']);
     $hidden_blocks = [];
     foreach ($definitions as $id => $definition) {
       $hidden_blocks[$id] = [
@@ -211,12 +261,13 @@ class BlockListingForm extends FormBase {
         'id' => $id,
         'weight' => 0,
         'image_path' => '',
+        'image_alt' => '',
         'category' => 'hidden',
-        'definition_category' => $definition['category']
+        'definition_category' => $definition['category'],
       ];
     }
 
-    $block_categories = \Drupal::entityTypeManager()
+    $block_categories = $this->entityTypeManager
       ->getStorage('layout_builder_browser_blockcat')
       ->loadMultiple();
     uasort($block_categories, [
@@ -231,12 +282,15 @@ class BlockListingForm extends FormBase {
       $block_categories_group[$key]['category'] = $block_category;
       $block_categories_group[$key]['blocks'] = [];
 
-      foreach ($block_category->getBlocks() as $block) {
-        $block['label'] = $hidden_blocks[$block['block_id']]['label'];
-        $block['definition_category'] = $hidden_blocks[$block['block_id']]['definition_category'];
-        $block['block_id'] = $hidden_blocks[$block['block_id']]['id'];
-        unset($hidden_blocks[$block['block_id']]);
-        $block_categories_group[$key]['blocks'][] = $block;
+      $blocks = $block_category->getBlocks();
+      if ($blocks) {
+        foreach ($blocks as $block) {
+          $block['label'] = $hidden_blocks[$block['block_id']]['label'];
+          $block['definition_category'] = $hidden_blocks[$block['block_id']]['definition_category'];
+          $block['block_id'] = $hidden_blocks[$block['block_id']]['id'];
+          unset($hidden_blocks[$block['block_id']]);
+          $block_categories_group[$key]['blocks'][] = $block;
+        }
       }
     }
 

@@ -7,7 +7,6 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\schema_metatag\SchemaMetatagManager;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().

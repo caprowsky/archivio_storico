@@ -18,7 +18,7 @@
     "irc": "irc://irc.freenode.org/drupal-search-api",
     "source": "http://git.drupal.org/project/search_api_autocomplete.git"
   },
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "require": {
     "drupal/search_api": "1.x"
   },

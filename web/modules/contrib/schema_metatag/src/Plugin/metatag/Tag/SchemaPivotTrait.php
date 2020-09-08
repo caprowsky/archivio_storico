@@ -19,10 +19,10 @@ trait SchemaPivotTrait {
       '#empty_option' => t('- None -'),
       '#empty_value' => '',
       '#options' => [
-        1 => 'Pivot',
+        1 => $this->t('Pivot'),
       ],
       '#weight' => -9,
-      '#description' => 'Combine and pivot multiple values to display them as multiple objects.',
+      '#description' => $this->t('Combine and pivot multiple values to display them as multiple objects.'),
     ];
 
     return $form;

@@ -274,9 +274,8 @@ class IntegrationTest extends IntegrationTestBase {
     $keys = 'Tést-suggester-1';
     $suggestion_elements[$keys]->click();
     $this->logPageChange();
-    $assert_session->addressEquals('/search-api-autocomplete-test');
     $keys = urlencode($keys);
-    $this->assertRegExp("#[?&]keys=$keys#", $this->getUrl());
+    $assert_session->addressMatches("#^/search-api-autocomplete-test\\?(?:.*&)?keys=$keys#");
 
     // Check that autocomplete in the "Name" filter works, too, and that it sets
     // the correct fields on the query.
@@ -495,7 +494,13 @@ class IntegrationTest extends IntegrationTestBase {
       $this->drupalGet('search-api-autocomplete-test');
       $element = $assert_session->elementExists('css', 'input[data-drupal-selector="edit-keys"]');
       $this->assertTrue($element->hasAttribute('data-search-api-autocomplete-search'), "Autocomplete should not be enabled for $user_type user without the necessary permission.");
-      $this->assertContains($this->searchId, $element->getAttribute('data-search-api-autocomplete-search'), "Autocomplete should not be enabled for $user_type user without the necessary permission.");
+      // @todo Remove check once we depend on Drupal 9.0+.
+      if (method_exists($this, 'assertStringContainsString')) {
+        $this->assertStringContainsString($this->searchId, $element->getAttribute('data-search-api-autocomplete-search'), "Autocomplete should not be enabled for $user_type user without the necessary permission.");
+      }
+      else {
+        $this->assertContains($this->searchId, $element->getAttribute('data-search-api-autocomplete-search'), "Autocomplete should not be enabled for $user_type user without the necessary permission.");
+      }
       $this->assertTrue($element->hasClass('form-autocomplete'), "Autocomplete should not be enabled for $user_type user without the necessary permission.");
 
       $this->drupalGet($autocomplete_path, ['query' => ['q' => 'test']]);

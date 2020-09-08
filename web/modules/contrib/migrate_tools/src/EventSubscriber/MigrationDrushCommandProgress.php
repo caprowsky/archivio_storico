@@ -5,9 +5,9 @@ namespace Drupal\migrate_tools\EventSubscriber;
 use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
  * Import and rollback progress bar.
@@ -36,7 +36,7 @@ class MigrationDrushCommandProgress implements EventSubscriberInterface {
    *
    * @var \Symfony\Component\Console\Helper\ProgressBar
    */
-  protected $symfonyProgressBar = NULL;
+  protected $symfonyProgressBar;
 
   /**
    * {@inheritdoc}
@@ -71,7 +71,9 @@ class MigrationDrushCommandProgress implements EventSubscriberInterface {
       return;
     }
     try {
-      $this->symfonyProgressBar = new ProgressBar($output, $migration->getSourcePlugin()->count());
+      // Clone so that any generators aren't initialized prematurely.
+      $source = clone $migration->getSourcePlugin();
+      $this->symfonyProgressBar = new ProgressBar($output, $source->count());
     }
     catch (\Exception $exception) {
       if (!empty($migration->continueOnFailure)) {

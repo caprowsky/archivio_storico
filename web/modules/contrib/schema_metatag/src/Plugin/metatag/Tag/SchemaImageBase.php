@@ -22,7 +22,7 @@ class SchemaImageBase extends SchemaNameBase {
       'title' => $this->label(),
       'description' => $this->description(),
       'value' => SchemaMetatagManager::unserialize($this->value()),
-      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#required' => isset($value['#required']) ? $value['#required'] : FALSE,
       'visibility_selector' => $this->visibilitySelector(),
     ];
 

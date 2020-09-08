@@ -137,8 +137,6 @@ class MigrateBatchExecutable extends MigrateExecutable {
         if (!empty($dependencies['required'])) {
           $required_migrations = $this->migrationPluginManager->createInstances($dependencies['required']);
           // For dependent migrations will need to be migrate all items.
-          $dependent_options = $options;
-          $dependent_options['limit'] = 0;
           $operations = array_merge($operations, $this->batchOperations($required_migrations, $operation, [
             'limit' => 0,
             'update' => $options['update'],

@@ -60,7 +60,7 @@ function rabbit_hole_form_alter(&$form, FormStateInterface $form_state, $form_id
   if ($form_state->getFormObject() instanceof EntityFormInterface) {
     $current_type = $form_state->getFormObject()->getEntity()->getEntityTypeId();
     $current_operation = $form_state->getFormObject()->getOperation();
-    $disallowed_operations = ['delete', 'cancel'];
+    $disallowed_operations = ['delete', 'cancel', 'layout_builder'];
     $administer_permitted = \Drupal::currentUser()
             ->hasPermission('rabbit hole administer ' . $current_type);
     if (in_array($current_type, $affected_types) && $administer_permitted && !in_array($current_operation, $disallowed_operations)) {
