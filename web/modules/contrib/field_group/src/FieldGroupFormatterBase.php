@@ -90,13 +90,13 @@ abstract class FieldGroupFormatterBase extends PluginSettingsBase implements Fie
     $form = [];
     $form['label'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Field group label'),
+      '#title' => t('Field group label'),
       '#default_value' => $this->label,
       '#weight' => -5,
     ];
 
     $form['id'] = [
-      '#title' => $this->t('ID'),
+      '#title' => t('ID'),
       '#type' => 'textfield',
       '#default_value' => $this->getSetting('id'),
       '#weight' => 10,
@@ -104,7 +104,7 @@ abstract class FieldGroupFormatterBase extends PluginSettingsBase implements Fie
     ];
 
     $form['classes'] = [
-      '#title' => $this->t('Extra CSS classes'),
+      '#title' => t('Extra CSS classes'),
       '#type' => 'textfield',
       '#default_value' => $this->getSetting('classes'),
       '#weight' => 11,

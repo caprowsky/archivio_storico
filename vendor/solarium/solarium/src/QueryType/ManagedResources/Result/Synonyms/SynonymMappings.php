@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\ManagedResources\Result\Synonyms;
 
 use Solarium\Core\Client\Response;
@@ -14,9 +7,6 @@ use Solarium\Core\Query\AbstractQuery;
 use Solarium\Core\Query\Result\QueryType as BaseResult;
 use Solarium\Core\Query\Result\Result;
 
-/**
- * SynonymMappings.
- */
 class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countable
 {
     /**
@@ -36,16 +26,9 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     /**
      * Whether or not to ignore the case.
      *
-     * @var bool|null
+     * @var bool
      */
     protected $ignoreCase;
-
-    /**
-     * Format.
-     *
-     * @var string|null
-     */
-    protected $format;
 
     /**
      * Datetime when the resource was initialized.
@@ -57,7 +40,7 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     /**
      * Datetime when the resource was last updated.
      *
-     * @var string|null
+     * @var string
      */
     protected $updatedSinceInit;
 
@@ -71,8 +54,8 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     /**
      * Constructor.
      *
-     * @param \Solarium\Core\Query\AbstractQuery $query
-     * @param \Solarium\Core\Client\Response     $response
+     * @param AbstractQuery $query
+     * @param Response      $response
      */
     public function __construct(AbstractQuery $query, Response $response)
     {
@@ -92,12 +75,11 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     /**
      * Get all items.
      *
-     * @return \Solarium\QueryType\ManagedResources\Result\Synonyms\Synonyms[]
+     * @return Synonyms[]
      */
     public function getItems(): array
     {
         $this->parseResponse();
-
         return $this->items;
     }
 
@@ -109,7 +91,6 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     public function getIterator(): \ArrayIterator
     {
         $this->parseResponse();
-
         return new \ArrayIterator($this->items);
     }
 
@@ -121,7 +102,6 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     public function count(): int
     {
         $this->parseResponse();
-
         return \count($this->items);
     }
 
@@ -131,28 +111,16 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     public function getResourceId(): string
     {
         $this->parseResponse();
-
         return $this->resourceId;
     }
 
     /**
-     * @return bool|null
+     * @return bool
      */
-    public function isIgnoreCase(): ?bool
+    public function isIgnoreCase(): bool
     {
         $this->parseResponse();
-
         return $this->ignoreCase;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getFormat(): ?string
-    {
-        $this->parseResponse();
-
-        return $this->format;
     }
 
     /**
@@ -161,17 +129,6 @@ class SynonymMappings extends BaseResult implements \IteratorAggregate, \Countab
     public function getInitializedOn(): string
     {
         $this->parseResponse();
-
         return $this->initializedOn;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUpdatedSinceInit(): ?string
-    {
-        $this->parseResponse();
-
-        return $this->updatedSinceInit;
     }
 }

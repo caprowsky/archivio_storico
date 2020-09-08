@@ -16,7 +16,7 @@ use Drupal\Tests\search_api\Kernel\ResultsTrait;
  * Tests the "Date range" processor.
  *
  * @group search_api_solr
- * @group not_solr4
+ * @group min_solr_5
  *
  * @see \Drupal\search_api_solr\Plugin\search_api\processor\DateRange
  */
@@ -38,7 +38,9 @@ class DateRangeTest extends ProcessorTestBase {
   public static $modules = [
     'datetime',
     'datetime_range',
+    'devel',
     'search_api_solr',
+    'search_api_solr_devel',
     'search_api_solr_test',
   ];
 

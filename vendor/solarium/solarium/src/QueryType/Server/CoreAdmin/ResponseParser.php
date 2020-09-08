@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Server\CoreAdmin;
 
 use Solarium\Core\Query\AbstractResponseParser as ResponseParserAbstract;
@@ -27,16 +20,15 @@ class ResponseParser extends ResponseParserAbstract implements ResponseParserInt
      *
      * @param Result|ResultInterface $result
      *
-     * @throws \Exception
-     *
      * @return array
+     *
+     * @throws \Exception
      */
     public function parse(ResultInterface $result): array
     {
         $data = $result->getData();
         $data = $this->parseStatus($data, $result);
         $data = $this->addHeaderInfo($data, $data);
-
         return $data;
     }
 
@@ -44,9 +36,9 @@ class ResponseParser extends ResponseParserAbstract implements ResponseParserInt
      * @param array  $data
      * @param Result $result
      *
-     * @throws \Exception
-     *
      * @return array
+     *
+     * @throws \Exception
      */
     protected function parseStatus(array $data, Result $result): array
     {
@@ -63,7 +55,7 @@ class ResponseParser extends ResponseParserAbstract implements ResponseParserInt
             return $data;
         }
 
-        if (!\is_array($data['status'])) {
+        if (!is_array($data['status'])) {
             return $data;
         }
 

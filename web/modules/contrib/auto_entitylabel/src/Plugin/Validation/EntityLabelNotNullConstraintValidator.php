@@ -38,7 +38,9 @@ class EntityLabelNotNullConstraintValidator extends NotNullConstraintValidator i
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('auto_entitylabel.entity_decorator'));
+    return new static(
+      $container->get('auto_entitylabel.entity_decorator')
+    );
   }
 
   /**
@@ -55,7 +57,6 @@ class EntityLabelNotNullConstraintValidator extends NotNullConstraintValidator i
         return;
       }
     }
-
     parent::validate($value, $constraint);
   }
 

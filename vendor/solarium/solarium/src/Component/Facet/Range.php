@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\Facet;
 
 use Solarium\Component\FacetSetInterface;
@@ -14,10 +7,14 @@ use Solarium\Component\FacetSetInterface;
 /**
  * Facet range.
  *
- * @see https://lucene.apache.org/solr/guide/faceting.html#range-faceting
+ * @see http://wiki.apache.org/solr/SimpleFacetParameters#Facet_by_Range
  */
-class Range extends AbstractRange
+class Range extends AbstractRange implements ExcludeTagsInterface
 {
+    use ExcludeTagsTrait {
+        init as excludeTagsInit;
+    }
+
     /**
      * Get the facet type.
      *
@@ -38,7 +35,6 @@ class Range extends AbstractRange
     public function setMinCount(int $minCount): self
     {
         $this->setOption('mincount', $minCount);
-
         return $this;
     }
 
@@ -61,15 +57,6 @@ class Range extends AbstractRange
     protected function init()
     {
         parent::init();
-
-        foreach ($this->options as $name => $value) {
-            switch ($name) {
-                case 'exclude':
-                    $this->getLocalParameters()->addExcludes($value);
-                    break;
-                case 'pivot':
-                    $this->setPivot(new Pivot($value));
-            }
-        }
+        $this->excludeTagsInit();
     }
 }

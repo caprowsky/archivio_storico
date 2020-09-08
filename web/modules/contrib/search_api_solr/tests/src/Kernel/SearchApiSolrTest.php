@@ -28,46 +28,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
   use SolrCommitTrait;
   use InvokeMethodTrait;
 
-  protected $languageIds = [
-    'ar' => 'ar',
-    'bg' => 'bg',
-    'ca' => 'ca',
-    'cs' => 'cs',
-    'da' => 'da',
-    'de' => 'de',
-    'de-at' => 'de',
-    'el' => 'el',
-    'en' => 'en',
-    'es' => 'es',
-    'et' => 'et',
-    'fa' => 'fa',
-    'fi' => 'fi',
-    'fr' => 'fr',
-    'ga' => 'ga',
-    'hi' => 'hi',
-    'hr' => 'hr',
-    'id' => 'id',
-    'it' => 'it',
-    'ja' => 'ja',
-    'lv' => 'lv',
-    'nb' => 'nb',
-    'nl' => 'nl',
-    'nn' => 'nn',
-    'pl' => 'pl',
-    'pt-br' => 'pt_br',
-    'pt-pt' => 'pt_pt',
-    'ro' => 'ro',
-    'ru' => 'ru',
-    'sk' => 'sk',
-    'sr' => 'sr',
-    'sv' => 'sv',
-    'th' => 'th',
-    'tr' => 'tr',
-    'xx' => FALSE,
-    'uk' => 'uk',
-    'zh-hans' => 'zh_hans',
-    'zh-hant' => 'zh_hant',
-  ];
+  protected $languageIds = ['en', 'de', 'de-at'];
 
   /**
    * Modules to enable for this test.
@@ -92,7 +53,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * {@inheritdoc}
    */
   protected function installConfigs() {
-    foreach (array_keys($this->languageIds) as $language_id) {
+    foreach ($this->languageIds as $language_id) {
       ConfigurableLanguage::createFromLangcode($language_id)->save();
     }
 
@@ -131,6 +92,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Regression tests for #2469547.
    */
   protected function regressionTest2469547() {
+    $this->travisLogger->debug('SearchApiSolrTest::regressionTest2469547()');
     return;
 
     // @todo
@@ -160,6 +122,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Regression tests for #2888629.
    */
   protected function regressionTest2888629() {
+    $this->travisLogger->debug('SearchApiSolrTest::regressionTest2888629()');
+
     $query = $this->buildSearch();
     $query->addCondition('category', NULL);
     $results = $query->execute();
@@ -187,6 +151,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * {@inheritdoc}
    */
   public function searchSuccess() {
+    $this->travisLogger->debug('SearchApiSolrTest::searchSuccess()');
+
     parent::searchSuccess();
 
     $parse_mode_manager = \Drupal::service('plugin.manager.search_api.parse_mode');
@@ -229,6 +195,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * {@inheritdoc}
    */
   protected function checkModuleUninstall() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkModuleUninstall()');
+
     // See whether clearing the server works.
     // Regression test for #2156151.
     /** @var \Drupal\search_api\ServerInterface $server */
@@ -254,7 +222,6 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Checks backend specific features.
    */
   protected function checkBackendSpecificFeatures() {
-    $this->checkSchemaLanguages();
     $this->checkBasicAuth();
     $this->checkQueryParsers();
     $this->checkQueryConditions();
@@ -265,59 +232,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $this->clearIndex();
     $this->checkRetrieveData();
     $this->clearIndex();
-    $this->checkIndexFallback();
-    $this->clearIndex();
     $this->checkSearchResultSorts();
-  }
-
-  /**
-   * Tests the conversion of Search API queries into Solr queries.
-   */
-  protected function checkSchemaLanguages() {
-    /** @var \Drupal\search_api_solr\SolrBackendInterface $backend */
-    $backend = Server::load($this->serverId)->getBackend();
-    $connector = $backend->getSolrConnector();
-    $targeted_solr_major_version = (int) $connector->getSchemaTargetedSolrBranch();
-    $language_ids = $this->languageIds;
-    if (version_compare($targeted_solr_major_version, '9', '<')) {
-      // 'et' requires Solr 8.2, the jump-start-config targets 8.0.
-      $language_ids['et'] = FALSE;
-      if (version_compare($targeted_solr_major_version, '8', '<')) {
-        // 'ga' requires Solr 7.7, the jump-start-config targets 7.0.
-        $language_ids['ga'] = FALSE;
-        if (version_compare($targeted_solr_major_version, '7', '<')) {
-          $language_ids['bg'] = FALSE;
-          $language_ids['ca'] = FALSE;
-          $language_ids['da'] = FALSE;
-          $language_ids['fa'] = FALSE;
-          $language_ids['hi'] = FALSE;
-          $language_ids['hr'] = FALSE;
-          $language_ids['id'] = FALSE;
-          $language_ids['lv'] = FALSE;
-          $language_ids['nb'] = FALSE;
-          $language_ids['nn'] = FALSE;
-          $language_ids['pl'] = FALSE;
-          $language_ids['pt-br'] = FALSE;
-          $language_ids['pt-pt'] = FALSE;
-          $language_ids['ro'] = FALSE;
-          $language_ids['sr'] = FALSE;
-          $language_ids['sv'] = FALSE;
-          $language_ids['th'] = FALSE;
-          $language_ids['tr'] = FALSE;
-          $language_ids['zh-hans'] = FALSE;
-          $language_ids['zh-hant'] = FALSE;
-          if (version_compare($targeted_solr_major_version, '6', '<')) {
-            $language_ids['ar'] = FALSE;
-            $language_ids['ja'] = FALSE;
-            $language_ids['sk'] = FALSE;
-            if (version_compare($targeted_solr_major_version, '5', '<')) {
-              $language_ids['cs'] = FALSE;
-            }
-          }
-        }
-      }
-    }
-    $this->assertEquals($language_ids, $backend->getSchemaLanguageStatistics());
   }
 
   /**
@@ -473,14 +388,14 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addCondition('id', 5, '=');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('its_id:"5"', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
     $query->addCondition('id', 5, '<>');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(*:* -its_id:"5")', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -498,7 +413,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+(*:* -its_id:"3") +(*:* -its_id:"5"))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -509,7 +424,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+(*:* -its_id:"5") +ss_type:"3" +ss_category:"7")', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -522,7 +437,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+(*:* -its_id:"5") +(ss_type:"3" ss_category:"7"))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     // Condition groups with null value queries are special snowflakes.
     // @see https://www.drupal.org/node/2888629
@@ -537,7 +452,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+(*:* -its_id:"5") +(ss_type:"3" (*:* -ss_category:[* TO *])))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -554,7 +469,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+(its_id:"3" (*:* -ss_type:"7")) +(+its_id:"1" +(*:* -ss_type:"2") +ss_category:{* TO "5"}))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -564,7 +479,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+its_id:"5" +(*:* -ss_type:("1" "2" "3")))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages([LanguageInterface::LANGCODE_NOT_SPECIFIED]);
@@ -576,7 +491,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+its_id:"5" +(*:* -ss_type:("1" "2" "3")))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     // Test tagging of a single filter query of a facet query.
     $query = $this->buildSearch();
@@ -629,7 +544,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addCondition('id', 5, '=');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('its_id:"5"', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages(['en', 'de']);
@@ -641,7 +556,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+its_id:"5" +(*:* -ss_type:("1" "2" "3")))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages(['en']);
@@ -654,14 +569,14 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addConditionGroup($condition_group);
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('(+its_id:"5" +ss_search_api_language:"de" +(*:* -ss_type:("1" "2" "3")))', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages(['en']);
     $query->addCondition('body', 'some text', '=');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('tm_X3b_en_body:("some text")', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $parse_mode_manager = \Drupal::service('plugin.manager.search_api.parse_mode');
     $parse_mode_phrase = $parse_mode_manager->createInstance('phrase');
@@ -672,7 +587,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addCondition('body', 'some text', '=');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('tm_X3b_en_body:("some text")', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
 
     $query = $this->buildSearch();
     $query->setLanguages(['en']);
@@ -680,13 +595,15 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $query->addCondition('body', ['some', 'text'], '=');
     $fq = $this->invokeMethod($backend, 'getFilterQueries', [$query, &$options]);
     $this->assertEquals('tm_X3b_en_body:("some" "text")', $fq[0]['query']);
-    $this->assertArrayNotHasKey(1, $fq);
+    $this->assertFalse(isset($fq[1]));
   }
 
   /**
    * Tests retrieve_data options.
    */
   protected function checkRetrieveData() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkRetrieveData()');
+
     $server = $this->getIndex()->getServerInstance();
     $config = $server->getBackendConfig();
     $backend = $server->getBackend();
@@ -762,44 +679,11 @@ class SearchApiSolrTest extends SolrBackendTestBase {
   }
 
   /**
-   * Tests retrieve_data options.
-   */
-  protected function checkIndexFallback() {
-    global $index_fallback_test;
-
-    // If set to TRUE, search_api_solr_test_search_api_solr_documents_alter()
-    // turns one out of five test documents into an illegal one.
-    $index_fallback_test = TRUE;
-
-    // If five documents are updated as batch, one illegal document causes the
-    // entire batch to fail.
-    $this->assertEqual($this->indexItems($this->indexId), 0);
-
-    // Enable the fallback to index the documents one by one.
-    $server = $this->getIndex()->getServerInstance();
-    $config = $server->getBackendConfig();
-    $config['index_single_documents_fallback_count'] = 10;
-    $server->setBackendConfig($config);
-    $server->save();
-
-    // Indexed one by one, four documents get indexed successfully.
-    $this->assertEqual($this->indexItems($this->indexId), 4);
-
-    // Don't mess up the remionaing document anymnore.
-    $index_fallback_test = FALSE;
-    // Disable the fallback to index the documents one by one.
-    $config['index_single_documents_fallback_count'] = 0;
-    $server->setBackendConfig($config);
-    $server->save();
-
-    // Index the previously broken document that is still in the queue.
-    $this->assertEqual($this->indexItems($this->indexId), 1);
-  }
-
-  /**
    * Tests highlight options.
    */
   protected function checkHighlight() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkHighlight()');
+
     $server = $this->getIndex()->getServerInstance();
     $config = $server->getBackendConfig();
 
@@ -863,6 +747,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Tests addition and deletion of a data source.
    */
   protected function checkDatasourceAdditionAndDeletion() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkDatasourceAdditionAndDeletion()');
+
     $this->indexItems($this->indexId);
 
     $results = $this->buildSearch()->execute();
@@ -946,6 +832,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Tests search result grouping.
    */
   public function checkSearchResultGrouping() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkSearchResultGrouping()');
+
     if (in_array('search_api_grouping', $this->getIndex()->getServerInstance()->getBackend()->getSupportedFeatures())) {
       $query = $this->buildSearch(NULL, [], [], FALSE);
       $query->setOption('search_api_grouping', [
@@ -971,6 +859,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Tests search result sorts.
    */
   protected function checkSearchResultSorts() {
+    $this->travisLogger->debug('SearchApiSolrTest::checkSearchResultSorts()');
+
     // Add node with body length just above the solr limit for search fields.
     // It's exceeded by just a single char to simulate an edge case.
     $this->addTestEntity(6, [
@@ -1066,6 +956,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Tests the autocomplete support and ngram results.
    */
   public function testAutocompleteAndNgram() {
+    $this->travisLogger->debug('SearchApiSolrTest::testAutocompleteAndNgram()');
+
     $this->addTestEntity(1, [
       'name' => 'Test Article 1',
       'body' => 'The test article number 1 about cats, dogs and trees.',
@@ -1103,7 +995,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     $this->assertEquals('l', $suggestions[0]->getSuggestionSuffix());
     $this->assertEquals(2, $suggestions[0]->getResultsCount());
 
-    if ('4.x' !== $backend->getSolrConnector()->getSchemaTargetedSolrBranch()) {
+    if (version_compare($solr_major_version, '5', '>=')) {
       $query = $this->buildSearch(['articel'], [], ['body'], FALSE);
       $query->setLanguages(['en']);
       $suggestions = $backend->getSpellcheckSuggestions($query, $autocompleteSearch, 'articel', 'articel');
@@ -1205,6 +1097,8 @@ class SearchApiSolrTest extends SolrBackendTestBase {
    * Tests language fallback and language limiting via options.
    */
   public function testLanguageFallbackAndLanguageLimitedByOptions() {
+    $this->travisLogger->debug('SearchApiSolrTest::testLanguageFallbackAndLanguageLimitedByOptions()');
+
     $this->insertMultilingualExampleContent();
     $this->indexItems($this->indexId);
 
@@ -1445,17 +1339,16 @@ class SearchApiSolrTest extends SolrBackendTestBase {
       }
     }
 
-    $config_name = 'name="drupal-' . SolrBackendInterface::SEARCH_API_SOLR_MIN_SCHEMA_VERSION . '-solr-' . $solr_major_version . '.x-'. SEARCH_API_SOLR_JUMP_START_CONFIG_SET .'"';
+    $config_name = 'name="drupal-' . SolrBackendInterface::SEARCH_API_SOLR_MIN_SCHEMA_VERSION . '-solr-' . $solr_major_version . '.x"';
     $this->assertStringContainsString($config_name, $config_files['solrconfig.xml']);
     $this->assertStringContainsString($config_name, $config_files['schema.xml']);
+    $this->assertStringContainsString('solr.luceneMatchVersion=' . $solr_major_version, $config_files['solrcore.properties']);
     $this->assertStringContainsString($server->id(), $config_files['test.txt']);
     $this->assertStringNotContainsString('<jmx />', $config_files['solrconfig_extra.xml']);
     if ('true' === SOLR_CLOUD) {
-      $this->assertStringContainsString('solr.luceneMatchVersion:' . $solr_major_version, $config_files['solrconfig.xml']);
       $this->assertStringContainsString('<statsCache class="org.apache.solr.search.stats.LRUStatsCache" />', $config_files['solrconfig_extra.xml']);
     }
     else {
-      $this->assertStringContainsString('solr.luceneMatchVersion=' . $solr_major_version, $config_files['solrcore.properties']);
       $this->assertStringNotContainsString('<statsCache', $config_files['solrconfig_extra.xml']);
     }
 
@@ -1469,6 +1362,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
 
     $config_files = $solr_configset_controller->getConfigFiles();
     $this->assertStringContainsString('<jmx />', $config_files['solrconfig_extra.xml']);
+    $this->assertStringNotContainsString('solr.install.dir', $config_files['solrcore.properties']);
     $this->assertStringContainsString('text_en', $config_files['schema_extra_types.xml']);
     $this->assertStringNotContainsString('text_foo_en', $config_files['schema_extra_types.xml']);
     $this->assertStringNotContainsString('text_de', $config_files['schema_extra_types.xml']);
@@ -1488,12 +1382,11 @@ class SearchApiSolrTest extends SolrBackendTestBase {
     /** @var \Drupal\search_api_solr\SolrBackendInterface $backend */
     $backend = $server->getBackend();
     if ($backend->getSolrConnector()->isCloud()) {
-      $this->assertArrayNotHasKey('solrcore.properties', $config_files);
-      $this->assertStringNotContainsString('"/replication"', $config_files['solrconfig_extra.xml']);
-      $this->assertStringNotContainsString('"/get"', $config_files['solrconfig_extra.xml']);
+      $this->assertStringNotContainsString('solr.replication', $config_files['solrcore.properties']);
+      $this->assertStringNotContainsString('"/replication"', $config_files[(version_compare($solr_major_version, '7', '>=')) ? 'solrconfig_extra.xml' : 'solrconfig.xml']);
+      $this->assertStringNotContainsString('"/get"', $config_files[(version_compare($solr_major_version, '7', '>=')) ? 'solrconfig_extra.xml' : 'solrconfig.xml']);
     }
     else {
-      $this->assertStringNotContainsString('solr.install.dir', $config_files['solrcore.properties']);
       $this->assertStringContainsString('solr.replication', $config_files['solrcore.properties']);
       $this->assertStringContainsString('"/replication"', $config_files[(version_compare($solr_major_version, '7', '>=')) ? 'solrconfig_extra.xml' : 'solrconfig.xml']);
       if (version_compare($solr_major_version, '7', '>=')) {
@@ -1587,6 +1480,7 @@ class SearchApiSolrTest extends SolrBackendTestBase {
       'accents_de.txt' => [
         ' Not needed if German2 Porter stemmer is used.'
       ],
+      'solrcore.properties' => [],
       'elevate.xml' => [],
       'schema.xml' => [],
       'solrconfig.xml' => [],

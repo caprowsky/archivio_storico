@@ -27,11 +27,6 @@ use Drupal\views\ViewEntityInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
-/*
- * Load all theme functions.
- */
-require_once __DIR__ . '/search_api.theme.inc';
-
 /**
  * Implements hook_help().
  */
@@ -402,33 +397,35 @@ function search_api_theme() {
   return [
     'search_api_admin_fields_table' => [
       'render element' => 'element',
+      'function' => 'theme_search_api_admin_fields_table',
+      'file' => 'search_api.theme.inc',
     ],
     'search_api_admin_data_type_table' => [
       'variables' => [
         'data_types' => [],
-        'fallback_mapping' => [],
-        'table' => NULL,
+        'fallback_mapping' => []
       ],
+      'function' => 'theme_search_api_admin_data_type_table',
+      'file' => 'search_api.theme.inc',
     ],
     'search_api_form_item_list' => [
       'render element' => 'element',
+      'function' => 'theme_search_api_form_item_list',
+      'file' => 'search_api.theme.inc',
     ],
     'search_api_server' => [
-      'variables' => [
-        'server' => NULL,
-        'server_info_table' => NULL,
-        'description' => NULL,
-      ],
+      'variables' => ['server' => NULL],
+      'function' => 'theme_search_api_server',
+      'file' => 'search_api.theme.inc',
     ],
     'search_api_index' => [
       'variables' => [
         'index' => NULL,
         'server_count' => NULL,
         'server_count_error' => NULL,
-        'index_process' => NULL,
-        'description' => NULL,
-        'table' => NULL,
       ],
+      'function' => 'theme_search_api_index',
+      'file' => 'search_api.theme.inc',
     ],
   ];
 }
@@ -439,7 +436,7 @@ function search_api_theme() {
  * Clears the Views row plugin cache, so our row plugin will become available
  * for new indexes right away.
  *
- * @see search_api_views_plugins_row_alter()
+ * @see search_api_views_plugins_row_alter().
  */
 function search_api_search_api_index_insert(Index $index) {
   if (\Drupal::hasService('plugin.manager.views.row')) {

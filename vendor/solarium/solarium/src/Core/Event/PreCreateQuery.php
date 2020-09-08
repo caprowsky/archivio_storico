@@ -1,16 +1,9 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Core\Event;
 
 use Solarium\Core\Query\QueryInterface;
-use Symfony\Contracts\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\Event;
 
 /**
  * PreCreateQuery event, see Events for details.
@@ -18,7 +11,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 class PreCreateQuery extends Event
 {
     /**
-     * @var QueryInterface|null
+     * @var null|QueryInterface
      */
     protected $query;
 

@@ -47,7 +47,7 @@ metatag.metatag_tag.schema_metatag_test_place:
   type: text
   label: 'place'
 metatag.metatag_tag.schema_metatag_test_type:
-  type: string
+  type: text
   label: '@type'
 metatag.metatag_tag.schema_metatag_test_thing:
   type: text
@@ -91,6 +91,3 @@ metatag.metatag_tag.schema_metatag_test_question:
 metatag.metatag_tag.schema_metatag_test_answer:
   type: text
   label: 'answer'
-metatag.metatag_tag.schema_metatag_test_government_service:
-  type: text
-  label: 'governmentService'

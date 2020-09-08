@@ -23,7 +23,6 @@ class SettingsForm extends ConfigFormBase {
   protected function getEditableConfigNames() {
     return ['layout_builder_browser.settings'];
   }
-
   /**
    * {@inheritdoc}
    */
@@ -36,7 +35,7 @@ class SettingsForm extends ConfigFormBase {
       'overrides' => 'Overrides<br>When a user edits a specific entity layout, this will trigger. You need to enable overrides for this on the entity view mode.',
     ];
     $form['enabled_section_storages'] = [
-      '#title' => $this->t('Enable layout builder browser on'),
+      '#title' => t('Enable layout builder browser on'),
       '#type' => 'checkboxes',
       '#options' => $options,
       '#default_value' => $config->get('enabled_section_storages'),

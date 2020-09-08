@@ -23,14 +23,6 @@ use Drupal\rabbit_hole\Exception\InvalidBehaviorSettingException;
  *     "redirect" = "redirect",
  *     "redirect_code" = "redirect_code"
  *   },
- *   config_export = {
- *     "id",
- *     "uuid",
- *     "action",
- *     "allow_override",
- *     "redirect",
- *     "redirect_code"
- *   },
  *   links = {}
  * )
  */

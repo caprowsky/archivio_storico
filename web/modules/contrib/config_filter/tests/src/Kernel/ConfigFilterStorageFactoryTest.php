@@ -3,7 +3,6 @@
 namespace Drupal\Tests\config_filter\Kernel;
 
 use Drupal\Core\Config\DatabaseStorage;
-use Drupal\Core\Config\StorageComparer;
 use Drupal\KernelTests\KernelTestBase;
 
 /**
@@ -26,33 +25,28 @@ class ConfigFilterStorageFactoryTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
     $this->installConfig(['system']);
   }
 
   /**
-   * Tests that config is correctly transformed.
+   * Test that the config.storage.sync is decorated with the filtering version.
    */
-  public function testStorageTransformation() {
+  public function testServiceProvider() {
     // Export the configuration.
-    $sync_storage = $this->container->get('config.storage.sync');
-    $this->copyConfig($this->container->get('config.storage.export'), $sync_storage);
-    $transformed_storage = $this->container->get('config.import_transformer')->transform($sync_storage);
-
-    $comparer = new StorageComparer($transformed_storage, $this->container->get('config.storage'));
-    $comparer->createChangelist();
+    $this->copyConfig($this->container->get('config.storage'), $this->container->get('config.storage.sync'));
 
     // The pirate filter changes the system.site when importing.
-    $this->assertEquals(['system.site', 'core.extension'], $comparer->getChangelist('update'));
-    $this->assertEmpty($comparer->getChangelist('create'));
-    $this->assertEmpty($comparer->getChangelist('delete'));
-    $this->assertEmpty($comparer->getChangelist('rename'));
+    $this->assertEquals(['system.site'], $this->configImporter()->getStorageComparer()->getChangelist('update'));
+    $this->assertEmpty($this->configImporter()->getStorageComparer()->getChangelist('create'));
+    $this->assertEmpty($this->configImporter()->getStorageComparer()->getChangelist('delete'));
+    $this->assertEmpty($this->configImporter()->getStorageComparer()->getChangelist('rename'));
 
     $config = $this->config('system.site')->getRawData();
     $config['name'] .= ' Arrr';
 
-    $this->assertEquals($config, $transformed_storage->read('system.site'));
+    $this->assertEquals($config, $this->container->get('config.storage.sync')->read('system.site'));
   }
 
   /**
@@ -89,24 +83,6 @@ class ConfigFilterStorageFactoryTest extends KernelTestBase {
     // Reading from the $filtered storage returns the merged config.
     $this->assertEquals($active->listAll(), $filtered->listAll());
     $this->assertEquals($active->readMultiple($active->listAll()), $filtered->readMultiple($filtered->listAll()));
-  }
-
-  /**
-   * Test that the listAll method doesn't advertise config that doesn't exist.
-   */
-  public function testListAll() {
-    /** @var \Drupal\Core\Config\StorageInterface $filtered */
-    $filtered = $this->container->get('config_filter.storage_factory')->getSync();
-
-    // The pirate filter always adds the pirate config to listAll.
-    // But the filtered storage doesn't return the ones that don't exist.
-    $this->assertNotContains('system.pirates', $filtered->listAll());
-    $this->assertFalse($filtered->exists('system.pirates'));
-
-    // Turn on bluff mode, to make the filter properly add the config.
-    \Drupal::state()->set('config_filter_test_bluff', TRUE);
-    $this->assertContains('system.pirates', $filtered->listAll());
-    $this->assertTrue($filtered->exists('system.pirates'));
   }
 
 }

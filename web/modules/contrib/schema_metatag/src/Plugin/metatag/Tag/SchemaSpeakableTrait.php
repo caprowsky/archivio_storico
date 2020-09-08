@@ -48,7 +48,7 @@ trait SchemaSpeakableTrait {
       '#options' => [
         'SpeakableSpecification' => $this->t('SpeakableSpecification'),
       ],
-      '#description' => $this->t('Please provide either xpath or cssSelector, not both.'),
+      '#description' => 'Please provide either xpath or cssSelector, not both.',
     ];
 
     $form['xpath'] = [

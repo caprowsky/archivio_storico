@@ -6,15 +6,12 @@ use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\search_api\ServerInterface;
 use Drupal\search_api_solr\SearchApiSolrConflictingEntitiesException;
-use Drupal\search_api_solr\SearchApiSolrException;
 use Drupal\search_api_solr\SolrBackendInterface;
 use Drupal\search_api_solr\Utility\Utility;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use ZipStream\Option\Archive;
 use ZipStream\ZipStream;
-
-defined('SEARCH_API_SOLR_JUMP_START_CONFIG_SET') || define('SEARCH_API_SOLR_JUMP_START_CONFIG_SET', getenv('SEARCH_API_SOLR_JUMP_START_CONFIG_SET') ?: 0);
 
 /**
  * Provides different listings of SolrFieldType.
@@ -150,22 +147,6 @@ class SolrConfigSetController extends ControllerBase {
   }
 
   /**
-   * Provides an XML snippet containing all index settings as XML.
-   *
-   * @param \Drupal\search_api\ServerInterface|null $search_api_server
-   *   The Search API server entity.
-   *
-   * @return string
-   *   XML snippet containing all index settings.
-   *
-   * @throws \Drupal\search_api\SearchApiException
-   */
-  public function getSolrconfigIndexXml(?ServerInterface $search_api_server = NULL): string {
-    // Reserved for future internal use.
-    return '';
-  }
-
-  /**
    * Provides an XML snippet containing all query cache settings as XML.
    *
    * @param \Drupal\search_api\ServerInterface|null $search_api_server
@@ -248,7 +229,6 @@ class SolrConfigSetController extends ControllerBase {
    *   An associative array of files names and content.
    *
    * @throws \Drupal\search_api\SearchApiException
-   * @throws \Drupal\search_api_solr\SearchApiSolrException
    */
   public function getConfigFiles(): array {
     /** @var \Drupal\search_api_solr\SolrBackendInterface $backend */
@@ -261,30 +241,21 @@ class SolrConfigSetController extends ControllerBase {
     $solr_configset_template_mapping = [
       '6.x' => $template_path . '6.x',
       '7.x' => $template_path . '7.x',
-      '8.x' => $template_path . '8.x',
+      // Solr 8.x uses the same schema and solrconf as 7.x. So we can use the
+      // same templates and only adjusts luceneMatchVersion to 8.
+      '8.x' => $template_path . '7.x',
     ];
 
     $this->moduleHandler()->alter('search_api_solr_configset_template_mapping', $solr_configset_template_mapping);
 
     $search_api_solr_conf_path = $solr_configset_template_mapping[$solr_branch];
-    $solrcore_properties_file = $search_api_solr_conf_path . '/solrcore.properties';
-    if (file_exists($solrcore_properties_file) && is_readable($solrcore_properties_file)) {
-      $solrcore_properties = parse_ini_file($solrcore_properties_file, FALSE, INI_SCANNER_RAW);
-    }
-    else {
-      throw new SearchApiSolrException('solrcore.properties template could not be parsed.');
-    }
+    $solrcore_properties = parse_ini_file($search_api_solr_conf_path . '/solrcore.properties', FALSE, INI_SCANNER_RAW);
 
     $files = [
       'schema_extra_types.xml' => $this->getSchemaExtraTypesXml(),
       'schema_extra_fields.xml' => $this->getSchemaExtraFieldsXml($backend->getServer()),
       'solrconfig_extra.xml' => $this->getSolrconfigExtraXml(),
-      'solrconfig_index.xml' => $this->getSolrconfigIndexXml(),
     ];
-
-    if (!$backend->isNonDrupalOrOutdatedConfigSetAllowed() && (empty($files['schema_extra_types.xml']) || empty($files['schema_extra_fields.xml']))) {
-      throw new SearchApiSolrException(sprintf('The configs of the essential Solr field types are missing or broken for server "%s".', $backend->getServer()->id()));
-    }
 
     if (version_compare($solr_major_version, '7', '>=')) {
       $files['solrconfig_query.xml'] = $this->getSolrconfigQueryXml();
@@ -306,41 +277,29 @@ class SolrConfigSetController extends ControllerBase {
     }
 
     $solrcore_properties['solr.luceneMatchVersion'] = $connector->getLuceneMatchVersion($this->assumedMinimumVersion ?: '');
-    if (!$connector->isCloud()) {
-      // @todo
-      // $solrcore_properties['solr.replication.masterUrl']
-      $solrcore_properties_string = '';
-      foreach ($solrcore_properties as $property => $value) {
-        $solrcore_properties_string .= $property . '=' . $value . "\n";
-      }
-      $files['solrcore.properties'] = $solrcore_properties_string;
+    // @todo
+    // $solrcore_properties['solr.replication.masterUrl']
+    $solrcore_properties_string = '';
+    foreach ($solrcore_properties as $property => $value) {
+      $solrcore_properties_string .= $property . '=' . $value . "\n";
     }
+    $files['solrcore.properties'] = $solrcore_properties_string;
 
     // Now add all remaining static files from the conf dir that have not been
     // generated dynamically above.
     foreach (scandir($search_api_solr_conf_path) as $file) {
-      if (strpos($file, '.') !== 0 && !array_key_exists($file, $files)) {
-        $file_path = $search_api_solr_conf_path . '/' . $file;
-        if (file_exists($file_path) && is_readable($file_path)) {
-          $files[$file] = str_replace(
-            ['SEARCH_API_SOLR_MIN_SCHEMA_VERSION', 'SEARCH_API_SOLR_BRANCH', 'SEARCH_API_SOLR_JUMP_START_CONFIG_SET'],
-            [SolrBackendInterface::SEARCH_API_SOLR_MIN_SCHEMA_VERSION, $real_solr_branch, SEARCH_API_SOLR_JUMP_START_CONFIG_SET],
-            file_get_contents($search_api_solr_conf_path . '/' . $file)
-          );
+      if (strpos($file, '.') !== 0) {
+        foreach (array_keys($files) as $existing_file) {
+          if ($file == $existing_file) {
+            continue 2;
+          }
         }
-        else {
-          throw new SearchApiSolrException(sprintf('%s template is not readable.', $file));
-        }
+        $files[$file] = str_replace(
+          ['SEARCH_API_SOLR_MIN_SCHEMA_VERSION', 'SEARCH_API_SOLR_BRANCH'],
+          [SolrBackendInterface::SEARCH_API_SOLR_MIN_SCHEMA_VERSION, $real_solr_branch],
+          file_get_contents($search_api_solr_conf_path . '/' . $file)
+        );
       }
-    }
-
-    if ($connector->isCloud() && isset($files['solrconfig.xml'])) {
-      // solrcore.properties won’t work in SolrCloud mode (it is not read from
-      // ZooKeeper). Therefore we go for a more specific fallback to keep the
-      // possibility to set the property as parameter of the virtual machine.
-      // @see https://lucene.apache.org/solr/guide/8_6/configuring-solrconfig-xml.html
-      $files['solrconfig.xml'] = preg_replace('/solr.luceneMatchVersion:LUCENE_\d+/', 'solr.luceneMatchVersion:' . $solrcore_properties['solr.luceneMatchVersion'], $files['solrconfig.xml']);
-      unset($files['solrcore.properties']);
     }
 
     $connector->alterConfigFiles($files, $solrcore_properties['solr.luceneMatchVersion'], $this->serverId);

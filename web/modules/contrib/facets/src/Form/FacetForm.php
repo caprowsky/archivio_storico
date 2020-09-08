@@ -376,7 +376,7 @@ class FacetForm extends EntityForm {
     $form['facet_settings']['show_title'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Show title of facet'),
-      '#description' => $this->t('Show the title of the facet through a Twig template'),
+      '#description' => $this->t('Show the title of the facet trough a twig template'),
       '#default_value' => $facet->get('show_title'),
     ];
 
@@ -636,6 +636,14 @@ class FacetForm extends EntityForm {
     elseif (preg_match('/[^a-zA-Z0-9_~\.\-]/', $url_alias)) {
       $form_state->setErrorByName('url_alias', $this->t('The URL alias contains characters that are not allowed.'));
     }
+
+    $already_enabled_facets_on_same_source = \Drupal::service('facets.manager')->getFacetsByFacetSourceId($facet->getFacetSourceId());
+    /** @var \Drupal\facets\FacetInterface $other */
+    foreach ($already_enabled_facets_on_same_source as $other) {
+      if ($other->getUrlAlias() === $url_alias && $other->id() !== $facet->id()) {
+        $form_state->setErrorByName('url_alias', $this->t('This alias is already in use for another facet defined on the same source.'));
+      }
+    }
   }
 
   /**
@@ -709,17 +717,7 @@ class FacetForm extends EntityForm {
     $facet->set('show_title', $form_state->getValue(['facet_settings', 'show_title'], FALSE));
 
     $facet->save();
-
-    $already_enabled_facets_on_same_source = \Drupal::service('facets.manager')
-      ->getFacetsByFacetSourceId($facet->getFacetSourceId());
-    /** @var \Drupal\facets\FacetInterface $other */
-    foreach ($already_enabled_facets_on_same_source as $other) {
-      if ($other->getUrlAlias() === $facet->getUrlAlias() && $other->id() !== $facet->id()) {
-        $this->messenger()->addWarning($this->t('This alias is already in use for another facet defined on the same source.'));
-      }
-    }
-
-    $this->messenger()->addMessage($this->t('Facet %name has been updated.', ['%name' => $facet->getName()]));
+    \Drupal::messenger()->addMessage($this->t('Facet %name has been updated.', ['%name' => $facet->getName()]));
   }
 
   /**

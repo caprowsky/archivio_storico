@@ -1,20 +1,13 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Extract;
 
 use Solarium\Core\Client\Client;
 use Solarium\Core\Query\AbstractQuery as BaseQuery;
-use Solarium\Core\Query\DocumentInterface;
 use Solarium\Core\Query\RequestBuilderInterface;
 use Solarium\Core\Query\ResponseParserInterface;
 use Solarium\QueryType\Update\Query\Document;
+use Solarium\Core\Query\DocumentInterface;
 use Solarium\QueryType\Update\ResponseParser as UpdateResponseParser;
 
 /**
@@ -23,7 +16,7 @@ use Solarium\QueryType\Update\ResponseParser as UpdateResponseParser;
  * Sends a document extract request to Solr, i.e. upload rich document content
  * such as PDF, Word or HTML, parse the file contents and add it to the index.
  *
- * The Solr server must have the {@link https://lucene.apache.org/solr/guide/uploading-data-with-solr-cell-using-apache-tika.html#configuring-the-extractingrequesthandler-in-solrconfig-xml
+ * The Solr server must have the {@link http://wiki.apache.org/solr/ExtractingRequestHandler
  * ExtractingRequestHandler} enabled.
  */
 class Query extends BaseQuery
@@ -91,7 +84,6 @@ class Query extends BaseQuery
     public function setDocument(DocumentInterface $document): self
     {
         $this->setOption('document', $document);
-
         return $this;
     }
 
@@ -115,7 +107,6 @@ class Query extends BaseQuery
     public function setFile(string $filename): self
     {
         $this->setOption('file', $filename);
-
         return $this;
     }
 
@@ -139,7 +130,6 @@ class Query extends BaseQuery
     public function setUprefix(string $uprefix): self
     {
         $this->setOption('uprefix', $uprefix);
-
         return $this;
     }
 
@@ -164,7 +154,6 @@ class Query extends BaseQuery
     public function setDefaultField(string $defaultField): self
     {
         $this->setOption('defaultField', $defaultField);
-
         return  $this;
     }
 
@@ -190,7 +179,6 @@ class Query extends BaseQuery
     public function setLowernames(bool $lowerNames): self
     {
         $this->setOption('lowernames', (bool) $lowerNames);
-
         return $this;
     }
 
@@ -214,7 +202,6 @@ class Query extends BaseQuery
     public function setCommit(bool $commit): self
     {
         $this->setOption('commit', (bool) $commit);
-
         return $this;
     }
 
@@ -238,7 +225,6 @@ class Query extends BaseQuery
     public function setCommitWithin(int $commitWithin): self
     {
         $this->setOption('commitWithin', $commitWithin);
-
         return $this;
     }
 
@@ -351,7 +337,6 @@ class Query extends BaseQuery
     public function setDocumentClass(string $value): self
     {
         $this->setOption('documentclass', $value);
-
         return $this;
     }
 
@@ -377,7 +362,6 @@ class Query extends BaseQuery
     public function setExtractOnly(bool $value): self
     {
         $this->setOption('extractonly', (bool) $value);
-
         return $this;
     }
 
@@ -417,8 +401,6 @@ class Query extends BaseQuery
      */
     protected function init()
     {
-        parent::init();
-
         if (isset($this->options['fmap'])) {
             $this->setFieldMappings($this->options['fmap']);
         }

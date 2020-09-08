@@ -304,9 +304,7 @@ class GeofieldGoogleStaticMapFormatter extends FormatterBase implements Containe
       $locations[] = urlencode($value['latlon']);
     }
 
-    $elements = [];
-    // Return a single item.
-    $elements[0] = [
+    return [
       '#theme' => 'geofield_static_google_map',
       '#width' => $settings['width'],
       '#height' => $settings['height'],
@@ -319,8 +317,6 @@ class GeofieldGoogleStaticMapFormatter extends FormatterBase implements Containe
       '#marker_color' => $settings['marker_color'],
       '#marker_size' => $settings['marker_size'],
     ];
-
-    return $elements;
   }
 
 }

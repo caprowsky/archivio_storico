@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\ResponseParser;
 
 use Solarium\Component\AbstractComponent;
@@ -47,14 +40,14 @@ class Debug implements ComponentParserInterface
             $otherQuery = $debug['otherQuery'] ?? '';
 
             // parse explain data
-            if (isset($debug['explain']) && \is_array($debug['explain'])) {
+            if (isset($debug['explain']) && is_array($debug['explain'])) {
                 $explain = $this->parseDocumentSet($debug['explain']);
             } else {
                 $explain = new DocumentSet([]);
             }
 
             // parse explainOther data
-            if (isset($debug['explainOther']) && \is_array($debug['explainOther'])) {
+            if (isset($debug['explainOther']) && is_array($debug['explainOther'])) {
                 $explainOther = $this->parseDocumentSet($debug['explainOther']);
             } else {
                 $explainOther = new DocumentSet([]);
@@ -62,7 +55,7 @@ class Debug implements ComponentParserInterface
 
             // parse timing data
             $timing = null;
-            if (isset($debug['timing']) && \is_array($debug['timing'])) {
+            if (isset($debug['timing']) && is_array($debug['timing'])) {
                 $time = null;
                 $timingPhases = [];
                 foreach ($debug['timing'] as $key => $timingData) {
@@ -70,9 +63,8 @@ class Debug implements ComponentParserInterface
                         case 'time':
                             $time = $timingData;
                             break;
-                        case \is_array($timingData):
+                        default:
                             $timingPhases[$key] = $this->parseTimingPhase($key, $timingData);
-                            break;
                     }
                 }
                 $timing = new Timing($time, $timingPhases);
@@ -107,7 +99,7 @@ class Debug implements ComponentParserInterface
         $docs = [];
         foreach ($data as $key => $documentData) {
             $details = [];
-            if (isset($documentData['details']) && \is_array($documentData['details'])) {
+            if (isset($documentData['details']) && is_array($documentData['details'])) {
                 foreach ($documentData['details'] as $detailData) {
                     $detail = new Detail(
                         $detailData['match'],
@@ -115,7 +107,7 @@ class Debug implements ComponentParserInterface
                         $detailData['description']
                     );
 
-                    if (isset($detailData['details']) && \is_array($detailData['details'])) {
+                    if (isset($detailData['details']) && is_array($detailData['details'])) {
                         $detail->setSubDetails($detailData['details']);
                     }
                     $details[] = $detail;

@@ -11,32 +11,9 @@ class PatternSourceField {
 
   const FIELD_KEY_SEPARATOR = ':';
 
-  /**
-   * Field name.
-   *
-   * @var string
-   */
   private $fieldName;
-
-  /**
-   * Field label.
-   *
-   * @var string
-   */
   private $fieldLabel;
-
-  /**
-   * Plugin ID.
-   *
-   * @var string
-   */
   private $pluginId;
-
-  /**
-   * Plugin label.
-   *
-   * @var string
-   */
   private $pluginLabel;
 
   /**
@@ -52,7 +29,7 @@ class PatternSourceField {
   /**
    * Get FieldName property.
    *
-   * @return string
+   * @return mixed
    *   Property value.
    */
   public function getFieldName() {
@@ -62,7 +39,7 @@ class PatternSourceField {
   /**
    * Set FieldName property.
    *
-   * @param string $fieldName
+   * @param mixed $fieldName
    *   Property value.
    *
    * @return $this
@@ -75,7 +52,7 @@ class PatternSourceField {
   /**
    * Get FieldLabel property.
    *
-   * @return string
+   * @return mixed
    *   Property value.
    */
   public function getFieldLabel() {
@@ -85,7 +62,7 @@ class PatternSourceField {
   /**
    * Set FieldLabel property.
    *
-   * @param string $fieldLabel
+   * @param mixed $fieldLabel
    *   Property value.
    *
    * @return $this
@@ -98,7 +75,7 @@ class PatternSourceField {
   /**
    * Get Plugin property.
    *
-   * @return string
+   * @return mixed
    *   Property value.
    */
   public function getPluginId() {
@@ -108,7 +85,7 @@ class PatternSourceField {
   /**
    * Set Plugin property.
    *
-   * @param string $pluginId
+   * @param mixed $pluginId
    *   Property value.
    *
    * @return $this
@@ -121,7 +98,7 @@ class PatternSourceField {
   /**
    * Get PluginLabel property.
    *
-   * @return string
+   * @return mixed
    *   Property value.
    */
   public function getPluginLabel() {
@@ -131,7 +108,7 @@ class PatternSourceField {
   /**
    * Set PluginLabel property.
    *
-   * @param string $pluginLabel
+   * @param mixed $pluginLabel
    *   Property value.
    *
    * @return $this

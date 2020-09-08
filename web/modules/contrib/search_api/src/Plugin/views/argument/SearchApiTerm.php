@@ -32,7 +32,7 @@ class SearchApiTerm extends SearchApiStandard {
    * The term storage.
    *
    * @var \Drupal\taxonomy\TermStorageInterface
-   */
+   **/
   protected $termStorage;
 
   /**
@@ -86,12 +86,12 @@ class SearchApiTerm extends SearchApiStandard {
   /**
    * Sets the term storage.
    *
-   * @param \Drupal\taxonomy\TermStorageInterface $term_storage
+   * @param \Drupal\taxonomy\TermStorageInterface
    *   The term storage.
    *
    * @return $this
    */
-  public function setTermStorage(TermStorageInterface $term_storage) {
+  public function setTermStorage(TermStorageInterface $term_storage){
     $this->termStorage = $term_storage;
     return $this;
   }

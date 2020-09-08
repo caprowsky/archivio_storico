@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\RequestBuilder;
 
 use Solarium\Component\Stats\Stats as StatsComponent;
@@ -35,7 +28,7 @@ class Stats implements ComponentRequestBuilderInterface
         foreach ($component->getFields() as $field) {
             $pivots = $field->getPivots();
 
-            $prefix = (\count($pivots) > 0) ? '{!tag='.implode(',', $pivots).'}' : '';
+            $prefix = (count($pivots) > 0) ? '{!tag='.implode(',', $pivots).'}' : '';
             $request->addParam('stats.field', $prefix.$field->getKey());
 
             // add field specific facet stats

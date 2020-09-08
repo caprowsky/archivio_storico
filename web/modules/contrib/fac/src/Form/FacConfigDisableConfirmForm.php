@@ -3,42 +3,14 @@
 namespace Drupal\fac\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
-use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\Core\StreamWrapper\PublicStream;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Defines a confirm form for disabling an index.
  */
 class FacConfigDisableConfirmForm extends EntityConfirmFormBase {
-
-  /**
-   * The file system service.
-   *
-   * @var \Drupal\Core\File\FileSystemInterface
-   */
-  protected $fileSystem;
-
-  /**
-   * FacConfigDisableConfirmForm constructor.
-   *
-   * @param \Drupal\Core\File\FileSystemInterface $file_system
-   *   The file system service.
-   */
-  public function __construct(FileSystemInterface $file_system) {
-    $this->fileSystem = $file_system;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('file_system')
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -78,7 +50,7 @@ class FacConfigDisableConfirmForm extends EntityConfirmFormBase {
     $entity->setStatus(FALSE)->save();
 
     // Delete the Fast Autocomplete configuration json files.
-    $this->fileSystem->deleteRecursive(PublicStream::basePath() . '/fac-json/' . $entity->id());
+    file_unmanaged_delete_recursive(PublicStream::basePath() . '/fac-json/' . $entity->id());
 
     $this->messenger()->addStatus($this->t('The Fast Autocomplete configuration %name has been disabled.', [
       '%name' => $entity->label(),

@@ -3,7 +3,6 @@
 namespace Drupal\conditional_fields\Plugin\conditional_fields\handler;
 
 use Drupal\conditional_fields\ConditionalFieldsHandlerBase;
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 
 /**
  * Provides states handler for text fields.
@@ -20,7 +19,7 @@ class TextDefault extends ConditionalFieldsHandlerBase {
     // Text fields values are keyed by cardinality, so we have to flatten them.
     // TODO: support multiple values.
     switch ($options['values_set']) {
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
         foreach ($options['value_form'] as $value) {
           // fix 0 selector for multiple fields.
           if (!empty($value['value'])) {
@@ -28,25 +27,25 @@ class TextDefault extends ConditionalFieldsHandlerBase {
           }
         }
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
         $input_states[$options['selector']] = [
           $options['condition'] => $values_array,
         ];
         $state[$options['state']] = $input_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
         $values[$options['condition']] = ['regex' => $options['regex']];
         $state[$options['state']][$options['selector']] = $values;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
         $input_states[$options['selector']] = [
           $options['condition'] => [ 'xor' => $values_array],
         ];
         $state[$options['state']] = $input_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
         $options['state'] = '!' . $options['state'];
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
         if (!empty($values_array)) {
           foreach ($values_array as $value) {
             $input_states[$options['selector']][] = [

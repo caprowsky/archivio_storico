@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete Configuration Split setting entities.
+ * Builds the form to delete Configuration Split Setting entities.
  */
 class ConfigSplitEntityDeleteForm extends EntityConfirmFormBase {
 

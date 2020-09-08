@@ -90,7 +90,7 @@ trait SchemaReviewTrait {
       'title' => $this->t('author'),
       'description' => 'The author of this review.',
       'value' => !empty($value['author']) ? $value['author'] : [],
-      '#required' => $input_values['#required'],
+      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
       'visibility_selector' => $this->getPluginId() . '[author][@type]',
     ];
 

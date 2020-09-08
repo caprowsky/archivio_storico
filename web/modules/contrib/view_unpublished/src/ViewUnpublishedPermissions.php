@@ -1,12 +1,13 @@
 <?php
 
+
 namespace Drupal\view_unpublished;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\node\Entity\NodeType;
 
 /**
- * Provides dynamic permissions for viewing unpublished nodes per type.
+ * Provides dynamic permissions for viewing unpublished nodes of different types.
  */
 class ViewUnpublishedPermissions {
 
@@ -17,11 +18,10 @@ class ViewUnpublishedPermissions {
    *
    * @return array
    *   The node type view unpublished permissions.
-   *
-   * @see \Drupal\user\PermissionHandlerInterface::getPermissions()
+   *   @see \Drupal\user\PermissionHandlerInterface::getPermissions()
    */
   public function permissions() {
-    $perms = [];
+    $perms = array();
     // Generate view unpublished permissions for all node types.
     foreach (NodeType::loadMultiple() as $type) {
       $perms += $this->buildPermissions($type);
@@ -41,13 +41,13 @@ class ViewUnpublishedPermissions {
    */
   protected function buildPermissions(NodeType $type) {
     $type_id = $type->id();
-    $type_params = ['%type_name' => $type->label()];
+    $type_params = array('%type_name' => $type->label());
 
-    return [
-      "view any unpublished $type_id content" => [
+    return array(
+      "view any unpublished $type_id content" => array(
         'title' => $this->t('%type_name: View any unpublished content', $type_params),
-      ],
-    ];
+      ),
+    );
   }
 
 }

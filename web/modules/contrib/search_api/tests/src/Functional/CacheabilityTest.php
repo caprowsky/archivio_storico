@@ -4,6 +4,7 @@ namespace Drupal\Tests\search_api\Functional;
 
 use Drupal\block\Entity\Block;
 use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Extension\MissingDependencyException;
 use Drupal\search_api\Entity\Index;
 use Drupal\search_api\Entity\Task;
 
@@ -53,7 +54,7 @@ class CacheabilityTest extends SearchApiBrowserTestBase {
     $this->drupalGet('search-api-test');
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->responseHeaderEquals('x-drupal-dynamic-cache', 'UNCACHEABLE');
-    $this->assertStringContainsString('no-cache', $this->drupalGetHeader('cache-control'));
+    $this->assertContains('no-cache', $this->drupalGetHeader('cache-control'));
 
     // Verify that the search results are displayed.
     $this->assertSession()->pageTextContains('foo test');
@@ -66,13 +67,17 @@ class CacheabilityTest extends SearchApiBrowserTestBase {
   public function testExecuteTasksAction() {
     // Enable the "Local actions" block so we can verify which local actions are
     // displayed.
-    $success = \Drupal::getContainer()
-      ->get('module_installer')
-      ->install(['block'], TRUE);
-    $this->assertTrue($success, new FormattableMarkup('Enabled modules: %modules', ['%modules' => 'block']));
+    try {
+      $success = $this->container->get('module_installer')->install(['block'], TRUE);
+      $this->assertTrue($success, new FormattableMarkup('Enabled modules: %modules', ['%modules' => 'block']));
+    }
+    catch (MissingDependencyException $e) {
+      // The exception message has all the details.
+      $this->fail($e->getMessage());
+    }
     Block::create([
-      'id' => 'stark_local_actions',
-      'theme' => 'stark',
+      'id' => 'classy_local_actions',
+      'theme' => 'classy',
       'weight' => -20,
       'plugin' => 'local_actions_block',
       'region' => 'content',
@@ -92,7 +97,9 @@ class CacheabilityTest extends SearchApiBrowserTestBase {
     $assert_session->pageTextNotContains('Execute pending tasks');
 
     // Create one task.
-    $task = Task::create([]);
+    $task = Task::create([
+
+    ]);
     $task->save();
 
     // Now the action should be shown.

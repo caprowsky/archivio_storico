@@ -22,7 +22,7 @@ class SchemaHowToStepBase extends SchemaNameBase {
       'title' => $this->label(),
       'description' => $this->description(),
       'value' => $value,
-      '#required' => isset($value['#required']) ? $value['#required'] : FALSE,
+      '#required' => isset($options['#required']) ? $options['#required'] : FALSE,
       'visibility_selector' => $this->visibilitySelector(),
     ];
 

@@ -2,7 +2,7 @@
   "name": "drupal/metatag",
   "description": "Manage meta tags for all entities.",
   "type": "drupal-module",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-2.0+",
   "keywords": [
     "Drupal",
     "seo"
@@ -27,7 +27,6 @@
   },
   "require-dev": {
     "drupal/redirect": "1.x-dev",
-    "drupal/page_manager": "4.x-dev",
-    "drupal/panelizer": "4.x-dev"
+    "drupal/page_manager": "4.x-dev"
   }
 }

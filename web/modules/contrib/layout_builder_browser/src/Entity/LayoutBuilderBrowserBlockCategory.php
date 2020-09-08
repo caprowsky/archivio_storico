@@ -1,5 +1,4 @@
 <?php
-
 namespace Drupal\layout_builder_browser\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
@@ -11,13 +10,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   id = "layout_builder_browser_blockcat",
  *   label = @Translation("Layout builder browser block category"),
  *   handlers = {
- *     "list_builder" =
- *   "Drupal\layout_builder_browser\Form\BlockCategoryListingForm",
+ *     "list_builder" = "Drupal\layout_builder_browser\Form\BlockCategoryListingForm",
  *     "form" = {
  *       "add" = "Drupal\layout_builder_browser\Form\BlockCategoryForm",
  *       "edit" = "Drupal\layout_builder_browser\Form\BlockCategoryForm",
- *       "delete" =
- *   "Drupal\layout_builder_browser\Form\BlockCategoryDeleteConfirmForm",
+ *       "delete" = "Drupal\layout_builder_browser\Form\BlockCategoryDeleteConfirmForm",
  *     }
  *   },
  *   config_prefix = "layout_builder_browser_blockcat",
@@ -34,14 +31,12 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "blocks"
  *   },
  *   links = {
- *     "edit-form" =
- *   "/admin/config/content/layout-builder-browser/categories/{layout_builder_browser_blockcat}",
- *     "delete-form" =
- *   "/admin/config/content/layout-builder-browser/categories/{layout_builder_browser_blockcat}/delete",
+ *     "edit-form" = "/admin/config/content/layout-builder-browser/categories/{layout_builder_browser_blockcat}",
+ *     "delete-form" = "/admin/config/content/layout-builder-browser/categories/{layout_builder_browser_blockcat}/delete",
  *   }
  * )
  */
-class LayoutBuilderBrowserBlockCategory extends ConfigEntityBase {
+class LayoutBuilderBrowserBlockCategory extends ConfigEntityBase  {
 
   /**
    * The layout_builder_browser_blockcat ID.
@@ -73,39 +68,30 @@ class LayoutBuilderBrowserBlockCategory extends ConfigEntityBase {
   public $blocks;
 
   /**
-   * Retrieve blocks.
-   *
    * @return array
-   *   List of blocks.
    */
   public function getBlocks() {
     return $this->blocks;
   }
 
   /**
-   * Set blocks.
-   *
    * @param array $blocks
-   *   Array of blocks.
    */
-  public function setBlocks(array $blocks) {
+  public function setBlocks($blocks) {
     $this->blocks = $blocks;
   }
 
   /**
-   * Clear all blocks.
+   * @param array $blocks
    */
   public function clearBlocks() {
     $this->blocks = [];
   }
 
   /**
-   * Add a block.
-   *
    * @param array $block
-   *   A block.
    */
-  public function addBlock(array $block) {
+  public function addBlock($block) {
     $this->blocks[] = $block;
   }
 
@@ -124,3 +110,4 @@ class LayoutBuilderBrowserBlockCategory extends ConfigEntityBase {
   }
 
 }
+

@@ -1,5 +1,4 @@
 <?php
-
 namespace Drupal\layout_builder_browser\Form;
 
 use Drupal\Core\Entity\EntityForm;
@@ -83,13 +82,7 @@ class BlockCategoryForm extends EntityForm {
   }
 
   /**
-   * Check whether an layout_builder_browser configuration entity exists.
-   *
-   * @var int $id
-   *   The id of the block to check.
-   *
-   * @return bool
-   *   True if block exists.
+   * Helper function to check whether an layout_builder_browser configuration entity exists.
    */
   public function exist($id) {
     $entity = $this->entityTypeManager->getStorage('layout_builder_browser_blockcat')->getQuery()

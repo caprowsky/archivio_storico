@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Core\Query;
 
 /**
@@ -21,12 +14,6 @@ abstract class AbstractDocument implements DocumentInterface, \IteratorAggregate
      */
     protected $fields;
 
-    /**
-     * @param mixed $name
-     * @param mixed $value
-     *
-     * @return \Solarium\Core\Query\DocumentInterface
-     */
     abstract public function __set($name, $value): DocumentInterface;
 
     /**
@@ -86,7 +73,7 @@ abstract class AbstractDocument implements DocumentInterface, \IteratorAggregate
      */
     public function count(): int
     {
-        return \count($this->fields);
+        return count($this->fields);
     }
 
     /**
@@ -95,7 +82,7 @@ abstract class AbstractDocument implements DocumentInterface, \IteratorAggregate
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         $this->__set($offset, $value);
     }
@@ -107,7 +94,7 @@ abstract class AbstractDocument implements DocumentInterface, \IteratorAggregate
      *
      * @return bool
      */
-    public function offsetExists($offset): bool
+    public function offsetExists($offset)
     {
         return null !== $this->__get($offset);
     }
@@ -117,7 +104,7 @@ abstract class AbstractDocument implements DocumentInterface, \IteratorAggregate
      *
      * @param mixed $offset
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         $this->__set($offset, null);
     }

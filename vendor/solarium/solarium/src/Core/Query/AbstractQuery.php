@@ -1,24 +1,14 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Core\Query;
 
 use Solarium\Core\Configurable;
-use Solarium\Core\Query\LocalParameters\LocalParametersTrait;
 
 /**
  * Base class for all query types, not intended for direct usage.
  */
 abstract class AbstractQuery extends Configurable implements QueryInterface
 {
-    use LocalParametersTrait;
-
     public const WT_JSON = 'json';
 
     public const WT_PHPS = 'phps';
@@ -47,7 +37,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setHandler(string $handler): QueryInterface
     {
         $this->setOption('handler', $handler);
-
         return $this;
     }
 
@@ -78,7 +67,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setResultClass(string $classname): QueryInterface
     {
         $this->setOption('resultclass', $classname);
-
         return  $this;
     }
 
@@ -102,7 +90,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setTimeAllowed(int $value): QueryInterface
     {
         $this->setOption('timeallowed', $value);
-
         return $this;
     }
 
@@ -126,7 +113,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setOmitHeader(bool $value): QueryInterface
     {
         $this->setOption('omitheader', $value);
-
         return $this;
     }
 
@@ -212,7 +198,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setResponseWriter(string $value): QueryInterface
     {
         $this->setOption('responsewriter', $value);
-
         return $this;
     }
 
@@ -251,7 +236,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setNow(int $timestamp): self
     {
         $this->setOption('now', $timestamp);
-
         return $this;
     }
 
@@ -281,7 +265,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
         } else {
             $this->setOption('timezone', $timezone);
         }
-
         return $this;
     }
 
@@ -305,7 +288,6 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function setDistrib(bool $value): self
     {
         $this->setOption('distrib', $value);
-
         return $this;
     }
 
@@ -317,29 +299,5 @@ abstract class AbstractQuery extends Configurable implements QueryInterface
     public function getDistrib(): ?bool
     {
         return $this->getOption('distrib');
-    }
-
-    /**
-     * Set ie (input encoding) option.
-     *
-     * @param string $encoding
-     *
-     * @return self Provides fluent interface
-     */
-    public function setInputEncoding(string $encoding): self
-    {
-        $this->setOption('ie', $encoding);
-
-        return $this;
-    }
-
-    /**
-     * Get ie (input encoding) option.
-     *
-     * @return string|null
-     */
-    public function getInputEncoding(): ?string
-    {
-        return $this->getOption('ie');
     }
 }

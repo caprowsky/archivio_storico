@@ -1,8 +1,7 @@
 name: 'UI Patterns Views Test'
 type: module
 description: 'Test module for UI Patterns.'
-core: 8.x
-core_version_requirement: ^8 || ^9
+# core: 8.x
 hidden: true
 package: 'User interface'
 dependencies:
@@ -19,7 +18,8 @@ config_devel:
   - node.type.article
   - views.view.articles
 
-# Information added by Drupal.org packaging script on 2020-06-11
-version: '8.x-1.2'
+# Information added by Drupal.org packaging script on 2019-06-16
+version: '8.x-1.1'
+core: '8.x'
 project: 'ui_patterns'
-datestamp: 1591882157
+datestamp: 1560696192

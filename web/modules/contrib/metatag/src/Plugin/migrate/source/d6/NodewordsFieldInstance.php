@@ -111,11 +111,4 @@ class NodewordsFieldInstance extends DrupalSqlBase {
     return $ids;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function count($refresh = FALSE) {
-    return $this->initializeIterator()->count();
-  }
-
 }

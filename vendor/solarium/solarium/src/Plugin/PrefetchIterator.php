@@ -1,18 +1,11 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Plugin;
 
 use Solarium\Core\Client\Endpoint;
 use Solarium\Core\Plugin\AbstractPlugin;
-use Solarium\Core\Query\DocumentInterface;
 use Solarium\QueryType\Select\Query\Query as SelectQuery;
+use Solarium\Core\Query\DocumentInterface;
 use Solarium\QueryType\Select\Result\Result as SelectResult;
 
 /**
@@ -86,7 +79,6 @@ class PrefetchIterator extends AbstractPlugin implements \Iterator, \Countable
         $this->resetData();
 
         $this->setOption('prefetch', $value);
-
         return $this;
     }
 
@@ -137,7 +129,6 @@ class PrefetchIterator extends AbstractPlugin implements \Iterator, \Countable
     public function setEndpoint($endpoint): self
     {
         $this->setOption('endpoint', $endpoint);
-
         return $this;
     }
 
@@ -169,7 +160,7 @@ class PrefetchIterator extends AbstractPlugin implements \Iterator, \Countable
     /**
      * Iterator implementation.
      */
-    public function rewind(): void
+    public function rewind()
     {
         $this->position = 0;
 
@@ -208,7 +199,7 @@ class PrefetchIterator extends AbstractPlugin implements \Iterator, \Countable
     /**
      * Iterator implementation.
      */
-    public function next(): void
+    public function next()
     {
         ++$this->position;
     }

@@ -96,13 +96,11 @@ class HTMLConverter
             return;
         }
 
-        /** @var DOMDocument $ownerDocument */
-        $ownerDocument = $table->ownerDocument;
         $node = $this->xml_converter
             ->rootElement($node_name)
             ->recordElement('tr')
             ->fieldElement('th')
-            ->import([$record], $ownerDocument)
+            ->import([$record], $table->ownerDocument)
         ;
 
         /** @var DOMElement $element */

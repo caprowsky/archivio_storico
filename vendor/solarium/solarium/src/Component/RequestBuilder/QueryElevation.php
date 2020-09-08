@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\RequestBuilder;
 
 use Solarium\Component\QueryElevation as QueryelevationComponent;
@@ -39,7 +32,6 @@ class QueryElevation implements ComponentRequestBuilderInterface
         $request->addParam('enableElevation', $component->getEnableElevation());
         $request->addParam('forceElevation', $component->getForceElevation());
         $request->addParam('exclusive', $component->getExclusive());
-        $request->addParam('useConfiguredElevatedOrder', $component->getUseConfiguredElevatedOrder());
         $request->addParam('markExcludes', $component->getMarkExcludes());
 
         // add overrides for pre-configured elevations

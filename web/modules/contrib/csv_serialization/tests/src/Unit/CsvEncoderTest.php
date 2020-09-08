@@ -13,14 +13,12 @@ use Drupal\Tests\UnitTestCase;
 class CsvEncoderTest extends UnitTestCase {
 
   /**
-   * The CSV encoder.
-   *
    * @var \Drupal\csv_serialization\Encoder\CsvEncoder
    */
-  public $encoder;
+  public $conversionService;
 
   /**
-   * {@inheritdoc}
+   *
    */
   public function setUp() {
     $this->encoder = new CsvEncoder();
@@ -120,14 +118,11 @@ class CsvEncoderTest extends UnitTestCase {
     ];
   }
 
-    /**
-     * Tests the CSV output of the encoder.
-     *
-     * @dataProvider provideEncodeData
-     *
-     * @param $csv_data
-     * @param $csv_encoded
-     */
+  /**
+   * Tests the CSV output of the encoder.
+   *
+   * @dataProvider provideEncodeData
+   */
   public function testEncodeCsv($csv_data, $csv_encoded) {
     // @todo Test passing in arguments to the constructor. E.g., $separator, $enclosure, strip_tags, etc.
     // Note that what we encode does not exactly represent the hierarchy of
@@ -136,14 +131,11 @@ class CsvEncoderTest extends UnitTestCase {
     $this->assertEquals($csv_encoded, $this->encoder->encode($csv_data, 'csv'));
   }
 
-    /**
-     * Tests the data structure created by decoding a CSV.
-     *
-     * @dataProvider provideDecodeData
-     *
-     * @param $csv_encoded
-     * @param $csv_data
-     */
+  /**
+   * Tests the data structure created by decoding a CSV.
+   *
+   * @dataProvider provideDecodeData
+   */
   public function testDecodeCsv($csv_encoded, $csv_data) {
     $this->assertEquals($csv_data, $this->encoder->decode($csv_encoded, 'csv'));
   }

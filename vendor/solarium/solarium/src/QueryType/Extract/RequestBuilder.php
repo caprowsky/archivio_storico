@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Extract;
 
 use Solarium\Core\Client\Request;
@@ -22,6 +15,7 @@ class RequestBuilder extends BaseRequestBuilder
 {
     /**
      * Build the request.
+     *
      *
      * @param Query|QueryInterface $query
      *
@@ -56,7 +50,7 @@ class RequestBuilder extends BaseRequestBuilder
 
             // literal.*
             foreach ($doc->getFields() as $name => $value) {
-                if ($value instanceof \DateTimeInterface) {
+                if ($value instanceof \DateTime) {
                     $value = $query->getHelper()->formatDate($value);
                 }
                 $value = (array) $value;

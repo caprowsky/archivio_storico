@@ -13,13 +13,6 @@ use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 class UiPatternsLibraryOverviewTest extends WebDriverTestBase {
 
   /**
-   * Default theme.
-   *
-   * @var string
-   */
-  protected $defaultTheme = 'ui_patterns_library_theme_test';
-
-  /**
    * {@inheritdoc}
    */
   protected static $modules = [
@@ -31,8 +24,12 @@ class UiPatternsLibraryOverviewTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
+
+    $this->container->get('theme_installer')->install(['ui_patterns_library_theme_test']);
+    $this->container->get('theme_handler')->setDefault('ui_patterns_library_theme_test');
+    $this->container->set('theme.registry', NULL);
 
     $user = $this->drupalCreateUser(['access patterns page']);
     $this->drupalLogin($user);
@@ -60,7 +57,7 @@ class UiPatternsLibraryOverviewTest extends WebDriverTestBase {
       // Test view single page link.
       $session->linkExists("View {$pattern['label']} as stand-alone");
       $link = $this->getSession()->getPage()->findLink("View {$pattern['label']} as stand-alone");
-      $this->assertStringContainsString('/patterns/' . $pattern['name'], $link->getAttribute('href'));
+      $this->assertContains('/patterns/' . $pattern['name'], $link->getAttribute('href'));
     }
   }
 
@@ -70,7 +67,7 @@ class UiPatternsLibraryOverviewTest extends WebDriverTestBase {
   public function testSinglePages() {
     $session = $this->assertSession();
 
-    foreach ($this->getExpectedPatterns() as $pattern) {
+    foreach ($this->getExpectedPatterns() as $index => $pattern) {
       $this->drupalGet('/patterns/' . $pattern['name']);
       $session->elementContains('css', 'h1', $pattern['label']);
 

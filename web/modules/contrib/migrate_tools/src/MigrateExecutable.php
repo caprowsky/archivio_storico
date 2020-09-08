@@ -11,6 +11,7 @@ use Drupal\migrate\Event\MigrateRollbackEvent;
 use Drupal\migrate\Event\MigrateRowDeleteEvent;
 use Drupal\migrate\MigrateExecutable as MigrateExecutableBase;
 use Drupal\migrate\MigrateMessageInterface;
+use Drupal\migrate\MigrateSkipRowException;
 use Drupal\migrate\Plugin\MigrateIdMapInterface;
 use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate_plus\Event\MigrateEvents as MigratePlusEvents;
@@ -361,6 +362,23 @@ class MigrateExecutable extends MigrateExecutableBase {
    * @throws \Drupal\migrate\MigrateSkipRowException
    */
   public function onPrepareRow(MigratePrepareRowEvent $event) {
+    // TODO: remove after 8.6 support is sunset.
+    // @see https://www.drupal.org/project/migrate_tools/issues/3008316
+    if (!empty($this->idlist)) {
+      $row = $event->getRow();
+      $migration = $event->getMigration();
+      $source_id = $source_id = $row->getSourceIdValues();
+      $skip = TRUE;
+      foreach ($this->idlist as $item) {
+        if (array_values($source_id) == $item) {
+          $skip = FALSE;
+          break;
+        }
+      }
+      if ($skip) {
+        throw new MigrateSkipRowException('Skipped due to idlist.', FALSE);
+      }
+    }
     if ($this->feedback && $this->counter && $this->counter % $this->feedback == 0) {
       $this->progressMessage(FALSE);
       $this->resetCounters();

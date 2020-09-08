@@ -208,7 +208,6 @@ class GeofieldGoogleEmbedMapFormatter extends FormatterBase implements Container
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     $settings = $this->getSettings();
-    $bundle = $items->getParent()->getEntity()->bundle();
 
     foreach ($items as $delta => $item) {
       if ($item->isEmpty()) {
@@ -235,7 +234,6 @@ class GeofieldGoogleEmbedMapFormatter extends FormatterBase implements Container
         '#apikey' => (string) $this->getGmapApiKey(),
         '#q' => $q,
         '#options_string' => $options_string,
-        '#title' => $this->t('Map of @bundle', ['@bundle' => $bundle]),
       ];
     }
 

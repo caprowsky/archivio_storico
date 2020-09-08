@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\Result\Spellcheck;
 
 /**
@@ -136,17 +129,14 @@ class Suggestion
      *
      * Only available if CollateExtendedResults was enabled in your query
      *
-     * @return int|null
+     * @return int
      */
     public function getFrequency(): int
     {
         $word = reset($this->words);
-
-        if (false === isset($word['freq'])) {
-            return null;
+        if (isset($word['freq'])) {
+            return $word['freq'];
         }
-
-        return $word['freq'];
     }
 
     /**

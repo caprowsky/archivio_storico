@@ -83,10 +83,6 @@ class ConfigSplitDrush8Io {
     drush_log($text, LogLevel::SUCCESS);
   }
 
-  public function warning($text) {
-    drush_log($text, LogLevel::WARNING);
-  }
-
   public function error($text) {
     drush_log($text, LogLevel::ERROR);
   }

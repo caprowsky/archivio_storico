@@ -3,6 +3,7 @@
 namespace Drupal\warmer_cdn\Plugin\warmer;
 
 use vipnytt\SitemapParser\Exceptions\SitemapParserException;
+use Drupal\Core\Annotation\Translation;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\SubformStateInterface;
 use Drupal\warmer\Plugin\WarmerPluginBase;
@@ -48,7 +49,7 @@ final class SitemapWarmer extends WarmerPluginBase {
   /**
    * The URL collection.
    *
-   * @var array|null
+   * @var array|NULL
    */
   private $urlCollection;
 
@@ -148,14 +149,6 @@ final class SitemapWarmer extends WarmerPluginBase {
       '#description' => $this->t('Enable SSL verification. Recommended to keep it checked for security reasons.'),
       '#default_value' => $configuration['verify'],
     ];
-    $form['maxConcurrentRequests'] = [
-      '#type' => 'number',
-      '#min' => 1,
-      '#step' => 1,
-      '#title' => $this->t('Maximum number of concurrent Requests.'),
-      '#description' => $this->t('This defines the maximum number of concurrent requests.'),
-      '#default_value' => empty($configuration['maxConcurrentRequests']) ? 10 : $configuration['maxConcurrentRequests'],
-    ];
 
     return $form;
   }
@@ -253,7 +246,6 @@ final class SitemapWarmer extends WarmerPluginBase {
     $warmer = $this->warmerManager->createInstance('cdn', [
       'headers' => $configuration['headers'],
       'verify' => $configuration['verify'],
-      'maxConcurrentRequests' => $configuration['maxConcurrentRequests'],
     ]);
     assert($warmer instanceof CdnWarmer);
     $this->warmer = $warmer;
@@ -266,7 +258,6 @@ final class SitemapWarmer extends WarmerPluginBase {
   public function defaultConfiguration() {
     return [
       'verify' => TRUE,
-      'maxConcurrentRequests' => 10,
     ] + parent::defaultConfiguration();
   }
 

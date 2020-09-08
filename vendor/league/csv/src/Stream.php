@@ -72,7 +72,7 @@ class Stream implements SeekableIterator
     /**
      * Current iterator value.
      *
-     * @var mixed can be a null false or a scalar type value
+     * @var mixed
      */
     protected $value;
 

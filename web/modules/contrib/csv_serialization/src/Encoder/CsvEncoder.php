@@ -2,7 +2,6 @@
 
 namespace Drupal\csv_serialization\Encoder;
 
-use Exception;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\Encoder\EncoderInterface;
 use League\Csv\Writer;
@@ -158,11 +157,11 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
       foreach ($data as $row) {
         $csv->insertOne($row);
       }
-      $output = (string) $csv;
+      $output = $csv->__toString();
 
       return trim($output);
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       throw new InvalidDataTypeException($e->getMessage(), $e->getCode(), $e);
     }
   }
@@ -244,17 +243,17 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
   protected function flattenCell(array $data) {
     $depth = $this->arrayDepth($data);
 
-    if ($depth === 1) {
+    if ($depth == 1) {
       // @todo Allow customization of this in-cell separator.
       return implode('|', $data);
     }
-
+    else {
       $cell_value = "";
       foreach ($data as $item) {
         $cell_value .= '|' . $this->flattenCell($item);
       }
-
       return trim($cell_value, '|');
+    }
   }
 
   /**
@@ -278,12 +277,9 @@ class CsvEncoder implements EncoderInterface, DecoderInterface {
     return $value;
   }
 
-    /**
-     * {@inheritdoc}
-     * @throws \League\Csv\Exception
-     * @throws \League\Csv\Exception
-     * @throws \League\Csv\Exception
-     */
+  /**
+   * {@inheritdoc}
+   */
   public function decode($data, $format, array $context = []) {
     $csv = Reader::createFromString($data);
     $csv->setDelimiter($this->delimiter);

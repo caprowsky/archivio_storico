@@ -125,7 +125,7 @@ trait SchemaCreativeWorkTrait {
       foreach ($properties as $key => $property) {
         $property_visibility = ['visible' => [$selector => ['value' => $type]]];
         $property_visibility2 = ['visible' => [$selector2 => ['value' => $type]]];
-        $property_visibility['visible'] = [$property_visibility['visible'], $property_visibility2['visible']];
+        $property_visibility['visible'] = [ $property_visibility['visible'],  $property_visibility2['visible']];
 
         if (empty($property['formKeys'])) {
           $form[$key] = [

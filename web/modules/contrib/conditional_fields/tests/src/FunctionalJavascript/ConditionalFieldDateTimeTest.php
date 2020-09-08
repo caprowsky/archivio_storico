@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\conditional_fields\FunctionalJavascript;
 
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 use Drupal\Core\Entity\Display\EntityDisplayInterface;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
@@ -103,6 +102,9 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
    * {@inheritdoc}
    */
   public function testVisibleValueWidget() {
+    $date = new DrupalDateTime();
+    $date->createFromTimestamp(time());
+    $date_formatted = $date->format(DateTimeItemInterface::DATE_STORAGE_FORMAT );
 
     $this->baseTestSteps();
 
@@ -113,8 +115,8 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
-      $this->fieldName . '[0][value][date]' => DrupalDateTime::createFromTimestamp(\Drupal::time()->getRequestTime())->format('m-d-Y'),
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
+      $this->fieldName . '[0][value][date]' => $date_formatted,
       'grouping' => 'AND',
       'state' => 'visible',
       'effect' => 'show',
@@ -140,7 +142,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     $this->waitUntilHidden('.field--name-body', 50, '01. Article Body field is visible');
 
     // Check that the field Body is visible.
-    $this->changeField($this->fieldSelector, DrupalDateTime::createFromTimestamp(\Drupal::time()->getRequestTime())->format('Y-m-d'));
+    $this->changeField($this->fieldSelector, $date_formatted);
     $this->createScreenshot($this->screenshotPath . '05-testDateTimeVisibleValueWidget.png');
     $this->waitUntilVisible('.field--name-body', 50, '02. Article Body field is not visible');
 
@@ -165,7 +167,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
       'regex' => '^' . $date_formatted . '$',
       'grouping' => 'AND',
       'state' => 'visible',
@@ -222,7 +224,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     ];
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
       'values' => implode("\r\n", $dates ),
       'grouping' => 'AND',
       'state' => 'visible',
@@ -287,7 +289,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     ];
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
       'values' => implode("\r\n", $dates ),
       'grouping' => 'AND',
       'state' => 'visible',
@@ -353,7 +355,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     ];
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
       'values' => implode("\r\n", $dates ),
       'grouping' => 'AND',
       'state' => 'visible',
@@ -419,7 +421,7 @@ class ConditionalFieldDateTimeTest extends ConditionalFieldTestBase implements C
     ];
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
       'values' => implode("\r\n", $dates ),
       'grouping' => 'AND',
       'state' => 'visible',

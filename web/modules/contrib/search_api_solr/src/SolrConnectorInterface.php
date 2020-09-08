@@ -3,14 +3,13 @@
 namespace Drupal\search_api_solr;
 
 use Drupal\Component\Plugin\ConfigurableInterface;
-use Drupal\search_api_solr\Solarium\Autocomplete\Query as AutocompleteQuery;
 use Solarium\Core\Client\Endpoint;
 use Solarium\Core\Client\Request;
 use Solarium\Core\Client\Response;
 use Solarium\Core\Query\QueryInterface;
 use Solarium\QueryType\Extract\Result as ExtractResult;
-use Solarium\QueryType\Select\Query\Query;
 use Solarium\QueryType\Update\Query\Query as UpdateQuery;
+use Solarium\QueryType\Select\Query\Query;
 
 /**
  * The Solr connector interface.
@@ -153,32 +152,6 @@ interface SolrConnectorInterface extends ConfigurableInterface {
   public function getSchemaVersion($reset = FALSE);
 
   /**
-   * Gets the Solr branch targeted by the schema.
-   *
-   * @param bool $reset
-   *   If TRUE the server will be asked regardless if a previous call is cached.
-   *
-   * @return string
-   *   The targeted Solr branch.
-   *
-   * @throws \Drupal\search_api_solr\SearchApiSolrException
-   */
-  public function getSchemaTargetedSolrBranch($reset = FALSE);
-
-  /**
-   * Indicates if the Solr config-set is our jum-start config-set.
-   *
-   * @param bool $reset
-   *   If TRUE the server will be asked regardless if a previous call is cached.
-   *
-   * @return bool
-   *   The targeted Solr branch.
-   *
-   * @throws \Drupal\search_api_solr\SearchApiSolrException
-   */
-  public function isJumpStartConfigSet(bool $reset = FALSE): bool;
-
-  /**
    * Pings the Solr core to tell whether it can be accessed.
    *
    * @param array $options
@@ -202,19 +175,6 @@ interface SolrConnectorInterface extends ConfigurableInterface {
   public function pingServer();
 
   /**
-   * Pings the Solr endpoint to tell whether it can be accessed.
-   *
-   * @param \Solarium\Core\Client\Endpoint|null $endpoint
-   * @param array $options
-   *   (optional) An array of options.
-   *
-   * @return mixed
-   *   The latency in milliseconds if the endpoint can be accessed,
-   *   otherwise FALSE.
-   */
-  public function pingEndpoint(?Endpoint $endpoint = NULL, array $options = []);
-
-  /**
    * Gets summary information about the Solr Core.
    *
    * @return array
@@ -229,14 +189,13 @@ interface SolrConnectorInterface extends ConfigurableInterface {
    *
    * @param string $path
    *   The path to append to the base URI.
-   * @param \Solarium\Core\Client\Endpoint|null $endpoint
    *
    * @return string
    *   The decoded response.
    *
    * @throws \Drupal\search_api_solr\SearchApiSolrException
    */
-  public function coreRestGet($path, ?Endpoint $endpoint = NULL);
+  public function coreRestGet($path);
 
   /**
    * Sends a REST POST request to the Solr core and returns the result.
@@ -245,14 +204,13 @@ interface SolrConnectorInterface extends ConfigurableInterface {
    *   The path to append to the base URI.
    * @param string $command_json
    *   The command to send encoded as JSON.
-   * @param \Solarium\Core\Client\Endpoint|null $endpoint
    *
    * @return string
    *   The decoded response.
    *
    * @throws \Drupal\search_api_solr\SearchApiSolrException
    */
-  public function coreRestPost($path, $command_json = '', ?Endpoint $endpoint = NULL);
+  public function coreRestPost($path, $command_json = '');
 
   /**
    * Sends a REST GET request to the Solr server and returns the result.
@@ -399,21 +357,6 @@ interface SolrConnectorInterface extends ConfigurableInterface {
    * @throws \Drupal\search_api_solr\SearchApiSolrException
    */
   public function update(UpdateQuery $query, ?Endpoint $endpoint = NULL);
-
-  /**
-   * Executes a search query and returns the raw response.
-   *
-   * @param \Drupal\search_api_solr\Solarium\Autocomplete\Query $query
-   *   The Solarium select query object.
-   * @param \Solarium\Core\Client\Endpoint|null $endpoint
-   *   (optional) The Solarium endpoint object.
-   *
-   * @return \Solarium\Core\Client\Response
-   *   The Solarium response object.
-   *
-   * @throws \Drupal\search_api_solr\SearchApiSolrException
-   */
-  public function autocomplete(AutocompleteQuery $query, ?Endpoint $endpoint = NULL);
 
   /**
    * Executes any query.

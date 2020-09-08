@@ -22,9 +22,6 @@ trait SchemaOfferTrait {
       '@id',
       'price',
       'priceCurrency',
-      'lowPrice',
-      'highPrice',
-      'offerCount',
       'url',
       'availability',
       'availabilityStarts',
@@ -34,7 +31,6 @@ trait SchemaOfferTrait {
       'category',
       'eligibleRegion',
       'ineligibleRegion',
-      'priceValidUntil',
     ];
   }
 
@@ -70,7 +66,6 @@ trait SchemaOfferTrait {
       '#empty_value' => '',
       '#options' => [
         'Offer' => $this->t('Offer'),
-        'AggregateOffer' => $this->t('AggregateOffer'),
       ],
       '#default_value' => !empty($value['@type']) ? $value['@type'] : '',
       '#weight' => -10,
@@ -81,8 +76,8 @@ trait SchemaOfferTrait {
       '#title' => $this->t('@id'),
       '#default_value' => !empty($value['@id']) ? $value['@id'] : '',
       '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('Globally unique ID of the item in the form of a URL. It does not have to be a working link.'),
+      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#description' => $this->t('Globally unique ID of the work in the form of a URL. It does not have to be a working link.'),
     ];
 
     $form['price'] = [
@@ -90,35 +85,8 @@ trait SchemaOfferTrait {
       '#title' => $this->t('price'),
       '#default_value' => !empty($value['price']) ? $value['price'] : '',
       '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('REQUIRED BY GOOGLE for Offer. The numeric price of the offer. Do not include dollar sign.'),
-    ];
-
-    $form['offerCount'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('offerCount'),
-      '#default_value' => !empty($value['offerCount']) ? $value['offerCount'] : '',
-      '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('RECOMMEND BY GOOGLE for AggregateOffer. The number of offers.'),
-    ];
-
-    $form['lowPrice'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('lowPrice'),
-      '#default_value' => !empty($value['lowPrice']) ? $value['lowPrice'] : '',
-      '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('REQUIRED BY GOOGLE for AggregateOffer. The lowest price. Do not include dollar sign.'),
-    ];
-
-    $form['highPrice'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('highPrice'),
-      '#default_value' => !empty($value['highPrice']) ? $value['highPrice'] : '',
-      '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('REQUIRED BY GOOGLE for AggregateOffer. The highest price. Do not include dollar sign.'),
+      '#required' => isset($element['#required']) ? $element['#required'] : FALSE,
+      '#description' => $this->t('The numeric price of the offer.'),
     ];
 
     $form['priceCurrency'] = [
@@ -127,16 +95,15 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['priceCurrency']) ? $value['priceCurrency'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('REQUIRED BY GOOGLE. The three-letter currency code (i.e. USD) in which the price is displayed.'),
+      '#description' => $this->t('The three-letter currency code (e.g. USD) in which the price is displayed.'),
     ];
-
     $form['url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('url'),
       '#default_value' => !empty($value['url']) ? $value['url'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('The URL where the offer can be acquired.'),
+      '#description' => $this->t('The URL to the store where the offer can be acquired.'),
     ];
 
     $form['itemCondition'] = [
@@ -145,7 +112,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['itemCondition']) ? $value['itemCondition'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('RECOMMENDED BY GOOGLE for Product Offer. The condition of this item. Valid options are https://schema.org/DamagedCondition, https://schema.org/NewCondition, https://schema.org/RefurbishedCondition, https://schema.org/UsedCondition.'),
+      '#description' => $this->t('The condition of this item—for example Damaged Condition, New Condition, Used Condition, Refurbished Condition.'),
     ];
 
     $form['availability'] = [
@@ -154,7 +121,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['availability']) ? $value['availability'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('REQUIRED BY GOOGLE for Product Offer. The availability of this item. Valid options are https://schema.org/Discontinued, https://schema.org/InStock, https://schema.org/InStoreOnly, https://schema.org/LimitedAvailability, https://schema.org/OnlineOnly, https://schema.org/OutOfStock, https://schema.org/PreOrder, https://schema.org/PreSale, https://schema.org/SoldOut.'),
+      '#description' => $this->t('The availability of this item—for example In stock, Out of stock, Pre-order, etc.'),
     ];
 
     $form['availabilityStarts'] = [
@@ -163,7 +130,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['availabilityStarts']) ? $value['availabilityStarts'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('The end of the availability of the product or service included in the offer, in ISO 8601 format, i.e. 2024-05-21T12:00.'),
+      '#description' => $this->t('Date when the action is available, in ISO 8601 format.'),
     ];
 
     $form['availabilityEnds'] = [
@@ -172,7 +139,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['availabilityEnds']) ? $value['availabilityEnds'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('Date after which the item is no longer available, in ISO 8601 format, i.e. 2024-05-21T12:00.'),
+      '#description' => $this->t('Date after which the item is no longer available, in ISO 8601 format.'),
     ];
 
     $form['validFrom'] = [
@@ -181,16 +148,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['validFrom']) ? $value['validFrom'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t('The date when the item becomes valid, i.e. 2024-05-21T12:00.'),
-    ];
-
-    $form['priceValidUntil'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('priceValidUntil'),
-      '#default_value' => !empty($value['priceValidUntil']) ? $value['priceValidUntil'] : '',
-      '#maxlength' => 255,
-      '#required' => $input_values['#required'],
-      '#description' => $this->t('The date after which the price will no longer be available, in ISO 8601 format, i.e. 2024-05-21T12:00.'),
+      '#description' => $this->t('The date when the item becomes valid.'),
     ];
 
     $form['category'] = [
@@ -199,8 +157,7 @@ trait SchemaOfferTrait {
       '#default_value' => !empty($value['category']) ? $value['category'] : '',
       '#maxlength' => 255,
       '#required' => $input_values['#required'],
-      '#description' => $this->t("Values like: 'rental', 'purchase', 'subscription', 'externalSubscription', 'free'."),
-      '#multiple' => TRUE,
+      '#description' => $this->t("One of the following values: 'rental', 'purchase', 'subscription', 'externalSubscription', 'free'."),
     ];
 
     $input_values = [
@@ -234,9 +191,7 @@ trait SchemaOfferTrait {
     $keys = static::offerFormKeys();
     foreach ($keys as $key) {
       if ($key != '@type') {
-        if (!isset($form[$key]['#states'])) {
-          $form[$key]['#states'] = $visibility;
-        }
+        $form[$key]['#states'] = $visibility;
       }
     }
 

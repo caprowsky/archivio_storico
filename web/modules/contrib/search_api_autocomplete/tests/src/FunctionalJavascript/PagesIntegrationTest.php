@@ -3,7 +3,6 @@
 namespace Drupal\Tests\search_api_autocomplete\FunctionalJavascript;
 
 use Drupal\search_api_autocomplete\Entity\Search;
-use Drupal\search_api_autocomplete\SearchInterface;
 use Drupal\search_api_autocomplete\Tests\TestsHelper;
 use Drupal\search_api_page\Entity\SearchApiPage;
 
@@ -230,7 +229,7 @@ class PagesIntegrationTest extends IntegrationTestBase {
     $assert_session = $this->assertSession();
 
     $search = Search::load($this->searchId);
-    $this->assertInstanceOf(SearchInterface::class, $search);
+    $this->assertTrue($search);
 
     $page = SearchApiPage::load($this->searchId);
     $page2 = $page->createDuplicate();
@@ -255,7 +254,7 @@ class PagesIntegrationTest extends IntegrationTestBase {
     $assert_session->pageTextContains('Foobar');
 
     $search = Search::load($this->searchId);
-    $this->assertNull($search);
+    $this->assertFalse($search);
   }
 
 }

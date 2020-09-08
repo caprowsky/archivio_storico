@@ -242,9 +242,6 @@ class LiveResults extends SuggesterPluginBase implements PluginFormInterface {
         $view_mode = $view_modes[$datasource_id][$bundle];
         $render = $datasource->viewItem($object, $view_mode);
         if ($render) {
-          // Add the excerpt to the render array to allow adding it to view
-          // modes.
-          $render['#search_api_excerpt'] = $item->getExcerpt();
           $suggestions[] = $factory->createUrlSuggestion($url, NULL, $render);
         }
       }
