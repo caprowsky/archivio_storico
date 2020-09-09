@@ -94,7 +94,10 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
-        "preferred-install": "source"
+        "preferred-install": "source",
+        "platform": {
+            "php": "7.3"
+        }
     },
     "extra": {
         "drupal-scaffold": {
