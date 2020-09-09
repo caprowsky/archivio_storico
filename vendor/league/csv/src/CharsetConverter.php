@@ -47,7 +47,10 @@ class CharsetConverter extends php_user_filter
     public $filtername;
 
     /**
-     * @var mixed value passed to passed to stream_filter_append or stream_filter_prepend functions.
+     * Contents of the params parameter passed to stream_filter_append
+     * or stream_filter_prepend functions.
+     *
+     * @var mixed
      */
     public $params;
 
@@ -191,8 +194,8 @@ class CharsetConverter extends php_user_filter
     /**
      * Walker method to convert the offset and the value of a CSV record field.
      *
-     * @param mixed $value  can be a scalar type or null
-     * @param mixed $offset can be a string or an int
+     * @param mixed $value
+     * @param mixed $offset
      */
     protected function encodeField(&$value, &$offset): void
     {

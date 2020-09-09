@@ -164,7 +164,7 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    *
    * @var bool
    */
-  protected $exclude = FALSE;
+  protected $exclude;
 
   /**
    * The field identifier.

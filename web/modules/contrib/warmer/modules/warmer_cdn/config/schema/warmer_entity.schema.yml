@@ -17,8 +17,6 @@ warmer.settings.warmer_plugin.cdn:
         type: string
     verify:
       type: boolean
-    maxConcurrentRequests:
-      type: int
 
 warmer.settings.warmer_plugin.sitemap:
   type: mapping
@@ -41,5 +39,3 @@ warmer.settings.warmer_plugin.sitemap:
         type: string
     verify:
       type: boolean
-    maxConcurrentRequests:
-      type: int

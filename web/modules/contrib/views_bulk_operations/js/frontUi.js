@@ -86,7 +86,7 @@
         }
 
         var $placeholder = this.$placeholder;
-        var target_uri = drupalSettings.path.baseUrl + drupalSettings.path.pathPrefix + 'views-bulk-operations/ajax/' + this.view_id + '/' + this.display_id;
+        var target_uri = '/' + drupalSettings.path.pathPrefix + 'views-bulk-operations/ajax/' + this.view_id + '/' + this.display_id;
         $.ajax(target_uri, {
           method: 'POST',
           data: {

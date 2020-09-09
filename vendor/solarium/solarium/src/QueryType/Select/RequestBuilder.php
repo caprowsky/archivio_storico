@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Select;
 
 use Solarium\Core\Client\Request;
@@ -34,7 +27,10 @@ class RequestBuilder extends BaseRequestBuilder
         // add basic params to request
         $request->addParam(
             'q',
-            sprintf('%s%s', $query->getLocalParameters()->render(), $query->getQuery())
+            $this->renderLocalParams(
+                $query->getQuery(),
+                ['tag' => $query->getTags()]
+            )
         );
         $request->addParam('start', $query->getStart());
         $request->addParam('rows', $query->getRows());
@@ -49,16 +45,18 @@ class RequestBuilder extends BaseRequestBuilder
         foreach ($query->getSorts() as $field => $order) {
             $sort[] = $field.' '.$order;
         }
-        if (0 !== \count($sort)) {
+        if (0 !== count($sort)) {
             $request->addParam('sort', implode(',', $sort));
         }
 
         // add filterqueries to request
         $filterQueries = $query->getFilterQueries();
-        if (0 !== \count($filterQueries)) {
+        if (0 !== count($filterQueries)) {
             foreach ($filterQueries as $filterQuery) {
-                $fq = sprintf('%s%s', $filterQuery->getLocalParameters()->render(), $filterQuery->getQuery());
-
+                $fq = $this->renderLocalParams(
+                    $filterQuery->getQuery(),
+                    ['tag' => $filterQuery->getTags()]
+                );
                 $request->addParam('fq', $fq);
             }
         }

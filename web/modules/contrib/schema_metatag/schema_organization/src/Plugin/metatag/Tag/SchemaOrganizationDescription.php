@@ -40,5 +40,4 @@ class SchemaOrganizationDescription extends SchemaNameBase {
     ];
     return $form;
   }
-
 }

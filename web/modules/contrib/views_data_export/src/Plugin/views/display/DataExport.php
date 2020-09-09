@@ -397,9 +397,9 @@ class DataExport extends RestExport {
           '#fieldset' => 'file_fieldset',
         ];
 
-        $streamWrapperManager = \Drupal::service('stream_wrapper_manager');
+        $fileSystem = \Drupal::service('file_system');
         // Check if the private file system is ready to use.
-        if ($streamWrapperManager->isValidScheme('private')) {
+        if ($fileSystem->validScheme('private')) {
           $form['store_in_public_file_directory'] = [
             '#type' => 'checkbox',
             '#title' => $this->t("Store file in public files directory"),
@@ -725,9 +725,9 @@ class DataExport extends RestExport {
       // Determine if the export file should be stored in the public or private
       // file system.
       $store_in_public_file_directory = TRUE;
-      $streamWrapperManager = \Drupal::service('stream_wrapper_manager');
+      $fileSystem = \Drupal::service('file_system');
       // Check if the private file system is ready to use.
-      if ($streamWrapperManager->isValidScheme('private')) {
+      if ($fileSystem->validScheme('private')) {
         $store_in_public_file_directory = $view->getDisplay()->getOption('store_in_public_file_directory');
       }
 
@@ -739,7 +739,6 @@ class DataExport extends RestExport {
       }
 
       try {
-        $fileSystem = \Drupal::service('file_system');
         $fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
         $destination = $directory . $filename;
         $file = file_save_data('', $destination, FileSystemInterface::EXISTS_REPLACE);

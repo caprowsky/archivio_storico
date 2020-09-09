@@ -1,19 +1,9 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Core\Client\State;
 
 use Solarium\Exception\RuntimeException;
 
-/**
- * Cluster State.
- */
 class ClusterState
 {
     const ALIASES_PROP = 'aliases';
@@ -131,9 +121,9 @@ class ClusterState
     /**
      * @param string $collectionName
      *
-     * @throws RuntimeException
-     *
      * @return CollectionState
+     *
+     * @throws RuntimeException
      */
     public function getCollectionState(string $collectionName): CollectionState
     {

@@ -8,7 +8,6 @@ use Drupal\search_api\Plugin\search_api\processor\Tokenizer;
 use Drupal\search_api\Query\Query;
 use Drupal\search_api\Utility\Utility;
 use Drupal\Tests\UnitTestCase;
-use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Tests the "Tokenizer" processor.
@@ -407,7 +406,7 @@ class TokenizerTest extends UnitTestCase {
   public function testPreprocessSearchQuery($keys, $expected) {
     $index = $this->createMock(Index::class);
     assert($index instanceof Index);
-    assert($index instanceof MockObject);
+    assert($index instanceof \PHPUnit_Framework_MockObject_MockObject);
     $index->method('status')->willReturn(TRUE);
     $this->processor->setIndex($index);
 

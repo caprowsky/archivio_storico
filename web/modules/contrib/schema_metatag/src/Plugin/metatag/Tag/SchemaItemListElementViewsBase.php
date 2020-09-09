@@ -100,11 +100,10 @@ class SchemaItemListElementViewsBase extends SchemaItemListElementBase {
   /**
    * Tries to retrieve an entity from a Views row.
    *
-   * @param object $row
-   *   The Views row.
+   * @param $row
+   *   The Views row
    *
    * @return \Drupal\Core\Entity\EntityInterface|null
-   *   The entity or NULL.
    */
   protected static function getEntityFromRow($row) {
     if (!empty($row->_entity)) {

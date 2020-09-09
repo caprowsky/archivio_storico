@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\RequestBuilder;
 
 /**
@@ -82,7 +75,7 @@ trait RequestParamsTrait
     {
         if (null !== $value && [] !== $value) {
             if (!$overwrite && isset($this->params[$key])) {
-                if (!\is_array($this->params[$key])) {
+                if (!is_array($this->params[$key])) {
                     $this->params[$key] = [$this->params[$key]];
                 }
                 $this->params[$key][] = $value;
@@ -156,7 +149,7 @@ trait RequestParamsTrait
     public function getQueryString(string $separator = '&'): string
     {
         $queryString = '';
-        if (\count($this->params) > 0) {
+        if (count($this->params) > 0) {
             $queryString = http_build_query($this->params, null, $separator);
             $queryString = preg_replace(
                 '/%5B(?:\d|[1-9]\d+)%5D=/',

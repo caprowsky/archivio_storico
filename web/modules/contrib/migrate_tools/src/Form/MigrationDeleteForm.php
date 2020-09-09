@@ -3,8 +3,8 @@
 namespace Drupal\migrate_tools\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Provides the delete form for our Migration entity.

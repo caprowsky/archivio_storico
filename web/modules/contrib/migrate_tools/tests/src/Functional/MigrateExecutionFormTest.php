@@ -4,7 +4,6 @@ namespace Drupal\Tests\migrate_tools\Functional;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\taxonomy\VocabularyInterface;
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -34,7 +33,7 @@ class MigrateExecutionFormTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stark';
+  protected $profile = 'testing';
 
   /**
    * The vocabulary.
@@ -53,7 +52,7 @@ class MigrateExecutionFormTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
     $this->vocabulary = $this->createVocabulary(['vid' => 'fruit', 'name' => 'Fruit']);
     $this->vocabularyQuery = $this->container->get('entity_type.manager')
@@ -68,7 +67,7 @@ class MigrateExecutionFormTest extends BrowserTestBase {
    *
    * @throws \Behat\Mink\Exception\ExpectationException
    */
-  public function testExecution(): void {
+  public function testExecution() {
     $group = 'default';
     $migration = 'fruit_terms';
     $urlPath = "/admin/structure/migrate/manage/{$group}/migrations/{$migration}/execute";
@@ -110,7 +109,7 @@ class MigrateExecutionFormTest extends BrowserTestBase {
    * @return \Drupal\taxonomy\VocabularyInterface
    *   Created vocabulary.
    */
-  protected function createVocabulary(array $values = []): VocabularyInterface {
+  protected function createVocabulary(array $values = []) {
     // Find a non-existent random vocabulary name.
     if (!isset($values['vid'])) {
       do {

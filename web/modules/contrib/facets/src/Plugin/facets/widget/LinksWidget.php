@@ -88,6 +88,11 @@ class LinksWidget extends WidgetPluginBase {
       $result_item->setActiveState(FALSE);
       $result_item->setUrl($url);
 
+      $item = $this->prepareLink($result_item);
+
+      // Add a class for the reset link wrapper.
+      $item['#wrapper_attributes'] = ['class' => ['facet-item', 'facets-reset']];
+
       // Check if any other facet is in use.
       $none_active = TRUE;
       foreach ($results as $result) {
@@ -99,14 +104,8 @@ class LinksWidget extends WidgetPluginBase {
 
       // Add an is-active class when no other facet is in use.
       if ($none_active) {
-        $result_item->setActiveState(TRUE);
+        $item['#attributes'] = ['class' => ['is-active']];
       }
-
-      // Build item.
-      $item = $this->buildListItems($facet, $result_item);
-
-      // Add a class for the reset link wrapper.
-      $item['#wrapper_attributes']['class'][] = 'facets-reset';
 
       // Put reset facet link on first place.
       array_unshift($build['#items'], $item);

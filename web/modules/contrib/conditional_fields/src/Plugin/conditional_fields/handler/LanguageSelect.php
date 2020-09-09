@@ -3,7 +3,6 @@
 namespace Drupal\conditional_fields\Plugin\conditional_fields\handler;
 
 use Drupal\conditional_fields\ConditionalFieldsHandlerBase;
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 
 /**
  * Provides states handler for language select list.
@@ -22,14 +21,14 @@ class LanguageSelect extends ConditionalFieldsHandlerBase {
     $select_states = [];
 
     switch ($options[ 'values_set' ]) {
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
         $state[ $options[ 'state' ] ][ $options[ 'selector' ] ] = [
           'value' => $this->getWidgetValue( $options[ 'value_form' ] ),
         ];
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
         $select_states[ $options[ 'state' ] ][] = [
           $options[ 'selector' ] => [
             $options[ 'condition' ] => [ 'xor' => $options['values'] ],
@@ -37,7 +36,7 @@ class LanguageSelect extends ConditionalFieldsHandlerBase {
         ];
         $state = $select_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
           $select_states[ $options[ 'state' ] ][] = [
             $options[ 'selector' ] => [
               $options[ 'condition' ] => [ 'regex' => $options['regex'] ],
@@ -45,9 +44,9 @@ class LanguageSelect extends ConditionalFieldsHandlerBase {
           ];
         $state = $select_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
         $options['state'] = '!' . $options['state'];
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
         foreach ( $options[ 'values' ] as $value ) {
           $select_states[ $options['state'] ][] = [
             $options[ 'selector' ] => [

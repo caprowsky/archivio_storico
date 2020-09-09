@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\conditional_fields\FunctionalJavascript;
 
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -94,7 +93,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
       $this->fieldName . '[0][value][day]' => $day,
       $this->fieldName . '[0][value][month]' => $month,
       $this->fieldName . '[0][value][year]' => $year,
@@ -158,7 +157,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
       'regex' => '[\d]{4}-[12]{2}-[\d]{2}',
       'grouping' => 'AND',
       'state' => 'visible',
@@ -225,7 +224,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
       'values' => implode( "\r\n", [
         $date->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
         $date_2->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
@@ -297,7 +296,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
       'values' => implode( "\r\n", [
         $date->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
         $date_2->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
@@ -368,7 +367,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
       'values' => implode( "\r\n", [
         $date->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
         $date_2->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
@@ -439,7 +438,7 @@ class ConditionalFieldDateListTest extends ConditionalFieldTestBase implements C
     // Set up conditions.
     $data = [
       'condition' => 'value',
-      'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
+      'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
       'values' => implode( "\r\n", [
         $date->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),
         $date_2->format( DateTimeItemInterface::DATE_STORAGE_FORMAT ),

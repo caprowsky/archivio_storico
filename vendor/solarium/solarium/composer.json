@@ -8,30 +8,25 @@
     "authors": [
         {
             "name": "See GitHub contributors",
-            "homepage": "https://github.com/solariumphp/solarium/contributors"
+            "homepage": "https://github.com/basdenooijer/solarium/contributors"
         }
     ],
     "require": {
-        "php": "^7.2",
-        "ext-json": "*",
-        "psr/event-dispatcher": "^1.0",
-        "psr/http-client": "^1.0",
-        "psr/http-factory": "^1.0",
-        "symfony/contracts": "^1.0 || ^2.0"
+        "php": "^7.1",
+        "symfony/event-dispatcher": "^3.1 || ^4.0",
+        "symfony/cache": "^3.1 || ^4.0",
+        "ext-json": "*"
     },
     "require-dev": {
-        "escapestudios/symfony2-coding-standard": "^3.11",
-        "guzzlehttp/guzzle": "^6.5",
-        "nyholm/psr7": "^1.2",
-        "php-http/guzzle6-adapter": "^2.0",
-        "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "^0.12",
-        "phpstan/phpstan-phpunit": "^0.12",
+        "guzzlehttp/guzzle": "^3.8 || ^6.2",
         "phpunit/phpunit": "^8.0",
-        "roave/security-advisories": "dev-master",
-        "symfony/event-dispatcher": "^4.3 || ^5.0"
+        "php-coveralls/php-coveralls": "^2.1",
+        "squizlabs/php_codesniffer": "^3.4",
+        "zendframework/zend-http": "^2.8"
     },
-    "prefer-stable": true,
+    "suggest": {
+        "minimalcode/search": "Query builder compatible with Solarium, allows simplified solr-query handling"
+    },
     "config": {
         "sort-packages": true
     },
@@ -43,6 +38,11 @@
     "autoload-dev": {
         "psr-4": {
             "Solarium\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.1.x-dev"
         }
     }
 }

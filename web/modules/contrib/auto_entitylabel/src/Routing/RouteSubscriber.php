@@ -24,11 +24,11 @@ class RouteSubscriber extends RouteSubscriberBase {
   /**
    * Constructs a new RouteSubscriber object.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
    *   The entity type manager.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
-    $this->entityTypeManager = $entity_type_manager;
+  public function __construct(EntityTypeManagerInterface $entity_manager) {
+    $this->entityTypeManager = $entity_manager;
   }
 
   /**
@@ -69,8 +69,6 @@ class RouteSubscriber extends RouteSubscriberBase {
         ]);
       return $route;
     }
-
-    return NULL;
   }
 
   /**
@@ -79,7 +77,6 @@ class RouteSubscriber extends RouteSubscriberBase {
   public static function getSubscribedEvents() {
     $events = parent::getSubscribedEvents();
     $events[RoutingEvents::ALTER] = ['onAlterRoutes', -100];
-
     return $events;
   }
 

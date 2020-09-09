@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\Facet;
 
 use Solarium\Component\FacetSetInterface;
@@ -14,7 +7,7 @@ use Solarium\Component\FacetSetInterface;
 /**
  * Facet query.
  *
- * @see https://lucene.apache.org/solr/guide/json-facet-api.html#terms-facet
+ * @see http://wiki.apache.org/solr/SimpleFacetParameters#Field_Value_Faceting_Parameters
  */
 class JsonTerms extends AbstractField implements JsonFacetInterface, FacetSetInterface
 {
@@ -74,7 +67,6 @@ class JsonTerms extends AbstractField implements JsonFacetInterface, FacetSetInt
     public function setRefine(bool $refine): self
     {
         $this->setOption('refine', $refine);
-
         return $this;
     }
 
@@ -100,7 +92,6 @@ class JsonTerms extends AbstractField implements JsonFacetInterface, FacetSetInt
     public function setOverRequest(int $overrequest): self
     {
         $this->setOption('overrequest', $overrequest);
-
         return $this;
     }
 
@@ -127,7 +118,6 @@ class JsonTerms extends AbstractField implements JsonFacetInterface, FacetSetInt
     public function setNumBuckets(bool $numBuckets): self
     {
         $this->setOption('numBuckets', $numBuckets);
-
         return $this;
     }
 
@@ -155,7 +145,6 @@ class JsonTerms extends AbstractField implements JsonFacetInterface, FacetSetInt
     public function setAllBuckets(bool $allBuckets): self
     {
         $this->setOption('allBuckets', $allBuckets);
-
         return $this;
     }
 

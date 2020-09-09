@@ -65,8 +65,7 @@ class SchemaMetatagTagsTest extends SchemaMetatagTagsTestBase {
     'schema_metatag_test_answer' => 'SchemaMetatagTestAnswer',
     'schema_metatag_test_how_to_step' => 'SchemaMetatagTestHowToStep',
     'schema_metatag_test_question' => 'SchemaMetatagTestQuestion',
-    'schema_metatag_test_government_service' => 'SchemaMetatagTestGovermentService',
 
-  ];
+   ];
 
 }

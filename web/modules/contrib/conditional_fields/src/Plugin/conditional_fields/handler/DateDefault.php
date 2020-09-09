@@ -3,7 +3,6 @@
 namespace Drupal\conditional_fields\Plugin\conditional_fields\handler;
 
 use Drupal\conditional_fields\ConditionalFieldsHandlerBase;
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 
@@ -25,7 +24,7 @@ class DateDefault extends ConditionalFieldsHandlerBase {
     $value = $this->getWidgetValue( $options['value_form'] );
     $date_obj = new DrupalDateTime($value);
     switch ( $options['values_set'] ){
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
       // Just split DATETIME_DATETIME_STORAGE_FORMAT on date and time.
       $date = $date_obj->format(DateTimeItemInterface::DATE_STORAGE_FORMAT );
       // TODO: Support time.

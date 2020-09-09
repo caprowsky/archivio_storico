@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Server\Collections\Query\Action;
 
 use Solarium\QueryType\Server\Collections\Query\Query as CollectionsQuery;
@@ -15,7 +8,7 @@ use Solarium\QueryType\Server\Collections\Result\DeleteResult;
 /**
  * Class Delete.
  *
- * @see https://lucene.apache.org/solr/guide/collection-management.html#delete
+ * @see https://lucene.apache.org/solr/guide/collections-api.html#delete
  */
 class Delete extends AbstractCDRAction
 {

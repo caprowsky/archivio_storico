@@ -2,18 +2,18 @@
 
 namespace Drupal\migrate_tools\Controller;
 
-use Drupal\Component\Utility\Html;
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Routing\CurrentRouteMatch;
-use Drupal\Core\Url;
-use Drupal\migrate\MigrateMessage;
 use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\migrate_plus\Entity\MigrationGroupInterface;
 use Drupal\migrate_plus\Entity\MigrationInterface;
 use Drupal\migrate_tools\MigrateBatchExecutable;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Url;
+use Drupal\migrate\MigrateMessage;
 
 /**
  * Returns responses for migrate_tools migration view routes.
@@ -161,8 +161,8 @@ class MigrationController extends ControllerBase implements ContainerInjectionIn
    * @param \Drupal\migrate_plus\Entity\MigrationInterface $migration
    *   The $migration.
    *
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse|null
-   *   A redirect response if the batch is progressive. Else no return value.
+   * @return array
+   *   A render array as expected by drupal_render().
    */
   public function run(MigrationGroupInterface $migration_group, MigrationInterface $migration) {
     $migrateMessage = new MigrateMessage();
@@ -172,6 +172,7 @@ class MigrationController extends ControllerBase implements ContainerInjectionIn
     $executable = new MigrateBatchExecutable($migration_plugin, $migrateMessage, $options);
     $executable->batchImport();
 
+    $migration_group = $this->currentRouteMatch->getParameter('migration_group');
     $route_parameters = [
       'migration_group' => $migration_group,
       'migration' => $migration->id(),

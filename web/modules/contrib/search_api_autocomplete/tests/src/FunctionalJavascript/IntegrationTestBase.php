@@ -22,11 +22,6 @@ abstract class IntegrationTestBase extends WebDriverTestBase {
   protected $searchId;
 
   /**
-   * {@inheritdoc}
-   */
-  protected $defaultTheme = 'stark';
-
-  /**
    * Retrieves autocomplete suggestions from a field on the current page.
    *
    * @param string $field_html_id

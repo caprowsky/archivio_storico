@@ -1,18 +1,11 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Update\Query;
 
-use Solarium\Core\Query\AbstractDocument;
-use Solarium\Core\Query\DocumentInterface;
 use Solarium\Core\Query\Helper;
+use Solarium\Core\Query\AbstractDocument;
 use Solarium\Exception\RuntimeException;
+use Solarium\Core\Query\DocumentInterface;
 
 /**
  * Read/Write Solr document.
@@ -173,8 +166,8 @@ class Document extends AbstractDocument
      * If you supply an array a multivalue field will be created.
      * In all cases any existing (multi)value will be overwritten.
      *
-     * @param string $name
-     * @param mixed  $value
+     * @param string      $name
+     * @param string|null $value
      *
      * @return self
      */
@@ -220,11 +213,11 @@ class Document extends AbstractDocument
             $this->setField($key, $value, $boost, $modifier);
         } else {
             // convert single value to array if needed
-            if (!\is_array($this->fields[$key])) {
+            if (!is_array($this->fields[$key])) {
                 $this->fields[$key] = [$this->fields[$key]];
             }
 
-            if ($this->filterControlCharacters && \is_string($value)) {
+            if ($this->filterControlCharacters && is_string($value)) {
                 $value = $this->getHelper()->filterControlCharacters($value);
             }
 
@@ -259,7 +252,7 @@ class Document extends AbstractDocument
         if (null === $value && null === $modifier) {
             $this->removeField($key);
         } else {
-            if ($this->filterControlCharacters && \is_string($value)) {
+            if ($this->filterControlCharacters && is_string($value)) {
                 $value = $this->getHelper()->filterControlCharacters($value);
             }
 
@@ -407,7 +400,7 @@ class Document extends AbstractDocument
      */
     public function setFieldModifier(string $key, string $modifier = null): self
     {
-        if (!\in_array($modifier, [self::MODIFIER_ADD, self::MODIFIER_ADD_DISTINCT, self::MODIFIER_REMOVE, self::MODIFIER_REMOVEREGEX, self::MODIFIER_INC, self::MODIFIER_SET], true)) {
+        if (!in_array($modifier, [self::MODIFIER_ADD, self::MODIFIER_ADD_DISTINCT, self::MODIFIER_REMOVE, self::MODIFIER_REMOVEREGEX, self::MODIFIER_INC, self::MODIFIER_SET], true)) {
             throw new RuntimeException('Attempt to set an atomic update modifier that is not supported');
         }
         $this->modifiers[$key] = $modifier;
@@ -420,11 +413,11 @@ class Document extends AbstractDocument
      *
      * @param string $key
      *
-     * @return string|null
+     * @return null|string
      */
     public function getFieldModifier(string $key): ?string
     {
-        return $this->modifiers[$key] ?? null;
+        return isset($this->modifiers[$key]) ? $this->modifiers[$key] : null;
     }
 
     /**
@@ -438,8 +431,10 @@ class Document extends AbstractDocument
      */
     public function getFields(): array
     {
-        if ((null === $this->key || !isset($this->fields[$this->key])) && \count($this->modifiers) > 0) {
-            throw new RuntimeException('A document that uses modifiers (atomic updates) must have a key defined before it is used');
+        if ((null === $this->key || !isset($this->fields[$this->key])) && count($this->modifiers) > 0) {
+            throw new RuntimeException(
+                'A document that uses modifiers (atomic updates) must have a key defined before it is used'
+            );
         }
 
         return parent::getFields();

@@ -50,7 +50,7 @@
         toggleResponsiveBehavior($facResult, settings);
         $(window).resize(function (e) {
           clearTimeout(settings.resizeTimer);
-          settings.resizeTimer = setTimeout(toggleResponsiveBehavior($facResult, settings), 250);
+          settings.resizeTimer = setTimeout(toggleResponsiveBehavior(facResult, settings), 250);
         });
 
         // Add a hidden div to announce changes to screen readers.

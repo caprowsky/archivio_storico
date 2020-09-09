@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -27,23 +28,31 @@ function admin_toolbar_search_help($route_name, RouteMatchInterface $route_match
  * Implements hook_toolbar_alter().
  */
 function admin_toolbar_search_toolbar_alter(&$items) {
-  if (!\Drupal::currentUser()->hasPermission('use admin toolbar search')) {
-    return;
-  }
+  $access = \Drupal::currentUser()->hasPermission('use admin toolbar search');
   $admin_toolbar_tools_enabled = \Drupal::service('module_handler')
     ->moduleExists('admin_toolbar_tools');
 
   $items['administration_search'] = [
     "#type" => "toolbar_item",
-    '#weight' => 100,
+    '#access' => $access,
     'tab' => [
+      '#type' => 'link',
+      '#title' => new TranslatableMarkup('Search'),
+      '#url' => URL::fromRoute('system.admin'),
+      '#attributes' => [
+        'class' => [
+          'toolbar-icon',
+        ],
+      ],
+    ],
+    'tray' => [
       'search' => [
+        '#title' => 'Search',
         '#type' => 'textfield',
-        '#size' => 30,
+        '#size' => 60,
         '#attributes' => [
           'id' => 'admin-toolbar-search-input',
           'aria-labelledby' => 'toolbar-item-administration-search',
-          'placeholder' => new TranslatableMarkup('Admin Toolbar quick search'),
         ],
       ],
     ],

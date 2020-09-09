@@ -5,6 +5,8 @@ rabbit_hole.behavior_settings.*:
     id:
       type: string
       label: 'ID'
+    uuid:
+      type: string
     action:
       type: string
       label: 'Action'

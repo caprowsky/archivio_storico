@@ -1,30 +1,31 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\Facet;
 
 use Solarium\Component\FacetSetInterface;
-use Solarium\Exception\OutOfBoundsException;
 
 /**
  * Facet pivot.
  *
- * @see https://lucene.apache.org/solr/guide/faceting.html#pivot-decision-tree-faceting
+ * @see http://wiki.apache.org/solr/SimpleFacetParameters#Pivot_.28ie_Decision_Tree.29_Faceting
  */
-class Pivot extends AbstractFacet
+class Pivot extends AbstractFacet implements ExcludeTagsInterface
 {
+    use ExcludeTagsTrait;
+
     /**
      * Fields to use.
      *
      * @var array
      */
     protected $fields = [];
+
+    /**
+     * Optional stats.
+     *
+     * @var array
+     */
+    protected $stats = [];
 
     /**
      * Get the facet type.
@@ -37,28 +38,6 @@ class Pivot extends AbstractFacet
     }
 
     /**
-     * Set the facet limit.
-     *
-     * @param int $limit
-     *
-     * @return self Provides fluent interface
-     */
-    public function setLimit($limit): self
-    {
-        return $this->setOption('limit', $limit);
-    }
-
-    /**
-     * Get the facet limit.
-     *
-     * @return int
-     */
-    public function getLimit(): ?int
-    {
-        return $this->getOption('limit');
-    }
-
-    /**
      * Set the facet mincount.
      *
      * @param int $minCount
@@ -68,7 +47,6 @@ class Pivot extends AbstractFacet
     public function setMinCount($minCount): self
     {
         $this->setOption('mincount', $minCount);
-
         return $this;
     }
 
@@ -107,7 +85,7 @@ class Pivot extends AbstractFacet
      */
     public function addFields($fields): self
     {
-        if (\is_string($fields)) {
+        if (is_string($fields)) {
             $fields = explode(',', $fields);
         }
 
@@ -179,16 +157,11 @@ class Pivot extends AbstractFacet
      *
      * @param string $stat
      *
-     * @throws OutOfBoundsException
-     *
      * @return self Provides fluent interface
      */
     public function addStat(string $stat): self
     {
-        $this
-            ->getLocalParameters()
-            ->setStat($stat)
-        ;
+        $this->stats[$stat] = true;
 
         return $this;
     }
@@ -199,20 +172,18 @@ class Pivot extends AbstractFacet
      * @param string|array $stats can be an array or string with comma
      *                            separated statnames
      *
-     * @throws OutOfBoundsException
-     *
      * @return self Provides fluent interface
      */
     public function addStats($stats): self
     {
-        if (false === \is_array($stats)) {
-            $stats = array_map('trim', explode(',', $stats));
+        if (is_string($stats)) {
+            $stats = explode(',', $stats);
+            $stats = array_map('trim', $stats);
         }
 
-        $this
-            ->getLocalParameters()
-            ->addStats($stats)
-        ;
+        foreach ($stats as $stat) {
+            $this->addStat($stat);
+        }
 
         return $this;
     }
@@ -222,16 +193,13 @@ class Pivot extends AbstractFacet
      *
      * @param string $stat
      *
-     * @throws OutOfBoundsException
-     *
      * @return self Provides fluent interface
      */
     public function removeStat($stat): self
     {
-        $this
-            ->getLocalParameters()
-            ->removeStat($stat)
-        ;
+        if (isset($this->stats[$stat])) {
+            unset($this->stats[$stat]);
+        }
 
         return $this;
     }
@@ -239,16 +207,11 @@ class Pivot extends AbstractFacet
     /**
      * Remove all stats from the stats list.
      *
-     * @throws OutOfBoundsException
-     *
      * @return self Provides fluent interface
      */
     public function clearStats(): self
     {
-        $this
-            ->getLocalParameters()
-            ->clearStats()
-        ;
+        $this->stats = [];
 
         return $this;
     }
@@ -256,16 +219,11 @@ class Pivot extends AbstractFacet
     /**
      * Get the list of stats.
      *
-     * @throws OutOfBoundsException
-     *
      * @return array
      */
     public function getStats(): array
     {
-        return $this
-            ->getLocalParameters()
-            ->getStats()
-        ;
+        return array_keys($this->stats);
     }
 
     /**
@@ -275,17 +233,12 @@ class Pivot extends AbstractFacet
      *
      * @param array $stats
      *
-     * @throws OutOfBoundsException
-     *
      * @return self Provides fluent interface
      */
     public function setStats(array $stats): self
     {
-        $this
-            ->getLocalParameters()
-            ->clearStats()
-            ->addStats($stats)
-        ;
+        $this->clearStats();
+        $this->addStats($stats);
 
         return $this;
     }
@@ -299,6 +252,9 @@ class Pivot extends AbstractFacet
             switch ($name) {
                 case 'fields':
                     $this->addFields($value);
+                    break;
+                case 'stats':
+                    $this->setStats($value);
                     break;
             }
         }

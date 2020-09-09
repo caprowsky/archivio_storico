@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Component\Facet;
 
 use Solarium\Component\FacetSetInterface;
@@ -14,7 +7,7 @@ use Solarium\Component\FacetSetInterface;
 /**
  * Facet range.
  *
- * @see https://lucene.apache.org/solr/guide/json-facet-api.html#range-facet
+ * @see http://wiki.apache.org/solr/SimpleFacetParameters#Facet_by_Range
  */
 class JsonRange extends AbstractRange implements JsonFacetInterface, FacetSetInterface
 {
@@ -41,7 +34,6 @@ class JsonRange extends AbstractRange implements JsonFacetInterface, FacetSetInt
     protected function init()
     {
         parent::init();
-
         $this->jsonFacetInit();
     }
 }

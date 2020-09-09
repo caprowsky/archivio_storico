@@ -276,28 +276,17 @@ class FormManglerService {
    * @param string|int|object $form_state
    *   The form state.
    */
-  public static function validateFormRedirect(array $form, FormStateInterface &$form_state) {
+  public static function validateFormRedirect($form, FormStateInterface &$form_state){
+
     $rh_action = $form_state->getValue('rh_action');
 
     // Validate URL of page redirect.
-    if ($rh_action == 'page_redirect') {
+    if($rh_action == 'page_redirect'){
       $redirect = $form_state->getValue('rh_redirect');
-
       if (!UrlHelper::isExternal($redirect)) {
-        // Check if internal URL matches requirements of
-        // \Drupal\Core\Url::fromUserInput.
-        $accepted_internal_characters = [
-          '/',
-          '?',
-          '#',
-        ];
-
-        if (\Drupal::service('module_handler')->moduleExists('token')) {
-          $accepted_internal_characters[] = '[';
-        }
-
-        if (!in_array(substr($redirect, 0, 1), $accepted_internal_characters)) {
-          $form_state->setErrorByName('rh_redirect', t("Internal path '@string' must begin with a '/', '?', '#', or be a token.", ['@string' => $redirect]));
+        //  Check if internal URL matches requirements of \Drupal\Core\Url::fromUserInput.
+        if ((strpos($redirect, '/') !== 0) && (strpos($redirect, '#') !== 0) && (strpos($redirect, '?') !== 0)) {
+          $form_state->setErrorByName('rh_redirect', t("Internal path '@string' must begin with a '/', '?', or '#'.", ['@string' => $redirect]));
         }
       }
     }

@@ -64,4 +64,3 @@ backend_config:
   environment: default
   optimize: false
   site_hash: false
-  index_single_documents_fallback_count: 10

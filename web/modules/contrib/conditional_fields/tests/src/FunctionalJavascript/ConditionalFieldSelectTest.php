@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\conditional_fields\FunctionalJavascript;
 
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -153,7 +152,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         '[name="condition"]' => 'value',
-        '[name="values_set"]' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
+        '[name="values_set"]' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET,
         $this->fieldSelectors[$fieldName] => $correct_values[$fieldName],
         '[name="grouping"]' => 'AND',
         '[name="state"]' => 'visible',
@@ -241,7 +240,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         '[name="condition"]' => 'value',
-        '[name="values_set"]' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
+        '[name="values_set"]' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX,
         '[name="regex"]' => $reg_patterns[$fieldName],
         '[name="grouping"]' => 'AND',
         '[name="state"]' => 'visible',
@@ -321,7 +320,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         'condition' => 'value',
-        'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
+        'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND,
         'values' => $allowed_values[$fieldName],
         'grouping' => 'AND',
         'state' => 'visible',
@@ -399,7 +398,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         'condition' => 'value',
-        'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
+        'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR,
         'values' => $allowed_values[$fieldName],
         'grouping' => 'AND',
         'state' => 'visible',
@@ -480,7 +479,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         'condition' => 'value',
-        'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
+        'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT,
         'values' => $allowed_values[$fieldName],
         'grouping' => 'AND',
         'state' => 'visible',
@@ -561,7 +560,7 @@ class ConditionalFieldSelectTest extends ConditionalFieldTestBase implements Con
       // Set up conditions.
       $data = [
         'condition' => 'value',
-        'values_set' => ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
+        'values_set' => CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR,
         'values' => $allowed_values[$fieldName],
         'grouping' => 'AND',
         'state' => 'visible',

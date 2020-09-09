@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\QueryType\Server\Collections;
 
 use Solarium\Core\Query\AbstractResponseParser as ResponseParserAbstract;
@@ -31,7 +24,6 @@ class ResponseParser extends ResponseParserAbstract implements ResponseParserInt
         $data = $result->getData();
         $data = $this->parseStatus($data, $result);
         $data = $this->addHeaderInfo($data, $data);
-
         return $data;
     }
 

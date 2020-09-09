@@ -2,11 +2,12 @@ name: 'Field Group'
 type: module
 description: 'Provides the ability to group your fields on both form and display.'
 package : Fields
-core_version_requirement: ^8.8 || ^9
+core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - drupal:field
 
-# Information added by Drupal.org packaging script on 2020-06-10
-version: '8.x-3.1'
+# Information added by Drupal.org packaging script on 2020-01-28
+version: '8.x-3.0'
 project: 'field_group'
-datestamp: 1591772570
+datestamp: 1580250789

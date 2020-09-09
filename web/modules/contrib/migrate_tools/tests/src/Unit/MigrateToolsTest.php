@@ -16,7 +16,7 @@ class MigrateToolsTest extends UnitTestCase {
    *
    * @dataProvider dataProviderIdList
    */
-  public function testBuildIdList(array $options, array $expected): void {
+  public function testBuildIdList(array $options, array $expected) {
     $results = MigrateTools::buildIdList($options);
     $this->assertEquals($results, $expected);
   }
@@ -24,7 +24,7 @@ class MigrateToolsTest extends UnitTestCase {
   /**
    * Data provider for testBuildIdList.
    */
-  public function dataProviderIdList(): array {
+  public function dataProviderIdList() {
     $cases = [];
     $cases[] = [
       'options' => [],

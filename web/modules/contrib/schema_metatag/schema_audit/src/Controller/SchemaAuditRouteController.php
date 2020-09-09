@@ -15,7 +15,7 @@ class SchemaAuditRouteController extends ControllerBase {
   public function page() {
 
     $build = [
-      '#markup' => $this->t('This report is deprecated.'),
+      '#markup' => t('This report is deprecated.'),
     ];
 
     return $build;

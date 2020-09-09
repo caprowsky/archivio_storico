@@ -3,7 +3,6 @@
 namespace Drupal\conditional_fields\Plugin\conditional_fields\handler;
 
 use Drupal\conditional_fields\ConditionalFieldsHandlerBase;
-use Drupal\conditional_fields\ConditionalFieldsInterface;
 
 /**
  * Provides states handler for multiple select lists.
@@ -29,10 +28,10 @@ class Select extends ConditionalFieldsHandlerBase {
     $values_array = $this->getConditionValues( $options );
 
     switch ($options['values_set']) {
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_WIDGET:
         return $this->widgetCase($field, $options);
 
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_AND:
         if (isset($state[$options['state']][$options['selector']]['value'])) {
           $state[$options['state']][$options['selector']]['value'] = (array) $state[$options['state']][$options['selector']]['value'];
         }
@@ -41,13 +40,13 @@ class Select extends ConditionalFieldsHandlerBase {
         }
         break;
 
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_XOR:
         $input_states[$options['selector']] = [
           $options['condition'] => [ 'xor' => $values_array],
         ];
         $state[$options['state']] = $input_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_REGEX:
           $select_states[$options['state']][] = [
             $options['selector'] => [
               $options['condition'] => [ 'regex' => $options['regex']],
@@ -55,9 +54,9 @@ class Select extends ConditionalFieldsHandlerBase {
           ];
         $state = $select_states;
         break;
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_NOT:
         $options['state'] = '!' . $options['state'];
-      case ConditionalFieldsInterface::CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
+      case CONDITIONAL_FIELDS_DEPENDENCY_VALUES_OR:
         foreach ((array) $options['values'] as $value) {
           $select_states[$options['state']][$options['selector']][] = [$options['condition'] => $value];
         }

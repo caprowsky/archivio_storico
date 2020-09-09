@@ -11,7 +11,7 @@ dependencies:
 test_dependencies:
   - migrate_source_csv:migrate_source_csv (>=8.x-2.2)
 
-# Information added by Drupal.org packaging script on 2020-04-30
-version: '8.x-5.0'
+# Information added by Drupal.org packaging script on 2019-11-25
+version: '8.x-4.5'
 project: 'migrate_tools'
-datestamp: 1588260533
+datestamp: 1574693287

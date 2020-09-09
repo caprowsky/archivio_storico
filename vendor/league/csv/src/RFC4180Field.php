@@ -50,7 +50,10 @@ class RFC4180Field extends php_user_filter
     public $filtername;
 
     /**
-     * @var mixed value passed to passed to stream_filter_append or stream_filter_prepend functions.
+     * Contents of the params parameter passed to stream_filter_append
+     * or stream_filter_prepend functions.
+     *
+     * @var mixed
      */
     public $params;
 

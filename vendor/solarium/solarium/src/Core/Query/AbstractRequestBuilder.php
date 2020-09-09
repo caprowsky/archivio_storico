@@ -1,12 +1,5 @@
 <?php
 
-/*
- * This file is part of the Solarium package.
- *
- * For the full copyright and license information, please view the COPYING
- * file that was distributed with this source code.
- */
-
 namespace Solarium\Core\Query;
 
 use Solarium\Core\Client\Request;
@@ -40,7 +33,6 @@ abstract class AbstractRequestBuilder implements RequestBuilderInterface
         $request->addParam('timeAllowed', $query->getTimeAllowed());
         $request->addParam('NOW', $query->getNow());
         $request->addParam('TZ', $query->getTimeZone());
-        $request->addParam('ie', $query->getInputEncoding());
         $request->addParams($query->getParams());
 
         $request->addParam('wt', $query->getResponseWriter());
@@ -60,7 +52,7 @@ abstract class AbstractRequestBuilder implements RequestBuilderInterface
      *
      * LocalParams can be use in various Solr GET params.
      *
-     * @see https://lucene.apache.org/solr/guide/local-parameters-in-queries.html
+     * @see http://wiki.apache.org/solr/LocalParams
      *
      * @param string $value
      * @param array  $localParams in key => value format
@@ -75,8 +67,8 @@ abstract class AbstractRequestBuilder implements RequestBuilderInterface
                 continue;
             }
 
-            if (\is_array($paramValue)) {
-                $paramValue = implode(',', $paramValue);
+            if (is_array($paramValue)) {
+                $paramValue = implode($paramValue, ',');
             }
 
             $params .= $paramName.'='.$paramValue.' ';

@@ -23,6 +23,11 @@ use Drush\Commands\DrushCommands;
 class MigrateToolsCommands extends DrushCommands {
 
   /**
+   * Default ID list delimiter.
+   */
+  public const DEFAULT_ID_LIST_DELIMITER = ':';
+
+  /**
    * Migration plugin manager service.
    *
    * @var \Drupal\migrate\Plugin\MigrationPluginManager
@@ -293,7 +298,7 @@ class MigrateToolsCommands extends DrushCommands {
     'limit' => self::REQ,
     'feedback' => self::REQ,
     'idlist' => self::REQ,
-    'idlist-delimiter' => MigrateTools::DEFAULT_ID_LIST_DELIMITER,
+    'idlist-delimiter' => self::DEFAULT_ID_LIST_DELIMITER,
     'update' => FALSE,
     'force' => FALSE,
     'continue-on-failure' => FALSE,
@@ -370,7 +375,7 @@ class MigrateToolsCommands extends DrushCommands {
     'tag' => self::REQ,
     'feedback' => self::REQ,
     'idlist' => self::REQ,
-    'idlist-delimiter' => MigrateTools::DEFAULT_ID_LIST_DELIMITER,
+    'idlist-delimiter' => self::DEFAULT_ID_LIST_DELIMITER,
     'skip-progress-bar' => FALSE,
     'continue-on-failure' => FALSE,
   ]) {
@@ -410,14 +415,13 @@ class MigrateToolsCommands extends DrushCommands {
         $result = drush_op([$executable, 'rollback']);
         if ($result == MigrationInterface::RESULT_FAILED) {
           $has_failure = TRUE;
-          $errored_migration_id = $migration_id;
         }
       }
     }
 
     // If any rollbacks failed, throw an exception to generate exit status.
     if ($has_failure) {
-      $error_message = dt('!name migration failed.', ['!name' => $errored_migration_id]);
+      $error_message = dt('!name migration failed.', ['!name' => $migration_id]);
       if ($options['continue-on-failure']) {
         $this->logger()->error($error_message);
       }
@@ -554,7 +558,7 @@ class MigrateToolsCommands extends DrushCommands {
   public function messages($migration_id, array $options = [
     'csv' => FALSE,
     'idlist' => self::REQ,
-    'idlist-delimiter' => MigrateTools::DEFAULT_ID_LIST_DELIMITER,
+    'idlist-delimiter' => self::DEFAULT_ID_LIST_DELIMITER,
   ]) {
     /** @var \Drupal\migrate\Plugin\MigrationInterface $migration */
     $migration = $this->migrationPluginManager->createInstance(

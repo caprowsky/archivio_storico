@@ -7,7 +7,8 @@ use Drupal\devel\DevelDumperManagerInterface;
 use Drupal\search_api\LoggerTrait;
 use Drupal\search_api_solr\Utility\Utility;
 use Solarium\Core\Event\Events;
-use Solarium\QueryType\Select\Query\Query;
+use Solarium\Core\Event\PreExecuteRequest;
+use Solarium\Core\Event\PostExecuteRequest;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -40,7 +41,6 @@ class SolariumRequestLogger implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     return [
-      Events::POST_CREATE_QUERY => 'postCreateQuery',
       Events::PRE_EXECUTE_REQUEST => 'preExecuteRequest',
       Events::POST_EXECUTE_REQUEST => 'postExecuteRequest',
     ];
@@ -49,44 +49,59 @@ class SolariumRequestLogger implements EventSubscriberInterface {
   /**
    * Dumps a Solr query as drupal messages.
    *
-   * @param \Drupal\search_api_solr\Solarium\EventDispatcher\EventProxy $event
+   * @param \Solarium\Core\Event\PreExecuteRequest $event
    *   The pre execute event.
    */
-  public function postCreateQuery($event) {
-    /** @var \Solarium\Core\Event\PostCreateQuery $event */
-    $query = $event->getQuery();
-    if ($query instanceof Query) {
-      /** @var $query */
-      $query->getDebug();
-      $query->addParam('echoParams', 'all')
-        ->setOmitHeader(FALSE);
-    }
-  }
-
-  /**
-   * Dumps a Solr query as drupal messages.
-   *
-   * @param \Drupal\search_api_solr\Solarium\EventDispatcher\EventProxy $event
-   *   The pre execute event.
-   */
-  public function preExecuteRequest($event) {
-    /** @var \Solarium\Core\Event\PreExecuteRequest $event */
+  public function preExecuteRequest(PreExecuteRequest $event) {
     $request = $event->getRequest();
+    $parsedRequestParams = Utility::parseRequestParams($request);
 
-    $this->develDumperManager->message($request, 'Solr request', 'debug', 'kint');
-    $this->develDumperManager->debug($request, 'Solr request');
+    $this->develDumperManager->message(
+      $request->getUri(),
+      $this->t('Try to send Solr request')
+    );
+    $this->develDumperManager->message(
+      $parsedRequestParams,
+      $request->getMethod()
+    );
+
+    $this->getLogger()->debug($request->getQueryString());
   }
 
   /**
    * Dumps a Solr response status as drupal messages and logs the response body.
    *
-   * @param \Drupal\search_api_solr\Solarium\EventDispatcher\EventProxy $event
+   * @param \Solarium\Core\Event\PostExecuteRequest $event
    *   The post execute event.
    */
-  public function postExecuteRequest($event) {
-    /** @var \Solarium\Core\Event\PostExecuteRequest $event */
+  public function postExecuteRequest(PostExecuteRequest $event) {
     $response = $event->getResponse();
 
-    $this->develDumperManager->debug($response, 'Solr response');
+    $this->develDumperManager->message(
+      $response->getStatusCode() . ' ' . $response->getStatusMessage(),
+      $this->t('Received Solr response')
+    );
+
+    $this->getLogger()->debug(
+      '@solr_request_body',
+      ['@solr_request_body' => $response->getBody()]
+    );
+    $this->showLoggerHint();
   }
+
+  /**
+   * Helper function for postExecuteRequest().
+   */
+  protected function showLoggerHint() {
+    static $hint = FALSE;
+
+    if (!$hint) {
+      $hint = TRUE;
+      $this->develDumperManager->message(
+        'Type: search_api, Severity: Debug',
+        $this->t('Check the logs for detailed Solr response bodies'),
+        'warning');
+    }
+  }
+
 }

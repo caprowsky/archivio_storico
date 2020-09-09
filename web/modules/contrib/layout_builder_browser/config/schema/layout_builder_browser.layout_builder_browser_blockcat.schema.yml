@@ -24,6 +24,3 @@ layout_builder_browser.layout_builder_browser_blockcat.*:
           image_path:
             type: string
             label: "Image preview path"
-          image_alt:
-            type: string
-            label: "Image alt text"

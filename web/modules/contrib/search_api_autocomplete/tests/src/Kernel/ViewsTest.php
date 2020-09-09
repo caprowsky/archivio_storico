@@ -112,13 +112,7 @@ class ViewsTest extends KernelTestBase {
     ];
     $query = $plugin->createQuery('foobar', $data);
     $this->assertNull($query->getOriginalKeys());
-    // @todo Remove check once we depend on Drupal 9.0+.
-    if (method_exists($this, 'assertStringContainsString')) {
-      $this->assertStringContainsString('foobar', (string) $query);
-    }
-    else {
-      $this->assertContains('foobar', (string) $query);
-    }
+    $this->assertContains('foobar', (string) $query);
     $conditions = $query->getConditionGroup()->getConditions();
     $conditions = $this->collectConditions($conditions);
     $this->assertCount(1, $conditions);
@@ -195,12 +189,11 @@ class ViewsTest extends KernelTestBase {
     $exposed_form = $executable->display_handler->getPlugin('exposed_form');
     $form = $exposed_form->renderExposedForm();
 
-    $keys_element = $form['keys'] ?? $form['keys_wrapper']['keys'];
     if ($expect_altered) {
-      $this->assertEquals('search_api_autocomplete', $keys_element['#type']);
+      $this->assertEquals('search_api_autocomplete', $form['keys']['#type']);
     }
     else {
-      $this->assertEquals('textfield', $keys_element['#type']);
+      $this->assertEquals('textfield', $form['keys']['#type']);
     }
   }
 

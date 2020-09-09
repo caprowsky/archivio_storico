@@ -8,9 +8,9 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Routing\CurrentRouteMatch;
-use Drupal\Core\Url;
 use Drupal\migrate\Plugin\MigrationPluginManagerInterface;
 use Drupal\migrate_plus\Entity\MigrationGroup;
+use Drupal\Core\Url;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -210,27 +210,18 @@ class MigrationListBuilder extends ConfigEntityListBuilder implements EntityHand
         ],
       ];
     }
-    catch (\Throwable $throwable) {
-      $this->handleThrowable($row);
+    catch (\Exception $e) {
+      // Derive the stats.
+      $row['status'] = $this->t('No data found');
+      $row['total'] = $this->t('N/A');
+      $row['imported'] = $this->t('N/A');
+      $row['unprocessed'] = $this->t('N/A');
+      $row['messages'] = $this->t('N/A');
+      $row['last_imported'] = $this->t('N/A');
+      $row['operations'] = $this->t('N/A');
     }
 
     return $row;
-  }
-
-  /**
-   * Derive the row data.
-   *
-   * @param array $row
-   *   The table row.
-   */
-  protected function handleThrowable(array &$row) {
-    $row['status'] = $this->t('No data found');
-    $row['total'] = $this->t('N/A');
-    $row['imported'] = $this->t('N/A');
-    $row['unprocessed'] = $this->t('N/A');
-    $row['messages'] = $this->t('N/A');
-    $row['last_imported'] = $this->t('N/A');
-    $row['operations'] = $this->t('N/A');
   }
 
   /**

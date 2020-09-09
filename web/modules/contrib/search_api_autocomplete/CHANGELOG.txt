@@ -1,13 +1,3 @@
-Search API Autocomplete 1.4 (2020-09-07):
------------------------------------------
-- #3169391 by drunken monkey: Fixed tests on Drupal 9.
-- #3132027 by drunken monkey, borisson_: Fixed excerpt field not displayed in
-  autocomplete.
-- #3131385 by lolandese, drunken monkey: Fixed Composer "license" key.
-- #3126618 by drunken monkey: Fix coding standards.
-- #3123377 by Berdir, drunken monkey, mo_farhaz: Made module compatible with
-  Drupal 9.
-
 Search API Autocomplete 1.3 (2020-04-10):
 -----------------------------------------
 - #3117639 by mo_farhaz, drunken monkey: Fixed call to deprecated method

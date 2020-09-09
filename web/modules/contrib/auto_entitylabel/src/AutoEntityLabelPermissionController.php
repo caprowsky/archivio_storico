@@ -15,27 +15,27 @@ class AutoEntityLabelPermissionController implements ContainerInjectionInterface
   use StringTranslationTrait;
 
   /**
-   * The entity type manager.
+   * The entity manager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityTypeManager;
+  protected $entityManager;
 
   /**
    * Constructs a new AutoEntityLabelPermissionController instance.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
+   *   The entity manager.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
-    $this->entityTypeManager = $entity_type_manager;
+  public function __construct(EntityTypeManagerInterface $entity_manager) {
+    $this->entityManager = $entity_manager;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('entity_type.manager'));
+    return new static($container->get('entity.manager'));
   }
 
   /**
@@ -47,15 +47,12 @@ class AutoEntityLabelPermissionController implements ContainerInjectionInterface
   public function autoEntityLabelPermissions() {
     $permissions = [];
 
-    foreach ($this->entityTypeManager->getDefinitions() as $entity_type_id => $entity_type) {
+    foreach ($this->entityManager->getDefinitions() as $entity_type_id => $entity_type) {
       // Create a permission for each entity type to manage the entity
       // labels.
       if ($entity_type->hasLinkTemplate('auto-label') && $entity_type->hasKey('label')) {
         $permissions['administer ' . $entity_type_id . ' labels'] = [
-          'title' => $this->t(
-            '%entity_label: Administer automatic entity labels',
-            ['%entity_label' => $entity_type->getLabel()]
-          ),
+          'title' => $this->t('%entity_label: Administer automatic entity labels', ['%entity_label' => $entity_type->getLabel()]),
           'restrict access' => TRUE,
         ];
       }

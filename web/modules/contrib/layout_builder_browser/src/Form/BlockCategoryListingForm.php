@@ -2,7 +2,6 @@
 
 namespace Drupal\layout_builder_browser\Form;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Config\Entity\DraggableListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
@@ -23,7 +22,7 @@ class BlockCategoryListingForm extends DraggableListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('Name');
+    $header['label'] = t('Name');
     return $header + parent::buildHeader();
   }
 
@@ -31,7 +30,7 @@ class BlockCategoryListingForm extends DraggableListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    $row['label'] = Html::escape($entity->label());
+    $row['label'] = $entity->label();
     return $row + parent::buildRow($entity);
   }
 
